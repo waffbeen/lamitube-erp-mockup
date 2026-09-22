@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FG Report · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>MIS Report</b> / FG Report</div>
+      <h1>FG Report</h1>
+      <p>Finished goods stock, ageing, batch release and valuation</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="cal"></i>Schedule</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="refresh"></i>Refresh</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-04-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Product</label><select class="inp"><option>All</option><option>PC-0142</option><option>PC-0118</option><option>PC-0221</option></select></div>
+    <div class="fld w-sm"><label>Status</label><select class="inp"><option>All</option><option>Released</option><option>Held</option></select></div>
+    <div class="fld w-sm"><label>Unit</label><select class="inp"><option>Unit 1 — Baddi</option><option>All units</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="stats"><div class="stat acc-p"><div class="lbl"><i data-i="pkg"></i>FG stock</div><div class="val">8.42 lakh</div><div class="dlt">pcs in WH-FG</div><div class="spark chart" data-type="spark" data-values="6.1,6.8,7.2,7.9,8.8,8.4"></div></div><div class="stat acc-s"><div class="lbl"><i data-i="rupee"></i>FG valuation</div><div class="val">₹ 26.8 L</div><div class="dlt">at standard cost</div><div class="spark chart" data-type="spark" data-values="19.4,21.6,23.1,25.2,28.0,26.8"></div></div><div class="stat acc-t"><div class="lbl"><i data-i="shield"></i>Released</div><div class="val">6.41 lakh</div><div class="dlt">76.1% of FG stock</div></div><div class="stat acc-w"><div class="lbl"><i data-i="alertTri"></i>Held at FGQC</div><div class="val">2.01 lakh</div><div class="dlt">₹ 6.4 L blocked</div></div><div class="stat acc-e"><div class="lbl"><i data-i="cal"></i>Ageing over 30 days</div><div class="val">0.84 lakh</div><div class="dlt">10.0% of FG stock</div><div class="spark chart" data-type="spark" data-values="0.3,0.4,0.5,0.6,0.8,0.84"></div></div></div>
+
+  <div class="chgrid c2"><div class="card"><div class="card-h"><h2>FG stock by product</h2><span class="sub">pieces in finished goods</span></div><div class="card-b"><div class="chart" data-type="hbar" data-title="FG by product"
+        data-cats="LT 25×140 Cream,LT 22×120 Cream,LT 19×100 Gel,LT 30×150 Toothpaste,LT 25×130 Ointment,LT 19×90 Ointment"
+        data-values="2.01,1.84,1.62,1.24,0.98,0.73" data-unit="lakh pcs"></div></div></div><div class="card"><div class="card-h"><h2>FG valuation trend</h2><span class="sub">month end at standard cost</span></div><div class="card-b"><div class="chart" data-type="line" data-title="FG valuation"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep"
+        data-series='[{"name":"FG valuation","values":[19.4,21.6,23.1,25.2,28.0,26.8]}]'
+        data-unit="₹ L"></div></div></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>Batch status</h2><span class="sub">by pieces</span></div><div class="card-b"><div class="chart" data-type="stack" data-title="Batch status"
+        data-series='[{"name":"Released for dispatch","value":6.41},{"name":"Held at FGQC","value":2.01}]'
+        data-unit="lakh pcs"></div></div></div><div class="card"><div class="card-h"><h2>FG ageing</h2><span class="sub">pieces by age in store</span></div><div class="card-b"><div class="chart" data-type="bar" data-title="FG ageing"
+        data-cats="0-7 d,8-15 d,16-30 d,31-60 d,60+ d" data-values="4.12,2.38,1.08,0.62,0.22" data-unit="lakh pcs"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">Ageing FG is almost entirely the Cipla batch that cannot move until the CAPA leak-test record is attached.</p></div></div></div><div class="card mb0"><div class="card-h"><h2>FG batch register</h2><span class="sub">current stock</span><div class="r"><button class="btn sm"><i data-i="down"></i>CSV</button></div></div><div class="card-b p0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Batch</th><th>Product</th><th>Customer</th><th>Packed on</th>
+       <th class="num">Qty</th><th class="num">Cartons</th><th class="num">Value</th>
+       <th class="num">Age</th><th>FGQC</th><th>COA</th><th>Status</th></tr></thead><tbody><tr><td class="k">FG-LT26-0201-A</td><td>LT 25×140 Cream</td><td>Glenmark</td><td>22 Sep</td>
+        <td class="num">2,01,114</td><td class="num">101</td><td class="num mono">6,31,498</td>
+        <td class="num">0 d</td><td><span class="bdg g nodot">Passed</span></td><td class="mut">COA/26-0294</td><td><span class="bdg g">Released</span></td></tr><tr><td class="k">FG-LT26-0188-A</td><td>LT 25×130 Ointment</td><td>Cipla Ltd.</td><td>21 Sep</td>
+        <td class="num">2,50,400</td><td class="num">126</td><td class="num mono">11,35,750</td>
+        <td class="num">1 d</td><td><span class="bdg w nodot">Pending</span></td><td class="mut">—</td><td><span class="bdg r">Blocked — CAPA</span></td></tr><tr><td class="k">FG-LT26-0186-B</td><td>LT 22×120 Cream</td><td>Mankind Pharma</td><td>20 Sep</td>
+        <td class="num">1,80,000</td><td class="num">90</td><td class="num mono">5,43,564</td>
+        <td class="num">2 d</td><td><span class="bdg g nodot">Passed</span></td><td class="mut">COA/26-0293</td><td><span class="bdg g">Dispatched</span></td></tr><tr><td class="k">FG-LT26-0184-A</td><td>LT 22×120 Cream</td><td>Sun Pharma</td><td>18 Sep</td>
+        <td class="num">3,04,000</td><td class="num">152</td><td class="num mono">9,18,080</td>
+        <td class="num">4 d</td><td><span class="bdg g nodot">Passed</span></td><td class="mut">COA/26-0292</td><td><span class="bdg g">Dispatched</span></td></tr><tr><td class="k">FG-LT26-0181-C</td><td>LT 19×100 Gel</td><td>Cipla Ltd.</td><td>12 Sep</td>
+        <td class="num">1,62,000</td><td class="num">81</td><td class="num mono">4,62,278</td>
+        <td class="num">10 d</td><td><span class="bdg g nodot">Passed</span></td><td class="mut">COA/26-0288</td><td><span class="bdg g">Released</span></td></tr><tr><td class="k">FG-LT26-0174-A</td><td>LT 19×90 Ointment</td><td>Torrent Pharma</td><td>24 Aug</td>
+        <td class="num">73,000</td><td class="num">37</td><td class="num mono">1,91,406</td>
+        <td class="num"><b>29 d</b></td><td><span class="bdg g nodot">Passed</span></td><td class="mut">COA/26-0279</td><td><span class="bdg w">Awaiting schedule</span></td></tr></tbody><tfoot><tr><td colspan="4">Total</td><td class="num">11,70,514</td><td class="num">587</td>
+       <td class="num mono">38,82,576</td><td colspan="4"></td></tr></tfoot></table></div></div></div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/chart.js?v=4"></script>
+</body>
+</html>

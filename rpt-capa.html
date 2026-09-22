@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Complaint & CAPA Report · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>MIS Report</b> / Customer Complaint & CAPA Report</div>
+      <h1>Customer Complaint & CAPA Report</h1>
+      <p>Complaint trend, root cause pattern, CAPA closure and cost of poor quality</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="cal"></i>Schedule</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="refresh"></i>Refresh</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-04-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Customer</label><select class="inp"><option>All</option><option>Cipla Ltd.</option><option>Sun Pharma</option></select></div>
+    <div class="fld w-sm"><label>Category</label><select class="inp"><option>All</option><option>Leakage</option><option>Print quality</option><option>Cap</option></select></div>
+    <div class="fld w-sm"><label>Unit</label><select class="inp"><option>Unit 1 — Baddi</option><option>All units</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="stats"><div class="stat acc-e"><div class="lbl"><i data-i="msgAlert"></i>Complaints</div><div class="val">8</div><div class="dlt">financial year to date</div><div class="spark chart" data-type="spark" data-values="2,1,2,0,2,1"></div></div><div class="stat acc-w"><div class="lbl"><i data-i="wrench"></i>Open CAPA</div><div class="val">3</div><div class="dlt">1 blocking dispatch</div></div><div class="stat acc-s"><div class="lbl"><i data-i="check2"></i>CAPA closed</div><div class="val">9</div><div class="dlt">81.8% effective on first pass</div></div><div class="stat acc-t"><div class="lbl"><i data-i="cal"></i>Avg. closure time</div><div class="val">34 days</div><div class="dlt">target 30 days</div><div class="spark chart" data-type="spark" data-values="28,30,31,33,34,34"></div></div><div class="stat acc-p"><div class="lbl"><i data-i="rupee"></i>Cost of poor quality</div><div class="val">₹ 2.14 L</div><div class="dlt">year to date</div><div class="spark chart" data-type="spark" data-values="18,24,31,42,38,61"></div></div></div>
+
+  <div class="chgrid c2"><div class="card"><div class="card-h"><h2>Complaints by category</h2><span class="sub">financial year to date</span></div><div class="card-b"><div class="chart" data-type="hbar" data-title="Complaint categories"
+        data-cats="Print quality,Leakage,Cap / closure,Dimensional,Packing,Documentation"
+        data-values="3,2,1,1,1,0" data-unit="nos"></div></div></div><div class="card"><div class="card-h"><h2>Complaint trend</h2><span class="sub">complaints raised each month</span></div><div class="card-b"><div class="chart" data-type="bar" data-title="Complaint trend"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep" data-values="2,1,2,0,2,1" data-unit="nos"></div></div></div></div><div class="card"><div class="card-h"><h2>Cost of poor quality</h2><span class="sub">what each month of quality failure actually cost</span></div><div class="card-b"><div class="chart" data-type="line" data-title="COPQ"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep"
+        data-series='[{"name":"Scrap & rework","values":[11,14,19,26,21,38]},{"name":"Recall & retest","values":[4,6,8,11,12,18]},{"name":"Machine downtime","values":[3,4,4,5,5,5]}]'
+        data-unit="₹ K"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">September is the worst month of the year. All three heads rose together when cavity 5 of CM-01 started failing.</p></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>Root cause pattern</h2><span class="sub">across all closed RCAs</span></div><div class="card-b"><div class="chart" data-type="stack" data-title="Root causes"
+        data-series='[{"name":"Method — control not followed","value":42},{"name":"Machine — wear or drift","value":28},{"name":"Man — judgement call","value":16},{"name":"Material — supplier","value":14}]'
+        data-unit="%"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">Most failures are not equipment failures — they are controls that existed on paper and were not followed on the floor.</p></div></div><div class="card"><div class="card-h"><h2>CAPA closure ageing</h2><span class="sub">open CAPA by age</span></div><div class="card-b"><div class="chart" data-type="bar" data-title="CAPA ageing"
+        data-cats="0-15 d,16-30 d,31-45 d,45+ d" data-values="0,1,1,1" data-unit="nos"></div></div></div></div><div class="card mb0"><div class="card-h"><h2>Complaint, RCA and CAPA register</h2><span class="sub">financial year to date</span><div class="r"><button class="btn sm"><i data-i="down"></i>CSV</button></div></div><div class="card-b p0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Complaint</th><th>Date</th><th>Customer</th><th>Product</th><th>Category</th>
+       <th class="num">Affected</th><th>Root cause</th><th>CAPA</th><th class="num">Days open</th>
+       <th class="num">COPQ</th><th>Status</th></tr></thead><tbody><tr><td class="k">CMP/26-0034</td><td>21 Sep</td><td>Sun Pharma</td><td>PC-0118</td><td>Print quality</td>
+        <td class="num">8,400</td><td class="mut">IPQC frequency not enforced at partner</td><td class="k">—</td>
+        <td class="num">1</td><td class="num mono">54,146</td><td><span class="bdg w">RCA in progress</span></td></tr><tr><td class="k">CMP/26-0031</td><td>18 Aug</td><td>Cipla Ltd.</td><td>PC-0142</td><td>Leakage</td>
+        <td class="num">1,042</td><td class="mut">Cavity 5 clamp pressure below spec</td><td class="k">CAPA-2026-014</td>
+        <td class="num">35</td><td class="num mono">64,104</td><td><span class="bdg r">Open — blocking</span></td></tr><tr><td class="k">CMP/26-0018</td><td>02 Jun</td><td>Cipla Ltd.</td><td>PC-0142</td><td>Print quality</td>
+        <td class="num">4,800</td><td class="mut">Partner ink lot change not intimated</td><td class="k">CAPA-2026-009</td>
+        <td class="num">28</td><td class="num mono">31,280</td><td><span class="bdg g">Closed — effective</span></td></tr><tr><td class="k">CMP/26-0012</td><td>24 May</td><td>Mankind Pharma</td><td>PC-0203</td><td>Dimensional</td>
+        <td class="num">2,100</td><td class="mut">Mould wear beyond service limit</td><td class="k">CAPA-2026-006</td>
+        <td class="num">41</td><td class="num mono">18,400</td><td><span class="bdg g">Closed — effective</span></td></tr><tr><td class="k">CMP/26-0007</td><td>18 Apr</td><td>Torrent Pharma</td><td>PC-0108</td><td>Packing</td>
+        <td class="num">3,600</td><td class="mut">Carton spec not updated after revision</td><td class="k">CAPA-2026-003</td>
+        <td class="num">22</td><td class="num mono">9,840</td><td><span class="bdg g">Closed — effective</span></td></tr><tr><td class="k">CMP/25-0104</td><td>27 Dec</td><td>Cipla Ltd.</td><td>PC-0142</td><td>Cap / closure</td>
+        <td class="num">2,200</td><td class="mut">Cap supplier mould wear</td><td class="k">CAPA-2025-061</td>
+        <td class="num">33</td><td class="num mono">22,600</td><td><span class="bdg g">Closed — effective</span></td></tr></tbody><tfoot><tr><td colspan="5">Total</td><td class="num">22,142</td><td colspan="3"></td>
+       <td class="num mono">2,00,370</td><td></td></tr></tfoot></table></div></div></div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/chart.js?v=4"></script>
+</body>
+</html>

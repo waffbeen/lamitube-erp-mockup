@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Company Good Transfer (Receive) · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / Company Good Transfer (Receive)</div>
+      <h1>Company Good Transfer &mdash; Receive &mdash; CGR/26-0074</h1>
+      <p>Goods coming in from another unit or an outside party, matched against their transfer document</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg w">Pending acceptance</span>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="check2"></i>Accept &amp; add to stock</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Receipt no.</label><input class="inp ro" value="CGR/26-0074" readonly></div>
+        <div class="fld"><label>Receipt date <span class="req">*</span></label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>Received from <span class="req">*</span></label>
+          <select class="inp"><option>Precision Moulders Pvt. Ltd.</option><option>Unit 2 — Haridwar</option><option>LAXMI Lamitube Pvt. Ltd.</option></select></div>
+        <div class="fld"><label>Against our transfer</label>
+          <select class="inp"><option>CGT/26-0084 — job work moulding</option><option>CGT/26-0086 — capacity balancing</option></select></div>
+        <div class="fld"><label>Their document no.</label><input class="inp" value="PM/DC/26-0912"></div>
+        <div class="fld"><label>Their document date</label><input class="inp" type="date" value="2026-09-21"></div>
+        <div class="fld"><label>Gate entry</label><input class="inp" value="GE/26-0917"></div>
+        <div class="fld"><label>Receive into warehouse</label>
+          <select class="inp"><option>WH-WIP — Work in process</option><option>WH-RM — Raw material</option><option>WH-QC — Quarantine</option></select></div>
+        <div class="fld"><label>Vehicle no.</label><input class="inp" value="HP-14-A-3381"></div>
+        <div class="fld"><label>E-way bill</label><input class="inp" value="381004371044"></div>
+        <div class="fld"><label>Job work invoice</label><input class="inp" value="PM/INV/26-0233"></div>
+        <div class="fld"><label>QC required</label><select class="inp"><option>Yes — IPQC on inward</option><option>No</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Receipt &amp; reconciliation</h2>
+          <span class="sub">what we sent must equal what comes back plus what is accounted for</span>
+          <div class="r"><span class="bdg w">Balance open</span></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Item / batch</th><th class="num">Sent (kg)</th><th class="num">Good received</th>
+              <th class="num">Rejection</th><th class="num">Wastage</th><th class="num">Unprocessed return</th>
+              <th class="num">Balance there</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><b>HDPE granule</b><div class="mut">BATCH-26-0738</div></td>
+                <td class="num">220.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="180.00"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="6.40"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="4.80"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="0.00"></td>
+                <td class="num" style="color:rgb(var(--color-warning))">28.80</td>
+                <td><span class="bdg w">Partly returned</span></td></tr>
+            </tbody>
+            <tfoot><tr><td>Total</td><td class="num">220.00</td><td class="num">180.00</td>
+              <td class="num">6.40</td><td class="num">4.80</td><td class="num">0.00</td>
+              <td class="num" style="color:rgb(var(--color-warning))">28.80</td><td></td></tr></tfoot>
+          </table>
+        </div></div>
+        <div class="card-b" style="border-top:1px solid rgb(var(--bd-subtle))">
+          <div class="alert warn mb0" style="margin-bottom:0">
+            <i data-i="alertTri"></i>
+            <div><b>28.80 kg is still lying with them</b>
+            220.00 sent, 191.20 accounted for. The transfer stays open until the balance comes back or is written off with an approval.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Receipt register</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Receipt no.</th><th>Date</th><th>From</th><th>Against</th>
+              <th class="num">Received</th><th class="num">Value</th><th>QC</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">CGR/26-0073</td><td>20 Sep</td><td>Unit 2 — Haridwar</td><td class="mut">CGT/26-0081</td>
+                <td class="num">600.00 kg</td><td class="num mono">1,48,320</td>
+                <td><span class="bdg g nodot">Passed</span></td><td><span class="bdg g">Accepted</span></td></tr>
+              <tr><td class="k">CGR/26-0071</td><td>15 Sep</td><td>LAXMI Lamitube</td><td class="mut">ICP/26-0071</td>
+                <td class="num">874.50 kg</td><td class="num mono">2,41,791</td>
+                <td><span class="bdg g nodot">Passed</span></td><td><span class="bdg g">Accepted</span></td></tr>
+              <tr><td class="k">CGR/26-0069</td><td>11 Sep</td><td>Precision Moulders</td><td class="mut">CGT/26-0079</td>
+                <td class="num">140.00 kg</td><td class="num mono">15,596</td>
+                <td><span class="bdg r nodot">Rejected 8 kg</span></td><td><span class="bdg w">Debit raised</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Yield</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Good received</dt><dd class="right mono">180.00 kg · 81.8%</dd>
+            <dt>Rejection</dt><dd class="right mono" style="color:rgb(var(--color-error))">6.40 kg · 2.9%</dd>
+            <dt>Wastage</dt><dd class="right mono" style="color:rgb(var(--color-warning))">4.80 kg · 2.2%</dd>
+            <dt>Still there</dt><dd class="right mono">28.80 kg · 13.1%</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="font-size:12px;color:rgb(var(--fg-subtle));margin-bottom:6px">Reconciliation progress</div>
+          <div class="pbar"><i class="w" style="width:87%"></i></div>
+          <div class="mut" style="font-size:11.5px;margin-top:4px">191.20 of 220.00 kg accounted</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Job work cost</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Pieces moulded</dt><dd class="right mono">1,18,400</dd>
+            <dt>Rate</dt><dd class="right mono">₹ 0.2450 / pc</dd>
+            <dt>Job work charge</dt><dd class="right mono">₹ 29,008</dd>
+            <dt>GST @ 18%</dt><dd class="right mono">₹ 5,221</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Invoice total</span>
+            <b style="margin-left:auto;font-size:17px" class="mono">₹ 34,229</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Next step</h2></div>
+        <div class="card-b">
+          <p class="muted" style="margin:0 0 10px;font-size:12.5px">
+            On acceptance the good quantity enters WIP stock and the job work invoice goes to costing.</p>
+          <a class="btn" style="width:100%;justify-content:center" href="actual-costing.html">
+            <i data-i="rupee"></i>Open Actual Costing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+</body>
+</html>

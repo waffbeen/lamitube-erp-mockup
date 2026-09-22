@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outsource Report · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>MIS Report</b> / Outsource Report</div>
+      <h1>Outsource Report</h1>
+      <p>Material out with partners, reconciliation, turnaround and cost</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="cal"></i>Schedule</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="refresh"></i>Refresh</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-04-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Partner</label><select class="inp"><option>All</option><option>LAXMI Lamitube</option><option>Precision Moulders</option></select></div>
+    <div class="fld w-sm"><label>Process</label><select class="inp"><option>All</option><option>Printing</option><option>Moulding</option></select></div>
+    <div class="fld w-sm"><label>Unit</label><select class="inp"><option>Unit 1 — Baddi</option><option>All units</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="stats"><div class="stat acc-o"><div class="lbl"><i data-i="send"></i>Material out</div><div class="val">2,840 kg</div><div class="dlt">6 open challans</div><div class="spark chart" data-type="spark" data-values="1840,2120,1980,2410,2660,2840"></div></div><div class="stat acc-s"><div class="lbl"><i data-i="inbox"></i>Received back</div><div class="val">1,486 kg</div><div class="dlt">52.3% of what is out</div><div class="spark chart" data-type="spark" data-values="1620,1880,1740,2010,2180,1486"></div></div><div class="stat acc-w"><div class="lbl"><i data-i="alertTri"></i>Wastage at partner</div><div class="val">2.8%</div><div class="dlt">allowed 2.0%</div><div class="spark chart" data-type="spark" data-values="2.1,2.2,2.4,2.5,2.7,2.8"></div></div><div class="stat acc-e"><div class="lbl"><i data-i="cal"></i>Avg. turnaround</div><div class="val">7.4 days</div><div class="dlt">agreed 5.0 days</div><div class="spark chart" data-type="spark" data-values="5.2,5.4,5.9,6.2,6.8,7.4"></div></div><div class="stat acc-p"><div class="lbl"><i data-i="rupee"></i>Outsource cost</div><div class="val">₹ 3.84 L</div><div class="dlt">month to date</div><div class="spark chart" data-type="spark" data-values="284,312,296,341,368,384"></div></div></div>
+
+  <div class="card"><div class="card-h"><h2>Material reconciliation by challan</h2><span class="sub">every kilogram sent must be accounted for</span></div><div class="card-b"><div class="chart" data-type="stack" data-title="Reconciliation"
+        data-series='[{"name":"Good printed","value":1486.5},{"name":"Rejection","value":27.6},{"name":"Wastage","value":48.9},{"name":"Unprocessed return","value":137.0},{"name":"Still at partner","value":1140.0}]'
+        data-unit="kg"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">Sent = Good output + Rejection + Wastage + Unprocessed return + Balance still there. 2,840 kg went out and every kilogram is placed.</p></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>Turnaround trend</h2><span class="sub">days from send to full receipt</span></div><div class="card-b"><div class="chart" data-type="line" data-title="Turnaround"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep"
+        data-series='[{"name":"Actual","values":[5.2,5.4,5.9,6.2,6.8,7.4]},{"name":"Agreed","values":[5,5,5,5,5,5]}]'
+        data-unit="days"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">Turnaround has slipped every month and is now 2.4 days beyond the agreed five — the main reason dispatch dates are moving.</p></div></div><div class="card"><div class="card-h"><h2>Wastage against allowance</h2><span class="sub">partner-wise</span></div><div class="card-b"><div class="chart" data-type="bar" data-title="Wastage"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep" data-values="2.1,2.2,2.4,2.5,2.7,2.8" data-unit="%"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">Allowance is 2.0%. Every month this year has run above it, costing roughly ₹ 46,000 in laminate.</p></div></div></div><div class="card mb0"><div class="card-h"><h2>Open outsourcing challans</h2><span class="sub">material currently with a partner</span><div class="r"><button class="btn sm"><i data-i="down"></i>CSV</button></div></div><div class="card-b p0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Challan</th><th>PWO</th><th>Partner</th><th>Process</th><th>Sent on</th>
+       <th class="num">Sent (kg)</th><th class="num">Good</th><th class="num">Rejection</th>
+       <th class="num">Wastage</th><th class="num">Balance</th><th class="num">Days out</th><th>Status</th></tr></thead><tbody><tr><td class="k">ICP/26-0077</td><td class="mut">PWO/26-0202</td><td>LAXMI Lamitube</td><td>Printing</td><td>26 Sep</td>
+        <td class="num">792.0</td><td class="num">491.0</td><td class="num">0.0</td>
+        <td class="num">14.2</td><td class="num">286.8</td><td class="num">0</td><td><span class="bdg b">Running</span></td></tr><tr><td class="k">ICP/26-0074</td><td class="mut">PWO/26-0191</td><td>LAXMI Lamitube</td><td>Printing</td><td>14 Sep</td>
+        <td class="num">1,140.0</td><td class="num">0.0</td><td class="num">0.0</td>
+        <td class="num">0.0</td><td class="num">1,140.0</td><td class="num">8</td><td><span class="bdg o">Printing</span></td></tr><tr><td class="k">ICP/26-0076</td><td class="mut">PWO/26-0194</td><td>LAXMI Lamitube</td><td>Printing</td><td>18 Sep</td>
+        <td class="num">780.0</td><td class="num">612.0</td><td class="num">9.4</td>
+        <td class="num">21.6</td><td class="num">0.0</td><td class="num">4</td><td><span class="bdg w">Partly received</span></td></tr><tr><td class="k">ICP/26-0072</td><td class="mut">PWO/26-0186</td><td>LAXMI Lamitube</td><td>Printing</td><td>02 Sep</td>
+        <td class="num">640.0</td><td class="num">0.0</td><td class="num">0.0</td>
+        <td class="num">0.0</td><td class="num">640.0</td><td class="num"><b>20</b></td><td><span class="bdg r">Overdue</span></td></tr><tr><td class="k">CGT/26-0084</td><td class="mut">PWO/26-0184</td><td>Precision Moulders</td><td>Moulding</td><td>14 Sep</td>
+        <td class="num">220.0</td><td class="num">180.0</td><td class="num">6.4</td>
+        <td class="num">4.8</td><td class="num">28.8</td><td class="num">8</td><td><span class="bdg w">Partly received</span></td></tr><tr><td class="k">ICP/26-0071</td><td class="mut">PWO/26-0188</td><td>LAXMI Lamitube</td><td>Printing</td><td>28 Aug</td>
+        <td class="num">920.0</td><td class="num">874.5</td><td class="num">18.2</td>
+        <td class="num">27.3</td><td class="num">0.0</td><td class="num">—</td><td><span class="bdg g">Reconciled</span></td></tr></tbody><tfoot><tr><td colspan="5">Total</td><td class="num">4,492.0</td><td class="num">2,157.5</td>
+       <td class="num">34.0</td><td class="num">67.9</td><td class="num">2,095.6</td><td colspan="2"></td></tr></tfoot></table></div></div></div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/chart.js?v=4"></script>
+</body>
+</html>

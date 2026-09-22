@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales Order Management Report · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>MIS Report</b> / Sales Order Management Report</div>
+      <h1>Sales Order Management Report</h1>
+      <p>Order book, delivery adherence and customer-wise performance</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="cal"></i>Schedule</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="refresh"></i>Refresh</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-04-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Customer</label><select class="inp"><option>All</option><option>Cipla Ltd.</option><option>Sun Pharma</option></select></div>
+    <div class="fld w-sm"><label>Unit</label><select class="inp"><option>Unit 1 — Baddi</option><option>All units</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="stats"><div class="stat acc-p"><div class="lbl"><i data-i="cart"></i>Open orders</div><div class="val">42</div><div class="dlt">18.4 lakh pcs</div><div class="spark chart" data-type="spark" data-values="36,38,35,41,44,42"></div></div><div class="stat acc-s"><div class="lbl"><i data-i="rupee"></i>Order book value</div><div class="val">₹ 6.82 Cr</div><div class="dlt">next 90 days</div><div class="spark chart" data-type="spark" data-values="512,548,601,624,668,682"></div></div><div class="stat acc-t"><div class="lbl"><i data-i="truck"></i>Dispatched MTD</div><div class="val">₹ 1.42 Cr</div><div class="dlt">+8.2% vs last month</div><div class="spark chart" data-type="spark" data-values="118,124,109,131,131,142"></div></div><div class="stat acc-w"><div class="lbl"><i data-i="cal"></i>OTIF</div><div class="val">88.4%</div><div class="dlt">target 92%</div><div class="spark chart" data-type="spark" data-values="91.8,92.4,90.1,91.2,91.2,88.4"></div></div><div class="stat acc-e"><div class="lbl"><i data-i="alertTri"></i>Overdue orders</div><div class="val">5</div><div class="dlt">₹ 42.6 L at risk</div><div class="spark chart" data-type="spark" data-values="2,3,2,4,3,5"></div></div></div>
+
+  <div class="chgrid c2"><div class="card"><div class="card-h"><h2>Order book vs dispatch</h2><span class="sub">value each month</span></div><div class="card-b"><div class="chart" data-type="line" data-title="Order book vs dispatch"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep"
+        data-series='[{"name":"Booked","values":[132,148,121,164,178,171]},{"name":"Dispatched","values":[118,124,109,131,131,142]}]'
+        data-unit="₹ L"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">Booking has outrun dispatch every month since June — the order book is growing faster than the plant is clearing it.</p></div></div><div class="card"><div class="card-h"><h2>Top customers by value</h2><span class="sub">financial year to date</span></div><div class="card-b"><div class="chart" data-type="hbar" data-title="Top customers"
+        data-cats="Cipla Ltd.,Sun Pharma,Mankind Pharma,Zydus Wellness,Torrent Pharma,Glenmark"
+        data-values="184,162,131,88,74,63" data-unit="₹ L"></div></div></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>Delivery performance</h2><span class="sub">orders delivered on time, in full</span></div><div class="card-b"><div class="chart" data-type="bar" data-title="OTIF"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep" data-values="91.8,92.4,90.1,91.2,91.2,88.4" data-unit="%"></div></div></div><div class="card"><div class="card-h"><h2>Order book by stage</h2><span class="sub">where open orders are standing</span></div><div class="card-b"><div class="chart" data-type="stack" data-title="Order book by stage"
+        data-series='[{"name":"Material stage","value":12},{"name":"Printing outsourced","value":6},{"name":"In production","value":14},{"name":"Packing & FGQC","value":7},{"name":"Ready to dispatch","value":3}]'
+        data-unit="orders"></div></div></div></div><div class="card mb0"><div class="card-h"><h2>Open order book</h2><span class="sub">42 orders — top 8 by value</span><div class="r"><button class="btn sm"><i data-i="down"></i>CSV</button></div></div><div class="card-b p0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>SO No.</th><th>Customer</th><th>Product</th><th class="num">Order qty</th>
+       <th class="num">Dispatched</th><th class="num">Balance</th><th class="num">Value</th>
+       <th>Due date</th><th class="num">Delay</th><th>Status</th></tr></thead><tbody><tr><td class="k">SO/26-0197</td><td>Zydus Wellness</td><td>LT 30×150 Toothpaste</td>
+        <td class="num">5,00,000</td><td class="num">0</td><td class="num">5,00,000</td>
+        <td class="num mono">22,08,000</td><td>12 Oct</td><td class="num">—</td><td><span class="bdg w">QC hold</span></td></tr><tr><td class="k">SO/26-0194</td><td>Mankind Pharma</td><td>LT 22×120 Cream</td>
+        <td class="num">3,20,000</td><td class="num">0</td><td class="num">3,20,000</td>
+        <td class="num mono">9,66,400</td><td>05 Oct</td><td class="num">—</td><td><span class="bdg b">In production</span></td></tr><tr><td class="k">SO/26-0188</td><td>Cipla Ltd.</td><td>LT 25×130 Ointment</td>
+        <td class="num">2,50,000</td><td class="num">0</td><td class="num">2,50,000</td>
+        <td class="num mono">11,35,750</td><td>26 Sep</td><td class="num">—</td><td><span class="bdg r">Dispatch blocked</span></td></tr><tr><td class="k">SO/26-0201</td><td>Glenmark</td><td>LT 25×140 Cream</td>
+        <td class="num">2,00,000</td><td class="num">0</td><td class="num">2,00,000</td>
+        <td class="num mono">6,28,000</td><td>24 Sep</td><td class="num"><b>2 d</b></td><td><span class="bdg g">Ready</span></td></tr><tr><td class="k">SO/26-0191</td><td>Sun Pharma</td><td>LT 19×100 Gel</td>
+        <td class="num">1,80,000</td><td class="num">0</td><td class="num">1,80,000</td>
+        <td class="num mono">5,43,564</td><td>02 Oct</td><td class="num">—</td><td><span class="bdg o">At LAXMI Lamitube</span></td></tr><tr><td class="k">SO/26-0202</td><td>Cipla Ltd.</td><td>LT 19×100 Gel</td>
+        <td class="num">1,50,000</td><td class="num">0</td><td class="num">1,50,000</td>
+        <td class="num mono">4,27,980</td><td>20 Oct</td><td class="num">—</td><td><span class="bdg b">Planned</span></td></tr><tr><td class="k">SO/26-0199</td><td>Torrent Pharma</td><td>LT 19×90 Ointment</td>
+        <td class="num">1,20,000</td><td class="num">0</td><td class="num">1,20,000</td>
+        <td class="num mono">3,14,640</td><td>15 Oct</td><td class="num">—</td><td><span class="bdg n">Indent pending</span></td></tr><tr><td class="k">SO/26-0186</td><td>Mankind Pharma</td><td>LT 22×120 Cream</td>
+        <td class="num">1,80,000</td><td class="num">1,80,000</td><td class="num">0</td>
+        <td class="num mono">5,43,564</td><td>20 Sep</td><td class="num">—</td><td><span class="bdg g">Delivered</span></td></tr></tbody><tfoot><tr><td colspan="6">Order book</td><td class="num mono">67,67,898</td><td colspan="3"></td></tr></tfoot></table></div></div></div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/chart.js?v=4"></script>
+</body>
+</html>

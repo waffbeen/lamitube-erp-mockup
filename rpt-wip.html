@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WIP Tracking Report · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>MIS Report</b> / WIP Tracking Report</div>
+      <h1>WIP Tracking Report</h1>
+      <p>Where every live job is standing, how long it has been there and what is blocking it</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="cal"></i>Schedule</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="refresh"></i>Refresh</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-04-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Customer</label><select class="inp"><option>All</option><option>Cipla Ltd.</option><option>Sun Pharma</option></select></div>
+    <div class="fld w-sm"><label>Stage</label><select class="inp"><option>All</option><option>Printing</option><option>Moulding</option><option>Packing</option></select></div>
+    <div class="fld w-sm"><label>Unit</label><select class="inp"><option>Unit 1 — Baddi</option><option>All units</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="stats"><div class="stat acc-p"><div class="lbl"><i data-i="activity"></i>Live jobs</div><div class="val">27</div><div class="dlt">across 6 stages</div><div class="spark chart" data-type="spark" data-values="22,24,21,26,29,27"></div></div><div class="stat acc-t"><div class="lbl"><i data-i="rupee"></i>WIP value</div><div class="val">₹ 32.6 L</div><div class="dlt">38.7% of stock value</div><div class="spark chart" data-type="spark" data-values="24.1,26.8,25.4,29.8,34.2,32.6"></div></div><div class="stat acc-o"><div class="lbl"><i data-i="send"></i>Outsourced stage</div><div class="val">6 jobs</div><div class="dlt">8.94 lakh pcs</div></div><div class="stat acc-w"><div class="lbl"><i data-i="cal"></i>Avg. age in WIP</div><div class="val">9.4 days</div><div class="dlt">target 7 days</div><div class="spark chart" data-type="spark" data-values="7.1,7.6,8.0,8.6,9.1,9.4"></div></div><div class="stat acc-e"><div class="lbl"><i data-i="alertTri"></i>Blocked jobs</div><div class="val">2</div><div class="dlt">CAPA and material</div><div class="spark chart" data-type="spark" data-values="1,0,1,2,1,2"></div></div></div>
+
+  <div class="card"><div class="card-h"><h2>WIP by stage</h2><span class="sub">jobs and value sitting at each stage</span></div><div class="card-b"><div class="chart" data-type="hbar" data-title="WIP by stage"
+        data-cats="Awaiting material,Slitting,Printing — outsourced,Sleeve forming,Shoulder moulding,Assembly & packing,FGQC"
+        data-values="1.2,4.8,11.4,6.2,5.1,3.4,0.5" data-unit="₹ L"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">The printing stage alone holds ₹ 11.4 L of WIP — a third of everything on the floor is sitting at an outside partner.</p></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>WIP value trend</h2><span class="sub">month end</span></div><div class="card-b"><div class="chart" data-type="line" data-title="WIP value"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep"
+        data-series='[{"name":"WIP value","values":[24.1,26.8,25.4,29.8,34.2,32.6]}]'
+        data-unit="₹ L"></div></div></div><div class="card"><div class="card-h"><h2>Job ageing in WIP</h2><span class="sub">jobs by days since release</span></div><div class="card-b"><div class="chart" data-type="bar" data-title="Job ageing"
+        data-cats="0-3 d,4-7 d,8-14 d,15-21 d,21+ d" data-values="6,8,7,4,2" data-unit="jobs"></div></div></div></div><div class="card mb0"><div class="card-h"><h2>Live job status</h2><span class="sub">27 jobs — all stages</span><div class="r"><button class="btn sm"><i data-i="down"></i>CSV</button></div></div><div class="card-b p0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>PWO</th><th>SO / Customer</th><th>Product</th><th>Current stage</th>
+       <th class="num">Plan qty</th><th class="num">Done</th><th class="num">Rejection</th>
+       <th class="num">Age</th><th class="num">Due</th><th>Status</th></tr></thead><tbody><tr><td class="k">PWO/26-0188</td><td>SO/26-0188 · Cipla Ltd.</td><td>LT 25×130</td><td>FGQC</td>
+        <td class="num">2,55,000</td><td class="num">2,50,400</td><td class="num">4,600</td>
+        <td class="num">18 d</td><td class="num">26 Sep</td><td><span class="bdg r">Dispatch blocked</span></td></tr><tr><td class="k">PWO/26-0191</td><td>SO/26-0191 · Sun Pharma</td><td>LT 19×100</td><td>Printing — outsourced</td>
+        <td class="num">1,83,000</td><td class="num">0</td><td class="num">0</td>
+        <td class="num">12 d</td><td class="num">02 Oct</td><td><span class="bdg o">At LAXMI Lamitube</span></td></tr><tr><td class="k">PWO/26-0194</td><td>SO/26-0194 · Mankind</td><td>LT 22×120</td><td>Shoulder moulding</td>
+        <td class="num">3,26,000</td><td class="num">41,244</td><td class="num">618</td>
+        <td class="num">9 d</td><td class="num">05 Oct</td><td><span class="bdg b">In production</span></td></tr><tr><td class="k">PWO/26-0197</td><td>SO/26-0197 · Zydus</td><td>LT 30×150</td><td>RMQC hold</td>
+        <td class="num">5,10,000</td><td class="num">0</td><td class="num">0</td>
+        <td class="num">4 d</td><td class="num">12 Oct</td><td><span class="bdg w">QC hold</span></td></tr><tr><td class="k">PWO/26-0199</td><td>SO/26-0199 · Torrent</td><td>LT 19×90</td><td>Material procurement</td>
+        <td class="num">1,22,000</td><td class="num">0</td><td class="num">0</td>
+        <td class="num">3 d</td><td class="num">15 Oct</td><td><span class="bdg n">Indent pending</span></td></tr><tr><td class="k">PWO/26-0201</td><td>SO/26-0201 · Glenmark</td><td>LT 25×140</td><td>Packed — FGQC passed</td>
+        <td class="num">2,04,000</td><td class="num">2,01,200</td><td class="num">2,800</td>
+        <td class="num">14 d</td><td class="num">24 Sep</td><td><span class="bdg g">Ready</span></td></tr><tr><td class="k">PWO/26-0202</td><td>SO/26-0202 · Cipla Ltd.</td><td>LT 19×100</td><td>Printing — outsourced</td>
+        <td class="num">1,53,000</td><td class="num">0</td><td class="num">0</td>
+        <td class="num">1 d</td><td class="num">20 Oct</td><td><span class="bdg o">At LAXMI Lamitube</span></td></tr><tr><td class="k">PWO/26-0186</td><td>SO/26-0186 · Mankind</td><td>LT 22×120</td><td>Closed</td>
+        <td class="num">1,84,000</td><td class="num">1,80,000</td><td class="num">4,000</td>
+        <td class="num">—</td><td class="num">20 Sep</td><td><span class="bdg g">Completed</span></td></tr></tbody></table></div></div></div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/chart.js?v=4"></script>
+</body>
+</html>

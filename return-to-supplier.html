@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Return to Supplier · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / Return to Supplier</div>
+      <h1>Return to Supplier &mdash; RTV/26-0041</h1>
+      <p>Rejected material going back, with a debit note against the supplier</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg r">RMQC rejected</span>
+      <button class="btn"><i data-i="file"></i>E-way bill</button>
+      <button class="btn"><i data-i="receipt"></i>Debit note</button>
+      <button class="btn pri"><i data-i="check2"></i>Post return</button>
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <i data-i="alertTri"></i>
+    <div><b>This return is driven by NCR/26-0042</b>
+    Bond strength measured 3.4 N against the specified 4.0 N minimum. RMQC rejected 42 kg of ROLL-26-1788 and the disposition was set to return to supplier.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Return no.</label><input class="inp ro" value="RTV/26-0041" readonly></div>
+        <div class="fld"><label>Return date <span class="req">*</span></label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>Supplier <span class="req">*</span></label>
+          <select class="inp"><option>Essel Propack Ltd.</option><option>Reliance Polymers</option><option>Sanjay Polymers</option></select></div>
+        <div class="fld"><label>Against GRN</label>
+          <select class="inp"><option>GRN/26-0621</option><option>GRN/26-0623</option></select></div>
+        <div class="fld"><label>Supplier invoice</label><input class="inp ro" value="EPL/INV/26-3310" readonly></div>
+        <div class="fld"><label>Reason <span class="req">*</span></label>
+          <select class="inp"><option>Quality rejection — RMQC</option><option>Short supply</option><option>Excess supply</option><option>Damaged in transit</option><option>Wrong item</option></select></div>
+        <div class="fld"><label>Linked NCR</label><input class="inp ro" value="NCR/26-0042" readonly></div>
+        <div class="fld"><label>Vehicle no.</label><input class="inp" value="HP-12-B-5540"></div>
+        <div class="fld"><label>Transporter</label><select class="inp"><option>Gati KWE</option><option>Supplier pickup</option></select></div>
+        <div class="fld"><label>E-way bill</label><input class="inp" value="381004355120"></div>
+        <div class="fld"><label>Debit note no.</label><input class="inp" value="DN/26-0018"></div>
+        <div class="fld"><label>Replacement expected</label><input class="inp" type="date" value="2026-09-29"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Return lines</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Item</th><th>Batch / roll</th><th>GRN</th><th>UoM</th>
+              <th class="num">Received</th><th class="num">Rejected</th><th class="num">Return qty</th>
+              <th class="num">Rate</th><th class="num">Value</th><th class="ctr"></th></tr></thead>
+            <tbody>
+              <tr><td><b>ABL Laminate 250&micro;</b><div class="mut">ITM-1004</div></td>
+                <td class="k">ROLL-26-1788</td><td class="mut">GRN/26-0621</td><td>kg</td>
+                <td class="num">300.00</td><td class="num">42.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="42.00"></td>
+                <td class="num mono">248.00</td><td class="num mono">10,416</td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="8">Return value</td><td class="num mono">10,416</td><td></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Rejection evidence</h2>
+          <span class="sub">carried over from RMQC</span></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Parameter</th><th>Specification</th><th class="num">Observed</th>
+              <th class="num">Deviation</th><th>Result</th></tr></thead>
+            <tbody>
+              <tr><td><b>Bond strength</b></td><td>&ge; 4.0 N/15 mm</td><td class="num">3.40</td>
+                <td class="num" style="color:rgb(var(--color-error))">&minus;15.0%</td>
+                <td><span class="bdg r">Fail</span></td></tr>
+              <tr><td>Thickness</td><td>250 &micro; ± 10</td><td class="num">248</td>
+                <td class="num">&minus;0.8%</td><td><span class="bdg g">Pass</span></td></tr>
+              <tr><td>GSM</td><td>248 ± 8</td><td class="num">246</td>
+                <td class="num">&minus;0.8%</td><td><span class="bdg g">Pass</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Return register</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Return no.</th><th>Date</th><th>Supplier</th><th>Item</th>
+              <th class="num">Qty</th><th class="num">Value</th><th>Reason</th><th>Debit note</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">RTV/26-0040</td><td>16 Sep</td><td>Reliance Polymers</td><td>HDPE granule</td>
+                <td class="num">200.00</td><td class="num mono">22,400</td><td>MFI out of spec</td>
+                <td class="k">DN/26-0017</td><td><span class="bdg g">Replaced</span></td></tr>
+              <tr><td class="k">RTV/26-0038</td><td>08 Sep</td><td>Shakti Packaging</td><td>Inner box</td>
+                <td class="num">400</td><td class="num mono">2,320</td><td>Damaged in transit</td>
+                <td class="k">DN/26-0016</td><td><span class="bdg g">Credit received</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Debit note</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Basic value</dt><dd class="right mono">₹ 10,416</dd>
+            <dt>GST @ 18%</dt><dd class="right mono">₹ 1,875</dd>
+            <dt>Freight recovery</dt><dd class="right mono">₹ 1,200</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Debit total</span>
+            <b style="margin-left:auto;font-size:18px" class="mono">₹ 13,491</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Settlement</h2></div>
+        <div class="card-b">
+          <div class="fld" style="margin-bottom:10px"><label>Settlement mode</label>
+            <select class="inp"><option>Free replacement</option><option>Credit note from supplier</option><option>Adjust in next invoice</option></select></div>
+          <div class="fld"><label>Remark to supplier</label>
+            <textarea class="inp" rows="3">Roll ROLL-26-1788 fails bond strength at 3.4 N against the specified 4.0 N minimum. Test report attached. Free replacement required before 29 Sep as production is scheduled.</textarea></div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Supplier impact</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td>Returns this year</td><td class="num mono">3</td></tr>
+              <tr><td>RMQC rejection rate</td><td class="num mono">1.8%</td></tr>
+              <tr><td>Rating</td><td class="num"><span class="bdg g nodot">A — approved</span></td></tr>
+              <tr><td>Next review</td><td class="num">31 Oct 2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+</body>
+</html>

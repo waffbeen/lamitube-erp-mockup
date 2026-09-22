@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artwork Report · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>MIS Report</b> / Artwork Report</div>
+      <h1>Artwork Report</h1>
+      <p>Artwork approval cycle, revisions and plate life at the printing partner</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="cal"></i>Schedule</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="refresh"></i>Refresh</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-04-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Customer</label><select class="inp"><option>All</option><option>Cipla Ltd.</option><option>Sun Pharma</option></select></div>
+    <div class="fld w-sm"><label>Status</label><select class="inp"><option>All</option><option>Approved</option><option>Awaiting</option></select></div>
+    <div class="fld w-sm"><label>Unit</label><select class="inp"><option>Unit 1 — Baddi</option><option>All units</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="stats"><div class="stat acc-p"><div class="lbl"><i data-i="image"></i>Active artworks</div><div class="val">34</div><div class="dlt">across 6 customers</div></div><div class="stat acc-w"><div class="lbl"><i data-i="cal"></i>Awaiting approval</div><div class="val">4</div><div class="dlt">oldest 11 days</div></div><div class="stat acc-s"><div class="lbl"><i data-i="check2"></i>Avg. approval cycle</div><div class="val">9.2 days</div><div class="dlt">target 7 days</div><div class="spark chart" data-type="spark" data-values="7.4,7.8,8.1,8.6,8.9,9.2"></div></div><div class="stat acc-t"><div class="lbl"><i data-i="layers"></i>Plates at partner</div><div class="val">28</div><div class="dlt">3 due for remake</div></div><div class="stat acc-e"><div class="lbl"><i data-i="refresh"></i>Revisions per artwork</div><div class="val">2.1</div><div class="dlt">each revision costs a day</div><div class="spark chart" data-type="spark" data-values="1.6,1.7,1.8,1.9,2.0,2.1"></div></div></div>
+
+  <div class="chgrid c2"><div class="card"><div class="card-h"><h2>Approval cycle by stage</h2><span class="sub">average days spent at each step</span></div><div class="card-b"><div class="chart" data-type="hbar" data-title="Approval cycle"
+        data-cats="Artwork received,Feasibility check,Dieline prepared,Proof sent,Customer approval,Plate making"
+        data-values="0.5,1.2,1.4,0.8,4.1,1.2" data-unit="days"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">Customer approval is 45% of the whole cycle. Every day saved there is a day earlier on the press.</p></div></div><div class="card"><div class="card-h"><h2>Revisions per artwork</h2><span class="sub">how many rounds before approval</span></div><div class="card-b"><div class="chart" data-type="bar" data-title="Revisions"
+        data-cats="1 round,2 rounds,3 rounds,4+ rounds" data-values="12,14,6,2" data-unit="artworks"></div></div></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>Plate life consumed</h2><span class="sub">impressions against the 25 lakh limit</span></div><div class="card-b"><div class="chart" data-type="hbar" data-title="Plate life"
+        data-cats="PLT-0698,PLT-0742,PLT-0755,PLT-0768,PLT-0774"
+        data-values="94.4,56.8,39.2,13.6,8.0" data-unit="%"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">PLT-0698 is at 94% of its rated life. A remake ordered now avoids a shade complaint later.</p></div></div><div class="card"><div class="card-h"><h2>Artwork status</h2><span class="sub">current position of all live artworks</span></div><div class="card-b"><div class="chart" data-type="stack" data-title="Artwork status"
+        data-series='[{"name":"Approved, plates ready","value":26},{"name":"Approved, plate pending","value":2},{"name":"Awaiting customer","value":4},{"name":"Under revision","value":2}]'
+        data-unit="nos"></div></div></div></div><div class="card mb0"><div class="card-h"><h2>Artwork register</h2><span class="sub">live artworks</span><div class="r"><button class="btn sm"><i data-i="down"></i>CSV</button></div></div><div class="card-b p0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Artwork</th><th>Product</th><th>Customer</th><th>Version</th><th class="num">Colours</th>
+       <th>Received</th><th>Approved</th><th class="num">Cycle days</th><th class="num">Revisions</th>
+       <th>Plate</th><th class="num">Life used</th><th>Status</th></tr></thead><tbody><tr><td class="k">AW-2026-0771</td><td>LT 25×130 Ointment</td><td>Alkem Labs</td><td>v1</td>
+        <td class="num">4</td><td>18 Sep</td><td>—</td><td class="num"><b>4 open</b></td>
+        <td class="num">0</td><td class="mut">Not made</td><td class="num">—</td><td><span class="bdg w">Awaiting customer</span></td></tr><tr><td class="k">AW-2026-0774</td><td>LT 25×140 Cream</td><td>Glenmark</td><td>v2</td>
+        <td class="num">4</td><td>28 Aug</td><td>05 Sep</td><td class="num">8</td>
+        <td class="num">2</td><td class="mut">PLT-0774</td><td class="num">8.0%</td><td><span class="bdg g">Approved</span></td></tr><tr><td class="k">AW-2026-0768</td><td>LT 30×150 Toothpaste</td><td>Mankind Pharma</td><td>v1</td>
+        <td class="num">6</td><td>24 Aug</td><td>02 Sep</td><td class="num">9</td>
+        <td class="num">1</td><td class="mut">PLT-0768</td><td class="num">13.6%</td><td><span class="bdg g">Approved</span></td></tr><tr><td class="k">AW-2026-0755</td><td>LT 22×120 Cream</td><td>Sun Pharma</td><td>v2</td>
+        <td class="num">5</td><td>01 Aug</td><td>12 Aug</td><td class="num">11</td>
+        <td class="num">2</td><td class="mut">PLT-0755</td><td class="num">39.2%</td><td><span class="bdg g">Approved</span></td></tr><tr><td class="k">AW-2026-0742</td><td>LT 19×100 Gel</td><td>Cipla Ltd.</td><td>v3</td>
+        <td class="num">4</td><td>18 Jul</td><td>28 Jul</td><td class="num">10</td>
+        <td class="num">3</td><td class="mut">PLT-0742</td><td class="num">56.8%</td><td><span class="bdg g">Approved</span></td></tr><tr><td class="k">AW-2025-0698</td><td>LT 19×90 Ointment</td><td>Torrent Pharma</td><td>v4</td>
+        <td class="num">3</td><td>02 Nov</td><td>14 Nov</td><td class="num">12</td>
+        <td class="num">4</td><td class="mut">PLT-0698</td><td class="num"><b>94.4%</b></td><td><span class="bdg w">Plate remake due</span></td></tr></tbody></table></div></div></div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/chart.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Procurement Report · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>MIS Report</b> / Procurement Report</div>
+      <h1>Procurement Report</h1>
+      <p>Indent to receipt cycle, supplier performance and purchase spend</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="cal"></i>Schedule</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="refresh"></i>Refresh</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-04-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Supplier</label><select class="inp"><option>All</option><option>Essel Propack Ltd.</option><option>Sanjay Polymers</option></select></div>
+    <div class="fld w-sm"><label>Category</label><select class="inp"><option>All</option><option>Raw material</option><option>Bought-out</option><option>Packing</option></select></div>
+    <div class="fld w-sm"><label>Unit</label><select class="inp"><option>Unit 1 — Baddi</option><option>All units</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="stats"><div class="stat acc-p"><div class="lbl"><i data-i="cart"></i>Purchase spend</div><div class="val">₹ 3.84 Cr</div><div class="dlt">year to date</div><div class="spark chart" data-type="spark" data-values="542,618,571,684,712,708"></div></div><div class="stat acc-s"><div class="lbl"><i data-i="check2"></i>Indents cleared</div><div class="val">186</div><div class="dlt">92.1% within 2 days</div><div class="spark chart" data-type="spark" data-values="28,31,27,34,36,30"></div></div><div class="stat acc-w"><div class="lbl"><i data-i="cal"></i>Avg. PO to GRN</div><div class="val">16.8 days</div><div class="dlt">target 14 days</div><div class="spark chart" data-type="spark" data-values="14.2,15.1,15.8,16.2,16.4,16.8"></div></div><div class="stat acc-t"><div class="lbl"><i data-i="shield"></i>RMQC rejection</div><div class="val">2.1%</div><div class="dlt">across all suppliers</div><div class="spark chart" data-type="spark" data-values="1.6,1.8,1.9,2.0,2.2,2.1"></div></div><div class="stat acc-e"><div class="lbl"><i data-i="alertTri"></i>Open POs overdue</div><div class="val">4</div><div class="dlt">₹ 6.18 L</div><div class="spark chart" data-type="spark" data-values="2,1,3,2,3,4"></div></div></div>
+
+  <div class="chgrid c2"><div class="card"><div class="card-h"><h2>Purchase spend by category</h2><span class="sub">year to date</span></div><div class="card-b"><div class="chart" data-type="hbar" data-title="Spend by category"
+        data-cats="ABL laminate,HDPE granule,Caps & rims,Masterbatch,Packing material,Consumables"
+        data-values="218,71,48,21,17,9" data-unit="₹ L"></div></div></div><div class="card"><div class="card-h"><h2>Monthly purchase spend</h2></div><div class="card-b"><div class="chart" data-type="bar" data-title="Spend"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep" data-values="54.2,61.8,57.1,68.4,71.2,70.8" data-unit="₹ L"></div></div></div></div><div class="card"><div class="card-h"><h2>Indent to receipt cycle</h2><span class="sub">average days at each step</span></div><div class="card-b"><div class="chart" data-type="line" data-title="Cycle time"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep"
+        data-series='[{"name":"Indent to approval","values":[2.1,1.8,2.4,2.0,1.9,1.7]},{"name":"Approval to PO","values":[1.4,1.6,1.5,1.8,2.1,2.2]},{"name":"PO to GRN","values":[10.7,11.7,11.9,12.4,12.4,12.9]}]'
+        data-unit="days"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">Internal steps are tight. The cycle is dominated by supplier lead time, which has stretched by 2.2 days since April.</p></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>Supplier on-time delivery</h2><span class="sub">percentage of POs delivered by the due date</span></div><div class="card-b"><div class="chart" data-type="hbar" data-title="On-time delivery"
+        data-cats="Sanjay Polymers,Essel Propack,Plastiblends India,Reliance Polymers,Shakti Packaging,Precision Moulders"
+        data-values="96,94,92,89,88,85" data-unit="%"></div></div></div><div class="card"><div class="card-h"><h2>RMQC outcome on receipts</h2><span class="sub">by quantity</span></div><div class="card-b"><div class="chart" data-type="stack" data-title="RMQC outcome"
+        data-series='[{"name":"Accepted","value":94.2},{"name":"Accepted with deviation","value":3.7},{"name":"Rejected","value":2.1}]'
+        data-unit="%"></div></div></div></div><div class="card mb0"><div class="card-h"><h2>Supplier scorecard</h2><span class="sub">year to date</span><div class="r"><button class="btn sm"><i data-i="down"></i>CSV</button></div></div><div class="card-b p0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Supplier</th><th>Supplies</th><th class="num">POs</th><th class="num">Spend</th>
+       <th class="num">On-time %</th><th class="num">Avg. lead days</th><th class="num">RMQC rejection %</th>
+       <th class="num">Returns</th><th>Rating</th></tr></thead><tbody><tr><td><b>Essel Propack Ltd.</b></td><td>ABL laminate</td><td class="num">38</td>
+        <td class="num mono">2,18,40,000</td><td class="num">94</td><td class="num">21.4</td>
+        <td class="num">1.8</td><td class="num">2</td><td><span class="bdg g nodot">A</span></td></tr><tr><td><b>Reliance Polymers</b></td><td>HDPE granule</td><td class="num">22</td>
+        <td class="num mono">71,20,000</td><td class="num">89</td><td class="num">17.8</td>
+        <td class="num">3.2</td><td class="num">1</td><td><span class="bdg w nodot">B</span></td></tr><tr><td><b>Sanjay Polymers</b></td><td>Caps & rims</td><td class="num">31</td>
+        <td class="num mono">48,60,000</td><td class="num">96</td><td class="num">12.1</td>
+        <td class="num">0.9</td><td class="num">0</td><td><span class="bdg g nodot">A</span></td></tr><tr><td><b>Plastiblends India</b></td><td>Masterbatch</td><td class="num">18</td>
+        <td class="num mono">21,40,000</td><td class="num">92</td><td class="num">11.4</td>
+        <td class="num">2.1</td><td class="num">0</td><td><span class="bdg g nodot">A</span></td></tr><tr><td><b>Shakti Packaging</b></td><td>Cartons & boxes</td><td class="num">24</td>
+        <td class="num mono">17,20,000</td><td class="num">88</td><td class="num">9.8</td>
+        <td class="num">0.0</td><td class="num">1</td><td><span class="bdg w nodot">B</span></td></tr><tr><td><b>Precision Moulders</b></td><td>Job work</td><td class="num">6</td>
+        <td class="num mono">8,40,000</td><td class="num">85</td><td class="num">—</td>
+        <td class="num">4.0</td><td class="num">0</td><td><span class="bdg w nodot">B</span></td></tr></tbody><tfoot><tr><td colspan="2">Total</td><td class="num">139</td><td class="num mono">3,85,20,000</td>
+       <td class="num">92</td><td class="num">14.5</td><td class="num">2.1</td><td class="num">4</td><td></td></tr></tfoot></table></div></div></div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/chart.js?v=4"></script>
+</body>
+</html>

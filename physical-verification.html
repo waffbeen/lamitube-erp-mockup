@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Physical Stock Verification · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / Physical Stock Verification</div>
+      <h1>Physical Stock Verification &mdash; PV/26-0019</h1>
+      <p>Count the floor against the system, explain the difference, then post the adjustment</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg b">Counting in progress</span>
+      <button class="btn"><i data-i="down"></i>Count sheet</button>
+      <button class="btn"><i data-i="search2"></i>Scan QR</button>
+      <button class="btn pri"><i data-i="check2"></i>Post adjustment</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-p"><div class="lbl">Items in scope</div><div class="val">42</div></div>
+    <div class="stat acc-s"><div class="lbl">Counted</div><div class="val">34</div><div class="dlt">81% complete</div></div>
+    <div class="stat acc-w"><div class="lbl">With difference</div><div class="val">6</div></div>
+    <div class="stat acc-e"><div class="lbl">Net variance</div><div class="val">−₹ 18,240</div><div class="dlt dn">0.22% of stock value</div></div>
+    <div class="stat acc-t"><div class="lbl">Pending approval</div><div class="val">6</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Verification no.</label><input class="inp ro" value="PV/26-0019" readonly></div>
+        <div class="fld"><label>Verification date <span class="req">*</span></label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>Type <span class="req">*</span></label>
+          <select class="inp"><option>Cycle count — monthly</option><option>Full physical — year end</option><option>Spot check</option><option>Audit — statutory</option></select></div>
+        <div class="fld"><label>Scope</label>
+          <select class="inp"><option>Warehouse WH-RM</option><option>All warehouses</option><option>Selected item group</option><option>ABC — class A items</option></select></div>
+        <div class="fld"><label>Cut-off date &amp; time</label><input class="inp" type="datetime-local" value="2026-09-22T06:00"></div>
+        <div class="fld"><label>Counted by</label><select class="inp"><option>Store team A</option><option>Store team B</option></select></div>
+        <div class="fld"><label>Verified by</label><select class="inp"><option>Internal audit</option><option>Store head</option></select></div>
+        <div class="fld"><label>Freeze transactions</label><select class="inp"><option>Yes — during count</option><option>No</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Count sheet</h2>
+          <span class="sub">system quantity is hidden from the counter until the count is entered</span>
+          <div class="r"><span class="chip">Counted 34</span><span class="chip">Pending 8</span></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Item</th><th>Batch / roll</th><th>Bin</th><th>UoM</th>
+              <th class="num">System qty</th><th class="num">Physical qty</th><th class="num">Difference</th>
+              <th class="num">Diff %</th><th class="num">Value impact</th><th>Reason</th></tr></thead>
+            <tbody>
+              <tr><td><b>ABL Laminate 250&micro;</b><div class="mut">ITM-1004</div></td>
+                <td class="k">ROLL-26-1841</td><td>A-12</td><td>kg</td>
+                <td class="num">208.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="208.00"></td>
+                <td class="num" style="color:rgb(var(--color-success))">0.00</td><td class="num">0.0%</td>
+                <td class="num mono">0</td><td class="mut">&mdash;</td></tr>
+              <tr style="background:rgb(var(--color-error-subtle))"><td><b>ABL Laminate 250&micro;</b><div class="mut">ITM-1004</div></td>
+                <td class="k">ROLL-26-1845</td><td>A-12</td><td>kg</td>
+                <td class="num">206.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="198.40"></td>
+                <td class="num" style="color:rgb(var(--color-error))">&minus;7.60</td><td class="num">&minus;3.7%</td>
+                <td class="num mono">&minus;1,879</td>
+                <td><select class="inp" style="width:140px"><option>Roll end loss</option><option>Weighing difference</option><option>Unrecorded issue</option><option>To investigate</option></select></td></tr>
+              <tr><td><b>HDPE granule</b><div class="mut">ITM-2011</div></td>
+                <td class="k">BATCH-26-0742</td><td>B-04</td><td>kg</td>
+                <td class="num">550.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="550.00"></td>
+                <td class="num" style="color:rgb(var(--color-success))">0.00</td><td class="num">0.0%</td>
+                <td class="num mono">0</td><td class="mut">&mdash;</td></tr>
+              <tr style="background:rgb(var(--color-error-subtle))"><td><b>Masterbatch — white</b><div class="mut">ITM-2044</div></td>
+                <td class="k">BATCH-26-0733</td><td>B-09</td><td>kg</td>
+                <td class="num">24.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="21.50"></td>
+                <td class="num" style="color:rgb(var(--color-error))">&minus;2.50</td><td class="num">&minus;10.4%</td>
+                <td class="num mono">&minus;713</td>
+                <td><select class="inp" style="width:140px"><option>To investigate</option><option>Spillage</option><option>Unrecorded issue</option></select></td></tr>
+              <tr style="background:rgb(var(--color-success-subtle))"><td><b>Flip-top cap 11 mm</b><div class="mut">ITM-3001</div></td>
+                <td class="k">LOT-26-4412</td><td>C-02</td><td>pcs</td>
+                <td class="num">85,000</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="86,200"></td>
+                <td class="num" style="color:rgb(var(--color-success))">+1,200</td><td class="num">+1.4%</td>
+                <td class="num mono">+576</td>
+                <td><select class="inp" style="width:140px"><option>Short issue earlier</option><option>Counting error earlier</option></select></td></tr>
+              <tr style="background:rgb(var(--color-error-subtle))"><td><b>Side-seam tape</b><div class="mut">ITM-2050</div></td>
+                <td class="k">BATCH-25-9902</td><td>C-11</td><td>mtr</td>
+                <td class="num">17,000</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="12,400"></td>
+                <td class="num" style="color:rgb(var(--color-error))">&minus;4,600</td><td class="num">&minus;27.1%</td>
+                <td class="num mono">&minus;1,932</td>
+                <td><select class="inp" style="width:140px"><option>To investigate</option><option>Unrecorded issue</option></select></td></tr>
+              <tr><td><b>Inner box + carton</b><div class="mut">ITM-4002</div></td>
+                <td class="k">&mdash;</td><td>D-01</td><td>set</td>
+                <td class="num">600</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" placeholder="not counted"></td>
+                <td class="num mut">&mdash;</td><td class="num mut">&mdash;</td>
+                <td class="num mut">&mdash;</td><td class="mut">pending</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="8">Net value impact</td><td class="num mono" style="color:rgb(var(--color-error))">&minus;3,948</td><td></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Verification history</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Verification no.</th><th>Date</th><th>Type</th><th>Scope</th>
+              <th class="num">Items</th><th class="num">With diff.</th><th class="num">Net impact</th>
+              <th>Approved by</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">PV/26-0018</td><td>25 Aug</td><td>Cycle count</td><td>WH-BO</td>
+                <td class="num">28</td><td class="num">3</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">−6,180</td>
+                <td>Plant Head</td><td><span class="bdg g">Posted</span></td></tr>
+              <tr><td class="k">PV/26-0017</td><td>28 Jul</td><td>Cycle count</td><td>WH-RM</td>
+                <td class="num">40</td><td class="num">5</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">−11,420</td>
+                <td>Plant Head</td><td><span class="bdg g">Posted</span></td></tr>
+              <tr><td class="k">PV/26-0014</td><td>31 Mar</td><td>Full physical</td><td>All warehouses</td>
+                <td class="num">186</td><td class="num">22</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">−84,600</td>
+                <td>Statutory auditor</td><td><span class="bdg g">Posted</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Variance summary</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Items counted</dt><dd class="right mono">34 of 42</dd>
+            <dt>Matching</dt><dd class="right mono" style="color:rgb(var(--color-success))">28</dd>
+            <dt>Shortage</dt><dd class="right mono" style="color:rgb(var(--color-error))">5</dd>
+            <dt>Excess</dt><dd class="right mono">1</dd>
+          </dl>
+          <div class="hr"></div>
+          <dl class="kv">
+            <dt>Shortage value</dt><dd class="right mono" style="color:rgb(var(--color-error))">₹ 4,524</dd>
+            <dt>Excess value</dt><dd class="right mono" style="color:rgb(var(--color-success))">₹ 576</dd>
+            <dt>Net impact</dt><dd class="right mono"><b>− ₹ 3,948</b></dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="font-size:12px;color:rgb(var(--fg-subtle));margin-bottom:6px">Count progress</div>
+          <div class="pbar"><i style="width:81%"></i></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Tolerance</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td>Auto-accept within</td><td class="num mono">± 1.0%</td></tr>
+              <tr><td>Needs reason</td><td class="num mono">1.0 – 5.0%</td></tr>
+              <tr><td>Needs approval</td><td class="num mono">&gt; 5.0%</td></tr>
+              <tr><td>Above tolerance</td><td class="num"><span class="bdg r">3 items</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Approval</h2></div>
+        <div class="card-b">
+          <div class="steps" style="flex-direction:column;align-items:flex-start;gap:9px;margin-bottom:12px">
+            <div class="step done"><span class="b"><i data-i="check2"></i></span><span>Count sheet issued</span></div>
+            <div class="step now"><span class="b">2</span><span>Counting in progress</span></div>
+            <div class="step"><span class="b">3</span><span>Reasons recorded</span></div>
+            <div class="step"><span class="b">4</span><span>Approved by Plant Head</span></div>
+            <div class="step"><span class="b">5</span><span>Stock adjusted</span></div>
+          </div>
+          <div class="fld"><label>Audit remark</label>
+            <textarea class="inp" rows="2" placeholder="Side-seam tape shortage of 4,600 m needs investigation before posting…"></textarea></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+</body>
+</html>

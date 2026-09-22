@@ -20,7 +20,7 @@ Enquiry → Estimation → Quotation → Sales Order → Production Work Order
 
 Three mandatory quality gates: **RMQC**, **IPQC**, **FGQC** (after packing).
 
-## 39 screens
+## 55 screens
 
 | Module | Screens |
 |---|---|
@@ -28,14 +28,13 @@ Three mandatory quality gates: **RMQC**, **IPQC**, **FGQC** (after packing).
 | Sales | 4 |
 | Master | 7 |
 | Planning | 2 |
-| Purchase & Inventory | 6 |
+| Purchase & Inventory | 12 |
 | Manufacturing | 4 |
-| Quality | 5 |
+| Quality | 4 |
 | Dispatch | 4 |
-| Costing | 1 |
 | Complaint & CAPA | 3 |
 | Integration | 1 |
-| Reports | 1 |
+| MIS Report | 13 |
 
 ## Also in here
 
@@ -50,4 +49,6 @@ No build step. Open `index.html` in a browser.
 
 - `assets/tokens.css` — design tokens (light + dark)
 - `assets/app.css` — component kit
-- `assets/app.js` — shell, sidebar, chat, notifications
+- `assets/app.js` — shell, sidebar, chat, notifications, approvals
+- `assets/chart.js` — inline-SVG charts, no library
+- `assets/demo.js` — browser-only demo data so the flow runs end to end

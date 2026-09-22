@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Actual Costing · Lamitube ERP</title>
+<title>Actual Job Cost Analysis Report · Lamitube ERP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/tokens.css?v=3">
-<link rel="stylesheet" href="assets/app.css?v=3">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
 </head>
 <body>
 <div id="page">
 
   <div class="ph">
     <div class="ph-l">
-      <div class="crumb"><b>Costing</b> / Actual Costing</div>
-      <h1>Actual Costing &mdash; PWO/26-0194</h1>
-      <p>Mankind Pharma &middot; LT 22&times;120 Cream &middot; 3,24,600 pcs produced &middot; closed 21 Sep 2026</p>
+      <div class="crumb"><b>MIS Report</b> / Actual Job Cost Analysis Report</div>
+      <h1>Actual Job Cost Analysis Report</h1>
+      <p>PWO/26-0194 &middot; Mankind Pharma &middot; LT 22&times;120 Cream &middot; 3,24,600 pcs &middot; closed 21 Sep 2026</p>
     </div>
     <div class="ph-r">
       <button class="btn"><i data-i="down"></i>Export</button>
@@ -31,6 +31,45 @@
     <div class="stat acc-t"><div class="lbl">Selling price / pc</div><div class="val">₹ 3.66</div></div>
     <div class="stat acc-w"><div class="lbl">Actual margin</div><div class="val">8.7%</div><div class="dlt dn">est. 15.3%</div></div>
     <div class="stat acc-s"><div class="lbl">Order value</div><div class="val">₹ 11.88<small> L</small></div></div>
+  </div>
+
+
+  <div class="chgrid c2">
+    <div class="card">
+      <div class="card-h"><h2>Estimated against actual &mdash; per piece</h2>
+        <span class="sub">cost head by cost head</span></div>
+      <div class="card-b">
+        <div class="chart" data-type="line" data-title="Estimated vs actual"
+          data-cats="Raw material,Bought-out,Printing,Manufacturing,Packing,Wastage,Rejection"
+          data-series='[{"name":"Estimated","values":[1.2440,0.5757,0.2100,0.4552,0.0640,0.1392,0.0558]},{"name":"Actual","values":[1.3006,0.5789,0.2240,0.4878,0.0637,0.1869,0.0801]}]'
+          data-unit="₹"></div>
+        <p class="muted" style="margin:10px 0 0;font-size:11.5px">
+          Every head except packing came in above estimate. Wastage and rejection are the two that moved by more than a third.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-h"><h2>Where the variance went</h2>
+        <span class="sub">₹ 61,646 total impact</span></div>
+      <div class="card-b">
+        <div class="chart" data-type="hbar" data-title="Variance drivers"
+          data-cats="Laminate over-consumption,Wastage above standard,Extra machine hours,Rejection above standard,Printing rate escalation,Rework"
+          data-values="18376,15483,10582,7888,4544,2792" data-unit="₹"></div>
+        <p class="muted" style="margin:10px 0 0;font-size:11.5px">
+          Cavity 5 of CM-01 sits behind three of these six lines &mdash; the rejection, the downtime and part of the rework.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Cost variance across recent jobs</h2>
+      <span class="sub">actual against estimated, per piece</span></div>
+    <div class="card-b">
+      <div class="chart" data-type="bar" data-title="Job variance"
+        data-cats="PWO/26-0181,PWO/26-0184,PWO/26-0186,PWO/26-0188,PWO/26-0194"
+        data-values="-1.8,7.7,1.2,-1.7,9.7" data-unit="%"></div>
+      <p class="muted" style="margin:10px 0 0;font-size:11.5px">
+        Two jobs came in under estimate. The two that blew out, 0184 and 0194, both ran on CM-01.</p>
+    </div>
   </div>
 
   <div class="split r1">
@@ -210,6 +249,7 @@
   </div>
 
 </div>
-<script src="assets/app.js?v=3"></script>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/chart.js?v=4"></script>
 </body>
 </html>

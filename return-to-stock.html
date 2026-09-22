@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Return to Stock · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / Return to Stock</div>
+      <h1>Return to Stock &mdash; RTS/26-0214</h1>
+      <p>Unused material coming back from the shop floor into the store</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg w">Draft</span>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="check2"></i>Post return</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-p"><div class="lbl">Returns this month</div><div class="val">38</div></div>
+    <div class="stat acc-s"><div class="lbl">Value returned</div><div class="val">₹ 4.18<small> L</small></div></div>
+    <div class="stat acc-w"><div class="lbl">Awaiting QC recheck</div><div class="val">3</div></div>
+    <div class="stat acc-e"><div class="lbl">Scrapped on return</div><div class="val">₹ 22,400</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Return no.</label><input class="inp ro" value="RTS/26-0214" readonly></div>
+        <div class="fld"><label>Return date <span class="req">*</span></label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>Against work order</label>
+          <select class="inp"><option>PWO/26-0194 — Mankind Pharma</option><option>PWO/26-0202 — Cipla Ltd.</option></select></div>
+        <div class="fld"><label>Against issue</label>
+          <select class="inp"><option>ISS/26-0769</option><option>ISS/26-0771</option></select></div>
+        <div class="fld"><label>Returned from</label>
+          <select class="inp"><option>TM-02 — Sleeve forming</option><option>CM-01 — Moulding</option><option>Packing hall</option></select></div>
+        <div class="fld"><label>Return to warehouse</label>
+          <select class="inp"><option>WH-RM — Raw material</option><option>WH-BO — Bought-out</option><option>WH-SCR — Scrap</option></select></div>
+        <div class="fld"><label>Returned by</label><select class="inp"><option>V. Thakur</option><option>D. Kumar</option></select></div>
+        <div class="fld"><label>Received by</label><select class="inp"><option>Store keeper</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Return lines</h2>
+          <span class="sub">batch identity is preserved so traceability is not broken</span>
+          <div class="r"><button class="btn sm"><i data-i="plus"></i>Add line</button></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Item</th><th>Batch / roll</th><th>UoM</th><th class="num">Issued</th>
+              <th class="num">Consumed</th><th class="num">Return qty</th><th>Condition</th>
+              <th class="num">Rate</th><th class="num">Value</th><th class="ctr"></th></tr></thead>
+            <tbody>
+              <tr><td><b>ABL Laminate 250&micro;</b><div class="mut">ITM-1004</div></td>
+                <td class="k">ROLL-26-1847</td><td>kg</td><td class="num">168.00</td>
+                <td class="num">163.80</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="4.20"></td>
+                <td><select class="inp" style="width:130px"><option>Good — reusable</option><option>Damaged — scrap</option><option>Needs QC recheck</option></select></td>
+                <td class="num mono">247.20</td><td class="num mono">1,038</td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr><td><b>HDPE granule</b><div class="mut">ITM-2011</div></td>
+                <td class="k">BATCH-26-0742</td><td>kg</td><td class="num">212.00</td>
+                <td class="num">205.40</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="6.60"></td>
+                <td><select class="inp" style="width:130px"><option>Good — reusable</option><option>Damaged — scrap</option></select></td>
+                <td class="num mono">111.40</td><td class="num mono">735</td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr><td><b>Flip-top cap 11 mm</b><div class="mut">ITM-3001</div></td>
+                <td class="k">LOT-26-4412</td><td>pcs</td><td class="num">40,000</td>
+                <td class="num">39,180</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="820"></td>
+                <td><select class="inp" style="width:130px"><option>Good — reusable</option><option>Damaged — scrap</option></select></td>
+                <td class="num mono">0.48</td><td class="num mono">394</td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="8">Return value</td><td class="num mono">2,167</td><td></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Return register</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Return no.</th><th>Date</th><th>Work order</th><th>From</th>
+              <th class="num">Lines</th><th class="num">Value</th><th>Condition</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">RTS/26-0213</td><td>21 Sep</td><td>PWO/26-0188</td><td>CAP-01</td>
+                <td class="num">2</td><td class="num mono">1,842</td>
+                <td><span class="bdg g nodot">Reusable</span></td><td><span class="bdg g">Posted</span></td></tr>
+              <tr><td class="k">RTS/26-0212</td><td>20 Sep</td><td>PWO/26-0186</td><td>TM-02</td>
+                <td class="num">1</td><td class="num mono">3,180</td>
+                <td><span class="bdg w nodot">QC recheck</span></td><td><span class="bdg w">On hold</span></td></tr>
+              <tr><td class="k">RTS/26-0210</td><td>18 Sep</td><td>PWO/26-0184</td><td>CM-01</td>
+                <td class="num">3</td><td class="num mono">6,420</td>
+                <td><span class="bdg r nodot">Scrap</span></td><td><span class="bdg g">Posted</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Summary</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Lines</dt><dd class="right">3</dd>
+            <dt>Reusable value</dt><dd class="right mono">₹ 2,167</dd>
+            <dt>Scrap value</dt><dd class="right mono">₹ 0</dd>
+            <dt>Goes back to</dt><dd class="right">WH-RM</dd>
+          </dl>
+          <div class="hr"></div>
+          <div class="alert info mb0" style="margin-bottom:0;padding:8px 10px;font-size:12px">
+            <i data-i="link"></i>
+            <div>Returned quantity is deducted from job consumption, so actual costing stays correct.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Effect on job cost</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td>Issued value</td><td class="num mono">₹ 1,45,238</td></tr>
+              <tr><td>Returned value</td><td class="num mono">− ₹ 2,167</td></tr>
+              <tr><td>Net consumption</td><td class="num mono"><b>₹ 1,43,071</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+</body>
+</html>

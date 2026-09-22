@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stock Report · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>MIS Report</b> / Stock Report</div>
+      <h1>Stock Report</h1>
+      <p>Stock value, ageing, turns and items sitting outside their band</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="cal"></i>Schedule</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="refresh"></i>Refresh</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-04-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Warehouse</label><select class="inp"><option>All</option><option>WH-RM</option><option>WH-BO</option><option>WH-WIP</option><option>WH-FG</option></select></div>
+    <div class="fld w-sm"><label>Group</label><select class="inp"><option>All</option><option>Laminate</option><option>Granule</option><option>Caps</option></select></div>
+    <div class="fld w-sm"><label>Unit</label><select class="inp"><option>Unit 1 — Baddi</option><option>All units</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="stats"><div class="stat acc-p"><div class="lbl"><i data-i="layers"></i>Stock value</div><div class="val">₹ 84.2 L</div><div class="dlt">across 4 warehouses</div><div class="spark chart" data-type="spark" data-values="72.4,76.1,74.8,81.2,86.4,84.2"></div></div><div class="stat acc-s"><div class="lbl"><i data-i="check2"></i>Free stock</div><div class="val">₹ 61.4 L</div><div class="dlt">72.9% of total</div></div><div class="stat acc-w"><div class="lbl"><i data-i="shield"></i>On QC hold</div><div class="val">₹ 2.6 L</div><div class="dlt">4 batches waiting</div></div><div class="stat acc-e"><div class="lbl"><i data-i="alertTri"></i>Ageing over 90 days</div><div class="val">₹ 3.1 L</div><div class="dlt">3.7% of stock value</div><div class="spark chart" data-type="spark" data-values="1.8,2.1,2.4,2.6,2.9,3.1"></div></div><div class="stat acc-t"><div class="lbl"><i data-i="refresh"></i>Inventory turns</div><div class="val">6.4</div><div class="dlt">target 8.0</div><div class="spark chart" data-type="spark" data-values="7.2,7.0,6.8,6.6,6.5,6.4"></div></div></div>
+
+  <div class="chgrid c2"><div class="card"><div class="card-h"><h2>Stock value by item group</h2></div><div class="card-b"><div class="chart" data-type="hbar" data-title="Stock by group"
+        data-cats="ABL laminate,Printed WIP,HDPE granule,Caps & rims,Finished goods,Masterbatch,Packing"
+        data-values="38.6,16.9,11.3,6.9,5.2,2.4,2.9" data-unit="₹ L"></div></div></div><div class="card"><div class="card-h"><h2>Stock value trend</h2><span class="sub">month end</span></div><div class="card-b"><div class="chart" data-type="line" data-title="Stock value"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep"
+        data-series='[{"name":"Stock value","values":[72.4,76.1,74.8,81.2,86.4,84.2]}]'
+        data-unit="₹ L"></div></div></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>Stock ageing</h2><span class="sub">value in each ageing bucket</span></div><div class="card-b"><div class="chart" data-type="bar" data-title="Ageing"
+        data-cats="0-30 d,31-60 d,61-90 d,91-180 d,180+ d" data-values="52.4,18.6,10.1,2.4,0.7" data-unit="₹ L"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">₹ 3.1 L has been lying over 90 days — mostly side-seam tape bought against an order that was later revised.</p></div></div><div class="card"><div class="card-h"><h2>Stock status split</h2><span class="sub">by value</span></div><div class="card-b"><div class="chart" data-type="stack" data-title="Stock status"
+        data-series='[{"name":"Free","value":61.4},{"name":"Allocated to jobs","value":20.2},{"name":"On QC hold","value":2.6}]'
+        data-unit="₹ L"></div></div></div></div><div class="card mb0"><div class="card-h"><h2>Items outside their band</h2><span class="sub">below reorder or ageing</span><div class="r"><button class="btn sm"><i data-i="down"></i>CSV</button></div></div><div class="card-b p0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Item</th><th>Group</th><th>UoM</th><th class="num">Free stock</th><th class="num">Reorder level</th>
+       <th class="num">Coverage days</th><th class="num">Oldest batch age</th><th class="num">Value</th><th>Flag</th></tr></thead><tbody><tr><td><b>Flip-top cap 11 mm — white</b></td><td>Caps</td><td>pcs</td>
+        <td class="num">85,000</td><td class="num">1,50,000</td><td class="num">11</td>
+        <td class="num">24</td><td class="num mono">50,400</td><td><span class="bdg r">Shortage</span></td></tr><tr><td><b>Masterbatch — white</b></td><td>Masterbatch</td><td>kg</td>
+        <td class="num">24.00</td><td class="num">60.00</td><td class="num">9</td>
+        <td class="num">18</td><td class="num mono">23,940</td><td><span class="bdg w">Below reorder</span></td></tr><tr><td><b>Inner box + carton</b></td><td>Packing</td><td>set</td>
+        <td class="num">600</td><td class="num">1,000</td><td class="num">14</td>
+        <td class="num">12</td><td class="num mono">5,220</td><td><span class="bdg w">Below reorder</span></td></tr><tr><td><b>Side-seam tape</b></td><td>Consumable</td><td>mtr</td>
+        <td class="num">17,000</td><td class="num">12,000</td><td class="num">86</td>
+        <td class="num"><b>102</b></td><td class="num mono">10,920</td><td><span class="bdg r">Ageing</span></td></tr><tr><td><b>ABL Laminate 250µ — 820 mm</b></td><td>Laminate</td><td>kg</td>
+        <td class="num">318.00</td><td class="num">600.00</td><td class="num">21</td>
+        <td class="num">64</td><td class="num mono">78,840</td><td><span class="bdg w">Below reorder</span></td></tr><tr><td><b>Rim / seal ring</b></td><td>Caps</td><td>pcs</td>
+        <td class="num">1,70,000</td><td class="num">1,00,000</td><td class="num">62</td>
+        <td class="num">31</td><td class="num mono">18,900</td><td><span class="bdg g">OK</span></td></tr></tbody></table></div></div></div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/chart.js?v=4"></script>
+</body>
+</html>

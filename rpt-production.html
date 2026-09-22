@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Production Report · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>MIS Report</b> / Production Report</div>
+      <h1>Production Report</h1>
+      <p>Output, yield, machine utilisation and where the losses sit</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="cal"></i>Schedule</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="refresh"></i>Refresh</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-04-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Machine</label><select class="inp"><option>All</option><option>SLIT-01</option><option>TM-02</option><option>CM-01</option><option>CAP-01</option></select></div>
+    <div class="fld w-sm"><label>Shift</label><select class="inp"><option>All</option><option>A</option><option>B</option><option>C</option></select></div>
+    <div class="fld w-sm"><label>Unit</label><select class="inp"><option>Unit 1 — Baddi</option><option>All units</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="stats"><div class="stat acc-p"><div class="lbl"><i data-i="factory"></i>Output MTD</div><div class="val">28.4 lakh</div><div class="dlt">pcs produced</div><div class="spark chart" data-type="spark" data-values="24.1,26.8,23.4,29.2,31.1,28.4"></div></div><div class="stat acc-s"><div class="lbl"><i data-i="check2"></i>Yield</div><div class="val">96.1%</div><div class="dlt">target 97.0%</div><div class="spark chart" data-type="spark" data-values="97.2,97.0,96.8,96.6,96.2,96.1"></div></div><div class="stat acc-t"><div class="lbl"><i data-i="cpu"></i>Machine utilisation</div><div class="val">84.2%</div><div class="dlt">across 6 machines</div><div class="spark chart" data-type="spark" data-values="86.1,85.4,84.8,85.2,84.6,84.2"></div></div><div class="stat acc-w"><div class="lbl"><i data-i="alertTri"></i>Rejection</div><div class="val">2.4%</div><div class="dlt">standard 1.8%</div><div class="spark chart" data-type="spark" data-values="1.8,1.9,2.0,2.1,2.3,2.4"></div></div><div class="stat acc-e"><div class="lbl"><i data-i="cal"></i>Downtime</div><div class="val">96 hrs</div><div class="dlt">12.8% of available</div><div class="spark chart" data-type="spark" data-values="68,72,79,84,91,96"></div></div></div>
+
+  <div class="card"><div class="card-h"><h2>Output and yield by month</h2><span class="sub">output in lakh pieces</span></div><div class="card-b"><div class="chart" data-type="bar" data-title="Output"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep" data-values="24.1,26.8,23.4,29.2,31.1,28.4" data-unit="lakh pcs"></div></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>Yield trend</h2><span class="sub">good output as a share of input</span></div><div class="card-b"><div class="chart" data-type="line" data-title="Yield"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep"
+        data-series='[{"name":"Actual","values":[97.2,97.0,96.8,96.6,96.2,96.1]},{"name":"Target","values":[97,97,97,97,97,97]}]'
+        data-unit="%"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">Yield has fallen every month since April. The drift starts exactly when cavity 5 of CM-01 began running below clamp pressure.</p></div></div><div class="card"><div class="card-h"><h2>Machine utilisation</h2><span class="sub">running hours against available hours</span></div><div class="card-b"><div class="chart" data-type="hbar" data-title="Utilisation"
+        data-cats="CAP-01,SLIT-01,TM-02,CM-02,CM-01,LT-02"
+        data-values="91,89,86,84,78,72" data-unit="%"></div></div></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>Downtime by reason</h2><span class="sub">hours lost this month</span></div><div class="card-b"><div class="chart" data-type="hbar" data-title="Downtime"
+        data-cats="Mechanical breakdown,Quality stoppage,Material waiting,Changeover,Power,Manpower"
+        data-values="31,24,16,13,8,4" data-unit="hrs"></div></div></div><div class="card"><div class="card-h"><h2>Rejection by process</h2><span class="sub">share of total rejection</span></div><div class="card-b"><div class="chart" data-type="stack" data-title="Rejection by process"
+        data-series='[{"name":"Shoulder moulding","value":46},{"name":"Printing","value":21},{"name":"Sleeve forming","value":18},{"name":"Capping","value":9},{"name":"Slitting","value":6}]'
+        data-unit="%"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">Shoulder moulding contributes nearly half of all rejection, and within it cavity 5 alone accounts for 284 of 618 pieces.</p></div></div></div><div class="card mb0"><div class="card-h"><h2>Machine-wise production</h2><span class="sub">month to date</span><div class="r"><button class="btn sm"><i data-i="down"></i>CSV</button></div></div><div class="card-b p0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Machine</th><th>Process</th><th class="num">Run hrs</th><th class="num">Down hrs</th>
+       <th class="num">Utilisation</th><th class="num">Output</th><th class="num">Rejection</th>
+       <th class="num">Yield</th><th class="num">Std. rate</th><th class="num">Actual rate</th></tr></thead><tbody><tr><td class="k">SLIT-01</td><td>Slitting</td><td class="num">642</td>
+        <td class="num">48</td><td class="num">89%</td><td class="num">57,80,000</td>
+        <td class="num">0.6%</td><td class="num">99.4%</td><td class="num">9,000</td><td class="num">9,003</td></tr><tr><td class="k">TM-02</td><td>Sleeve forming</td><td class="num">620</td>
+        <td class="num">72</td><td class="num">86%</td><td class="num">44,64,000</td>
+        <td class="num">1.2%</td><td class="num">98.8%</td><td class="num">7,200</td><td class="num">7,200</td></tr><tr><td class="k">CM-01</td><td>Shoulder moulding</td><td class="num">562</td>
+        <td class="num">158</td><td class="num">78%</td><td class="num">11,56,000</td>
+        <td class="num"><b>3.9%</b></td><td class="num">96.1%</td><td class="num">2,057</td><td class="num">2,057</td></tr><tr><td class="k">CM-02</td><td>Shoulder moulding</td><td class="num">605</td>
+        <td class="num">115</td><td class="num">84%</td><td class="num">12,44,000</td>
+        <td class="num">1.4%</td><td class="num">98.6%</td><td class="num">2,057</td><td class="num">2,056</td></tr><tr><td class="k">CAP-01</td><td>Capping & assembly</td><td class="num">656</td>
+        <td class="num">64</td><td class="num">91%</td><td class="num">55,10,000</td>
+        <td class="num">0.9%</td><td class="num">99.1%</td><td class="num">8,400</td><td class="num">8,399</td></tr><tr><td class="k">LT-02</td><td>Leak test</td><td class="num">518</td>
+        <td class="num">202</td><td class="num">72%</td><td class="num">51,80,000</td>
+        <td class="num">0.1%</td><td class="num">99.9%</td><td class="num">10,000</td><td class="num">10,000</td></tr></tbody></table></div></div></div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/chart.js?v=4"></script>
+</body>
+</html>

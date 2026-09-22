@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tools Performance Report · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>MIS Report</b> / Tools Performance Report</div>
+      <h1>Tools Performance Report</h1>
+      <p>Mould and cavity life, rejection contribution, maintenance and cost per piece</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="cal"></i>Schedule</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="refresh"></i>Refresh</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-04-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Mould</label><select class="inp"><option>All</option><option>MLD-19A</option><option>MLD-22A</option><option>MLD-25A</option><option>MLD-30A</option></select></div>
+    <div class="fld w-sm"><label>Machine</label><select class="inp"><option>All</option><option>CM-01</option><option>CM-02</option></select></div>
+    <div class="fld w-sm"><label>Unit</label><select class="inp"><option>Unit 1 — Baddi</option><option>All units</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="stats"><div class="stat acc-p"><div class="lbl"><i data-i="cpu"></i>Active moulds</div><div class="val">4</div><div class="dlt">30 cavities in total</div></div><div class="stat acc-w"><div class="lbl"><i data-i="refresh"></i>Service due</div><div class="val">2</div><div class="dlt">within 2 lakh shots</div></div><div class="stat acc-e"><div class="lbl"><i data-i="alertTri"></i>Cavities flagged</div><div class="val">1</div><div class="dlt">cavity 5 of MLD-22A</div></div><div class="stat acc-t"><div class="lbl"><i data-i="rupee"></i>Tooling cost / 1000 pcs</div><div class="val">₹ 18.40</div><div class="dlt">target ₹ 16.00</div><div class="spark chart" data-type="spark" data-values="16.2,16.8,17.1,17.6,18.1,18.4"></div></div><div class="stat acc-s"><div class="lbl"><i data-i="cal"></i>Mean shots between service</div><div class="val">6.4 lakh</div><div class="dlt">across all moulds</div><div class="spark chart" data-type="spark" data-values="7.1,6.9,6.8,6.6,6.5,6.4"></div></div></div>
+
+  <div class="card"><div class="card-h"><h2>Cavity-wise rejection — MLD-22A</h2><span class="sub">one cavity is carrying the whole rejection number</span></div><div class="card-b"><div class="chart" data-type="bar" data-title="Cavity rejection"
+        data-cats="C1,C2,C3,C4,C5,C6,C7,C8" data-values="0.80,0.72,0.97,0.84,5.41,0.97,1.16,0.90" data-unit="%"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">Cavity 5 runs at 5.41% against a 0.80–1.16% band on the other seven. This is the single largest quality cost in the plant right now.</p></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>Mould life consumed</h2><span class="sub">shots against the 25 lakh service limit</span></div><div class="card-b"><div class="chart" data-type="hbar" data-title="Mould life"
+        data-cats="MLD-30A,MLD-22A,MLD-19A,MLD-25A"
+        data-values="95.6,84.3,73.7,38.6" data-unit="%"></div><p class="muted" style="margin:10px 0 0;font-size:11.5px">MLD-30A and MLD-22A both cross 80% of rated life. Schedule the refurbishment before the next big toothpaste order.</p></div></div><div class="card"><div class="card-h"><h2>Tooling cost per 1000 pieces</h2><span class="sub">amortisation plus maintenance</span></div><div class="card-b"><div class="chart" data-type="line" data-title="Tooling cost"
+        data-cats="Apr,May,Jun,Jul,Aug,Sep"
+        data-series='[{"name":"Actual","values":[16.2,16.8,17.1,17.6,18.1,18.4]},{"name":"Target","values":[16,16,16,16,16,16]}]'
+        data-unit="₹"></div></div></div></div><div class="chgrid c2"><div class="card"><div class="card-h"><h2>Maintenance hours by mould</h2><span class="sub">this financial year</span></div><div class="card-b"><div class="chart" data-type="bar" data-title="Maintenance hours"
+        data-cats="MLD-19A,MLD-22A,MLD-25A,MLD-30A" data-values="18,46,11,29" data-unit="hrs"></div></div></div><div class="card"><div class="card-h"><h2>Downtime attributable to tooling</h2><span class="sub">share of total machine downtime</span></div><div class="card-b"><div class="chart" data-type="stack" data-title="Tooling downtime"
+        data-series='[{"name":"Cavity cleaning","value":34},{"name":"Mould change","value":26},{"name":"Breakdown repair","value":22},{"name":"Preventive service","value":18}]'
+        data-unit="%"></div></div></div></div><div class="card mb0"><div class="card-h"><h2>Mould register</h2><span class="sub">life, performance and service position</span><div class="r"><button class="btn sm"><i data-i="down"></i>CSV</button></div></div><div class="card-b p0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Mould</th><th>Product</th><th>Machine</th><th class="num">Cavities</th>
+       <th class="num">Shot wt.</th><th class="num">Cycle</th><th class="num">Shots done</th>
+       <th class="num">Life used</th><th class="num">Rejection</th><th class="num">Maint. hrs</th><th>Condition</th></tr></thead><tbody><tr><td class="k">MLD-19A</td><td>LT 19 mm shoulder</td><td>CM-01 / CM-02</td><td class="num">8</td>
+        <td class="num">1.35 g</td><td class="num">14.0 s</td><td class="num">18,42,000</td>
+        <td class="num">73.7%</td><td class="num">0.94%</td><td class="num">18</td><td><span class="bdg g">Good</span></td></tr><tr><td class="k">MLD-22A</td><td>LT 22 mm shoulder</td><td>CM-01</td><td class="num">8</td>
+        <td class="num">1.52 g</td><td class="num">14.2 s</td><td class="num">21,08,000</td>
+        <td class="num">84.3%</td><td class="num"><b>1.47%</b></td><td class="num">46</td><td><span class="bdg r">Cavity 5 under CAPA</span></td></tr><tr><td class="k">MLD-25A</td><td>LT 25 mm shoulder</td><td>CM-02</td><td class="num">8</td>
+        <td class="num">1.90 g</td><td class="num">15.0 s</td><td class="num">9,64,000</td>
+        <td class="num">38.6%</td><td class="num">0.88%</td><td class="num">11</td><td><span class="bdg g">Good</span></td></tr><tr><td class="k">MLD-30A</td><td>LT 30 mm shoulder</td><td>CM-02</td><td class="num">6</td>
+        <td class="num">2.40 g</td><td class="num">16.5 s</td><td class="num">23,91,000</td>
+        <td class="num">95.6%</td><td class="num">1.21%</td><td class="num">29</td><td><span class="bdg w">Service due</span></td></tr></tbody><tfoot><tr><td colspan="3">Total</td><td class="num">30</td><td colspan="2"></td>
+       <td class="num">73,05,000</td><td class="num">73.1%</td><td class="num">1.14%</td><td class="num">104</td><td></td></tr></tfoot></table></div></div></div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/chart.js?v=4"></script>
+</body>
+</html>

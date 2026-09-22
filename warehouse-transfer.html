@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transfer Between Warehouse · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=4">
+<link rel="stylesheet" href="assets/app.css?v=4">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / Transfer Between Warehouse</div>
+      <h1>Warehouse Transfer &mdash; WHT/26-0132</h1>
+      <p>Stock moving between stores inside the same unit &mdash; no GST document</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg b">In transit</span>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="check2"></i>Post transfer</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-p"><div class="lbl">Transfers this month</div><div class="val">64</div></div>
+    <div class="stat acc-b" style="border-left:3px solid rgb(var(--color-info))"><div class="lbl">In transit</div><div class="val">3</div></div>
+    <div class="stat acc-s"><div class="lbl">Completed today</div><div class="val">7</div></div>
+    <div class="stat acc-w"><div class="lbl">Awaiting acceptance</div><div class="val">2</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Transfer no.</label><input class="inp ro" value="WHT/26-0132" readonly></div>
+        <div class="fld"><label>Transfer date <span class="req">*</span></label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>From warehouse <span class="req">*</span></label>
+          <select class="inp"><option>WH-RM — Raw material store</option><option>WH-BO — Bought-out store</option><option>WH-FG — Finished goods</option></select></div>
+        <div class="fld"><label>To warehouse <span class="req">*</span></label>
+          <select class="inp"><option>WH-WIP — Work in process</option><option>WH-PK — Packing store</option><option>WH-QC — Quarantine</option></select></div>
+        <div class="fld"><label>From bin</label><input class="inp" value="A-12"></div>
+        <div class="fld"><label>To bin</div><input class="inp" value="W-03"></div>
+        <div class="fld"><label>Transfer reason</label>
+          <select class="inp"><option>Production requirement</option><option>Space rearrangement</option><option>Quarantine move</option><option>Ageing stock relocation</option></select></div>
+        <div class="fld"><label>Requested by</label><select class="inp"><option>Production supervisor</option><option>Store keeper</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Transfer lines</h2>
+          <div class="r"><button class="btn sm"><i data-i="plus"></i>Add line</button>
+            <button class="btn sm"><i data-i="search2"></i>Scan QR</button></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Item</th><th>Batch / roll</th><th>UoM</th>
+              <th class="num">Stock at source</th><th class="num">Transfer qty</th>
+              <th class="num">Rate</th><th class="num">Value</th><th>QC status</th><th class="ctr"></th></tr></thead>
+            <tbody>
+              <tr><td><b>ABL Laminate 250&micro;</b><div class="mut">ITM-1004</div></td>
+                <td class="k">ROLL-26-1841</td><td>kg</td><td class="num">208.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="208.00"></td>
+                <td class="num mono">247.20</td><td class="num mono">51,418</td>
+                <td><span class="bdg g nodot">Passed</span></td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr><td><b>HDPE granule</b><div class="mut">ITM-2011</div></td>
+                <td class="k">BATCH-26-0742</td><td>kg</td><td class="num">550.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="212.00"></td>
+                <td class="num mono">111.40</td><td class="num mono">23,617</td>
+                <td><span class="bdg g nodot">Passed</span></td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr style="opacity:.55"><td><b>ABL Laminate 250&micro;</b><div class="mut">ITM-1004</div></td>
+                <td class="k">ROLL-26-1902</td><td>kg</td><td class="num">212.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="0.00" disabled></td>
+                <td class="num mono">246.50</td><td class="num mono">&mdash;</td>
+                <td><span class="bdg w nodot">QC hold — locked</span></td>
+                <td class="ctr"><button class="btn sm gh" disabled><i data-i="x"></i></button></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="6">Transfer value</td><td class="num mono">75,035</td><td colspan="2"></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Transfer register</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Transfer no.</th><th>Date</th><th>From</th><th>To</th>
+              <th class="num">Lines</th><th class="num">Value</th><th>Reason</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">WHT/26-0131</td><td>22 Sep</td><td>WH-RM</td><td>WH-WIP</td>
+                <td class="num">2</td><td class="num mono">41,280</td><td>Production requirement</td>
+                <td><span class="bdg g">Completed</span></td></tr>
+              <tr><td class="k">WHT/26-0130</td><td>21 Sep</td><td>WH-QC</td><td>WH-RM</td>
+                <td class="num">1</td><td class="num mono">14,820</td><td>QC released</td>
+                <td><span class="bdg g">Completed</span></td></tr>
+              <tr><td class="k">WHT/26-0129</td><td>21 Sep</td><td>WH-BO</td><td>WH-WIP</td>
+                <td class="num">1</td><td class="num mono">19,200</td><td>Production requirement</td>
+                <td><span class="bdg b">In transit</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Summary</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Lines</dt><dd class="right">2 of 3</dd>
+            <dt>Laminate</dt><dd class="right mono">208.00 kg</dd>
+            <dt>Granule</dt><dd class="right mono">212.00 kg</dd>
+            <dt>Transfer value</dt><dd class="right mono">₹ 75,035</dd>
+          </dl>
+          <div class="hr"></div>
+          <div class="alert warn mb0" style="margin-bottom:0;padding:8px 10px;font-size:12px">
+            <i data-i="shield"></i>
+            <div>ROLL-26-1902 is on QC hold and cannot be transferred until RMQC clears it.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Acceptance</h2></div>
+        <div class="card-b">
+          <div class="steps" style="flex-direction:column;align-items:flex-start;gap:9px;margin-bottom:12px">
+            <div class="step done"><span class="b"><i data-i="check2"></i></span><span>Raised by store</span></div>
+            <div class="step done"><span class="b"><i data-i="check2"></i></span><span>Picked and moved</span></div>
+            <div class="step now"><span class="b">3</span><span>Acceptance at destination</span></div>
+            <div class="step"><span class="b">4</span><span>Stock updated</span></div>
+          </div>
+          <button class="btn ok" style="width:100%;justify-content:center"><i data-i="check2"></i>Accept at destination</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js?v=4"></script>
+</body>
+</html>

@@ -64,7 +64,9 @@
     paperclip: '<path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>',
     atSign:    '<circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/>',
     phone:     '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>',
-    zap:       '<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>'
+    zap:       '<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>',
+    clipCheck: '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>',
+    thumbsUp:  '<path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/>'
   };
 
   function svg(name, cls) {
@@ -99,12 +101,18 @@
       { t: 'Machine Scheduling',    h: 'scheduling.html', i: 'cal' }
     ]},
     { g: 'Purchase & Inventory', i: 'cart', items: [
-      { t: 'Indent Approval', h: 'indent-approval.html', i: 'check2' },
-      { t: 'Purchase Order',  h: 'purchase-order.html',  i: 'cart' },
-      { t: 'Gate Entry',      h: 'gate-entry.html',      i: 'door' },
-      { t: 'GRN',             h: 'grn.html',             i: 'truck' },
-      { t: 'Stock & Batch',   h: 'stock.html',           i: 'layers' },
-      { t: 'Material Issue',  h: 'material-issue.html',  i: 'arrowUD' }
+      { t: 'Indent Approval',        h: 'indent-approval.html',          i: 'check2' },
+      { t: 'Purchase Order',         h: 'purchase-order.html',           i: 'cart' },
+      { t: 'Gate Entry',             h: 'gate-entry.html',               i: 'door' },
+      { t: 'GRN',                    h: 'grn.html',                      i: 'truck' },
+      { t: 'Stock & Batch',          h: 'stock.html',                    i: 'layers' },
+      { t: 'Material Issue',         h: 'material-issue.html',           i: 'arrowUD' },
+      { t: 'Return to Stock',        h: 'return-to-stock.html',          i: 'undo' },
+      { t: 'Return to Supplier',     h: 'return-to-supplier.html',       i: 'undo' },
+      { t: 'Warehouse Transfer',     h: 'warehouse-transfer.html',       i: 'arrowUD' },
+      { t: 'Company Transfer — Sent',    h: 'company-transfer-sent.html',    i: 'send' },
+      { t: 'Company Transfer — Receive', h: 'company-transfer-receive.html', i: 'inbox' },
+      { t: 'Physical Verification',  h: 'physical-verification.html',    i: 'clipCheck' }
     ]},
     { g: 'Manufacturing', i: 'factory', items: [
       { t: 'Production Entry',   h: 'production-entry.html', i: 'factory' },
@@ -116,17 +124,13 @@
       { t: 'RMQC', h: 'rmqc.html', i: 'shield' },
       { t: 'IPQC', h: 'ipqc.html', i: 'shield' },
       { t: 'FGQC', h: 'fgqc.html', i: 'shield' },
-      { t: 'COA',  h: 'coa.html',  i: 'award' },
-      { t: 'NCR',  h: 'ncr.html',  i: 'alertTri' }
+      { t: 'COA',  h: 'coa.html',  i: 'award' }
     ]},
     { g: 'Dispatch', i: 'truck', items: [
       { t: 'Packing',            h: 'packing.html',          i: 'pkg' },
       { t: 'Delivery Note',      h: 'delivery-note.html',    i: 'truck' },
       { t: 'Dispatch & Invoice', h: 'dispatch-invoice.html', i: 'receipt' },
       { t: 'Sales Return',       h: 'sales-return.html',     i: 'undo' }
-    ]},
-    { g: 'Costing', i: 'rupee', items: [
-      { t: 'Actual Costing', h: 'actual-costing.html', i: 'rupee' }
     ]},
     { g: 'Complaint & CAPA', i: 'msgAlert', items: [
       { t: 'Customer Complaint', h: 'complaint.html', i: 'msgAlert' },
@@ -136,8 +140,20 @@
     { g: 'Integration', i: 'link', items: [
       { t: 'Printing Data Sync', h: 'integration.html', i: 'zap', live: true }
     ]},
-    { g: 'Reports', i: 'chart', items: [
-      { t: 'Reports', h: 'reports.html', i: 'chart' }
+    { g: 'MIS Report', i: 'chart', items: [
+      { t: 'Report Centre',                     h: 'reports.html',        i: 'chart' },
+      { t: 'Estimation & Quotation Report',     h: 'rpt-estimation.html', i: 'calc' },
+      { t: 'Sales Order Management Report',     h: 'rpt-sales.html',      i: 'cart' },
+      { t: 'Outsource Report',                  h: 'rpt-outsource.html',  i: 'send' },
+      { t: 'Procurement Report',                h: 'rpt-procurement.html',i: 'truck' },
+      { t: 'Stock Report',                      h: 'rpt-stock.html',      i: 'layers' },
+      { t: 'Production Report',                 h: 'rpt-production.html', i: 'factory' },
+      { t: 'FG Report',                         h: 'rpt-fg.html',         i: 'pkg' },
+      { t: 'WIP Tracking Report',               h: 'rpt-wip.html',        i: 'activity' },
+      { t: 'Complaint & CAPA Report',           h: 'rpt-capa.html',       i: 'msgAlert' },
+      { t: 'Actual Job Cost Analysis Report',   h: 'actual-costing.html', i: 'rupee' },
+      { t: 'Artwork Report',                    h: 'rpt-artwork.html',    i: 'image' },
+      { t: 'Tools Performance Report',          h: 'rpt-tools.html',      i: 'cpu' }
     ]}
   ];
 
@@ -215,6 +231,37 @@
     { ic: 'r', i: 'shield', t: 'IPQC failed — CM-01', p: 'Cavity 5 clamp pressure 137 bar against 140–150 bar.', tm: '2 hrs ago', u: 0 },
     { ic: 'g', i: 'award', t: 'COA generated', p: 'COA/26-0294 issued for batch FG-LT26-0201-A.', tm: '3 hrs ago', u: 0 },
     { ic: 'b', i: 'truck', t: 'GRN posted', p: 'GRN/26-0625 — 470 kg received, moved to QC hold.', tm: '4 hrs ago', u: 0 }
+  ];
+
+  /* everything waiting on this user's approval, from every module */
+  var APPROVALS = [
+    { grp: 'Indent / PR', ic: 'w', i: 'check2', no: 'IND/26-0314',
+      by: 'PWO/26-0202 · auto', meta: '3 lines · ₹ 1,03,740 · PO blocked',
+      tm: '1 hr', href: 'indent-approval.html', src: 'auto' },
+    { grp: 'Indent / PR', ic: 'w', i: 'check2', no: 'IND/26-0316',
+      by: 'N. Gupta · manual', meta: '2 lines · ₹ 46,200 · maintenance spares',
+      tm: '3 hrs', href: 'indent-approval.html', src: 'manual' },
+    { grp: 'Indent / PR', ic: 'w', i: 'check2', no: 'IND/26-0313',
+      by: 'PWO/26-0197 · auto', meta: '5 lines · ₹ 6,84,200',
+      tm: '1 day', href: 'indent-approval.html', src: 'auto' },
+    { grp: 'Purchase Order', ic: 'b', i: 'cart', no: 'PO/26-0488',
+      by: 'N. Gupta', meta: '₹ 1,14,451 · Essel Propack Ltd.',
+      tm: '6 hrs', href: 'purchase-order.html' },
+    { grp: 'Quotation', ic: 'o', i: 'file', no: 'QT/26-0421',
+      by: 'A. Kumar', meta: 'Margin 16% — below the 17% floor',
+      tm: '5 hrs', href: 'quotation.html' },
+    { grp: 'Sales Order', ic: 'r', i: 'cart', no: 'SO/26-0199',
+      by: 'R. Sharma', meta: 'Credit limit exceeded by ₹ 2.14 L',
+      tm: '2 days', href: 'sales-order.html' },
+    { grp: 'Quality', ic: 'r', i: 'alertTri', no: 'NCR/26-0044',
+      by: 'R. Verma · QA', meta: 'Use as is — concession on ΔE 2.4',
+      tm: '1 day', href: 'ncr.html' },
+    { grp: 'Quality', ic: 'g', i: 'shield', no: 'FGQ/26-0311',
+      by: 'S. Nair · QA', meta: 'Batch release — 0.043% leak rejection',
+      tm: '2 hrs', href: 'fgqc.html' },
+    { grp: 'Quality', ic: 'r', i: 'wrench', no: 'CAPA-2026-014',
+      by: 'Production Head', meta: 'Effectiveness verification pending',
+      tm: '2 days', href: 'capa.html' }
   ];
 
   /* ---------------- build shell ---------------- */
@@ -301,6 +348,8 @@
             '<option>Unit 1 — Baddi</option><option>Unit 2 — Haridwar</option>' +
           '</select>' +
           '<button class="icn-btn" id="btnTheme" title="Theme">' + svg('moon') + '</button>' +
+          '<button class="icn-btn" id="btnAppr" title="Pending approvals">' + svg('clipCheck') +
+            (APPROVALS.length ? '<i class="dotb" style="background:rgb(var(--color-warning))"></i>' : '') + '</button>' +
           '<button class="icn-btn" id="btnMail" title="Email">' + svg('mail') + '</button>' +
           '<button class="icn-btn" id="btnChat" title="Internal messages">' + svg('msgs') +
             (totalUnread ? '<i class="dotb"></i>' : '') + '</button>' +
@@ -317,7 +366,7 @@
     app.querySelector('#slot').appendChild(page);
 
     var main = app.querySelector('.main');
-    main.insertAdjacentHTML('beforeend', notifPanel(notifUnread) + avatarMenu());
+    main.insertAdjacentHTML('beforeend', notifPanel(notifUnread) + apprPanel() + avatarMenu());
     document.body.insertAdjacentHTML('beforeend', chatPanel());
 
     wireSidebar(app);
@@ -329,7 +378,7 @@
 
     /* demo data layer — loaded last so it can decorate the built page */
     var ds = document.createElement('script');
-    ds.src = 'assets/demo.js?v=3';
+    ds.src = 'assets/demo.js?v=4';
     document.body.appendChild(ds);
   }
 
@@ -431,6 +480,46 @@
       '<div class="pop-f"><a>View all notifications</a></div></div>';
   }
 
+  /* ---------------- approval centre panel ---------------- */
+  function apprPanel() {
+    var groups = [];
+    APPROVALS.forEach(function (a) { if (groups.indexOf(a.grp) < 0) groups.push(a.grp); });
+
+    var chips = groups.map(function (g) {
+      var n = APPROVALS.filter(function (a) { return a.grp === g; }).length;
+      return '<span class="chip" style="font-size:10.5px;padding:2px 7px">' + g + ' ' + n + '</span>';
+    }).join('');
+
+    var rows = '';
+    groups.forEach(function (g) {
+      rows += '<div style="padding:7px 13px 4px;font-size:10px;font-weight:700;letter-spacing:.08em;' +
+        'text-transform:uppercase;color:rgb(var(--fg-subtle));background:rgb(var(--bg-subtle));' +
+        'border-bottom:1px solid rgb(var(--bd-subtle))">' + g + '</div>';
+      APPROVALS.filter(function (a) { return a.grp === g; }).forEach(function (a) {
+        rows += '<div class="nrow appr-row" data-href="' + a.href + '">' +
+          '<div class="ic ' + a.ic + '">' + svg(a.i) + '</div>' +
+          '<div class="tx"><b>' + a.no +
+            (a.src === 'manual' ? ' <span class="bdg n nodot" style="font-size:9px">MANUAL</span>' : '') +
+            (a.src === 'auto' ? ' <span class="bdg b nodot" style="font-size:9px">AUTO</span>' : '') +
+          '</b><p>' + a.meta + '</p>' +
+          '<div class="tm">' + a.by + ' · ' + a.tm + '</div>' +
+          '<div style="display:flex;gap:6px;margin-top:7px">' +
+            '<button class="btn sm ok appr-ok">' + svg('check2') + 'Approve</button>' +
+            '<button class="btn sm appr-no">' + svg('x') + 'Reject</button>' +
+            '<a class="btn sm" href="' + a.href + '">Open</a>' +
+          '</div></div></div>';
+      });
+    });
+
+    return '<div class="pop" id="popAppr" style="width:410px">' +
+      '<div class="pop-h">' + svg('clipCheck') + '<b>Approvals</b>' +
+        '<span class="r"><span class="bdg w nodot">' + APPROVALS.length + ' pending</span></span></div>' +
+      '<div style="padding:8px 13px;display:flex;gap:5px;flex-wrap:wrap;' +
+        'border-bottom:1px solid rgb(var(--bd-subtle))">' + chips + '</div>' +
+      '<div class="pop-b" style="max-height:420px">' + rows + '</div>' +
+      '<div class="pop-f"><a href="indent-approval.html">Open approval centre</a></div></div>';
+  }
+
   function avatarMenu() {
     return '<div class="pop amenu" id="popAv">' +
       '<div class="me"><b>Amit Kumar</b><span>Plant Head · Unit 1 Baddi</span></div>' +
@@ -456,12 +545,32 @@
     });
 
     function toggle(id) {
-      ['popBell', 'popAv'].forEach(function (x) {
+      ['popBell', 'popAppr', 'popAv'].forEach(function (x) {
         var el = document.getElementById(x);
         if (el) el.classList.toggle('on', x === id && !el.classList.contains('on'));
       });
     }
     app.querySelector('#btnBell').addEventListener('click', function (e) { e.stopPropagation(); toggle('popBell'); });
+    app.querySelector('#btnAppr').addEventListener('click', function (e) { e.stopPropagation(); toggle('popAppr'); });
+
+    /* approve / reject straight from the panel */
+    var ap = document.getElementById('popAppr');
+    if (ap) ap.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var row = e.target.closest('.appr-row'); if (!row) return;
+      var no = row.querySelector('b').childNodes[0].textContent.trim();
+      if (e.target.closest('.appr-ok')) {
+        row.style.opacity = '.4';
+        row.querySelectorAll('button').forEach(function (b) { b.disabled = true; });
+        toast({ k: 'ok', i: 'check2', t: 'Approved — ' + no,
+          p: 'The next step is unlocked for whoever raised it.' });
+      } else if (e.target.closest('.appr-no')) {
+        row.style.opacity = '.4';
+        row.querySelectorAll('button').forEach(function (b) { b.disabled = true; });
+        toast({ k: 'err', i: 'x', t: 'Rejected — ' + no,
+          p: 'Sent back to the originator with your remark.' });
+      }
+    });
     app.querySelector('#btnAv').addEventListener('click', function (e) { e.stopPropagation(); toggle('popAv'); });
     app.querySelector('#btnMail').addEventListener('click', function () {
       toast({ k: 'msg', i: 'mail', t: 'Email panel', p: 'Customer and supplier mail box opens here in the full build.' });
