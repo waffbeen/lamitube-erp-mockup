@@ -164,16 +164,16 @@
         { w: 'Maintenance', t: 'Team reaching the floor in 10 minutes. Sensor replacement kit is in stores.', tm: '11:38' },
         { w: 'V. Thakur', t: 'Cavity 5 isolated, running on 7. Output will drop to about 1,800 per hour.', tm: '11:42' }
       ]},
-    { id: 'print', name: 'Monarch Print Pvt. Ltd.', kind: 'external', col: '#b45309', ini: 'MP',
+    { id: 'print', name: 'LAXMI Lamitube Pvt. Ltd.', kind: 'external', col: '#b45309', ini: 'LL',
       last: 'Lot 3 loaded on press, 62% done', time: '11:05', unread: 2, sub: 'Printing partner · external channel',
       msgs: [
         { d: 'Yesterday' },
-        { w: 'A. Sethi (Monarch)', t: 'Received 4 rolls against ICP/26-0077, total 792 kg. Plates mounted, shade standard matched.', tm: '16:40', ref: 'ICP/26-0077' },
+        { w: 'A. Sethi (LAXMI Lamitube)', t: 'Received 4 rolls against ICP/26-0077, total 792 kg. Plates mounted, shade standard matched.', tm: '16:40', ref: 'ICP/26-0077' },
         { d: 'Today' },
-        { sys: 1, t: 'Job status auto-synced from Monarch Print — printing started 06:10, 62% complete' },
+        { sys: 1, t: 'Job status auto-synced from LAXMI Lamitube — printing started 06:10, 62% complete' },
         { me: 1, t: 'Please share the delta-E log with the challan this time. It is a CAPA requirement on our side.', tm: '09:20' },
-        { w: 'A. Sethi (Monarch)', t: 'Noted. We are logging every 1000 metres and will attach the signed sheet.', tm: '09:34' },
-        { w: 'A. Sethi (Monarch)', t: 'Lot 3 loaded on press, 62% done. Expecting dispatch back to you by tomorrow evening.', tm: '11:05' }
+        { w: 'A. Sethi (LAXMI Lamitube)', t: 'Noted. We are logging every 1000 metres and will attach the signed sheet.', tm: '09:34' },
+        { w: 'A. Sethi (LAXMI Lamitube)', t: 'Lot 3 loaded on press, 62% done. Expecting dispatch back to you by tomorrow evening.', tm: '11:05' }
       ]},
     { id: 'qa', name: 'QA Team', kind: 'group', col: '#0f766e', ini: 'QA',
       last: 'FGQC cleared for FG-LT26-0201-A', time: '10:12', unread: 0, sub: '4 members · Quality',
@@ -202,7 +202,7 @@
       last: 'CAPA-2026-014 is blocking dispatch', time: '08:00', unread: 1, sub: 'System channel · automated',
       msgs: [
         { d: 'Today' },
-        { sys: 1, t: 'Nightly sync with Monarch Print completed — 3 jobs updated, 1 challan reconciled' },
+        { sys: 1, t: 'Nightly sync with LAXMI Lamitube completed — 3 jobs updated, 1 challan reconciled' },
         { w: 'ERP Alerts', t: 'CAPA-2026-014 is blocking dispatch for SO/26-0188. Leak test record is not attached.', tm: '08:00', ref: 'CAPA-2026-014' },
         { w: 'ERP Alerts', t: 'Indent IND/26-0314 has been pending approval for 18 hours.', tm: '08:00', ref: 'IND/26-0314' }
       ]}
@@ -210,7 +210,7 @@
 
   var NOTIFS = [
     { ic: 'r', i: 'alertTri', t: 'Dispatch blocked — SO/26-0188', p: 'CAPA-2026-014 requires a leak test record before the delivery note.', tm: '12 min ago', u: 1 },
-    { ic: 'o', i: 'zap', t: 'Printing data synced', p: 'Monarch Print updated PWO/26-0202 — printing 62% complete.', tm: '38 min ago', u: 1 },
+    { ic: 'o', i: 'zap', t: 'Printing data synced', p: 'LAXMI Lamitube updated PWO/26-0202 — printing 62% complete.', tm: '38 min ago', u: 1 },
     { ic: 'w', i: 'check2', t: 'Indent awaiting approval', p: 'IND/26-0314 raised by PWO/26-0202 — PO is blocked.', tm: '1 hr ago', u: 1 },
     { ic: 'r', i: 'shield', t: 'IPQC failed — CM-01', p: 'Cavity 5 clamp pressure 137 bar against 140–150 bar.', tm: '2 hrs ago', u: 0 },
     { ic: 'g', i: 'award', t: 'COA generated', p: 'COA/26-0294 issued for batch FG-LT26-0201-A.', tm: '3 hrs ago', u: 0 },
@@ -286,7 +286,7 @@
         '<nav class="sb-scroll" id="sbNav">' + nav + '</nav>' +
         '<div class="sb-ft">' +
           '<a class="conn" href="integration.html" title="Printing data sync">' +
-            '<i class="d"></i><span><b>Printing sync live</b><small>Monarch Print · 2 min ago</small></span>' +
+            '<i class="d"></i><span><b>Printing sync live</b><small>LAXMI Lamitube · 2 min ago</small></span>' +
           '</a>' +
         '</div>' +
       '</aside>' +
@@ -602,11 +602,11 @@
   function seedToasts() {
     setTimeout(function () {
       toast({ k: 'msg', i: 'zap', t: 'Printing data synced',
-        p: 'Monarch Print updated PWO/26-0202 — printing 62% complete, 4 rolls on press.',
+        p: 'LAXMI Lamitube updated PWO/26-0202 — printing 62% complete, 4 rolls on press.',
         act: '<a class="btn sm" href="integration.html">View sync</a>' });
     }, 1400);
     setTimeout(function () {
-      toast({ k: 'warn', i: 'msgs', t: 'Monarch Print — 2 new messages',
+      toast({ k: 'warn', i: 'msgs', t: 'LAXMI Lamitube — 2 new messages',
         p: 'A. Sethi: “Lot 3 loaded on press, 62% done. Expecting dispatch back tomorrow evening.”',
         act: '<button class="btn sm pri" onclick="openChat()">Open chat</button>' });
     }, 4200);

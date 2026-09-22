@@ -82,28 +82,204 @@
   </div>
 
   <div class="ovl" id="mNew">
-    <div class="modal">
-      <div class="modal-h"><h3>New Enquiry</h3><span class="x" data-close="mNew"><i data-i="x"></i></span></div>
+    <div class="modal xl">
+      <div class="modal-h">
+        <h3>New Enquiry</h3>
+        <span class="no">ENQ/26-0423</span>
+        <span class="sub">Register a customer enquiry and push it to estimation</span>
+        <span class="x" data-close="mNew"><i data-i="x"></i></span>
+      </div>
       <div class="modal-b">
-        <div class="fgrid c2">
-          <div class="fld"><label>Enquiry No.</label><input class="inp ro" value="ENQ/26-0423" readonly></div>
-          <div class="fld"><label>Date</label><input class="inp" type="date" value="2026-09-22"></div>
-          <div class="fld span2"><label>Customer <span class="req">*</span></label>
-            <select class="inp"><option>Select customer&hellip;</option><option>Cipla Ltd.</option><option>Sun Pharma</option><option>Mankind Pharma</option></select></div>
-          <div class="sec-t">Product</div>
-          <div class="fld span2"><label>Specification route <span class="req">*</span></label>
-            <select class="inp"><option>Existing catalogue product</option><option>New / custom specification</option></select></div>
-          <div class="fld span2"><label>Product catalogue</label>
-            <select class="inp"><option>PC-0142 &mdash; LT 19&times;100 Gel tube</option><option>PC-0118 &mdash; LT 22&times;120 Cream tube</option><option>PC-0203 &mdash; LT 30&times;150 Toothpaste tube</option></select></div>
-          <div class="fld"><label>Quantity <span class="req">*</span></label><input class="inp" type="number" value="150000"></div>
-          <div class="fld"><label>Target date</label><input class="inp" type="date" value="2026-10-05"></div>
-          <div class="fld"><label>Source</label><select class="inp"><option>Email</option><option>Sales visit</option><option>Phone</option><option>Tender</option></select></div>
-          <div class="fld"><label>Sales person</label><select class="inp"><option>A. Kumar</option><option>R. Sharma</option></select></div>
-          <div class="fld span2"><label>Remarks</label><textarea class="inp" rows="2" placeholder="Artwork pending, sample required&hellip;"></textarea></div>
+
+        <!-- ENQUIRY DETAILS -->
+        <div class="msec">
+          <div class="st"><i data-i="mail"></i>Enquiry details</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>Enquiry No.</label><input class="inp ro" value="ENQ/26-0423" readonly></div>
+            <div class="fld"><label>Enquiry date <span class="req">*</span></label><input class="inp" type="date" value="2026-09-22"></div>
+            <div class="fld"><label>Enquiry type</label>
+              <select class="inp"><option>New enquiry</option><option>Repeat order</option><option>Revision</option><option>Sample / trial</option></select></div>
+            <div class="fld"><label>Production unit</label>
+              <select class="inp"><option>Unit 1 &mdash; Baddi</option><option>Unit 2 &mdash; Haridwar</option></select></div>
+            <div class="fld"><label>Sales type</label>
+              <select class="inp"><option>Domestic</option><option>Export</option><option>Deemed export</option></select></div>
+            <div class="fld"><label>Work type</label>
+              <select class="inp"><option>Complete tube</option><option>Printing only</option><option>Sleeve only</option><option>Job work</option></select></div>
+            <div class="fld"><label>Priority</label>
+              <select class="inp"><option>Normal</option><option>High</option><option>Urgent</option></select></div>
+            <div class="fld"><label>Source</label>
+              <select class="inp"><option>Email</option><option>Sales visit</option><option>Phone</option><option>Tender</option><option>Referral</option></select></div>
+          </div>
         </div>
+
+        <!-- CUSTOMER -->
+        <div class="msec">
+          <div class="st"><i data-i="users"></i>Customer
+            <span class="r"><button class="btn sm"><i data-i="plus"></i>New customer</button></span></div>
+          <div class="fgrid c4">
+            <div class="fld span2"><label>Client name <span class="req">*</span></label>
+              <select class="inp"><option>Select customer&hellip;</option><option>Cipla Ltd.</option><option>Sun Pharma</option><option>Mankind Pharma</option><option>Zydus Wellness</option><option>Torrent Pharma</option><option>Glenmark Pharma</option><option>Alkem Laboratories</option></select></div>
+            <div class="fld"><label>Customer type</label>
+              <select class="inp"><option>Regular</option><option>New</option><option>OEM</option><option>Trader</option></select></div>
+            <div class="fld"><label>Customer code</label><input class="inp ro" value="&mdash;" readonly></div>
+            <div class="fld"><label>Contact person</label><input class="inp" placeholder="Name"></div>
+            <div class="fld"><label>Mobile</label><input class="inp" placeholder="+91"></div>
+            <div class="fld"><label>Email</label><input class="inp" placeholder="name@company.com"></div>
+            <div class="fld"><label>GSTIN</label><input class="inp" placeholder="27AAACC1234A1ZQ"></div>
+            <div class="fld"><label>Sales person <span class="req">*</span></label>
+              <select class="inp"><option>A. Kumar</option><option>R. Sharma</option><option>N. Gupta</option></select></div>
+            <div class="fld"><label>Coordinator</label>
+              <select class="inp"><option>S. Nair</option><option>P. Joshi</option></select></div>
+            <div class="fld"><label>Currency</label>
+              <select class="inp"><option>INR &mdash; &#8377;</option><option>USD &mdash; $</option><option>EUR &mdash; &euro;</option></select></div>
+            <div class="fld"><label>Payment terms</label>
+              <select class="inp"><option>45 days</option><option>30 days</option><option>60 days</option><option>Advance</option><option>LC at sight</option></select></div>
+          </div>
+        </div>
+
+        <!-- REFERENCE -->
+        <div class="msec">
+          <div class="st"><i data-i="file"></i>Customer reference &amp; delivery</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>Customer P.O. No.</label><input class="inp" placeholder="Enter customer P.O. no."></div>
+            <div class="fld"><label>P.O. date</label><input class="inp" type="date"></div>
+            <div class="fld"><label>Expected delivery date <span class="req">*</span></label><input class="inp" type="date" value="2026-10-05"></div>
+            <div class="fld"><label>Delivery location</label>
+              <select class="inp"><option>Customer plant</option><option>Customer warehouse</option><option>Ex-works</option></select></div>
+            <div class="fld"><label>Enquiry validity</label><input class="inp" type="date" value="2026-10-22"></div>
+            <div class="fld"><label>Delivery schedule</label>
+              <select class="inp"><option>Single lot</option><option>Weekly lots</option><option>Monthly lots</option><option>Against schedule</option></select></div>
+            <div class="fld"><label>Freight basis</label>
+              <select class="inp"><option>To pay</option><option>Paid</option><option>Included in rate</option></select></div>
+            <div class="fld"><label>Freight charge</label><input class="inp" placeholder="Enter freight charge"></div>
+          </div>
+        </div>
+
+        <!-- PRODUCT SPECIFICATION -->
+        <div class="msec">
+          <div class="st"><i data-i="book"></i>Product specification
+            <span class="r"><button class="btn sm"><i data-i="book"></i>Pick from catalogue</button></span></div>
+          <div class="fgrid c4">
+            <div class="fld span2"><label>Specification route <span class="req">*</span></label>
+              <select class="inp"><option>Existing catalogue product</option><option>New / custom specification</option></select></div>
+            <div class="fld span2"><label>Product catalogue</label>
+              <select class="inp"><option>PC-0142 &mdash; LT 19&times;100 Gel tube</option><option>PC-0118 &mdash; LT 22&times;120 Cream tube</option><option>PC-0203 &mdash; LT 30&times;150 Toothpaste tube</option><option>PC-0221 &mdash; LT 25&times;140 Cream tube</option><option>&mdash; not in catalogue &mdash;</option></select></div>
+
+            <div class="fld"><label>Tube diameter (mm)</label><input class="inp" placeholder="Enter tube diameter"></div>
+            <div class="fld"><label>Tube length (mm)</label><input class="inp" placeholder="Enter tube length"></div>
+            <div class="fld"><label>Fill capacity (ml)</label><input class="inp" placeholder="Enter fill capacity"></div>
+            <div class="fld"><label>Product code / SKU</label><input class="inp" placeholder="Enter product code"></div>
+
+            <div class="fld span2"><label>Laminate structure</label>
+              <select class="inp"><option>PE / EVOH / PE &mdash; ABL 250 micron</option><option>PE / AL / PE &mdash; ABL 275 micron</option><option>PBL &mdash; 300 micron</option></select></div>
+            <div class="fld"><label>Web width (mm)</label><input class="inp" placeholder="Enter web width"></div>
+            <div class="fld"><label>Tube type</label>
+              <select class="inp"><option>ABL &mdash; aluminium barrier</option><option>PBL &mdash; plastic barrier</option><option>Plain</option></select></div>
+
+            <div class="fld"><label>Shoulder type</label>
+              <select class="inp"><option>Standard conical</option><option>Flat</option><option>Long nozzle</option></select></div>
+            <div class="fld"><label>Orifice dia (mm)</label><input class="inp" placeholder="Enter orifice dia"></div>
+            <div class="fld"><label>Neck / thread</label><input class="inp" placeholder="e.g. 11 mm R/S"></div>
+            <div class="fld"><label>Cap type</label>
+              <select class="inp"><option>Flip-top &mdash; bought out</option><option>Screw cap &mdash; bought out</option><option>Nozzle cap &mdash; bought out</option></select></div>
+
+            <div class="fld"><label>No. of colours</label><input class="inp" placeholder="Enter no. of colours"></div>
+            <div class="fld"><label>Print process</label>
+              <select class="inp"><option>Offset &mdash; outsourced</option><option>Flexo &mdash; outsourced</option><option>Unprinted</option></select></div>
+            <div class="fld"><label>Finish</label>
+              <select class="inp"><option>Gloss</option><option>Matte</option><option>Soft touch</option></select></div>
+            <div class="fld"><label>Special effect</label>
+              <select class="inp"><option>None</option><option>Metallic</option><option>Spot UV</option><option>Hot foil</option></select></div>
+          </div>
+        </div>
+
+        <!-- QUANTITY & COMMERCIAL -->
+        <div class="msec">
+          <div class="st"><i data-i="rupee"></i>Quantity &amp; commercial</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>Domestic qty.</label><input class="inp" type="number" placeholder="Enter domestic quantity"></div>
+            <div class="fld"><label>Export qty.</label><input class="inp" type="number" placeholder="Enter export quantity"></div>
+            <div class="fld"><label>Total quantity <span class="req">*</span></label><input class="inp" type="number" value="150000"></div>
+            <div class="fld"><label>Qty tolerance</label><input class="inp" value="&plusmn; 5%"></div>
+            <div class="fld"><label>Target unit cost</label><input class="inp" placeholder="Enter target unit cost"></div>
+            <div class="fld"><label>Last supplied rate</label><input class="inp ro" value="&mdash;" readonly></div>
+            <div class="fld"><label>Pcs per carton</label><input class="inp" placeholder="Enter pcs per carton"></div>
+            <div class="fld"><label>Tooling / plate charge</label>
+              <select class="inp"><option>Chargeable to customer</option><option>Absorbed</option><option>Not applicable</option></select></div>
+          </div>
+        </div>
+
+        <!-- ARTWORK & QUALITY -->
+        <div class="msec">
+          <div class="st"><i data-i="shield"></i>Artwork, quality &amp; sample</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>Artwork ref.</label><input class="inp" placeholder="AW-2026-…"></div>
+            <div class="fld"><label>Artwork status</label>
+              <select class="inp"><option>Awaited from customer</option><option>Received</option><option>Approved</option></select></div>
+            <div class="fld"><label>Shade standard</label>
+              <select class="inp"><option>To be supplied</option><option>Pantone reference</option><option>Approved sample</option></select></div>
+            <div class="fld"><label>COA required</label>
+              <select class="inp"><option>Yes &mdash; per batch</option><option>No</option></select></div>
+            <div class="fld"><label>Sample required</label>
+              <select class="inp"><option>Yes</option><option>No</option></select></div>
+            <div class="fld"><label>Sample qty.</label><input class="inp" placeholder="Enter sample quantity"></div>
+            <div class="fld"><label>Sample due date</label><input class="inp" type="date"></div>
+            <div class="fld"><label>Regulatory</label>
+              <select class="inp"><option>Pharma &mdash; standard</option><option>Cosmetic</option><option>Food contact</option></select></div>
+          </div>
+        </div>
+
+        <!-- ENQUIRY DATA LIST -->
+        <div class="msec">
+          <div class="st"><i data-i="layers"></i>Enquiry data list
+            <span class="r"><button class="btn sm"><i data-i="plus"></i>Add row</button></span></div>
+          <div class="tbl-wrap">
+            <table class="tbl dense" style="border:1px solid rgb(var(--bd-default));border-radius:8px">
+              <thead><tr><th style="width:38px">#</th><th>Product / description</th><th>Size (mm)</th>
+                <th class="num">Colours</th><th class="num">Quantity</th><th class="num">Target rate</th>
+                <th class="num">Value</th><th>Delivery</th><th class="ctr"></th></tr></thead>
+              <tbody>
+                <tr><td>1</td>
+                  <td><input class="inp" value="LT 19×100 Gel tube — flip-top cap"></td>
+                  <td><input class="inp" style="width:92px" value="19 × 100"></td>
+                  <td class="num"><input class="inp" style="width:52px;text-align:right" value="4"></td>
+                  <td class="num"><input class="inp" style="width:86px;text-align:right" value="150000"></td>
+                  <td class="num"><input class="inp" style="width:70px;text-align:right" value="2.85"></td>
+                  <td class="num mono">4,27,500</td>
+                  <td><input class="inp" type="date" style="width:132px" value="2026-10-05"></td>
+                  <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+                <tr><td>2</td>
+                  <td><input class="inp" placeholder="Add another size / variant"></td>
+                  <td><input class="inp" style="width:92px" placeholder="dia × len"></td>
+                  <td class="num"><input class="inp" style="width:52px;text-align:right"></td>
+                  <td class="num"><input class="inp" style="width:86px;text-align:right"></td>
+                  <td class="num"><input class="inp" style="width:70px;text-align:right"></td>
+                  <td class="num mono">&mdash;</td>
+                  <td><input class="inp" type="date" style="width:132px"></td>
+                  <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              </tbody>
+              <tfoot><tr><td colspan="4">Total</td><td class="num">1,50,000</td><td></td>
+                <td class="num mono">4,27,500</td><td colspan="2"></td></tr></tfoot>
+            </table>
+          </div>
+        </div>
+
+        <!-- REMARK -->
+        <div class="msec">
+          <div class="st"><i data-i="clip"></i>Remark &amp; attachments</div>
+          <div class="fgrid c4">
+            <div class="fld span3"><label>Remark</label>
+              <textarea class="inp" rows="2" placeholder="Artwork pending, sample required before commercial supply&hellip;"></textarea></div>
+            <div class="fld"><label>Attachments</label>
+              <button class="btn" style="width:100%;justify-content:center"><i data-i="paperclip"></i>Attach file</button></div>
+          </div>
+        </div>
+
       </div>
       <div class="modal-f">
+        <div class="lft"><i data-i="alertTri"></i>Fields marked <span class="req" style="color:rgb(var(--color-error))">*</span> are mandatory</div>
         <button class="btn" data-close="mNew">Cancel</button>
+        <button class="btn"><i data-i="save"></i>Save as draft</button>
         <button class="btn pri"><i data-i="save"></i>Save &amp; send to Estimation</button>
       </div>
     </div>

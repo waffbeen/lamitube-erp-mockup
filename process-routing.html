@@ -45,13 +45,13 @@
             <td><span class="bdg t nodot">Yes</span></td>
             <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
           <tr style="background:rgb(var(--color-orange-subtle))"><td class="k">P-20</td>
-            <td><b>Printing &mdash; offset</b></td><td>Monarch Print Pvt. Ltd.</td>
+            <td><b>Printing &mdash; offset</b></td><td>LAXMI Lamitube Pvt. Ltd.</td>
             <td><span class="bdg o">Outsourced</span></td><td class="num">&mdash;</td><td class="num">&mdash;</td>
             <td class="num mono">0.2100</td><td class="mut">per piece &mdash; rate contract</td>
             <td><span class="bdg t nodot">Yes</span></td>
             <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
           <tr style="background:rgb(var(--color-orange-subtle))"><td class="k">P-21</td>
-            <td><b>Printing &mdash; flexo</b></td><td>Monarch Print Pvt. Ltd.</td>
+            <td><b>Printing &mdash; flexo</b></td><td>LAXMI Lamitube Pvt. Ltd.</td>
             <td><span class="bdg o">Outsourced</span></td><td class="num">&mdash;</td><td class="num">&mdash;</td>
             <td class="num mono">0.1850</td><td class="mut">per piece &mdash; rate contract</td>
             <td><span class="bdg t nodot">Yes</span></td>
@@ -118,27 +118,81 @@
   </div>
 
   <div class="ovl" id="mProc">
-    <div class="modal">
-      <div class="modal-h"><h3>New Process</h3><span class="x" data-close="mProc"><i data-i="x"></i></span></div>
+    <div class="modal lg">
+      <div class="modal-h">
+        <h3>New Process</h3><span class="no">P-90</span>
+        <span class="sub">Execution type decides whether it books in-house or through an outsourcing challan</span>
+        <span class="x" data-close="mProc"><i data-i="x"></i></span>
+      </div>
       <div class="modal-b">
-        <div class="fgrid c2">
-          <div class="fld"><label>Process code</label><input class="inp" value="P-90"></div>
-          <div class="fld"><label>Process name <span class="req">*</span></label><input class="inp" placeholder="e.g. Sleeve printing inspection"></div>
-          <div class="fld span2"><label>Execution type <span class="req">*</span></label>
-            <select class="inp" id="etype"><option>In-house</option><option>Outsourced / outsourced</option></select></div>
-          <div class="fld"><label>Default machine</label><select class="inp"><option>SLIT-01</option><option>TM-02</option><option>CM-01</option></select></div>
-          <div class="fld"><label>Default vendor</label><select class="inp"><option>— not applicable —</option><option>Monarch Print Pvt. Ltd.</option><option>Precision Moulders Pvt. Ltd.</option></select></div>
-          <div class="fld"><label>Rate basis</label><select class="inp"><option>Per machine hour</option><option>Per piece</option><option>Per kg</option></select></div>
-          <div class="fld"><label>Rate</label><input class="inp" value="0.00"></div>
-          <div class="fld"><label>Std. output / hr</label><input class="inp" value="0"></div>
-          <div class="fld"><label>Setup time (min)</label><input class="inp" value="0"></div>
-          <div class="fld span2"><label>IPQC requirement</label>
-            <select class="inp"><option>Optional</option><option>Yes — routine</option><option>Mandatory — cannot skip</option></select></div>
-          <div class="fld span2"><label>Notes</label><textarea class="inp" rows="2" placeholder="Reconciliation basis, allowed wastage…"></textarea></div>
+
+        <div class="msec">
+          <div class="st"><i data-i="route"></i>Process identification</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>Process code</label><input class="inp" value="P-90"></div>
+            <div class="fld span2"><label>Process name <span class="req">*</span></label><input class="inp" placeholder="e.g. Sleeve printing inspection"></div>
+            <div class="fld"><label>Sequence no.</label><input class="inp" value="90"></div>
+            <div class="fld"><label>Process group</label>
+              <select class="inp"><option>Converting</option><option>Printing</option><option>Moulding</option><option>Assembly</option><option>Inspection</option><option>Packing</option></select></div>
+            <div class="fld"><label>Cost centre</label><select class="inp"><option>CC-01 — Converting</option><option>CC-02 — Moulding</option><option>CC-03 — Assembly</option></select></div>
+            <div class="fld"><label>Status</label><select class="inp"><option>Active</option><option>Inactive</option></select></div>
+            <div class="fld"><label>Applies to</label><select class="inp"><option>All products</option><option>Selected products</option></select></div>
+          </div>
         </div>
+
+        <div class="msec">
+          <div class="st"><i data-i="send"></i>Execution type
+            <span class="r"><span class="bdg n nodot">this is the switch</span></span></div>
+          <div class="fgrid c4">
+            <div class="fld span2"><label>Execution type <span class="req">*</span></label>
+              <select class="inp"><option>In-house</option><option>Outsourced — job work</option></select></div>
+            <div class="fld"><label>Default machine</label>
+              <select class="inp"><option>— not applicable —</option><option>SLIT-01</option><option>TM-01</option><option>TM-02</option><option>CM-01</option><option>CM-02</option><option>CAP-01</option></select></div>
+            <div class="fld"><label>Default vendor</label>
+              <select class="inp"><option>— not applicable —</option><option>LAXMI Lamitube Pvt. Ltd.</option><option>Precision Moulders Pvt. Ltd.</option></select></div>
+            <div class="fld"><label>Document on send</label>
+              <select class="inp"><option>Delivery challan — job work</option><option>Tax invoice — outright</option><option>Not applicable</option></select></div>
+            <div class="fld"><label>Reconciliation basis</label>
+              <select class="inp"><option>Weight (kg)</option><option>Pieces</option><option>Length (m)</option></select></div>
+            <div class="fld"><label>Allowed wastage %</label><input class="inp" value="2.0"></div>
+            <div class="fld"><label>Standard turnaround (days)</label><input class="inp" value="5"></div>
+          </div>
+        </div>
+
+        <div class="msec">
+          <div class="st"><i data-i="rupee"></i>Capacity &amp; rate</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>Rate basis</label><select class="inp"><option>Per machine hour</option><option>Per piece</option><option>Per kg</option><option>Per 1000 pcs</option></select></div>
+            <div class="fld"><label>Rate</label><input class="inp" value="0.00"></div>
+            <div class="fld"><label>Standard output / hr</label><input class="inp" value="0"></div>
+            <div class="fld"><label>Setup time (min)</label><input class="inp" value="0"></div>
+            <div class="fld"><label>Standard manpower</label><input class="inp" value="1"></div>
+            <div class="fld"><label>Standard rejection %</label><input class="inp" value="1.0"></div>
+            <div class="fld"><label>Standard wastage %</label><input class="inp" value="2.0"></div>
+            <div class="fld"><label>Overtime rate factor</label><input class="inp" value="1.5"></div>
+          </div>
+        </div>
+
+        <div class="msec">
+          <div class="st"><i data-i="shield"></i>Quality &amp; controls</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>IPQC requirement</label>
+              <select class="inp"><option>Optional</option><option>Yes — routine</option><option>Mandatory — cannot skip</option></select></div>
+            <div class="fld"><label>QC parameter set</label>
+              <select class="inp"><option>— none —</option><option>Printing — standard</option><option>Moulding — standard</option><option>Assembly — standard</option></select></div>
+            <div class="fld"><label>Line clearance</label><select class="inp"><option>Required</option><option>Not required</option></select></div>
+            <div class="fld"><label>Cavity-wise logging</label><select class="inp"><option>No</option><option>Yes</option></select></div>
+            <div class="fld"><label>Operator skill level</label><select class="inp"><option>Level 1</option><option>Level 2</option><option>Level 3</option></select></div>
+            <div class="fld"><label>Can run in parallel</label><select class="inp"><option>No</option><option>Yes</option></select></div>
+            <div class="fld span2"><label>Notes</label><textarea class="inp" rows="2" placeholder="Reconciliation rule, special instructions…"></textarea></div>
+          </div>
+        </div>
+
       </div>
       <div class="modal-f">
+        <div class="lft"><i data-i="alertTri"></i>Fields marked <span style="color:rgb(var(--color-error))">*</span> are mandatory</div>
         <button class="btn" data-close="mProc">Cancel</button>
+        <button class="btn"><i data-i="save"></i>Save &amp; add another</button>
         <button class="btn pri"><i data-i="save"></i>Save process</button>
       </div>
     </div>

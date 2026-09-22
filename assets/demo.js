@@ -32,21 +32,28 @@
     return p[2] + ' ' + M[+p[1] - 1] + ' ' + p[0].slice(2);
   }
 
-  /* find a form control by its label text, inside a scope */
+  /* find a form control by its label text (string or list of candidates) */
   function fld(label, root) {
-    var want = label.toLowerCase();
+    var wants = (Array.isArray(label) ? label : [label]).map(function (s) { return s.toLowerCase(); });
     var hit = null;
-    $$('.fld', root || document).some(function (f) {
-      var l = f.querySelector('label');
-      if (!l) return false;
-      var t = l.textContent.replace(/\*/g, '').trim().toLowerCase();
-      if (t === want || t.indexOf(want) === 0) {
-        hit = f.querySelector('input, select, textarea');
-        return true;
-      }
-      return false;
+    wants.some(function (want) {
+      $$('.fld', root || document).some(function (f) {
+        var l = f.querySelector('label');
+        if (!l) return false;
+        var t = l.textContent.replace(/\*/g, '').trim().toLowerCase();
+        if (t === want || t.indexOf(want) === 0) {
+          hit = f.querySelector('input, select, textarea');
+          return true;
+        }
+        return false;
+      });
+      return !!hit;
     });
     return hit;
+  }
+  function selText(el) {
+    return el && el.tagName === 'SELECT' && el.selectedIndex > -1
+      ? el.options[el.selectedIndex].textContent.trim() : (el ? el.value : '');
   }
   function val(label, root) { var e = fld(label, root); return e ? e.value : ''; }
   function setVal(label, v, root) {
@@ -113,28 +120,37 @@
     });
 
     var m = $('#mNew'); if (!m) return;
-    var sv = btnByText('Save', m); if (!sv) return;
+    var sv = btnByText('send to Estimation', m) || btnByText('Save', m); if (!sv) return;
     sv.addEventListener('click', function (e) {
       e.preventDefault();
-      var customer = val('Customer', m);
-      var qty = val('Quantity', m);
+      var custEl = fld(['Client name', 'Customer'], m);
+      var customer = selText(custEl);
+      var qty = val(['Total quantity', 'Quantity'], m);
       if (!customer || customer.indexOf('Select') === 0) {
-        if (window.toast) toast({ k: 'err', i: 'alertTri', t: 'Customer is required', p: 'Pick a customer before saving the enquiry.' });
+        if (window.toast) toast({ k: 'err', i: 'alertTri', t: 'Client name is required', p: 'Pick a customer before saving the enquiry.' });
+        var ct = $('.modal-b', m); if (ct) ct.scrollTop = 0;
+        if (custEl) custEl.focus();
         return;
       }
-      var prodSel = fld('Product catalogue', m);
-      var product = prodSel ? prodSel.options[prodSel.selectedIndex].textContent.trim() : 'Laminated tube';
-      var routeSel = fld('Specification route', m);
+      var product = selText(fld('Product catalogue', m)) || 'Laminated tube';
+      if (product.indexOf('not in catalogue') > -1) {
+        var dia = val('Tube diameter', m), len = val('Tube length', m);
+        product = (dia && len) ? ('LT ' + dia + '×' + len + ' — custom') : 'Custom laminated tube';
+      }
       var d = deals();
       d.push({
         id: nextNo('ENQ/26-04', 23),
-        date: val('Enquiry No.', m) && val('Date', m) || val('Date', m),
+        date: val(['Enquiry date', 'Date'], m),
         customer: customer,
         product: product,
-        route: routeSel ? routeSel.options[routeSel.selectedIndex].textContent.trim() : '',
+        route: selText(fld('Specification route', m)),
         qty: qty || 100000,
-        target: val('Target date', m),
-        source: (function () { var s = fld('Source', m); return s ? s.options[s.selectedIndex].textContent : 'Email'; })(),
+        target: val(['Expected delivery date', 'Target date'], m),
+        source: selText(fld('Source', m)) || 'Email',
+        salesPerson: selText(fld('Sales person', m)),
+        poNo: val('Customer P.O. No.', m),
+        colours: val('No. of colours', m),
+        salesType: selText(fld('Sales type', m)),
         stage: 'enquiry'
       });
       save(d);

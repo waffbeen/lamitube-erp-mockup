@@ -101,29 +101,92 @@
   </div>
 
   <div class="ovl" id="mItem">
-    <div class="modal">
-      <div class="modal-h"><h3>New Item</h3><span class="x" data-close="mItem"><i data-i="x"></i></span></div>
+    <div class="modal lg">
+      <div class="modal-h">
+        <h3>New Item</h3><span class="no">ITM-4012</span>
+        <span class="sub">Raw material, bought-out, packing or consumable</span>
+        <span class="x" data-close="mItem"><i data-i="x"></i></span>
+      </div>
       <div class="modal-b">
-        <div class="fgrid c2">
-          <div class="fld"><label>Item code</label><input class="inp ro" value="ITM-4012" readonly></div>
-          <div class="fld"><label>Item name <span class="req">*</span></label><input class="inp" placeholder="e.g. Nozzle cap 9 mm"></div>
-          <div class="fld"><label>Item type <span class="req">*</span></label>
-            <select class="inp"><option>Raw material</option><option>Bought-out</option><option>Packing</option><option>Consumable</option></select></div>
-          <div class="fld"><label>Group</label><select class="inp"><option>Laminate</option><option>Granule</option><option>Masterbatch</option><option>Caps &amp; rims</option><option>Packing</option></select></div>
-          <div class="fld"><label>UoM</label><select class="inp"><option>kg</option><option>pcs</option><option>mtr</option><option>set</option></select></div>
-          <div class="fld"><label>HSN code</label><input class="inp" placeholder="39235010"></div>
-          <div class="fld"><label>Standard rate</label><input class="inp" value="0.00"></div>
-          <div class="fld"><label>GST %</label><select class="inp"><option>18</option><option>12</option><option>5</option></select></div>
-          <div class="fld"><label>Reorder level</label><input class="inp" value="0"></div>
-          <div class="fld"><label>Lead time (days)</label><input class="inp" value="0"></div>
-          <div class="fld"><label>RMQC required</label><select class="inp"><option>Yes</option><option>No</option></select></div>
-          <div class="fld"><label>Batch tracking</label><select class="inp"><option>Batch-wise</option><option>Roll-wise</option><option>Lot-wise</option><option>Not tracked</option></select></div>
-          <div class="fld span2"><label>Approved suppliers</label>
-            <input class="inp" placeholder="Start typing supplier name…"></div>
+
+        <div class="msec">
+          <div class="st"><i data-i="box"></i>Identification</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>Item code</label><input class="inp ro" value="ITM-4012" readonly></div>
+            <div class="fld span2"><label>Item name <span class="req">*</span></label><input class="inp" placeholder="e.g. Nozzle cap 9 mm — white"></div>
+            <div class="fld"><label>Short name</label><input class="inp" placeholder="Enter short name"></div>
+            <div class="fld"><label>Item type <span class="req">*</span></label>
+              <select class="inp"><option>Raw material</option><option>Bought-out</option><option>Packing</option><option>Consumable</option><option>Spare part</option></select></div>
+            <div class="fld"><label>Item group</label>
+              <select class="inp"><option>Laminate</option><option>Granule</option><option>Masterbatch</option><option>Caps &amp; rims</option><option>Packing</option><option>Consumable</option></select></div>
+            <div class="fld"><label>Sub group</label><select class="inp"><option>— none —</option><option>ABL</option><option>PBL</option><option>HDPE</option><option>LDPE</option></select></div>
+            <div class="fld"><label>Status</label><select class="inp"><option>Active</option><option>Inactive</option></select></div>
+            <div class="fld span2"><label>Description / specification</label><textarea class="inp" rows="2" placeholder="Full technical description as printed on the purchase order…"></textarea></div>
+            <div class="fld span2"><label>Alternate / substitute item</label><input class="inp" placeholder="Start typing item name…"></div>
+          </div>
         </div>
+
+        <div class="msec">
+          <div class="st"><i data-i="layers"></i>Unit &amp; conversion</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>Stock UoM <span class="req">*</span></label>
+              <select class="inp"><option>kg</option><option>pcs</option><option>mtr</option><option>set</option><option>ltr</option></select></div>
+            <div class="fld"><label>Purchase UoM</label>
+              <select class="inp"><option>kg</option><option>pcs</option><option>roll</option><option>bag</option></select></div>
+            <div class="fld"><label>Conversion factor</label><input class="inp" value="1.00"></div>
+            <div class="fld"><label>Consumption UoM</label>
+              <select class="inp"><option>kg</option><option>pcs</option><option>gm</option></select></div>
+          </div>
+        </div>
+
+        <div class="msec">
+          <div class="st"><i data-i="rupee"></i>Commercial</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>Standard rate</label><input class="inp" value="0.00"></div>
+            <div class="fld"><label>Last purchase rate</label><input class="inp ro" value="—" readonly></div>
+            <div class="fld"><label>HSN code</label><input class="inp" placeholder="39235010"></div>
+            <div class="fld"><label>GST %</label><select class="inp"><option>18</option><option>12</option><option>5</option><option>28</option></select></div>
+            <div class="fld"><label>Valuation method</label><select class="inp"><option>Weighted average</option><option>FIFO</option><option>Standard cost</option></select></div>
+            <div class="fld"><label>Lead time (days)</label><input class="inp" value="0"></div>
+            <div class="fld"><label>Minimum order qty</label><input class="inp" value="0"></div>
+            <div class="fld"><label>Purchase tolerance %</label><input class="inp" value="2.0"></div>
+          </div>
+        </div>
+
+        <div class="msec">
+          <div class="st"><i data-i="arrowUD"></i>Stock control</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>Default warehouse</label>
+              <select class="inp"><option>WH-RM — Raw material</option><option>WH-BO — Bought-out</option><option>WH-PK — Packing</option></select></div>
+            <div class="fld"><label>Bin / location</label><input class="inp" placeholder="Enter bin"></div>
+            <div class="fld"><label>Reorder level</label><input class="inp" value="0"></div>
+            <div class="fld"><label>Maximum level</label><input class="inp" value="0"></div>
+            <div class="fld"><label>Batch tracking</label>
+              <select class="inp"><option>Batch-wise</option><option>Roll-wise</option><option>Lot-wise</option><option>Not tracked</option></select></div>
+            <div class="fld"><label>Shelf life (days)</label><input class="inp" placeholder="Blank if none"></div>
+            <div class="fld"><label>Issue basis</label><select class="inp"><option>FIFO</option><option>FEFO</option><option>Manual</option></select></div>
+            <div class="fld"><label>Negative stock</label><select class="inp"><option>Not allowed</option><option>Allowed</option></select></div>
+          </div>
+        </div>
+
+        <div class="msec">
+          <div class="st"><i data-i="shield"></i>Quality &amp; suppliers</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>RMQC required</label><select class="inp"><option>Yes</option><option>No</option></select></div>
+            <div class="fld"><label>QC parameter set</label>
+              <select class="inp"><option>Laminate — standard</option><option>Granule — standard</option><option>Caps — standard</option><option>— none —</option></select></div>
+            <div class="fld"><label>COA from supplier</label><select class="inp"><option>Mandatory</option><option>Optional</option></select></div>
+            <div class="fld"><label>Inspection level</label><select class="inp"><option>Normal</option><option>Tightened</option><option>Reduced</option></select></div>
+            <div class="fld span-all"><label>Approved suppliers</label>
+              <input class="inp" placeholder="Start typing supplier name…"></div>
+          </div>
+        </div>
+
       </div>
       <div class="modal-f">
+        <div class="lft"><i data-i="alertTri"></i>Fields marked <span style="color:rgb(var(--color-error))">*</span> are mandatory</div>
         <button class="btn" data-close="mItem">Cancel</button>
+        <button class="btn"><i data-i="save"></i>Save &amp; add another</button>
         <button class="btn pri"><i data-i="save"></i>Save item</button>
       </div>
     </div>

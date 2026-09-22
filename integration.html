@@ -43,7 +43,7 @@
     <div class="ph-l">
       <div class="crumb"><b>Integration</b> / Printing Data Sync</div>
       <h1>Printing Data Sync</h1>
-      <p>Backend automation between Monarch Print's software and this ERP &mdash; no manual entry</p>
+      <p>Backend automation between LAXMI Lamitube's software and this ERP &mdash; no manual entry</p>
     </div>
     <div class="ph-r">
       <span class="bdg g">Connected</span>
@@ -56,7 +56,7 @@
   <div class="alert info">
     <i data-i="db"></i>
     <div><b>Both databases sit with us, so the exchange runs in the backend</b>
-    Monarch Print Pvt. Ltd. is a separate company with its own GST and its own printing software. Because we hold both databases, a scheduled backend job reads printing job data straight from their tables and writes it against the matching work order here. Nobody re-keys anything on either side &mdash; the documents that carry legal weight (challan, job work invoice) are still raised normally.</div>
+    LAXMI Lamitube Pvt. Ltd. is a separate company with its own GST and its own printing software. Because we hold both databases, a scheduled backend job reads printing job data straight from their tables and writes it against the matching work order here. Nobody re-keys anything on either side &mdash; the documents that carry legal weight (challan, job work invoice) are still raised normally.</div>
   </div>
 
   <div class="stats">
@@ -74,7 +74,7 @@
       <div class="pipe">
         <div class="pnode src">
           <div class="ic"><i data-i="printer"></i></div>
-          <b>Monarch Print software</b>
+          <b>LAXMI Lamitube software</b>
           <span>Separate company, separate GST<br>Job cards, press output, shade log, wastage</span>
         </div>
         <div class="parrow"><i data-i="chevR"></i><small>READ</small></div>
@@ -95,7 +95,7 @@
         <div class="fld"><label>Sync mode</label>
           <select class="inp"><option>Scheduled pull — every 5 minutes</option><option>Near real-time — database trigger</option><option>Manual only</option></select></div>
         <div class="fld"><label>Direction</label>
-          <select class="inp"><option>Read from Monarch Print → write here</option><option>Two-way</option></select></div>
+          <select class="inp"><option>Read from LAXMI Lamitube → write here</option><option>Two-way</option></select></div>
         <div class="fld"><label>On mapping failure</label>
           <select class="inp"><option>Hold row and raise an alert</option><option>Skip silently</option></select></div>
       </div>
@@ -162,17 +162,17 @@
               <th style="width:110px">Progress</th><th>Their status</th><th>Last sync</th></tr></thead>
             <tbody>
               <tr><td class="k">ICP/26-0077</td><td class="mut">PWO/26-0202</td>
-                <td class="mono">MP-JOB-4412</td><td>Offset-2</td>
+                <td class="mono">LL-JOB-4412</td><td>Offset-2</td>
                 <td class="num">792.0</td><td class="num">491.0</td>
                 <td><div class="pbar"><i style="width:62%"></i></div></td>
                 <td><span class="bdg b">Running</span></td><td class="mut">2 min ago</td></tr>
               <tr><td class="k">ICP/26-0074</td><td class="mut">PWO/26-0191</td>
-                <td class="mono">MP-JOB-4398</td><td>Offset-1</td>
+                <td class="mono">LL-JOB-4398</td><td>Offset-1</td>
                 <td class="num">1,140.0</td><td class="num">1,140.0</td>
                 <td><div class="pbar"><i class="g" style="width:100%"></i></div></td>
                 <td><span class="bdg g">Ready to return</span></td><td class="mut">2 min ago</td></tr>
               <tr><td class="k">ICP/26-0072</td><td class="mut">PWO/26-0186</td>
-                <td class="mono">MP-JOB-4361</td><td>Offset-1</td>
+                <td class="mono">LL-JOB-4361</td><td>Offset-1</td>
                 <td class="num">640.0</td><td class="num">0.0</td>
                 <td><div class="pbar"><i class="r" style="width:4%"></i></div></td>
                 <td><span class="bdg r">Queued — 20 days</span></td><td class="mut">2 min ago</td></tr>
@@ -194,7 +194,7 @@
           <div class="r"><button class="btn sm"><i data-i="refresh"></i>Refresh</button></div></div>
         <div class="card-b">
           <div class="log">
-            <div><span class="ts">12:38:02</span> <span class="ok">OK</span> &nbsp;pull job_master &mdash; 3 rows, 1 changed (MP-JOB-4412 &rarr; PWO/26-0202, 58% &rarr; 62%)</div>
+            <div><span class="ts">12:38:02</span> <span class="ok">OK</span> &nbsp;pull job_master &mdash; 3 rows, 1 changed (LL-JOB-4412 &rarr; PWO/26-0202, 58% &rarr; 62%)</div>
             <div><span class="ts">12:38:02</span> <span class="ok">OK</span> &nbsp;pull press_output &mdash; 3 rows, 491.0 kg good, 14.2 kg waste</div>
             <div><span class="ts">12:38:03</span> <span class="ok">OK</span> &nbsp;write wip_status &mdash; PWO/26-0202 updated</div>
             <div><span class="ts">12:38:03</span> <span class="er">ERR</span> write machine_map &mdash; press code &ldquo;OFS-02&rdquo; not mapped, row held</div>
@@ -202,7 +202,7 @@
             <div><span class="ts">12:33:01</span> <span class="ok">OK</span> &nbsp;pull job_master &mdash; 3 rows, 0 changed</div>
             <div><span class="ts">12:28:00</span> <span class="wn">WARN</span> billing.rate_per_pc = 0.2240 differs from contract 0.2100 &mdash; flagged to costing</div>
             <div><span class="ts">12:28:00</span> <span class="ok">OK</span> &nbsp;pull press_output &mdash; 3 rows</div>
-            <div><span class="ts">12:23:00</span> <span class="ok">OK</span> &nbsp;pull dispatch &mdash; 1 row, MP/DC/26-1188 linked to ICP/26-0076</div>
+            <div><span class="ts">12:23:00</span> <span class="ok">OK</span> &nbsp;pull dispatch &mdash; 1 row, LL/DC/26-1188 linked to ICP/26-0076</div>
             <div><span class="ts">12:18:00</span> <span class="ok">OK</span> &nbsp;pull job_master &mdash; 3 rows, 1 changed</div>
             <div><span class="ts">02:00:00</span> <span class="ok">OK</span> &nbsp;nightly plate_master &mdash; 6 plates, impressions updated</div>
             <div><span class="ts">02:00:04</span> <span class="ok">OK</span> &nbsp;nightly billing &mdash; 4 rate rows pushed to Actual Costing</div>
@@ -216,7 +216,7 @@
         <div class="card-h"><h2>Connection</h2></div>
         <div class="card-b">
           <dl class="kv">
-            <dt>Partner</dt><dd class="right">Monarch Print Pvt. Ltd.</dd>
+            <dt>Partner</dt><dd class="right">LAXMI Lamitube Pvt. Ltd.</dd>
             <dt>Relationship</dt><dd class="right">Printing job work</dd>
             <dt>GSTIN</dt><dd class="right mono" style="font-size:11.5px">02AAFCM8842R1ZK</dd>
             <dt>Their software</dt><dd class="right">Print MIS &mdash; SQL Server</dd>
@@ -241,7 +241,7 @@
                 <td class="num"><button class="btn sm pri">Map</button></td></tr>
               <tr><td><b>Rate mismatch</b><div class="mut">0.2240 billed vs 0.2100 contracted</div></td>
                 <td class="num"><a class="btn sm" href="actual-costing.html">Review</a></td></tr>
-              <tr><td><b>Job overdue there</b><div class="mut">MP-JOB-4361 queued 20 days</div></td>
+              <tr><td><b>Job overdue there</b><div class="mut">LL-JOB-4361 queued 20 days</div></td>
                 <td class="num"><button class="btn sm" onclick="openChat()">Chat</button></td></tr>
             </tbody>
           </table>
@@ -272,9 +272,9 @@
         <div class="card-h"><h2>Coordination</h2></div>
         <div class="card-b">
           <p class="muted" style="margin:0 0 10px;font-size:12.5px">
-            Day-to-day follow-up with their team happens on the internal chat, with an external channel for Monarch Print.</p>
+            Day-to-day follow-up with their team happens on the internal chat, with an external channel for LAXMI Lamitube.</p>
           <button class="btn pri" style="width:100%;justify-content:center" onclick="openChat()">
-            <i data-i="msgs"></i>Open Monarch Print channel</button>
+            <i data-i="msgs"></i>Open LAXMI Lamitube channel</button>
         </div>
       </div>
     </div>

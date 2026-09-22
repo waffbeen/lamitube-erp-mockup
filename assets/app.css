@@ -346,6 +346,27 @@ table.tbl input.inp, table.tbl select.inp { height: 26px; font-size: 12px; }
 .ovl.on { display: flex; }
 .modal { background: rgb(var(--bg-surface)); border-radius: var(--radius-xl); box-shadow: var(--shadow-xl);
   width: 100%; max-width: 560px; max-height: 88vh; display: flex; flex-direction: column; }
+.modal.lg { max-width: 900px; }
+.modal.xl { max-width: 1180px; max-height: 94vh; }
+.ovl { padding: 16px; }
+.modal.xl .modal-b, .modal.lg .modal-b { padding: 0; }
+.modal.xl .modal-h, .modal.lg .modal-h { padding: 12px 18px; }
+.modal.xl .modal-f, .modal.lg .modal-f { padding: 11px 18px; }
+.modal-h .sub { font-size: 11.5px; color: rgb(var(--fg-subtle)); margin-left: 2px; }
+.modal-h .no { font-size: 11.5px; font-weight: 700; color: rgb(var(--fg-accent));
+  background: rgb(var(--color-primary-subtle)); padding: 2px 8px; border-radius: 999px; }
+/* sectioned modal body */
+.msec { padding: 14px 18px; border-bottom: 1px solid rgb(var(--bd-subtle)); }
+.msec:last-child { border-bottom: 0; }
+.msec > .st { display: flex; align-items: center; gap: 7px; font-size: 10.5px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: rgb(var(--fg-subtle)); margin-bottom: 10px; }
+.msec > .st svg { width: 13px; height: 13px; stroke-width: 2.2; color: rgb(var(--color-primary)); }
+.msec > .st .r { margin-left: auto; display: flex; gap: 6px; text-transform: none;
+  letter-spacing: 0; font-weight: 500; }
+.modal-f .lft { margin-right: auto; display: flex; gap: 7px; align-items: center;
+  font-size: 12px; color: rgb(var(--fg-subtle)); white-space: nowrap; }
+.modal-f .lft svg { width: 14px; height: 14px; flex: 0 0 14px; stroke-width: 2; }
+@media (max-width: 640px) { .modal.xl, .modal.lg { max-height: 96vh; } .ovl { padding: 8px; } }
 .modal-h { padding: 13px 16px; border-bottom: 1px solid rgb(var(--bd-subtle));
   display: flex; align-items: center; gap: 9px; }
 .modal-h h3 { margin: 0; font-size: 14.5px; font-weight: 600; }
