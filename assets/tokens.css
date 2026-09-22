@@ -1,0 +1,129 @@
+/* ============================================================
+   Design tokens — lifted from IndasEstimoFlexo (src/styles/tokens.css)
+   Brand primary: #003366
+   ============================================================ */
+:root {
+  /* Backgrounds */
+  --bg-app: 249 250 251;
+  --bg-surface: 255 255 255;
+  --bg-header: 255 255 255;
+  --bg-sidebar: 248 249 250;
+  --bg-subtle: 246 247 249;
+  --bg-hover: 243 244 246;
+  --bg-selected: 239 246 255;
+  --bg-grid-header: 245 249 252;
+
+  /* Foregrounds */
+  --fg-default: 17 24 39;
+  --fg-muted: 75 85 99;
+  --fg-subtle: 107 114 128;
+  --fg-inverse: 255 255 255;
+  --fg-accent: 0 51 102;
+
+  /* Primary */
+  --color-primary: 0 51 102;
+  --color-primary-hover: 0 40 82;
+  --color-primary-subtle: 232 238 245;
+  --color-primary-muted: 102 153 204;
+  --color-primary-foreground: 255 255 255;
+
+  /* Secondary */
+  --color-secondary: 107 114 128;
+  --color-secondary-hover: 75 85 99;
+  --color-secondary-subtle: 243 244 246;
+
+  /* Borders */
+  --bd-default: 209 213 219;
+  --bd-medium: 175 181 190;
+  --bd-strong: 148 155 166;
+  --bd-subtle: 243 244 246;
+  --bd-accent: 0 51 102;
+
+  /* Status */
+  --color-success: 34 197 94;
+  --color-success-subtle: 220 252 231;
+  --color-warning: 245 158 11;
+  --color-warning-subtle: 254 243 199;
+  --color-error: 239 68 68;
+  --color-error-subtle: 254 226 226;
+  --color-info: 59 130 246;
+  --color-info-subtle: 219 234 254;
+  --color-orange: 249 115 22;
+  --color-orange-subtle: 255 237 213;
+  --color-purple: 147 51 234;
+  --color-purple-subtle: 243 232 255;
+  --color-teal: 20 184 166;
+  --color-teal-subtle: 204 251 241;
+  --color-neutral: 107 114 128;
+  --color-neutral-subtle: 243 244 246;
+
+  /* Typography */
+  --font-family-base: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.8125rem;
+  --font-size-md: 0.875rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.125rem;
+  --font-size-2xl: 1.375rem;
+  --font-size-3xl: 1.75rem;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px 0 rgb(16 24 40 / 0.05);
+  --shadow-md: 0 1px 3px 0 rgb(16 24 40 / 0.1), 0 1px 2px -1px rgb(16 24 40 / 0.06);
+  --shadow-lg: 0 4px 12px -2px rgb(16 24 40 / 0.1), 0 2px 6px -2px rgb(16 24 40 / 0.05);
+  --shadow-xl: 0 12px 32px -8px rgb(16 24 40 / 0.18);
+
+  /* Layout */
+  --sidebar-w: 248px;
+  --sidebar-w-collapsed: 56px;
+  --header-h: 52px;
+}
+
+html[data-theme="dark"] {
+  --bg-app: 14 17 22;
+  --bg-surface: 23 27 34;
+  --bg-header: 23 27 34;
+  --bg-sidebar: 18 22 28;
+  --bg-subtle: 31 36 45;
+  --bg-hover: 36 42 51;
+  --bg-selected: 22 35 58;
+  --bg-grid-header: 28 33 41;
+
+  --fg-default: 230 233 239;
+  --fg-muted: 166 173 187;
+  --fg-subtle: 139 147 161;
+  --fg-inverse: 255 255 255;
+  --fg-accent: 122 167 217;
+
+  --color-primary: 122 167 217;
+  --color-primary-hover: 148 186 228;
+  --color-primary-subtle: 22 35 58;
+  --color-primary-foreground: 10 18 30;
+
+  --bd-default: 45 51 61;
+  --bd-medium: 58 65 77;
+  --bd-strong: 75 84 98;
+  --bd-subtle: 36 42 51;
+  --bd-accent: 122 167 217;
+
+  --color-success-subtle: 18 44 28;
+  --color-warning-subtle: 51 38 17;
+  --color-error-subtle: 58 22 32;
+  --color-info-subtle: 21 35 63;
+  --color-orange-subtle: 51 30 14;
+  --color-purple-subtle: 42 27 61;
+  --color-teal-subtle: 13 43 40;
+  --color-neutral-subtle: 36 42 51;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 4px 12px -2px rgb(0 0 0 / 0.55);
+  --shadow-xl: 0 12px 32px -8px rgb(0 0 0 / 0.6);
+}

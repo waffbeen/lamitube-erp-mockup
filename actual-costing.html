@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actual Costing · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Costing</b> / Actual Costing</div>
+      <h1>Actual Costing &mdash; PWO/26-0194</h1>
+      <p>Mankind Pharma &middot; LT 22&times;120 Cream &middot; 3,24,600 pcs produced &middot; closed 21 Sep 2026</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="printer"></i>Costing sheet</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="check2"></i>Close job costing</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-p"><div class="lbl">Estimated cost / pc</div><div class="val">₹ 3.10</div></div>
+    <div class="stat acc-e"><div class="lbl">Actual cost / pc</div><div class="val">₹ 3.34</div><div class="dlt dn">+7.7%</div></div>
+    <div class="stat acc-t"><div class="lbl">Selling price / pc</div><div class="val">₹ 3.66</div></div>
+    <div class="stat acc-w"><div class="lbl">Actual margin</div><div class="val">8.7%</div><div class="dlt dn">est. 15.3%</div></div>
+    <div class="stat acc-s"><div class="lbl">Order value</div><div class="val">₹ 11.88<small> L</small></div></div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Estimated vs actual</h2>
+          <span class="sub">actual consumption and actual processing cost</span></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Cost head</th><th class="num">Est. qty</th><th class="num">Actual qty</th>
+              <th class="num">Est. / pc</th><th class="num">Actual / pc</th>
+              <th class="num">Variance / pc</th><th class="num">Variance %</th><th class="num">Total impact</th></tr></thead>
+            <tbody>
+              <tr><td><b>Raw material &mdash; laminate</b><div class="mut">ABL 250&micro;</div></td>
+                <td class="num">1,628 kg</td><td class="num">1,702 kg</td>
+                <td class="num mono">1.2440</td><td class="num mono">1.3006</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">+0.0566</td>
+                <td class="num" style="color:rgb(var(--color-error))">+4.6%</td>
+                <td class="num mono">+18,376</td></tr>
+              <tr><td><b>Raw material &mdash; granule + MB</b></td>
+                <td class="num">452 kg</td><td class="num">461 kg</td>
+                <td class="num mono">0.1602</td><td class="num mono">0.1634</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">+0.0032</td>
+                <td class="num" style="color:rgb(var(--color-error))">+2.0%</td>
+                <td class="num mono">+1,039</td></tr>
+              <tr><td><b>Bought-out &mdash; cap + rim</b></td>
+                <td class="num">3,26,000</td><td class="num">3,27,800</td>
+                <td class="num mono">0.5757</td><td class="num mono">0.5789</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">+0.0032</td>
+                <td class="num" style="color:rgb(var(--color-error))">+0.6%</td>
+                <td class="num mono">+1,039</td></tr>
+              <tr style="background:rgb(var(--color-orange-subtle))">
+                <td><b>Printing &mdash; Monarch Print</b><div class="mut">outsourced operation</div></td>
+                <td class="num">3,26,000</td><td class="num">3,26,000</td>
+                <td class="num mono">0.2100</td><td class="num mono">0.2240</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">+0.0140</td>
+                <td class="num" style="color:rgb(var(--color-error))">+6.7%</td>
+                <td class="num mono">+4,544</td></tr>
+              <tr><td><b>Manufacturing</b><div class="mut">machine hours</div></td>
+                <td class="num">178.4 hr</td><td class="num">191.2 hr</td>
+                <td class="num mono">0.4552</td><td class="num mono">0.4878</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">+0.0326</td>
+                <td class="num" style="color:rgb(var(--color-error))">+7.2%</td>
+                <td class="num mono">+10,582</td></tr>
+              <tr><td><b>Packing</b></td>
+                <td class="num">1,630 set</td><td class="num">1,624 set</td>
+                <td class="num mono">0.0640</td><td class="num mono">0.0637</td>
+                <td class="num mono" style="color:rgb(var(--color-success))">&minus;0.0003</td>
+                <td class="num" style="color:rgb(var(--color-success))">&minus;0.5%</td>
+                <td class="num mono">&minus;97</td></tr>
+              <tr><td><b>Wastage</b></td>
+                <td class="num">3.8%</td><td class="num">5.1%</td>
+                <td class="num mono">0.1392</td><td class="num mono">0.1869</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">+0.0477</td>
+                <td class="num" style="color:rgb(var(--color-error))">+34.3%</td>
+                <td class="num mono">+15,483</td></tr>
+              <tr><td><b>Rejection</b></td>
+                <td class="num">1.8%</td><td class="num">2.4%</td>
+                <td class="num mono">0.0558</td><td class="num mono">0.0801</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">+0.0243</td>
+                <td class="num" style="color:rgb(var(--color-error))">+43.5%</td>
+                <td class="num mono">+7,888</td></tr>
+              <tr><td><b>Rework</b></td>
+                <td class="num">&mdash;</td><td class="num">4,200 pcs</td>
+                <td class="num mono">0.0000</td><td class="num mono">0.0086</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">+0.0086</td>
+                <td class="num">&mdash;</td>
+                <td class="num mono">+2,792</td></tr>
+              <tr><td><b>Other direct cost</b></td>
+                <td class="num">&mdash;</td><td class="num">&mdash;</td>
+                <td class="num mono">0.1070</td><td class="num mono">0.1070</td>
+                <td class="num mono">0.0000</td><td class="num">0.0%</td>
+                <td class="num mono">0</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><td>Total cost</td><td colspan="2"></td>
+                <td class="num mono">3.1000</td><td class="num mono">3.4010</td>
+                <td class="num mono" style="color:rgb(var(--color-error))">+0.3010</td>
+                <td class="num" style="color:rgb(var(--color-error))">+9.7%</td>
+                <td class="num mono">+61,646</td></tr>
+            </tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Variance drivers</h2>
+          <span class="sub">where the money went</span></div>
+        <div class="card-b">
+          <div style="display:flex;height:9px;border-radius:5px;overflow:hidden;margin-bottom:12px">
+            <span style="width:29.8%;background:rgb(var(--color-primary))" title="Laminate"></span>
+            <span style="width:25.1%;background:rgb(var(--color-error))" title="Wastage"></span>
+            <span style="width:17.2%;background:rgb(var(--color-warning))" title="Manufacturing"></span>
+            <span style="width:12.8%;background:rgb(var(--color-purple))" title="Rejection"></span>
+            <span style="width:7.4%;background:rgb(var(--color-orange))" title="Printing"></span>
+            <span style="width:7.7%;background:rgb(var(--color-teal))" title="Other"></span>
+          </div>
+          <table class="tbl dense" style="margin:0">
+            <thead><tr><th>Driver</th><th class="num">Impact</th><th class="num">Share</th><th>Root cause</th></tr></thead>
+            <tbody>
+              <tr><td><b>Laminate over-consumption</b></td><td class="num mono">+₹ 18,376</td><td class="num">29.8%</td>
+                <td class="mut">74 kg extra &mdash; roll-end loss and setup wastage at Monarch Print</td></tr>
+              <tr><td><b>Wastage above standard</b></td><td class="num mono">+₹ 15,483</td><td class="num">25.1%</td>
+                <td class="mut">5.1% actual against 3.8% standard</td></tr>
+              <tr><td><b>Extra machine hours</b></td><td class="num mono">+₹ 10,582</td><td class="num">17.2%</td>
+                <td class="mut">12.8 hrs downtime &mdash; cavity 5 stoppages</td></tr>
+              <tr><td><b>Rejection above standard</b></td><td class="num mono">+₹ 7,888</td><td class="num">12.8%</td>
+                <td class="mut">Cavity 5 short shots &mdash; CAPA-2026-014</td></tr>
+              <tr><td><b>Printing rate escalation</b></td><td class="num mono">+₹ 4,544</td><td class="num">7.4%</td>
+                <td class="mut">Monarch Print rate 0.2240 against 0.2100 contracted</td></tr>
+              <tr><td><b>Rework</b></td><td class="num mono">+₹ 2,792</td><td class="num">4.5%</td>
+                <td class="mut">4,200 pcs recapped</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Profitability</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Selling price / pc</dt><dd class="right mono">₹ 3.6600</dd>
+            <dt>Estimated cost / pc</dt><dd class="right mono">₹ 3.1000</dd>
+            <dt>Actual cost / pc</dt><dd class="right mono" style="color:rgb(var(--color-error))">₹ 3.4010</dd>
+          </dl>
+          <div class="hr"></div>
+          <dl class="kv">
+            <dt>Estimated margin</dt><dd class="right mono">15.3%</dd>
+            <dt>Actual margin</dt><dd class="right mono" style="color:rgb(var(--color-warning))">7.1%</dd>
+            <dt>Margin erosion</dt><dd class="right mono" style="color:rgb(var(--color-error))">&minus;8.2 pt</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Order profit</span>
+            <b style="margin-left:auto;font-size:18px" class="mono">₹ 84,090</b>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:3px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Planned was</span>
+            <span style="margin-left:auto;font-size:13px" class="mono muted">₹ 1,81,776</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Outsourced cost</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Challans</dt><dd class="right">2</dd>
+            <dt>Material sent</dt><dd class="right mono">1,702 kg</dd>
+            <dt>Good returned</dt><dd class="right mono">1,586 kg</dd>
+            <dt>Wastage at B</dt><dd class="right mono" style="color:rgb(var(--color-warning))">2.8%</dd>
+            <dt>Printing billed</dt><dd class="right mono">₹ 73,024</dd>
+            <dt>Estimated</dt><dd class="right mono">₹ 68,460</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Feeds back into</h2></div>
+        <div class="card-b">
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:12.5px">
+            <a href="product-catalogue.html" style="display:flex;gap:8px;align-items:center">
+              <i data-i="book" class="muted"></i>Product Catalogue standard cost
+              <i data-i="link" class="muted" style="margin-left:auto"></i></a>
+            <a href="estimation.html" style="display:flex;gap:8px;align-items:center">
+              <i data-i="calc" class="muted"></i>Next estimation for this product
+              <i data-i="link" class="muted" style="margin-left:auto"></i></a>
+            <a href="capa.html" style="display:flex;gap:8px;align-items:center">
+              <i data-i="wrench" class="muted"></i>CAPA-2026-014 cost of poor quality
+              <i data-i="link" class="muted" style="margin-left:auto"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

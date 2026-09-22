@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RMQC · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Quality</b> / RMQC &mdash; gate 1 of 3</div>
+      <h1>Raw Material Quality Control</h1>
+      <p>GRN &rarr; QC hold &rarr; RMQC &rarr; Accepted / Rejected / Hold</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="printer"></i>Inspection report</button>
+      <button class="btn pri"><i data-i="save"></i>Save decision</button>
+    </div>
+  </div>
+
+  <div class="steps" style="margin-bottom:14px">
+    <div class="step done"><span class="b"><i data-i="check2"></i></span><span>GRN posted</span></div>
+    <div class="step-ln"></div>
+    <div class="step done"><span class="b"><i data-i="check2"></i></span><span>QC hold</span></div>
+    <div class="step-ln"></div>
+    <div class="step now"><span class="b">3</span><span>Inspection</span></div>
+    <div class="step-ln"></div>
+    <div class="step"><span class="b">4</span><span>Decision</span></div>
+    <div class="step-ln"></div>
+    <div class="step"><span class="b">5</span><span>Stock updated</span></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-w"><div class="lbl">On QC hold</div><div class="val">4</div><div class="dlt">1,062 kg value ₹ 2.6 L</div></div>
+    <div class="stat acc-s"><div class="lbl">Accepted today</div><div class="val">6</div></div>
+    <div class="stat acc-e"><div class="lbl">Rejected today</div><div class="val">1</div><div class="dlt dn">42 kg laminate</div></div>
+    <div class="stat acc-o"><div class="lbl">Under deviation</div><div class="val">2</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Inspection &mdash; GRN/26-0625 &middot; ROLL-26-1902</h2>
+      <span class="sub">ABL Laminate PE/EVOH/PE 250&micro; &middot; Essel Propack Ltd.</span>
+      <div class="r"><span class="bdg w">Pending decision</span></div></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Parameter</th><th>Method</th><th>Specification</th><th class="num">Min</th><th class="num">Max</th>
+          <th class="num">Sample 1</th><th class="num">Sample 2</th><th class="num">Sample 3</th>
+          <th class="num">Average</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td><b>Thickness</b></td><td>Micrometer</td><td>250 &micro; ± 10</td><td class="num">240</td><td class="num">260</td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="252"></td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="249"></td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="251"></td>
+            <td class="num mono">250.7</td><td><span class="bdg g">Pass</span></td></tr>
+          <tr><td><b>GSM</b></td><td>Weighing</td><td>248 ± 8</td><td class="num">240</td><td class="num">256</td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="247"></td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="250"></td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="246"></td>
+            <td class="num mono">247.7</td><td><span class="bdg g">Pass</span></td></tr>
+          <tr><td><b>Bond strength</b></td><td>Peel test</td><td>&ge; 4.0 N/15 mm</td><td class="num">4.0</td><td class="num">&mdash;</td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="4.6"></td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="4.4"></td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="4.5"></td>
+            <td class="num mono">4.50</td><td><span class="bdg g">Pass</span></td></tr>
+          <tr><td><b>Web width</b></td><td>Steel rule</td><td>620 mm ± 2</td><td class="num">618</td><td class="num">622</td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="621"></td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="620"></td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="620"></td>
+            <td class="num mono">620.3</td><td><span class="bdg g">Pass</span></td></tr>
+          <tr><td><b>Surface defects</b></td><td>Visual</td><td>Nil per 100 m</td><td class="num">&mdash;</td><td class="num">0</td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="0"></td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="1"></td>
+            <td class="num"><input class="inp" style="width:62px;text-align:right" value="0"></td>
+            <td class="num mono">0.3</td><td><span class="bdg w">Deviation</span></td></tr>
+          <tr><td><b>Odour</b></td><td>Sensory</td><td>Nil</td><td class="num">&mdash;</td><td class="num">&mdash;</td>
+            <td class="num">OK</td><td class="num">OK</td><td class="num">OK</td>
+            <td class="num">OK</td><td><span class="bdg g">Pass</span></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+    <div class="card-b" style="border-top:1px solid rgb(var(--bd-subtle))">
+      <div class="fgrid c4">
+        <div class="fld"><label>Received qty</label><input class="inp ro" value="212.00 kg" readonly></div>
+        <div class="fld"><label>Accepted qty</label><input class="inp" value="212.00"></div>
+        <div class="fld"><label>Rejected qty</label><input class="inp" value="0.00"></div>
+        <div class="fld"><label>Held qty</label><input class="inp" value="0.00"></div>
+        <div class="fld span2"><label>Inspector remark</label>
+          <textarea class="inp" rows="2">One minor surface mark noted on sample 2, within acceptable limit. Roll released for production.</textarea></div>
+        <div class="fld"><label>Inspected by</label><select class="inp"><option>R. Verma — QA</option><option>S. Nair — QA</option></select></div>
+        <div class="fld"><label>Approved by</label><select class="inp"><option>QA Head</option></select></div>
+      </div>
+      <div class="hr"></div>
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button class="btn"><i data-i="alertTri"></i>Hold</button>
+        <button class="btn dgr"><i data-i="x"></i>Reject &amp; raise NCR</button>
+        <button class="btn ok"><i data-i="check2"></i>Accept &amp; release to stock</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb0">
+    <div class="card-h"><h2>Pending inspections</h2></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>GRN</th><th>Batch / roll</th><th>Item</th><th>Supplier</th>
+          <th class="num">Qty</th><th class="num">Hrs on hold</th><th>Priority</th><th class="ctr">Action</th></tr></thead>
+        <tbody>
+          <tr><td class="k">GRN/26-0625</td><td class="k">ROLL-26-1903</td><td>ABL Laminate 250&micro;</td>
+            <td>Essel Propack Ltd.</td><td class="num">108.00</td><td class="num">2</td>
+            <td><span class="bdg r nodot">High &mdash; PWO waiting</span></td>
+            <td class="ctr"><button class="btn sm pri">Inspect</button></td></tr>
+          <tr><td class="k">GRN/26-0625</td><td class="k">BATCH-26-0771</td><td>HDPE granule</td>
+            <td>Essel Propack Ltd.</td><td class="num">150.00</td><td class="num">2</td>
+            <td><span class="bdg n nodot">Normal</span></td>
+            <td class="ctr"><button class="btn sm">Inspect</button></td></tr>
+          <tr><td class="k">GRN/26-0623</td><td class="k">ROLL-26-1881</td><td>ABL Laminate 250&micro;</td>
+            <td>Essel Propack Ltd.</td><td class="num">300.00</td><td class="num">26</td>
+            <td><span class="bdg w nodot">Ageing</span></td>
+            <td class="ctr"><button class="btn sm">Inspect</button></td></tr>
+          <tr><td class="k">GRN/26-0620</td><td class="k">BATCH-26-0764</td><td>Masterbatch &mdash; white</td>
+            <td>Plastiblends India</td><td class="num">42.00</td><td class="num">48</td>
+            <td><span class="bdg r nodot">Overdue</span></td>
+            <td class="ctr"><button class="btn sm">Inspect</button></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

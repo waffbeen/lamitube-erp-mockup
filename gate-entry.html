@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gate Entry · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / Gate Entry</div>
+      <h1>Gate Entry</h1>
+      <p>Optional step before GRN &mdash; controlled by a setting</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="printer"></i>Gate slip</button>
+      <button class="btn pri"><i data-i="plus"></i>New Gate Entry</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Setting</h2><span class="sub">ERP configuration &mdash; applies to all inward material</span></div>
+    <div class="card-b">
+      <div class="split even">
+        <div>
+          <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer">
+            <input type="checkbox" checked style="margin-top:3px">
+            <span>
+              <b style="font-size:13px">Gate entry mandatory before GRN</b>
+              <div class="muted" style="font-size:12px;margin-top:2px">
+                When ON, no GRN can be made unless the vehicle has been gated in first.
+                When OFF, stores can make the GRN directly and this screen is skipped.
+              </div>
+            </span>
+          </label>
+        </div>
+        <div>
+          <div class="alert info mb0" style="margin-bottom:0">
+            <i data-i="door"></i>
+            <div><b>Currently ON</b> for Unit 1 &mdash; Baddi. GRN will pull the gate entry number and the weighbridge weight automatically.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-p"><div class="lbl">Gated in today</div><div class="val">7</div></div>
+    <div class="stat acc-w"><div class="lbl">Awaiting GRN</div><div class="val">4</div><div class="dlt">1 over 24 hrs</div></div>
+    <div class="stat acc-s"><div class="lbl">GRN completed</div><div class="val">3</div></div>
+    <div class="stat acc-e"><div class="lbl">Gate rejections</div><div class="val">1</div><div class="dlt">document mismatch</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>New gate entry</h2></div>
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Gate entry no.</label><input class="inp ro" value="GE/26-0913" readonly></div>
+        <div class="fld"><label>Date &amp; time</label><input class="inp" type="datetime-local" value="2026-09-22T10:40"></div>
+        <div class="fld"><label>Entry type</label><select class="inp"><option>Inward — purchase</option><option>Inward — job work return</option><option>Inward — sales return</option></select></div>
+        <div class="fld"><label>Against PO</label><select class="inp"><option>PO/26-0488 — Essel Propack</option><option>PO/26-0487 — Sanjay Polymers</option></select></div>
+        <div class="fld"><label>Supplier</label><input class="inp ro" value="Essel Propack Ltd." readonly></div>
+        <div class="fld"><label>Supplier invoice / DC</label><input class="inp" value="EPL/INV/26-3341"></div>
+        <div class="fld"><label>Vehicle no.</label><input class="inp" value="HR-38-Y-2201"></div>
+        <div class="fld"><label>Driver name</label><input class="inp" value="Ram Singh"></div>
+        <div class="fld"><label>Gross weight (kg)</label><input class="inp" value="4,280"></div>
+        <div class="fld"><label>Tare weight (kg)</label><input class="inp" value="3,440"></div>
+        <div class="fld"><label>Net weight (kg)</label><input class="inp ro" value="840" readonly></div>
+        <div class="fld"><label>Security guard</label><select class="inp"><option>S. Yadav</option><option>M. Pal</option></select></div>
+        <div class="fld span2"><label>Document check</label>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;padding-top:5px;font-size:12.5px">
+            <label style="display:flex;gap:6px;align-items:center"><input type="checkbox" checked>Invoice</label>
+            <label style="display:flex;gap:6px;align-items:center"><input type="checkbox" checked>E-way bill</label>
+            <label style="display:flex;gap:6px;align-items:center"><input type="checkbox" checked>COA / test certificate</label>
+            <label style="display:flex;gap:6px;align-items:center"><input type="checkbox">Packing list</label>
+          </div></div>
+        <div class="fld span2"><label>Remarks</label><textarea class="inp" rows="1" placeholder="Seal intact, tarpaulin dry…"></textarea></div>
+      </div>
+      <div class="hr"></div>
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button class="btn dgr"><i data-i="x"></i>Refuse entry</button>
+        <button class="btn pri"><i data-i="save"></i>Gate in &amp; send to Stores</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb0">
+    <div class="card-h"><h2>Gate register</h2><span class="sub">today</span></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Gate no.</th><th>Time in</th><th>Vehicle</th><th>Supplier</th><th>PO</th>
+          <th>Invoice / DC</th><th class="num">Net wt.</th><th>GRN</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="k">GE/26-0912</td><td>09:15</td><td>HP-12-C-9930</td><td>Monarch Print Pvt. Ltd.</td>
+            <td class="mut">ICP/26-0076</td><td>MP/DC/26-1188</td><td class="num">749.0</td>
+            <td class="k">ICR/26-0058</td><td><span class="bdg g">Received</span></td></tr>
+          <tr><td class="k">GE/26-0911</td><td>08:52</td><td>PB-11-T-4417</td><td>Sanjay Polymers</td>
+            <td class="mut">PO/26-0487</td><td>SP/26-0881</td><td class="num">312.0</td>
+            <td class="k">GRN/26-0624</td><td><span class="bdg g">Received</span></td></tr>
+          <tr><td class="k">GE/26-0910</td><td>08:20</td><td>HR-38-Y-1109</td><td>Shakti Packaging</td>
+            <td class="mut">PO/26-0482</td><td>SHP/26-0447</td><td class="num">180.0</td>
+            <td class="mut">&mdash;</td><td><span class="bdg w">Awaiting GRN</span></td></tr>
+          <tr><td class="k">GE/26-0909</td><td>07:48</td><td>UP-16-F-8802</td><td>Reliance Polymers</td>
+            <td class="mut">PO/26-0479</td><td>RP/26-9912</td><td class="num">2,000.0</td>
+            <td class="mut">&mdash;</td><td><span class="bdg w">Awaiting GRN</span></td></tr>
+          <tr><td class="k">GE/26-0908</td><td>07:10</td><td>DL-01-L-3390</td><td>Unregistered vendor</td>
+            <td class="mut">&mdash;</td><td class="mut">&mdash;</td><td class="num">&mdash;</td>
+            <td class="mut">&mdash;</td><td><span class="bdg r">Refused &mdash; no PO</span></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

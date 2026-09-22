@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Purchase Order · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / Purchase Order</div>
+      <h1>Purchase Order &mdash; PO/26-0488</h1>
+      <p>Against approved indent IND/26-0311 &middot; PWO/26-0194</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg g">Approved indent</span>
+      <button class="btn"><i data-i="printer"></i>Print PO</button>
+      <button class="btn"><i data-i="mail"></i>Email supplier</button>
+      <button class="btn pri"><i data-i="save"></i>Save &amp; release</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>PO no.</label><input class="inp ro" value="PO/26-0488" readonly></div>
+        <div class="fld"><label>PO date</label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>Against indent <span class="req">*</span></label>
+          <select class="inp"><option>IND/26-0311 — approved</option><option>IND/26-0314 — pending (blocked)</option></select></div>
+        <div class="fld"><label>Supplier <span class="req">*</span></label>
+          <select class="inp"><option>Essel Propack Ltd.</option><option>Sanjay Polymers</option><option>Shakti Packaging</option></select></div>
+        <div class="fld"><label>Supplier GSTIN</label><input class="inp ro" value="27AAACE1234F1ZV" readonly></div>
+        <div class="fld"><label>Delivery date</label><input class="inp" type="date" value="2026-09-28"></div>
+        <div class="fld"><label>Payment terms</label><select class="inp"><option>30 days</option><option>45 days</option><option>Advance</option></select></div>
+        <div class="fld"><label>Gate entry required</label><select class="inp"><option>Yes — per setting</option><option>No</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>PO items</h2>
+          <span class="sub">only approved indent lines can be pulled</span>
+          <div class="r"><button class="btn sm"><i data-i="plus"></i>Pull from indent</button></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>#</th><th>Item</th><th>Indent</th><th>UoM</th><th class="num">Qty</th>
+              <th class="num">Rate</th><th class="num">Disc %</th><th class="num">GST %</th>
+              <th class="num">Amount</th><th class="ctr"></th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><b>ABL Laminate PE/EVOH/PE 250&micro;</b><div class="mut">ITM-1004 · web 620 mm</div></td>
+                <td class="mut">IND/26-0311</td><td>kg</td><td class="num">320.00</td>
+                <td class="num mono">246.50</td><td class="num">1.0</td><td class="num">18</td>
+                <td class="num mono">78,092</td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr><td>2</td><td><b>HDPE granule &mdash; shoulder grade</b><div class="mut">ITM-2011</div></td>
+                <td class="mut">IND/26-0311</td><td>kg</td><td class="num">150.00</td>
+                <td class="num mono">110.00</td><td class="num">0.0</td><td class="num">18</td>
+                <td class="num mono">16,500</td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="8">Basic value</td><td class="num mono">94,592</td><td></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Recent purchase orders</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>PO no.</th><th>Date</th><th>Supplier</th><th>Item</th>
+              <th class="num">Qty</th><th class="num">Value</th><th>GRN</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">PO/26-0487</td><td>20 Sep</td><td>Sanjay Polymers</td><td>Flip-top cap 11 mm</td>
+                <td class="num">2,00,000</td><td class="num mono">96,000</td><td class="mut">partial</td>
+                <td><span class="bdg w">Partly received</span></td></tr>
+              <tr><td class="k">PO/26-0485</td><td>18 Sep</td><td>Essel Propack Ltd.</td><td>ABL Laminate 250&micro;</td>
+                <td class="num">1,200.00</td><td class="num mono">2,95,800</td><td class="k">GRN/26-0621</td>
+                <td><span class="bdg g">Received</span></td></tr>
+              <tr><td class="k">PO/26-0482</td><td>15 Sep</td><td>Shakti Packaging</td><td>Inner box + carton</td>
+                <td class="num">3,000</td><td class="num mono">17,400</td><td class="k">GRN/26-0618</td>
+                <td><span class="bdg g">Received</span></td></tr>
+              <tr><td class="k">PO/26-0479</td><td>11 Sep</td><td>Reliance Polymers</td><td>HDPE granule</td>
+                <td class="num">2,000.00</td><td class="num mono">2,24,000</td><td class="mut">&mdash;</td>
+                <td><span class="bdg b">Open</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>PO value</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Basic value</dt><dd class="right mono">₹ 94,592</dd>
+            <dt>Freight</dt><dd class="right mono">₹ 2,400</dd>
+            <dt>GST @ 18%</dt><dd class="right mono">₹ 17,459</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Total</span>
+            <b style="margin-left:auto;font-size:19px" class="mono">₹ 1,14,451</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Supplier</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Rating</dt><dd class="right"><span class="bdg g nodot">A &mdash; approved</span></dd>
+            <dt>On-time delivery</dt><dd class="right mono">94%</dd>
+            <dt>RMQC rejection rate</dt><dd class="right mono">1.8%</dd>
+            <dt>Open POs</dt><dd class="right mono">3</dd>
+            <dt>Outstanding</dt><dd class="right mono">₹ 4.82 L</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Terms</h2></div>
+        <div class="card-b">
+          <div class="fld" style="margin-bottom:10px"><label>Delivery terms</label>
+            <select class="inp"><option>Door delivery</option><option>Ex-works</option></select></div>
+          <div class="fld"><label>Special instructions</label>
+            <textarea class="inp" rows="3">COA and test certificate mandatory with each roll. Roll-wise batch numbers to be marked. Material to pass RMQC before issue.</textarea></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales Order · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Sales</b> / Sales Order</div>
+      <h1>Sales Order &mdash; SO/26-0202</h1>
+      <p>From QT/26-0421 &middot; Cipla Ltd. &middot; created 22 Sep 2026</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg g">Confirmed</span>
+      <button class="btn"><i data-i="printer"></i>Order confirmation</button>
+      <button class="btn"><i data-i="save"></i>Save</button>
+      <button class="btn pri"><i data-i="clip"></i>Create Work Order</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Customer <span class="req">*</span></label><input class="inp ro" value="Cipla Ltd." readonly></div>
+        <div class="fld"><label>Customer PO no.</label><input class="inp" value="CIP/PO/26-11842"></div>
+        <div class="fld"><label>PO date</label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>Delivery date</label><input class="inp" type="date" value="2026-10-20"></div>
+        <div class="fld"><label>Ship to</label><select class="inp"><option>Cipla Ltd. &mdash; Goa Plant</option><option>Cipla Ltd. &mdash; Sikkim Plant</option></select></div>
+        <div class="fld"><label>Payment terms</label><select class="inp"><option>45 days</option><option>30 days</option></select></div>
+        <div class="fld"><label>Qty tolerance</label><input class="inp" value="± 5%"></div>
+        <div class="fld"><label>Sales person</label><select class="inp"><option>A. Kumar</option><option>R. Sharma</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Order items</h2>
+          <div class="r"><button class="btn sm"><i data-i="plus"></i>Add item</button></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr>
+              <th>#</th><th>Product</th><th>Artwork</th><th class="num">Qty</th>
+              <th class="num">Rate / pc</th><th class="num">Amount</th><th>Delivery</th><th class="ctr"></th>
+            </tr></thead>
+            <tbody>
+              <tr><td>1</td>
+                <td><b>LT 19&times;100 &mdash; Gel tube</b><div class="mut">PC-0142 rev C &middot; flip-top cap</div></td>
+                <td class="mut">AW-2026-0742</td>
+                <td class="num">1,50,000</td><td class="num mono">2.8532</td>
+                <td class="num mono">4,27,980</td><td>20 Oct 26</td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="5">Basic value</td><td class="num mono">4,27,980</td><td colspan="2"></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Delivery schedule</h2>
+          <span class="sub">split into weekly lots</span>
+          <div class="r"><button class="btn sm"><i data-i="plus"></i>Add lot</button></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Lot</th><th>Due date</th><th class="num">Qty</th><th class="num">Dispatched</th>
+              <th class="num">Balance</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Lot 1</td><td>29 Sep 26</td><td class="num">40,000</td>
+                <td class="num">0</td><td class="num">40,000</td><td><span class="bdg b">Planned</span></td></tr>
+              <tr><td class="k">Lot 2</td><td>06 Oct 26</td><td class="num">40,000</td>
+                <td class="num">0</td><td class="num">40,000</td><td><span class="bdg n">Pending</span></td></tr>
+              <tr><td class="k">Lot 3</td><td>13 Oct 26</td><td class="num">40,000</td>
+                <td class="num">0</td><td class="num">40,000</td><td><span class="bdg n">Pending</span></td></tr>
+              <tr><td class="k">Lot 4</td><td>20 Oct 26</td><td class="num">30,000</td>
+                <td class="num">0</td><td class="num">30,000</td><td><span class="bdg n">Pending</span></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="2">Total</td><td class="num">1,50,000</td><td class="num">0</td>
+              <td class="num">1,50,000</td><td></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Order value</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Basic value</dt><dd class="right mono">₹ 4,27,980</dd>
+            <dt>Tooling</dt><dd class="right mono">₹ 45,000</dd>
+            <dt>GST @ 18%</dt><dd class="right mono">₹ 85,136</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Total</span>
+            <b style="margin-left:auto;font-size:19px" class="mono">₹ 5,58,116</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Linked documents</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td><i data-i="mail" class="muted"></i> Enquiry</td><td class="num"><a class="k" href="enquiry.html">ENQ/26-0421</a></td></tr>
+              <tr><td><i data-i="calc" class="muted"></i> Estimation</td><td class="num"><a class="k" href="estimation.html">EST/26-0388</a></td></tr>
+              <tr><td><i data-i="file" class="muted"></i> Quotation</td><td class="num"><a class="k" href="quotation.html">QT/26-0421</a></td></tr>
+              <tr><td><i data-i="book" class="muted"></i> Catalogue</td><td class="num"><a class="k" href="product-catalogue.html">PC-0142</a></td></tr>
+              <tr><td><i data-i="clip" class="muted"></i> Work order</td><td class="num muted">not created</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Customer history</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td>Open orders</td><td class="num"><b>4</b></td></tr>
+              <tr><td>Overdue outstanding</td><td class="num" style="color:rgb(var(--color-error))"><b>₹ 2.14 L</b></td></tr>
+              <tr><td>Credit limit</td><td class="num"><b>₹ 50.00 L</b></td></tr>
+              <tr><td>Complaints (12 months)</td><td class="num"><b>2</b></td></tr>
+              <tr><td>Open CAPA on product</td><td class="num"><span class="bdg r">1</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      capaAlert({
+        text: 'Product PC-0142 has an active CAPA for shoulder leakage. 100% leak test is mandatory on every lot of this order.',
+        ref: 'CAPA-2026-014 · linked to Product Catalogue · blocks dispatch'
+      });
+    }, 700);
+  });
+</script>
+</body>
+</html>

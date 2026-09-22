@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Machine Scheduling · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  .gantt { min-width: 900px; }
+  .gantt .row { display: grid; grid-template-columns: 210px 1fr; align-items: center;
+    border-bottom: 1px solid rgb(var(--bd-subtle)); }
+  .gantt .row:last-child { border-bottom: 0; }
+  .gantt .mc { padding: 9px 12px; font-size: 12.5px; }
+  .gantt .mc b { display: block; }
+  .gantt .mc small { color: rgb(var(--fg-subtle)); font-size: 11px; }
+  .gantt .lane { position: relative; height: 46px; border-left: 1px solid rgb(var(--bd-subtle)); }
+  .gantt .grid { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(14, 1fr); }
+  .gantt .grid span { border-right: 1px solid rgb(var(--bd-subtle)); }
+  .gantt .bar { position: absolute; top: 11px; height: 24px; border-radius: 4px;
+    display: flex; align-items: center; padding: 0 8px; font-size: 11px; font-weight: 600;
+    color: #fff; white-space: nowrap; overflow: hidden; cursor: pointer; }
+  .gantt .bar.p { background: rgb(var(--color-primary)); }
+  .gantt .bar.o { background: rgb(var(--color-orange)); }
+  .gantt .bar.g { background: rgb(var(--color-success)); }
+  .gantt .bar.w { background: rgb(var(--color-warning)); }
+  .gantt .bar.n { background: rgb(var(--color-neutral)); }
+  .gantt .hdr-days { display: grid; grid-template-columns: 210px 1fr; background: rgb(var(--bg-grid-header));
+    border-bottom: 1px solid rgb(var(--bd-default)); }
+  .gantt .hdr-days .d { display: grid; grid-template-columns: repeat(14, 1fr); }
+  .gantt .hdr-days .d span { text-align: center; padding: 6px 0; font-size: 10.5px; font-weight: 700;
+    color: rgb(var(--fg-subtle)); border-right: 1px solid rgb(var(--bd-subtle)); }
+  .gantt .hdr-days .lbl { padding: 6px 12px; font-size: 10.5px; font-weight: 700;
+    letter-spacing: .05em; text-transform: uppercase; color: rgb(var(--fg-subtle)); }
+</style>
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Planning</b> / Machine Scheduling</div>
+      <h1>Machine-wise Scheduling</h1>
+      <p>Sequence jobs on machines and release them to the shop floor from here</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="refresh"></i>Auto-sequence</button>
+      <button class="btn"><i data-i="printer"></i>Print schedule</button>
+      <button class="btn pri"><i data-i="check2"></i>Release selected</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>Week</label><select class="inp"><option>24 Sep – 07 Oct 2026</option><option>08 – 21 Oct 2026</option></select></div>
+    <div class="fld"><label>Machine group</label><select class="inp"><option>All</option><option>Slitting</option><option>Tube making</option><option>Moulding</option><option>Assembly</option></select></div>
+    <div class="fld"><label>Shift</label><select class="inp"><option>All shifts</option><option>Shift A</option><option>Shift B</option><option>Shift C</option></select></div>
+    <div class="fld w-sm"><label>Status</label><select class="inp"><option>All</option><option>Planned</option><option>Released</option><option>Running</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-p"><div class="lbl">Scheduled jobs</div><div class="val">18</div></div>
+    <div class="stat acc-s"><div class="lbl">Released</div><div class="val">11</div></div>
+    <div class="stat acc-w"><div class="lbl">Awaiting release</div><div class="val">7</div></div>
+    <div class="stat acc-e"><div class="lbl">Capacity overload</div><div class="val">2 <small>machines</small></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Machine load &mdash; 24 Sep to 07 Oct</h2>
+      <div class="r"><span class="chip">In-house</span><span class="chip" style="border-color:rgb(var(--color-orange));background:rgb(var(--color-orange-subtle))">Outsourced</span></div></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <div class="gantt">
+        <div class="hdr-days">
+          <div class="lbl">Machine</div>
+          <div class="d"><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
+            <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span></div>
+        </div>
+        <div class="row">
+          <div class="mc"><b>SLIT-01</b><small>Laminate slitting</small></div>
+          <div class="lane"><div class="grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="bar g" style="left:0.5%;width:13.5%">PWO/26-0202 · Slitting</div>
+            <div class="bar p" style="left:22%;width:13%">PWO/26-0197 · Slitting</div>
+            <div class="bar n" style="left:57%;width:13%">PWO/26-0199</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mc"><b>Monarch Print</b><small>Printing &mdash; outsourced</small></div>
+          <div class="lane"><div class="grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="bar o" style="left:14.5%;width:36%">PWO/26-0202 · Printing at Monarch Print</div>
+            <div class="bar o" style="left:57%;width:28%">PWO/26-0197 · Printing</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mc"><b>TM-02</b><small>Sleeve forming</small></div>
+          <div class="lane"><div class="grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="bar w" style="left:7%;width:20%">PWO/26-0194 · Forming</div>
+            <div class="bar p" style="left:50%;width:21%">PWO/26-0202 · Forming</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mc"><b>CM-01</b><small>Shoulder moulding &mdash; 8 cavity</small></div>
+          <div class="lane"><div class="grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="bar w" style="left:14%;width:28%">PWO/26-0194 · Moulding</div>
+            <div class="bar p" style="left:71%;width:28%">PWO/26-0202 · Moulding</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mc"><b>CAP-01</b><small>Capping &amp; assembly</small></div>
+          <div class="lane"><div class="grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="bar g" style="left:0.5%;width:13%">PWO/26-0188</div>
+            <div class="bar w" style="left:43%;width:14%">PWO/26-0194</div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="card mb0">
+    <div class="card-h"><h2>Schedule rows</h2>
+      <span class="sub">Release is an action on the row &mdash; no separate release screen</span>
+      <div class="r"><button class="btn sm pri"><i data-i="check2"></i>Release selected</button></div></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr>
+          <th style="width:34px"><input type="checkbox"></th>
+          <th>PWO</th><th>Operation</th><th>Machine / vendor</th><th class="num">Qty</th>
+          <th class="num">Hrs</th><th>Window</th><th>Material</th><th>Status</th><th class="ctr">Action</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox"></td><td class="k">PWO/26-0202</td><td>10 &mdash; Slitting</td>
+            <td>SLIT-01</td><td class="num">1,53,000</td><td class="num">17.0</td><td>24 – 25 Sep</td>
+            <td><span class="bdg g nodot">Issued</span></td><td><span class="bdg g">Completed</span></td>
+            <td class="ctr"><button class="btn sm" disabled>Released</button></td></tr>
+          <tr><td><input type="checkbox"></td><td class="k">PWO/26-0202</td><td>20 &mdash; Printing</td>
+            <td>Monarch Print</td><td class="num">1,53,000</td><td class="num">&mdash;</td><td>26 Sep – 01 Oct</td>
+            <td><span class="bdg g nodot">Sent</span></td><td><span class="bdg o">At Monarch Print</span></td>
+            <td class="ctr"><a class="btn sm" href="printing-send.html">Challan</a></td></tr>
+          <tr><td><input type="checkbox" checked></td><td class="k">PWO/26-0202</td><td>30 &mdash; Sleeve forming</td>
+            <td>TM-02</td><td class="num">1,53,000</td><td class="num">21.3</td><td>02 – 04 Oct</td>
+            <td><span class="bdg w nodot">Awaiting print</span></td><td><span class="bdg b">Planned</span></td>
+            <td class="ctr"><button class="btn sm pri"><i data-i="check2"></i>Release</button></td></tr>
+          <tr><td><input type="checkbox" checked></td><td class="k">PWO/26-0202</td><td>40 &mdash; Shoulder moulding</td>
+            <td>CM-01</td><td class="num">1,53,000</td><td class="num">74.4</td><td>05 – 09 Oct</td>
+            <td><span class="bdg g nodot">Available</span></td><td><span class="bdg b">Planned</span></td>
+            <td class="ctr"><button class="btn sm pri"><i data-i="check2"></i>Release</button></td></tr>
+          <tr><td><input type="checkbox"></td><td class="k">PWO/26-0194</td><td>30 &mdash; Sleeve forming</td>
+            <td>TM-02</td><td class="num">3,26,000</td><td class="num">45.3</td><td>25 – 28 Sep</td>
+            <td><span class="bdg g nodot">Issued</span></td><td><span class="bdg w">Running</span></td>
+            <td class="ctr"><button class="btn sm" disabled>Released</button></td></tr>
+          <tr><td><input type="checkbox"></td><td class="k">PWO/26-0197</td><td>10 &mdash; Slitting</td>
+            <td>SLIT-01</td><td class="num">5,10,000</td><td class="num">56.7</td><td>28 – 30 Sep</td>
+            <td><span class="bdg r nodot">RMQC hold</span></td><td><span class="bdg n">Blocked</span></td>
+            <td class="ctr"><button class="btn sm" disabled>Release</button></td></tr>
+          <tr><td><input type="checkbox"></td><td class="k">PWO/26-0199</td><td>10 &mdash; Slitting</td>
+            <td>SLIT-01</td><td class="num">1,22,000</td><td class="num">13.6</td><td>02 – 03 Oct</td>
+            <td><span class="bdg r nodot">Material short</span></td><td><span class="bdg n">Blocked</span></td>
+            <td class="ctr"><button class="btn sm" disabled>Release</button></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRN · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / GRN</div>
+      <h1>Goods Receipt Note &mdash; GRN/26-0625</h1>
+      <p>Against PO/26-0488 &middot; Essel Propack Ltd. &middot; via gate entry GE/26-0913</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="printer"></i>Print GRN</button>
+      <button class="btn"><i data-i="save"></i>Save</button>
+      <button class="btn pri"><i data-i="shield"></i>Post &amp; send to RMQC</button>
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <i data-i="shield"></i>
+    <div><b>Received material goes to QC hold, not to free stock</b>
+    Quantity posted here is held until RMQC records a decision. Only accepted quantity becomes issuable.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>GRN no.</label><input class="inp ro" value="GRN/26-0625" readonly></div>
+        <div class="fld"><label>GRN date</label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>Gate entry</label><input class="inp ro" value="GE/26-0913 — 10:40" readonly></div>
+        <div class="fld"><label>Against PO <span class="req">*</span></label>
+          <select class="inp"><option>PO/26-0488 — Essel Propack</option><option>PO/26-0479 — Reliance Polymers</option></select></div>
+        <div class="fld"><label>Supplier</label><input class="inp ro" value="Essel Propack Ltd." readonly></div>
+        <div class="fld"><label>Supplier invoice</label><input class="inp" value="EPL/INV/26-3341"></div>
+        <div class="fld"><label>Invoice date</label><input class="inp" type="date" value="2026-09-21"></div>
+        <div class="fld"><label>Warehouse</label><select class="inp"><option>WH-RM — Raw material store</option><option>WH-BO — Bought-out store</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Received items</h2>
+          <span class="sub">roll-wise batch numbers create the traceability chain</span></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Item</th><th>Batch / roll</th><th>UoM</th><th class="num">PO qty</th>
+              <th class="num">Prev. received</th><th class="num">This receipt</th><th class="num">Balance</th>
+              <th class="num">Rate</th><th>QC status</th></tr></thead>
+            <tbody>
+              <tr><td><b>ABL Laminate 250&micro;</b><div class="mut">ITM-1004</div></td>
+                <td class="k">ROLL-26-1902</td><td>kg</td><td class="num">320.00</td>
+                <td class="num">0.00</td><td class="num"><input class="inp" style="width:78px;text-align:right" value="212.00"></td>
+                <td class="num">108.00</td><td class="num mono">246.50</td>
+                <td><span class="bdg w">QC hold</span></td></tr>
+              <tr><td><b>ABL Laminate 250&micro;</b><div class="mut">ITM-1004</div></td>
+                <td class="k">ROLL-26-1903</td><td>kg</td><td class="num">&mdash;</td>
+                <td class="num">&mdash;</td><td class="num"><input class="inp" style="width:78px;text-align:right" value="108.00"></td>
+                <td class="num">0.00</td><td class="num mono">246.50</td>
+                <td><span class="bdg w">QC hold</span></td></tr>
+              <tr><td><b>HDPE granule</b><div class="mut">ITM-2011</div></td>
+                <td class="k">BATCH-26-0771</td><td>kg</td><td class="num">150.00</td>
+                <td class="num">0.00</td><td class="num"><input class="inp" style="width:78px;text-align:right" value="150.00"></td>
+                <td class="num">0.00</td><td class="num mono">110.00</td>
+                <td><span class="bdg w">QC hold</span></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="5">Total received</td><td class="num">470.00</td>
+              <td colspan="3"></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>GRN register</h2><span class="sub">last 7 days</span></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>GRN no.</th><th>Date</th><th>Supplier</th><th>PO</th><th>Item</th>
+              <th class="num">Qty</th><th>RMQC</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">GRN/26-0624</td><td>22 Sep</td><td>Sanjay Polymers</td><td>PO/26-0487</td>
+                <td>Flip-top cap 11 mm</td><td class="num">65,000</td>
+                <td><span class="bdg g nodot">Accepted</span></td><td><span class="bdg g">In stock</span></td></tr>
+              <tr><td class="k">GRN/26-0623</td><td>21 Sep</td><td>Essel Propack Ltd.</td><td>PO/26-0485</td>
+                <td>ABL Laminate 250&micro;</td><td class="num">600.00</td>
+                <td><span class="bdg w nodot">Partial</span></td><td><span class="bdg w">Partly held</span></td></tr>
+              <tr><td class="k">GRN/26-0622</td><td>20 Sep</td><td>Shakti Packaging</td><td>PO/26-0482</td>
+                <td>Inner box + carton</td><td class="num">1,500</td>
+                <td><span class="bdg g nodot">Accepted</span></td><td><span class="bdg g">In stock</span></td></tr>
+              <tr><td class="k">GRN/26-0621</td><td>19 Sep</td><td>Essel Propack Ltd.</td><td>PO/26-0485</td>
+                <td>ABL Laminate 250&micro;</td><td class="num">600.00</td>
+                <td><span class="bdg r nodot">Rejected 42 kg</span></td><td><span class="bdg r">Return raised</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Quantity check</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Gate net weight</dt><dd class="right mono">840.00 kg</dd>
+            <dt>GRN quantity</dt><dd class="right mono">470.00 kg</dd>
+            <dt>Packing tare</dt><dd class="right mono">18.00 kg</dd>
+            <dt>Difference</dt><dd class="right mono" style="color:rgb(var(--color-warning))">352.00 kg</dd>
+          </dl>
+          <div class="hr"></div>
+          <div class="alert warn mb0" style="margin-bottom:0;padding:8px 10px;font-size:12px">
+            <i data-i="alertTri"></i>
+            <div>Second consignment on the same vehicle is pending unloading.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Traceability chain</h2></div>
+        <div class="card-b">
+          <div style="display:flex;flex-direction:column;gap:7px;font-size:12.5px">
+            <div style="display:flex;gap:8px"><span class="muted" style="width:82px">Supplier</span><b>Essel Propack Ltd.</b></div>
+            <div style="display:flex;gap:8px"><span class="muted" style="width:82px">PO</span><b class="k">PO/26-0488</b></div>
+            <div style="display:flex;gap:8px"><span class="muted" style="width:82px">Gate entry</span><b class="k">GE/26-0913</b></div>
+            <div style="display:flex;gap:8px"><span class="muted" style="width:82px">GRN</span><b class="k">GRN/26-0625</b></div>
+            <div style="display:flex;gap:8px"><span class="muted" style="width:82px">Batches</span><b>ROLL-26-1902, 1903</b></div>
+            <div style="display:flex;gap:8px"><span class="muted" style="width:82px">Next</span><span class="bdg w">RMQC pending</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Supplier documents</h2></div>
+        <div class="card-b">
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:12.5px">
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="file" class="muted"></i>Tax invoice
+              <span class="bdg g nodot" style="margin-left:auto">Received</span></div>
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="file" class="muted"></i>E-way bill
+              <span class="bdg g nodot" style="margin-left:auto">Received</span></div>
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="award" class="muted"></i>COA / test certificate
+              <span class="bdg g nodot" style="margin-left:auto">Received</span></div>
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="file" class="muted"></i>Packing list
+              <span class="bdg r nodot" style="margin-left:auto">Missing</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

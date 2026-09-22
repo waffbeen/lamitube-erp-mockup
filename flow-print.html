@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lamitube ERP Flow</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 13mm 12mm; }
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;font-family:Inter,system-ui,"Segoe UI",sans-serif;color:#111827;font-size:10.5px;line-height:1.45;background:#fff}
+.page{page-break-after:always}
+.page:last-child{page-break-after:auto}
+
+.hd{border-bottom:2px solid #003366;padding-bottom:7px;margin-bottom:12px}
+.hd h1{margin:0;font-size:17px;font-weight:700;color:#003366;letter-spacing:-.01em}
+.hd p{margin:3px 0 0;font-size:10px;color:#4b5563}
+.hd .r{float:right;font-size:9px;color:#6b7280;text-align:right;line-height:1.4}
+
+h2{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6b7280;margin:14px 0 7px}
+
+/* flow block */
+.blk{border:1px solid #d1d5db;border-left:3px solid #003366;border-radius:5px;background:#fff;
+  padding:7px 10px;display:flex;align-items:flex-start;gap:9px}
+.blk .n{flex:0 0 18px;height:18px;border-radius:4px;background:#003366;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:700;margin-top:1px}
+.blk .bd{flex:1;min-width:0}
+.blk .ttl{font-size:11px;font-weight:700;margin-bottom:4px;color:#111827}
+.blk .ttl span{font-weight:500;color:#6b7280;font-size:9px;text-transform:uppercase;letter-spacing:.05em;margin-left:5px}
+.chips{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.c{font-size:9.5px;font-weight:500;padding:2.5px 7px;border-radius:4px;border:1px solid #d1d5db;background:#f9fafb;white-space:nowrap}
+.c.q{border-color:#0f766e;background:#ccfbf1;color:#0f4c47;font-weight:600}
+.c.o{border-color:#d97706;background:#fef3c7;color:#92400e}
+.c.opt{border-style:dashed;color:#6b7280;background:#fff}
+.c.k{border-color:#003366;background:#e8eef5;font-weight:600}
+.sep{color:#9ca3af;font-size:10px;padding:0 1px}
+
+.blk.gate{border-left-color:#0f766e}
+.blk.gate .n{background:#0f766e}
+.blk.cost{border-left-color:#1d4ed8}
+.blk.cost .n{background:#1d4ed8}
+.blk.capa{border-left-color:#be123c}
+.blk.capa .n{background:#be123c}
+
+.ar{text-align:center;color:#9ca3af;font-size:11px;line-height:1;margin:3px 0}
+
+/* company B inset */
+.coB{margin-top:5px;border:1px dashed #d97706;background:#fffbeb;border-radius:4px;padding:5px 8px}
+.coB .lbl{font-size:8.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#92400e;margin-bottom:3px}
+
+.rules{border:1px solid #d1d5db;border-radius:5px;padding:9px 11px;background:#f9fafb}
+.rules ul{margin:0;padding-left:15px}
+.rules li{margin-bottom:5px;font-size:10px;color:#374151}
+.rules li b{color:#111827}
+.rules li:last-child{margin-bottom:0}
+
+table{width:100%;border-collapse:collapse;border:1px solid #d1d5db;border-radius:5px;overflow:hidden}
+th{text-align:left;font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:#6b7280;
+  background:#f3f4f6;padding:6px 9px;border-bottom:1px solid #d1d5db;font-weight:700}
+td{padding:6px 9px;border-bottom:1px solid #e5e7eb;font-size:10px;vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.m{font-weight:600;white-space:nowrap;width:120px}
+td.n{text-align:right;color:#6b7280;width:38px}
+tfoot td{background:#f3f4f6;font-weight:700}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.box{border:1px solid #d1d5db;border-radius:5px;padding:8px 10px}
+.box.a{border-left:3px solid #003366}
+.box.b{border-left:3px solid #d97706}
+.box h3{margin:0 0 2px;font-size:10.5px;font-weight:700}
+.box .g{font-size:8.5px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;font-weight:600}
+.box p{margin:5px 0 0;font-size:9.5px;color:#4b5563}
+
+.chain{font-size:9.5px;color:#374151;margin:4px 0 0}
+.chain b{color:#111827}
+.eq{text-align:center;font-size:10.5px;background:#fef3c7;border:1px solid #fcd34d;
+  border-radius:4px;padding:6px;margin-top:8px;font-weight:600;color:#92400e}
+
+.lgnd{display:flex;gap:9px;flex-wrap:wrap;margin:8px 0 0;font-size:9px;color:#6b7280}
+.lgnd span{display:inline-flex;align-items:center;gap:4px}
+.sw{width:8px;height:8px;border-radius:2px;display:inline-block}
+.ftr{margin-top:12px;padding-top:7px;border-top:1px solid #e5e7eb;font-size:8.5px;color:#9ca3af}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="page">
+  <div class="hd">
+    <div class="r">Lamitube Manufacturing ERP<br>Flow document &middot; v2</div>
+    <h1>Project Module Flow</h1>
+    <p>From Company A's side &middot; printing at Company B is an operation inside the Production Work Order</p>
+  </div>
+
+  <div class="two" style="margin-bottom:12px">
+    <div class="box a">
+      <h3>Company A</h3>
+      <div class="g">Main entity &mdash; our ERP</div>
+      <p>Enquiry, estimation, sales order, procurement, tube manufacturing, packing, dispatch, complaints. Caps and rims are bought ready-made.</p>
+    </div>
+    <div class="box b">
+      <h3>Company B</h3>
+      <div class="g">Separate GST &mdash; printing</div>
+      <p>Receives material from A, prints, does printing QC, returns printed material. Not a purchase &mdash; an operation inside the PWO.</p>
+    </div>
+  </div>
+
+  <h2>Module Flow &mdash; end to end</h2>
+
+  <div class="blk"><div class="n">1</div><div class="bd">
+    <div class="ttl">Sales <span>Module: Sales</span></div>
+    <div class="chips">
+      <span class="c">Customer Enquiry</span><span class="sep">&rarr;</span>
+      <span class="c k">Estimation</span><span class="sep">&rarr;</span>
+      <span class="c">Quotation</span><span class="sep">&rarr;</span>
+      <span class="c">Sales Order</span>
+    </div>
+  </div></div>
+  <div class="ar">&#9660;</div>
+
+  <div class="blk"><div class="n">2</div><div class="bd">
+    <div class="ttl">Planning <span>Module: Planning</span></div>
+    <div class="chips">
+      <span class="c k">Production Work Order</span>
+      <span class="c">+ BOM</span><span class="c">+ Material Requirement</span><span class="c">+ Auto Indent</span>
+      <span class="sep">&rarr;</span>
+      <span class="c">Machine-wise Scheduling</span><span class="c">+ Release</span>
+    </div>
+  </div></div>
+  <div class="ar">&#9660;</div>
+
+  <div class="blk"><div class="n">3</div><div class="bd">
+    <div class="ttl">Purchase &amp; Inventory <span>Module: Purchase / Inventory</span></div>
+    <div class="chips">
+      <span class="c">Indent Approval</span><span class="sep">&rarr;</span>
+      <span class="c">Purchase Order</span><span class="sep">&rarr;</span>
+      <span class="c opt">Gate Entry &mdash; optional</span><span class="sep">&rarr;</span>
+      <span class="c">GRN</span><span class="sep">&rarr;</span>
+      <span class="c">Stock &amp; Batch Tracking</span><span class="sep">&rarr;</span>
+      <span class="c">Material Issue</span>
+    </div>
+  </div></div>
+  <div class="ar">&#9660;</div>
+
+  <div class="blk gate"><div class="n">4</div><div class="bd">
+    <div class="ttl">RMQC <span>Quality gate 1 of 3</span></div>
+    <div class="chips">
+      <span class="c">GRN</span><span class="sep">&rarr;</span>
+      <span class="c">QC Hold</span><span class="sep">&rarr;</span>
+      <span class="c q">RMQC</span><span class="sep">&rarr;</span>
+      <span class="c">Accepted / Rejected / Hold</span>
+    </div>
+  </div></div>
+  <div class="ar">&#9660;</div>
+
+  <div class="blk"><div class="n">5</div><div class="bd">
+    <div class="ttl">Manufacturing <span>Module: Manufacturing &middot; IPQC = gate 2 of 3</span></div>
+    <div class="chips">
+      <span class="c">Initial Tube Process</span><span class="sep">&rarr;</span>
+      <span class="c o">Send to Company B</span>
+    </div>
+    <div class="coB">
+      <div class="lbl">&#8627; At Company B &mdash; separate GST</div>
+      <div class="chips">
+        <span class="c o">Printing</span><span class="sep">&rarr;</span>
+        <span class="c q">Printing QC</span><span class="sep">&rarr;</span>
+        <span class="c o">Material returned to A</span>
+      </div>
+    </div>
+    <div class="chips" style="margin-top:5px">
+      <span class="c o">Printed Receipt + Reconciliation</span><span class="sep">&rarr;</span>
+      <span class="c">Remaining Production</span><span class="sep">&rarr;</span>
+      <span class="c">Cap / Assembly</span><span class="sep">&rarr;</span>
+      <span class="c q">IPQC</span>
+    </div>
+    <div class="eq">Material sent = Good output + Rejection + Wastage + Unprocessed return</div>
+  </div></div>
+  <div class="ar">&#9660;</div>
+
+  <div class="blk gate"><div class="n">6</div><div class="bd">
+    <div class="ttl">Packing &amp; FGQC <span>Quality gate 3 of 3</span></div>
+    <div class="chips">
+      <span class="c">Packing</span><span class="sep">&rarr;</span>
+      <span class="c q">FGQC &mdash; after packing</span>
+    </div>
+  </div></div>
+  <div class="ar">&#9660;</div>
+
+  <div class="blk"><div class="n">7</div><div class="bd">
+    <div class="ttl">Dispatch <span>Module: Dispatch</span></div>
+    <div class="chips">
+      <span class="c">Delivery Note</span><span class="sep">&rarr;</span>
+      <span class="c q">COA</span><span class="sep">&rarr;</span>
+      <span class="c">Dispatch</span><span class="sep">&rarr;</span>
+      <span class="c">Sales Invoice</span>
+    </div>
+  </div></div>
+  <div class="ar">&#9660;</div>
+
+  <div class="blk cost"><div class="n">8</div><div class="bd">
+    <div class="ttl">Costing <span>Module: Costing</span></div>
+    <div class="chips">
+      <span class="c">Actual Cost</span><span class="sep">vs</span>
+      <span class="c">Estimated Cost</span><span class="sep">&rarr;</span>
+      <span class="c">Variance</span><span class="sep">&rarr;</span>
+      <span class="c">Margin &amp; Profitability</span>
+    </div>
+  </div></div>
+  <div class="ar">&#9660;</div>
+
+  <div class="blk capa"><div class="n">9</div><div class="bd">
+    <div class="ttl">Customer Feedback <span>Module: Quality / Sales &middot; post-dispatch</span></div>
+    <div class="chips">
+      <span class="c">Customer Complaint</span><span class="sep">&rarr;</span>
+      <span class="c">RCA</span><span class="sep">&rarr;</span>
+      <span class="c">CAPA</span><span class="sep">&rarr;</span>
+      <span class="c">Continuous Improvement</span>
+      <span class="sep">|</span>
+      <span class="c">Sales Return</span>
+    </div>
+  </div></div>
+
+  <div class="lgnd">
+    <span><span class="sw" style="background:#003366"></span>Core transaction</span>
+    <span><span class="sw" style="background:#0f766e"></span>Quality gate</span>
+    <span><span class="sw" style="background:#d97706"></span>Inter-company</span>
+    <span><span class="sw" style="background:#1d4ed8"></span>Costing</span>
+    <span><span class="sw" style="background:#be123c"></span>Complaint / CAPA</span>
+    <span>dashed = optional, config-driven</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page">
+  <div class="hd">
+    <div class="r">Lamitube Manufacturing ERP<br>Flow document &middot; v2</div>
+    <h1>Rules, Cross-cutting &amp; Page Map</h1>
+    <p>Supporting detail for the module flow</p>
+  </div>
+
+  <h2>Key rules agreed</h2>
+  <div class="rules">
+    <ul>
+      <li><b>Product Catalogue is the backbone.</b> It holds specification, tube dimensions, capacity, laminate structure, BOM, routing, machines, standard wastage, QC parameters, packing, COA requirement, standard costing, version and past complaint / RCA / CAPA history. Selecting a catalogue product auto-fills estimation, BOM, routing and QC plan. A <b>New / Custom Specification</b> route exists for products not in the catalogue.</li>
+      <li><b>Material Requirement lives inside the Production Work Order</b> &mdash; it is a tab, not a separate page.</li>
+      <li><b>Release is a button on Machine-wise Scheduling</b> &mdash; no separate release screen.</li>
+      <li><b>The PWO raises the indent automatically</b> under its own authority. The Purchase Order can only be created <b>after the indent is approved</b>.</li>
+      <li><b>Gate Entry before GRN is optional</b> &mdash; controlled by a setting. If ON, material must be gated in before GRN; if OFF, GRN is made directly.</li>
+      <li><b>Three mandatory quality gates:</b> RMQC on incoming material, IPQC during manufacturing (operation-specific, includes printing QC), FGQC <b>after packing</b>. No normal dispatch is allowed without FGQC approval.</li>
+      <li><b>Dispatch sequence is fixed:</b> Production &rarr; Packing &rarr; FGQC &rarr; Delivery Note &rarr; COA &rarr; Dispatch.</li>
+      <li><b>COA</b> is linked to Customer &rarr; Sales Order &rarr; Product &rarr; Production Order &rarr; Batch &rarr; FGQC, and carries test parameters, specification, actual results and QC approval.</li>
+      <li><b>Printing is an operation, not a purchase.</b> Tracked per transfer: quantity sent, quantity received, good printed quantity, rejection, wastage, unprocessed quantity, printing status, printing cost, delay and the Company B transaction reference.</li>
+    </ul>
+  </div>
+
+  <h2>Cross-cutting &mdash; runs across every module</h2>
+  <div class="two">
+    <div class="box" style="border-left:3px solid #be123c">
+      <h3>CAPA alert engine</h3>
+      <div class="g">Not a standalone module</div>
+      <p>The latest active CAPA / quality control appears automatically as an alert when a relevant transaction is performed. It can be linked to the Product Catalogue, material, supplier, BOM, routing, operation, machine, QC parameter, PWO, packing and dispatch.</p>
+      <p><b>A critical CAPA can be configured to block</b> production, material issue, packing or dispatch until the required control is completed. Example: a past shoulder-leakage complaint surfaces that control on the relevant production operation.</p>
+    </div>
+    <div class="box" style="border-left:3px solid #1d4ed8">
+      <h3>Traceability &mdash; both directions</h3>
+      <div class="g">Needed if an RM batch is later found defective</div>
+      <p class="chain"><b>Backward:</b> Finished product &rarr; Production order &rarr; Operations &rarr; Raw material &rarr; Supplier &rarr; GRN &rarr; RMQC</p>
+      <p class="chain" style="margin-top:6px"><b>Forward:</b> Raw material batch &rarr; Production order &rarr; Finished product batch &rarr; Customer &rarr; Sales order &rarr; Dispatch</p>
+    </div>
+  </div>
+
+  <h2>Module &rarr; Page map</h2>
+  <table>
+    <thead><tr><th>Module</th><th>Pages</th><th class="n">Qty</th></tr></thead>
+    <tbody>
+      <tr><td class="m">Product / Engineering</td><td>Product Catalogue, Item Master, Process &amp; Routing Master, Machine Master, Customer / Vendor Ledger, QC Parameter Master, Artwork Master</td><td class="n">7</td></tr>
+      <tr><td class="m">Sales</td><td>Enquiry, Estimation, Quotation, Sales Order</td><td class="n">4</td></tr>
+      <tr><td class="m">Planning</td><td>Production Work Order <i>(BOM + material requirement + auto indent)</i>, Machine-wise Scheduling <i>(+ release)</i></td><td class="n">2</td></tr>
+      <tr><td class="m">Purchase / Inventory</td><td>Indent Approval, Purchase Order, Gate Entry <i>(optional)</i>, GRN, Stock &amp; Batch Tracking, Material Issue</td><td class="n">6</td></tr>
+      <tr><td class="m">Manufacturing</td><td>Production Entry, Printing Send to Company B, Printing Receipt &amp; Reconciliation, WIP / Job Floor Status</td><td class="n">4</td></tr>
+      <tr><td class="m">Quality</td><td>RMQC, IPQC, FGQC, COA, NCR</td><td class="n">5</td></tr>
+      <tr><td class="m">Dispatch</td><td>Packing, Delivery Note, Dispatch &amp; Invoice, Sales Return</td><td class="n">4</td></tr>
+      <tr><td class="m">Costing</td><td>Actual Costing &amp; Variance</td><td class="n">1</td></tr>
+      <tr><td class="m">Complaint / CAPA</td><td>Customer Complaint, RCA, CAPA &amp; Closure</td><td class="n">3</td></tr>
+      <tr><td class="m">Dashboard / Reports</td><td>Management dashboard, module reports</td><td class="n">2</td></tr>
+    </tbody>
+    <tfoot><tr><td class="m">Total</td><td>Mockup screens to be built</td><td class="n">38</td></tr></tfoot>
+  </table>
+
+  <div class="ftr">Flow document only &mdash; page list to be frozen after review, then mockup build begins.</div>
+</div>
+
+</body>
+</html>

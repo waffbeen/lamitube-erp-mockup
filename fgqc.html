@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FGQC · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Quality</b> / FGQC &mdash; gate 3 of 3</div>
+      <h1>Finished Goods Quality Control</h1>
+      <p>Performed <b>after packing</b> &middot; no dispatch is allowed without FGQC approval</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="printer"></i>FGQC report</button>
+      <button class="btn pri"><i data-i="save"></i>Save decision</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>FGQC no.</label><input class="inp ro" value="FGQ/26-0311" readonly></div>
+        <div class="fld"><label>Date</label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>Packing ref.</label><select class="inp"><option>PKG/26-0388 — PWO/26-0201</option><option>PKG/26-0387 — PWO/26-0188</option></select></div>
+        <div class="fld"><label>FG batch</label><input class="inp ro" value="FG-LT26-0201-A" readonly></div>
+        <div class="fld"><label>Customer</label><input class="inp ro" value="Glenmark Pharma" readonly></div>
+        <div class="fld"><label>Product</label><input class="inp ro" value="LT 25×140 — Cream" readonly></div>
+        <div class="fld"><label>Batch qty</label><input class="inp ro" value="2,01,200 pcs" readonly></div>
+        <div class="fld"><label>Inspector</label><select class="inp"><option>R. Verma — QA</option><option>S. Nair — QA</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Final inspection</h2>
+          <span class="sub">parameters and sampling from the Product Catalogue QC plan</span></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Parameter</th><th>Method</th><th>Specification</th><th>Sampling</th>
+              <th class="num">Inspected</th><th class="num">Defects</th><th class="num">Result value</th>
+              <th>On COA</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr style="background:rgb(var(--color-error-subtle))">
+                <td><b>Leak test</b><div class="mut">CAPA-2026-014 control</div></td>
+                <td>Vacuum 0.5 bar / 60 s</td><td>No leakage</td><td><b>100%</b></td>
+                <td class="num">2,01,200</td><td class="num">86</td><td class="num mono">0.043%</td>
+                <td><span class="bdg g nodot">Yes</span></td><td><span class="bdg w">Deviation</span></td></tr>
+              <tr><td><b>Cap removal torque</b></td><td>Torque meter</td><td>4 &ndash; 8 kgf&middot;cm</td>
+                <td>10 per lot</td><td class="num">10</td><td class="num">0</td><td class="num mono">6.2</td>
+                <td><span class="bdg g nodot">Yes</span></td><td><span class="bdg g">Pass</span></td></tr>
+              <tr><td><b>Drop test</b></td><td>1.2 m on concrete</td><td>No damage</td>
+                <td>5 per lot</td><td class="num">5</td><td class="num">0</td><td class="num">OK</td>
+                <td><span class="bdg g nodot">Yes</span></td><td><span class="bdg g">Pass</span></td></tr>
+              <tr><td><b>Orifice diameter</b></td><td>Pin gauge</td><td>3.5 mm ± 0.1</td>
+                <td>20 per lot</td><td class="num">20</td><td class="num">0</td><td class="num mono">3.51</td>
+                <td><span class="bdg g nodot">Yes</span></td><td><span class="bdg g">Pass</span></td></tr>
+              <tr><td><b>Print shade &Delta;E</b></td><td>Spectrophotometer</td><td>&le; 2.0</td>
+                <td>10 per lot</td><td class="num">10</td><td class="num">0</td><td class="num mono">1.6</td>
+                <td><span class="bdg g nodot">Yes</span></td><td><span class="bdg g">Pass</span></td></tr>
+              <tr><td><b>Tube length</b></td><td>Vernier</td><td>140 mm ± 1</td>
+                <td>20 per lot</td><td class="num">20</td><td class="num">0</td><td class="num mono">140.2</td>
+                <td><span class="bdg g nodot">Yes</span></td><td><span class="bdg g">Pass</span></td></tr>
+              <tr><td><b>Packing &amp; labelling</b></td><td>Visual</td><td>Per spec</td>
+                <td>10 cartons</td><td class="num">10</td><td class="num">0</td><td class="num">OK</td>
+                <td><span class="bdg n nodot">No</span></td><td><span class="bdg g">Pass</span></td></tr>
+              <tr><td><b>Migration / odour</b></td><td>Sensory + lab</td><td>Nil</td>
+                <td>1 per batch</td><td class="num">1</td><td class="num">0</td><td class="num">OK</td>
+                <td><span class="bdg g nodot">Yes</span></td><td><span class="bdg g">Pass</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+        <div class="card-b" style="border-top:1px solid rgb(var(--bd-subtle))">
+          <div class="alert warn mb0" style="margin-bottom:12px">
+            <i data-i="alertTri"></i>
+            <div><b>86 leaking tubes found and segregated &mdash; 0.043%</b>
+            Within the 0.1% acceptance limit set by CAPA-2026-014, so the batch can be released after the defective pieces are removed and the record is attached.</div>
+          </div>
+          <div class="fgrid c4">
+            <div class="fld"><label>Inspected qty</label><input class="inp ro" value="2,01,200" readonly></div>
+            <div class="fld"><label>Accepted qty</label><input class="inp" value="201114"></div>
+            <div class="fld"><label>Rejected qty</label><input class="inp" value="86"></div>
+            <div class="fld"><label>Decision</label><select class="inp"><option>Accept</option><option>Accept with deviation</option><option>Reject</option><option>Hold</option></select></div>
+            <div class="fld span3"><label>QA remark</label>
+              <textarea class="inp" rows="2">86 leaking pieces removed from cartons 23, 47 and 81; cartons repacked and re-weighed. Leak test record attached as required by CAPA-2026-014. Batch released for dispatch.</textarea></div>
+            <div class="fld"><label>Approved by</label><select class="inp"><option>QA Head</option></select></div>
+          </div>
+          <div class="hr"></div>
+          <div style="display:flex;gap:8px;justify-content:flex-end">
+            <button class="btn"><i data-i="alertTri"></i>Hold batch</button>
+            <button class="btn dgr"><i data-i="x"></i>Reject &amp; raise NCR</button>
+            <button class="btn ok"><i data-i="check2"></i>Approve &amp; generate COA</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>FGQC queue</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Packing</th><th>FG batch</th><th>Customer</th><th class="num">Qty</th>
+              <th>Packed on</th><th>CAPA control</th><th>Status</th><th class="ctr">Action</th></tr></thead>
+            <tbody>
+              <tr><td class="k">PKG/26-0387</td><td>FG-LT26-0188-A</td><td>Cipla Ltd.</td>
+                <td class="num">2,50,400</td><td>21 Sep</td>
+                <td><span class="bdg r nodot">Leak test missing</span></td>
+                <td><span class="bdg r">Blocked</span></td>
+                <td class="ctr"><button class="btn sm">Open</button></td></tr>
+              <tr><td class="k">PKG/26-0388</td><td>FG-LT26-0201-A</td><td>Glenmark</td>
+                <td class="num">2,01,200</td><td>22 Sep</td>
+                <td><span class="bdg g nodot">Met</span></td>
+                <td><span class="bdg b">In inspection</span></td>
+                <td class="ctr"><button class="btn sm pri">Current</button></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Batch result</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Parameters</dt><dd class="right">8</dd>
+            <dt>Passed</dt><dd class="right mono" style="color:rgb(var(--color-success))">7</dd>
+            <dt>Deviation</dt><dd class="right mono" style="color:rgb(var(--color-warning))">1</dd>
+            <dt>Failed</dt><dd class="right mono">0</dd>
+          </dl>
+          <div class="hr"></div>
+          <dl class="kv">
+            <dt>Accepted</dt><dd class="right mono">2,01,114 pcs</dd>
+            <dt>Rejected</dt><dd class="right mono" style="color:rgb(var(--color-error))">86 pcs</dd>
+            <dt>Rejection rate</dt><dd class="right mono">0.043%</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Dispatch gate</h2></div>
+        <div class="card-b">
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:12.5px">
+            <div style="display:flex;align-items:center;gap:8px">Packing complete
+              <span class="bdg g nodot" style="margin-left:auto">Yes</span></div>
+            <div style="display:flex;align-items:center;gap:8px">FGQC decision
+              <span class="bdg b nodot" style="margin-left:auto">In progress</span></div>
+            <div style="display:flex;align-items:center;gap:8px">CAPA control met
+              <span class="bdg g nodot" style="margin-left:auto">Yes</span></div>
+            <div style="display:flex;align-items:center;gap:8px">COA
+              <span class="bdg n nodot" style="margin-left:auto">On approval</span></div>
+          </div>
+          <div class="hr"></div>
+          <div class="alert info mb0" style="margin-bottom:0;padding:8px 10px;font-size:12px">
+            <i data-i="link"></i>
+            <div>Approving here generates the COA and unlocks the Delivery Note.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Leak test record</h2>
+          <div class="r"><span class="bdg r nodot">CAPA</span></div></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td>Tested</td><td class="num mono">2,01,200</td></tr>
+              <tr><td>Leaking found</td><td class="num mono">86</td></tr>
+              <tr><td>Rate</td><td class="num mono">0.043%</td></tr>
+              <tr><td>CAPA limit</td><td class="num mono">0.100%</td></tr>
+              <tr><td>Machine</td><td class="num">Leak tester LT-02</td></tr>
+              <tr><td>Record</td><td class="num"><span class="bdg g nodot">Attached</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

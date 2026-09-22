@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Catalogue · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Product / Engineering</b> / Product Catalogue</div>
+      <h1>PC-0142 &mdash; LT 19&times;100 Gel Tube</h1>
+      <p>Revision C &middot; effective 01 Aug 2026 &middot; approved by QA</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg g">Active</span>
+      <button class="btn"><i data-i="printer"></i>Spec sheet</button>
+      <button class="btn"><i data-i="layers"></i>New revision</button>
+      <button class="btn pri"><i data-i="plus"></i>New Product</button>
+    </div>
+  </div>
+
+  <div class="alert err">
+    <i data-i="alertTri"></i>
+    <div><b>Active CAPA on this product &mdash; CAPA-2026-014</b>
+    Shoulder leakage reported by Cipla (CMP/26-0031). 100% leak test is mandatory and dispatch is blocked until the control is recorded.</div>
+    <a class="btn sm" href="capa.html">Open</a>
+  </div>
+
+  <div class="card mb0">
+    <div class="tabs">
+      <button class="tab on" data-pane="p1">Specification</button>
+      <button class="tab" data-pane="p2">BOM <span class="cnt">7</span></button>
+      <button class="tab" data-pane="p3">Routing <span class="cnt">6</span></button>
+      <button class="tab" data-pane="p4">QC parameters <span class="cnt">9</span></button>
+      <button class="tab" data-pane="p5">Packing &amp; COA</button>
+      <button class="tab" data-pane="p6">Standard costing</button>
+      <button class="tab" data-pane="p7">Complaint / CAPA history <span class="cnt">3</span></button>
+      <button class="tab" data-pane="p8">Revisions <span class="cnt">3</span></button>
+    </div>
+
+    <!-- SPEC -->
+    <div class="tabpane on" id="p1"><div class="card-b">
+      <div class="fgrid c4">
+        <div class="sec-t">Identification</div>
+        <div class="fld"><label>Catalogue code</label><input class="inp ro" value="PC-0142" readonly></div>
+        <div class="fld"><label>Product name</label><input class="inp" value="LT 19×100 Gel Tube"></div>
+        <div class="fld"><label>Product group</label><select class="inp"><option>Laminated tube — Pharma</option><option>Laminated tube — Cosmetic</option></select></div>
+        <div class="fld"><label>Customer</label><select class="inp"><option>Cipla Ltd.</option><option>Generic / open</option></select></div>
+
+        <div class="sec-t">Tube dimensions &amp; capacity</div>
+        <div class="fld"><label>Tube diameter (mm)</label><input class="inp" value="19"></div>
+        <div class="fld"><label>Tube length (mm)</label><input class="inp" value="100"></div>
+        <div class="fld"><label>Fill capacity (ml)</label><input class="inp" value="15"></div>
+        <div class="fld"><label>Sleeve cut length (mm)</label><input class="inp" value="88.0"></div>
+
+        <div class="sec-t">Laminate structure</div>
+        <div class="fld span2"><label>Structure</label><input class="inp" value="PE / EVOH / PE — ABL 250 micron"></div>
+        <div class="fld"><label>Web width (mm)</label><input class="inp" value="620"></div>
+        <div class="fld"><label>GSM</label><input class="inp" value="248"></div>
+
+        <div class="sec-t">Shoulder, nozzle &amp; cap</div>
+        <div class="fld"><label>Shoulder type</label><select class="inp"><option>Standard conical</option><option>Flat</option><option>Long nozzle</option></select></div>
+        <div class="fld"><label>Shoulder weight (g)</label><input class="inp" value="1.35"></div>
+        <div class="fld"><label>Orifice dia (mm)</label><input class="inp" value="3.0"></div>
+        <div class="fld"><label>Neck / thread</label><input class="inp" value="11 mm — R/S"></div>
+        <div class="fld"><label>Cap type</label><select class="inp"><option>Flip-top — bought out</option><option>Screw cap — bought out</option></select></div>
+        <div class="fld"><label>Rim / seal ring</label><select class="inp"><option>Required — bought out</option><option>Not required</option></select></div>
+        <div class="fld"><label>Cap colour</label><input class="inp" value="White (Pantone 000C)"></div>
+        <div class="fld"><label>Tamper evidence</label><select class="inp"><option>Not required</option><option>Required</option></select></div>
+
+        <div class="sec-t">Printing requirement</div>
+        <div class="fld"><label>No. of colours</label><input class="inp" value="4"></div>
+        <div class="fld"><label>Print process</label><select class="inp"><option>Offset — Monarch Print</option><option>Flexo — Monarch Print</option></select></div>
+        <div class="fld"><label>Finish</label><select class="inp"><option>Gloss</option><option>Matte</option></select></div>
+        <div class="fld"><label>Artwork ref.</label><input class="inp" value="AW-2026-0742"></div>
+
+        <div class="sec-t">Standard wastage</div>
+        <div class="fld"><label>Laminate %</label><input class="inp" value="4.0"></div>
+        <div class="fld"><label>Printing %</label><input class="inp" value="2.0"></div>
+        <div class="fld"><label>Moulding %</label><input class="inp" value="2.5"></div>
+        <div class="fld"><label>Assembly %</label><input class="inp" value="1.8"></div>
+      </div>
+    </div></div>
+
+    <!-- BOM -->
+    <div class="tabpane" id="p2"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>#</th><th>Item</th><th>Type</th><th>UoM</th>
+          <th class="num">Qty / 1000 pcs</th><th class="num">Std. wastage %</th><th class="num">Std. rate</th><th class="ctr"></th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><b>ABL Laminate PE/EVOH/PE 250&micro;</b><div class="mut">ITM-1004 · web 620 mm</div></td>
+            <td><span class="bdg b">Raw material</span></td><td>kg</td>
+            <td class="num">4.960</td><td class="num">4.0</td><td class="num mono">248.00</td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          <tr><td>2</td><td><b>HDPE granule &mdash; shoulder grade</b><div class="mut">ITM-2011</div></td>
+            <td><span class="bdg b">Raw material</span></td><td>kg</td>
+            <td class="num">1.350</td><td class="num">2.5</td><td class="num mono">112.00</td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          <tr><td>3</td><td><b>Masterbatch &mdash; white</b><div class="mut">ITM-2044 · 3% on granule</div></td>
+            <td><span class="bdg b">Raw material</span></td><td>kg</td>
+            <td class="num">0.041</td><td class="num">2.5</td><td class="num mono">285.00</td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          <tr><td>4</td><td><b>Side-seam tape</b><div class="mut">ITM-2050</div></td>
+            <td><span class="bdg b">Raw material</span></td><td>mtr</td>
+            <td class="num">100.000</td><td class="num">1.5</td><td class="num mono">0.42</td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          <tr><td>5</td><td><b>Flip-top cap 11 mm &mdash; white</b><div class="mut">ITM-3001 · ready-made</div></td>
+            <td><span class="bdg t">Bought-out</span></td><td>pcs</td>
+            <td class="num">1,000</td><td class="num">1.0</td><td class="num mono">0.48</td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          <tr><td>6</td><td><b>Rim / seal ring</b><div class="mut">ITM-3008 · ready-made</div></td>
+            <td><span class="bdg t">Bought-out</span></td><td>pcs</td>
+            <td class="num">1,000</td><td class="num">1.0</td><td class="num mono">0.09</td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          <tr><td>7</td><td><b>Inner box + carton</b><div class="mut">ITM-4002 · 100 pcs / box</div></td>
+            <td><span class="bdg p">Packing</span></td><td>set</td>
+            <td class="num">10.500</td><td class="num">0.5</td><td class="num mono">5.80</td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <!-- ROUTING -->
+    <div class="tabpane" id="p3"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Seq</th><th>Process</th><th>Machine / vendor</th><th>Type</th>
+          <th class="num">Std. output / hr</th><th class="num">Setup (min)</th><th>IPQC</th><th class="ctr"></th></tr></thead>
+        <tbody>
+          <tr><td>10</td><td><b>Laminate slitting</b></td><td>SLIT-01</td>
+            <td><span class="bdg n">In-house</span></td><td class="num">9,000</td><td class="num">30</td>
+            <td><span class="bdg t nodot">Yes</span></td><td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          <tr><td>20</td><td><b>Printing</b><div class="mut">4-colour offset</div></td><td>Monarch Print Pvt. Ltd.</td>
+            <td><span class="bdg o">Outsourced</span></td><td class="num">&mdash;</td><td class="num">&mdash;</td>
+            <td><span class="bdg t nodot">Yes</span></td><td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          <tr><td>30</td><td><b>Sleeve forming</b></td><td>TM-02</td>
+            <td><span class="bdg n">In-house</span></td><td class="num">7,200</td><td class="num">45</td>
+            <td><span class="bdg t nodot">Yes</span></td><td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          <tr><td>40</td><td><b>Shoulder moulding</b><div class="mut">8-cavity · 14 s cycle</div></td><td>CM-01</td>
+            <td><span class="bdg n">In-house</span></td><td class="num">2,057</td><td class="num">60</td>
+            <td><span class="bdg r nodot">Mandatory</span></td><td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          <tr><td>50</td><td><b>Capping &amp; assembly</b></td><td>CAP-01</td>
+            <td><span class="bdg n">In-house</span></td><td class="num">8,400</td><td class="num">20</td>
+            <td><span class="bdg t nodot">Yes</span></td><td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          <tr><td>60</td><td><b>Leak test &amp; inspection</b></td><td>QC line</td>
+            <td><span class="bdg n">In-house</span></td><td class="num">10,000</td><td class="num">10</td>
+            <td><span class="bdg r nodot">100% — CAPA</span></td><td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <!-- QC -->
+    <div class="tabpane" id="p4"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Parameter</th><th>Gate</th><th>Method</th><th>Specification</th>
+          <th class="num">Min</th><th class="num">Max</th><th>Sampling</th><th>On COA</th></tr></thead>
+        <tbody>
+          <tr><td><b>Laminate thickness</b></td><td><span class="bdg t nodot">RMQC</span></td><td>Micrometer</td>
+            <td>250 &micro; ± 10</td><td class="num">240</td><td class="num">260</td><td>5 per roll</td><td><span class="bdg g nodot">Yes</span></td></tr>
+          <tr><td><b>Bond strength</b></td><td><span class="bdg t nodot">RMQC</span></td><td>Peel test</td>
+            <td>&ge; 4.0 N/15 mm</td><td class="num">4.0</td><td class="num">&mdash;</td><td>2 per lot</td><td><span class="bdg g nodot">Yes</span></td></tr>
+          <tr><td><b>MFI &mdash; granule</b></td><td><span class="bdg t nodot">RMQC</span></td><td>ASTM D1238</td>
+            <td>0.8 &ndash; 1.2 g/10min</td><td class="num">0.8</td><td class="num">1.2</td><td>1 per batch</td><td><span class="bdg n nodot">No</span></td></tr>
+          <tr><td><b>Print shade &Delta;E</b></td><td><span class="bdg t nodot">IPQC</span></td><td>Spectrophotometer</td>
+            <td>&Delta;E &le; 2.0</td><td class="num">&mdash;</td><td class="num">2.0</td><td>Every 1000 m</td><td><span class="bdg g nodot">Yes</span></td></tr>
+          <tr><td><b>Registration</b></td><td><span class="bdg t nodot">IPQC</span></td><td>Visual + loupe</td>
+            <td>± 0.15 mm</td><td class="num">&mdash;</td><td class="num">0.15</td><td>Every 1000 m</td><td><span class="bdg n nodot">No</span></td></tr>
+          <tr><td><b>Side seam strength</b></td><td><span class="bdg t nodot">IPQC</span></td><td>Tensile</td>
+            <td>&ge; 25 N</td><td class="num">25</td><td class="num">&mdash;</td><td>5 per shift</td><td><span class="bdg g nodot">Yes</span></td></tr>
+          <tr><td><b>Shoulder weight</b></td><td><span class="bdg t nodot">IPQC</span></td><td>Weighing</td>
+            <td>1.35 g ± 0.05</td><td class="num">1.30</td><td class="num">1.40</td><td>Per cavity / hr</td><td><span class="bdg n nodot">No</span></td></tr>
+          <tr><td><b>Leak test</b></td><td><span class="bdg r nodot">FGQC</span></td><td>Vacuum 0.5 bar / 60 s</td>
+            <td>No leakage</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><b>100% — CAPA</b></td><td><span class="bdg g nodot">Yes</span></td></tr>
+          <tr><td><b>Cap removal torque</b></td><td><span class="bdg r nodot">FGQC</span></td><td>Torque meter</td>
+            <td>4 &ndash; 8 kgf&middot;cm</td><td class="num">4</td><td class="num">8</td><td>10 per lot</td><td><span class="bdg g nodot">Yes</span></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <!-- PACKING -->
+    <div class="tabpane" id="p5"><div class="card-b">
+      <div class="fgrid c4">
+        <div class="sec-t">Packing requirement</div>
+        <div class="fld"><label>Pcs per inner box</label><input class="inp" value="100"></div>
+        <div class="fld"><label>Inner boxes per carton</label><input class="inp" value="20"></div>
+        <div class="fld"><label>Pcs per carton</label><input class="inp ro" value="2,000" readonly></div>
+        <div class="fld"><label>Carton size (mm)</label><input class="inp" value="480 × 320 × 280"></div>
+        <div class="fld"><label>Gross weight / carton (kg)</label><input class="inp" value="9.8"></div>
+        <div class="fld"><label>Pallet pattern</label><input class="inp" value="6 × 5 = 30 cartons"></div>
+        <div class="fld"><label>Liner</label><select class="inp"><option>LDPE liner required</option><option>Not required</option></select></div>
+        <div class="fld"><label>Label format</label><select class="inp"><option>Customer-specific — Cipla</option><option>Standard</option></select></div>
+
+        <div class="sec-t">COA requirement</div>
+        <div class="fld"><label>COA mandatory</label><select class="inp"><option>Yes — per batch</option><option>No</option></select></div>
+        <div class="fld"><label>COA template</label><select class="inp"><option>Pharma tube — Cipla format</option><option>Standard</option></select></div>
+        <div class="fld"><label>Parameters on COA</label><input class="inp ro" value="6 of 9" readonly></div>
+        <div class="fld"><label>Retention sample</label><select class="inp"><option>20 pcs per batch</option><option>Not required</option></select></div>
+      </div>
+    </div></div>
+
+    <!-- COSTING -->
+    <div class="tabpane" id="p6"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Cost head</th><th class="num">Standard / pc</th><th class="num">Last actual / pc</th>
+          <th class="num">Variance</th><th>Basis</th></tr></thead>
+        <tbody>
+          <tr><td>Raw material</td><td class="num mono">1.4284</td><td class="num mono">1.4510</td>
+            <td class="num" style="color:rgb(var(--color-error))">+1.6%</td><td class="mut">BOM × std. rate</td></tr>
+          <tr><td>Bought-out (cap + rim)</td><td class="num mono">0.5757</td><td class="num mono">0.5757</td>
+            <td class="num muted">0.0%</td><td class="mut">Purchase rate</td></tr>
+          <tr><td>Printing &mdash; Monarch Print</td><td class="num mono">0.2100</td><td class="num mono">0.2240</td>
+            <td class="num" style="color:rgb(var(--color-error))">+6.7%</td><td class="mut">Rate contract</td></tr>
+          <tr><td>Manufacturing</td><td class="num mono">0.1120</td><td class="num mono">0.1084</td>
+            <td class="num" style="color:rgb(var(--color-success))">−3.2%</td><td class="mut">Machine hour rate</td></tr>
+          <tr><td>Packing</td><td class="num mono">0.0609</td><td class="num mono">0.0609</td>
+            <td class="num muted">0.0%</td><td class="mut">Packing BOM</td></tr>
+          <tr><td>Wastage &amp; rejection</td><td class="num mono">0.0310</td><td class="num mono">0.0402</td>
+            <td class="num" style="color:rgb(var(--color-error))">+29.7%</td><td class="mut">Std. wastage %</td></tr>
+        </tbody>
+        <tfoot><tr><td>Standard cost</td><td class="num mono">2.4180</td><td class="num mono">2.4602</td>
+          <td class="num" style="color:rgb(var(--color-error))">+1.7%</td><td></td></tr></tfoot>
+      </table>
+    </div></div></div>
+
+    <!-- CAPA HISTORY -->
+    <div class="tabpane" id="p7"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Complaint</th><th>Date</th><th>Customer</th><th>Issue</th>
+          <th>RCA</th><th>CAPA</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="k">CMP/26-0031</td><td>18 Aug 26</td><td>Cipla Ltd.</td>
+            <td>Shoulder leakage in 0.4% of tubes</td><td>Moulding cavity 5 &mdash; low clamp pressure</td>
+            <td class="k">CAPA-2026-014</td><td><span class="bdg r">Open &mdash; blocking</span></td></tr>
+          <tr><td class="k">CMP/26-0018</td><td>02 Jun 26</td><td>Cipla Ltd.</td>
+            <td>Print shade variation batch to batch</td><td>Monarch Print ink lot change not intimated</td>
+            <td class="k">CAPA-2026-009</td><td><span class="bdg g">Closed &mdash; effective</span></td></tr>
+          <tr><td class="k">CMP/25-0104</td><td>27 Dec 25</td><td>Cipla Ltd.</td>
+            <td>Cap thread loose &mdash; torque below spec</td><td>Cap supplier mould wear</td>
+            <td class="k">CAPA-2025-061</td><td><span class="bdg g">Closed &mdash; effective</span></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <!-- REVISIONS -->
+    <div class="tabpane" id="p8"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Revision</th><th>Effective</th><th>Changed by</th><th>Change summary</th><th>Approved by</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Rev C</td><td>01 Aug 26</td><td>R. Verma</td>
+            <td>Leak test made 100% per CAPA-2026-014; shoulder weight tolerance tightened</td>
+            <td>QA Head</td><td><span class="bdg g">Active</span></td></tr>
+          <tr><td class="k">Rev B</td><td>15 Jun 26</td><td>R. Verma</td>
+            <td>Print shade &Delta;E tightened 2.5 &rarr; 2.0 per CAPA-2026-009</td>
+            <td>QA Head</td><td><span class="bdg n">Superseded</span></td></tr>
+          <tr><td class="k">Rev A</td><td>10 Jan 26</td><td>S. Nair</td>
+            <td>Initial release</td><td>QA Head</td><td><span class="bdg n">Superseded</span></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

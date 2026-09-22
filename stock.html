@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stock &amp; Batch · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / Stock &amp; Batch</div>
+      <h1>Stock &amp; Batch Tracking</h1>
+      <p>Roll and batch level stock with full traceability both ways</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn"><i data-i="search2"></i>Trace batch</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-p"><div class="lbl">Stock value</div><div class="val">₹ 84.2<small> L</small></div></div>
+    <div class="stat acc-s"><div class="lbl">Free stock</div><div class="val">₹ 61.4<small> L</small></div></div>
+    <div class="stat acc-w"><div class="lbl">On QC hold</div><div class="val">₹ 2.6<small> L</small></div></div>
+    <div class="stat acc-t"><div class="lbl">Allocated to jobs</div><div class="val">₹ 20.2<small> L</small></div></div>
+    <div class="stat acc-e"><div class="lbl">Ageing &gt; 90 days</div><div class="val">₹ 3.1<small> L</small></div></div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>Warehouse</label><select class="inp"><option>All</option><option>WH-RM — Raw material</option><option>WH-BO — Bought-out</option><option>WH-WIP — Work in process</option><option>WH-FG — Finished goods</option></select></div>
+    <div class="fld"><label>Item group</label><select class="inp"><option>All</option><option>Laminate</option><option>Granule &amp; masterbatch</option><option>Caps &amp; rims</option><option>Packing</option></select></div>
+    <div class="fld"><label>Item</label><input class="inp" placeholder="Item code / name"></div>
+    <div class="fld w-sm"><label>Status</label><select class="inp"><option>All</option><option>Free</option><option>QC hold</option><option>Allocated</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button></div>
+  </div>
+
+  <div class="card mb0">
+    <div class="tabs">
+      <button class="tab on" data-pane="s1">Item-wise</button>
+      <button class="tab" data-pane="s2">Batch / roll-wise <span class="cnt">14</span></button>
+      <button class="tab" data-pane="s3">Traceability</button>
+    </div>
+
+    <div class="tabpane on" id="s1"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Item</th><th>Group</th><th>UoM</th><th class="num">Total</th>
+          <th class="num">QC hold</th><th class="num">Allocated</th><th class="num">Free</th>
+          <th class="num">Rate</th><th class="num">Value</th><th class="num">Reorder</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><b>ABL Laminate PE/EVOH/PE 250&micro;</b><div class="mut">ITM-1004</div></td>
+            <td>Laminate</td><td>kg</td><td class="num">1,560.00</td>
+            <td class="num">320.00</td><td class="num">620.00</td><td class="num">620.00</td>
+            <td class="num mono">247.20</td><td class="num mono">3,85,632</td><td class="num">800.00</td>
+            <td><span class="bdg g">OK</span></td></tr>
+          <tr><td><b>HDPE granule &mdash; shoulder grade</b><div class="mut">ITM-2011</div></td>
+            <td>Granule</td><td>kg</td><td class="num">1,010.00</td>
+            <td class="num">150.00</td><td class="num">310.00</td><td class="num">550.00</td>
+            <td class="num mono">111.40</td><td class="num mono">1,12,514</td><td class="num">500.00</td>
+            <td><span class="bdg g">OK</span></td></tr>
+          <tr><td><b>Masterbatch &mdash; white</b><div class="mut">ITM-2044</div></td>
+            <td>Masterbatch</td><td>kg</td><td class="num">84.00</td>
+            <td class="num">42.00</td><td class="num">18.00</td><td class="num">24.00</td>
+            <td class="num mono">285.00</td><td class="num mono">23,940</td><td class="num">60.00</td>
+            <td><span class="bdg w">Below reorder</span></td></tr>
+          <tr><td><b>Flip-top cap 11 mm &mdash; white</b><div class="mut">ITM-3001 · bought-out</div></td>
+            <td>Caps</td><td>pcs</td><td class="num">1,05,000</td>
+            <td class="num">0</td><td class="num">20,000</td><td class="num">85,000</td>
+            <td class="num mono">0.48</td><td class="num mono">50,400</td><td class="num">1,50,000</td>
+            <td><span class="bdg r">Shortage</span></td></tr>
+          <tr><td><b>Rim / seal ring</b><div class="mut">ITM-3008 · bought-out</div></td>
+            <td>Caps</td><td>pcs</td><td class="num">2,10,000</td>
+            <td class="num">0</td><td class="num">40,000</td><td class="num">1,70,000</td>
+            <td class="num mono">0.09</td><td class="num mono">18,900</td><td class="num">1,00,000</td>
+            <td><span class="bdg g">OK</span></td></tr>
+          <tr><td><b>Side-seam tape</b><div class="mut">ITM-2050</div></td>
+            <td>Consumable</td><td>mtr</td><td class="num">26,000</td>
+            <td class="num">0</td><td class="num">9,000</td><td class="num">17,000</td>
+            <td class="num mono">0.42</td><td class="num mono">10,920</td><td class="num">12,000</td>
+            <td><span class="bdg g">OK</span></td></tr>
+          <tr><td><b>Inner box + carton</b><div class="mut">ITM-4002</div></td>
+            <td>Packing</td><td>set</td><td class="num">900</td>
+            <td class="num">0</td><td class="num">300</td><td class="num">600</td>
+            <td class="num mono">5.80</td><td class="num mono">5,220</td><td class="num">1,000</td>
+            <td><span class="bdg w">Below reorder</span></td></tr>
+          <tr><td><b>Printed laminate &mdash; PWO/26-0194</b><div class="mut">WIP · returned from Monarch Print</div></td>
+            <td>WIP</td><td>kg</td><td class="num">612.00</td>
+            <td class="num">0.00</td><td class="num">612.00</td><td class="num">0.00</td>
+            <td class="num mono">276.40</td><td class="num mono">1,69,157</td><td class="num">&mdash;</td>
+            <td><span class="bdg b">In WIP</span></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <div class="tabpane" id="s2"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Batch / roll</th><th>Item</th><th>GRN</th><th>Supplier</th>
+          <th>Received</th><th class="num">Qty</th><th class="num">Balance</th>
+          <th class="num">Age (days)</th><th>Allocated to</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="k">ROLL-26-1902</td><td>ABL Laminate 250&micro;</td><td>GRN/26-0625</td>
+            <td>Essel Propack</td><td>22 Sep 26</td><td class="num">212.00</td><td class="num">212.00</td>
+            <td class="num">0</td><td class="mut">&mdash;</td><td><span class="bdg w">QC hold</span></td></tr>
+          <tr><td class="k">ROLL-26-1903</td><td>ABL Laminate 250&micro;</td><td>GRN/26-0625</td>
+            <td>Essel Propack</td><td>22 Sep 26</td><td class="num">108.00</td><td class="num">108.00</td>
+            <td class="num">0</td><td class="mut">&mdash;</td><td><span class="bdg w">QC hold</span></td></tr>
+          <tr><td class="k">ROLL-26-1845</td><td>ABL Laminate 250&micro;</td><td>GRN/26-0621</td>
+            <td>Essel Propack</td><td>19 Sep 26</td><td class="num">209.80</td><td class="num">206.00</td>
+            <td class="num">3</td><td class="k">PWO/26-0202</td><td><span class="bdg o">At Monarch Print</span></td></tr>
+          <tr><td class="k">ROLL-26-1841</td><td>ABL Laminate 250&micro;</td><td>GRN/26-0621</td>
+            <td>Essel Propack</td><td>19 Sep 26</td><td class="num">212.40</td><td class="num">208.00</td>
+            <td class="num">3</td><td class="k">PWO/26-0202</td><td><span class="bdg o">At Monarch Print</span></td></tr>
+          <tr><td class="k">BATCH-26-0771</td><td>HDPE granule</td><td>GRN/26-0625</td>
+            <td>Essel Propack</td><td>22 Sep 26</td><td class="num">150.00</td><td class="num">150.00</td>
+            <td class="num">0</td><td class="mut">&mdash;</td><td><span class="bdg w">QC hold</span></td></tr>
+          <tr><td class="k">BATCH-26-0742</td><td>HDPE granule</td><td>GRN/26-0612</td>
+            <td>Reliance Polymers</td><td>08 Sep 26</td><td class="num">1,000.00</td><td class="num">550.00</td>
+            <td class="num">14</td><td class="k">PWO/26-0194</td><td><span class="bdg g">Free</span></td></tr>
+          <tr><td class="k">BATCH-26-0764</td><td>Masterbatch &mdash; white</td><td>GRN/26-0620</td>
+            <td>Plastiblends India</td><td>20 Sep 26</td><td class="num">42.00</td><td class="num">42.00</td>
+            <td class="num">2</td><td class="mut">&mdash;</td><td><span class="bdg w">QC hold</span></td></tr>
+          <tr><td class="k">BATCH-25-9902</td><td>Side-seam tape</td><td>GRN/25-0988</td>
+            <td>3M India</td><td>12 Jun 26</td><td class="num">40,000</td><td class="num">17,000</td>
+            <td class="num" style="color:rgb(var(--color-error))">102</td><td class="mut">&mdash;</td>
+            <td><span class="bdg r">Ageing</span></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <div class="tabpane" id="s3"><div class="card-b">
+      <div class="fgrid c3" style="margin-bottom:16px">
+        <div class="fld"><label>Trace direction</label>
+          <select class="inp"><option>Backward — from finished product</option><option>Forward — from raw material batch</option></select></div>
+        <div class="fld"><label>Reference</label><input class="inp" value="FG-LT26-0188-A"></div>
+        <div class="fld" style="justify-content:flex-end"><button class="btn pri"><i data-i="search2"></i>Trace</button></div>
+      </div>
+
+      <div class="split even">
+        <div>
+          <div style="font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgb(var(--fg-subtle));margin-bottom:9px">Backward &mdash; finished product to supplier</div>
+          <table class="tbl dense" style="border:1px solid rgb(var(--bd-default));border-radius:8px">
+            <tbody>
+              <tr><td class="muted">Finished batch</td><td class="num k">FG-LT26-0188-A</td></tr>
+              <tr><td class="muted">Production order</td><td class="num k">PWO/26-0188</td></tr>
+              <tr><td class="muted">Operations</td><td class="num">Slitting, Printing (Monarch), Forming, Moulding, Assembly</td></tr>
+              <tr><td class="muted">Raw material</td><td class="num">ABL Laminate 250&micro; &middot; HDPE granule</td></tr>
+              <tr><td class="muted">Batch / roll</td><td class="num k">ROLL-26-1712, BATCH-26-0698</td></tr>
+              <tr><td class="muted">Supplier</td><td class="num">Essel Propack Ltd. &middot; Reliance Polymers</td></tr>
+              <tr><td class="muted">GRN</td><td class="num k">GRN/26-0598, GRN/26-0601</td></tr>
+              <tr><td class="muted">RMQC</td><td class="num"><span class="bdg g nodot">Both accepted</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div style="font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgb(var(--fg-subtle));margin-bottom:9px">Forward &mdash; raw material batch to customer</div>
+          <table class="tbl dense" style="border:1px solid rgb(var(--bd-default));border-radius:8px">
+            <tbody>
+              <tr><td class="muted">Raw material batch</td><td class="num k">ROLL-26-1712</td></tr>
+              <tr><td class="muted">Production orders</td><td class="num k">PWO/26-0188, PWO/26-0186</td></tr>
+              <tr><td class="muted">Finished batches</td><td class="num k">FG-LT26-0188-A, FG-LT26-0186-B</td></tr>
+              <tr><td class="muted">Customers</td><td class="num">Cipla Ltd. &middot; Mankind Pharma</td></tr>
+              <tr><td class="muted">Sales orders</td><td class="num k">SO/26-0188, SO/26-0186</td></tr>
+              <tr><td class="muted">Delivery notes</td><td class="num k">DN/26-0341, DN/26-0338</td></tr>
+              <tr><td class="muted">Dispatched qty</td><td class="num">2,50,000 + 1,80,000 pcs</td></tr>
+              <tr><td class="muted">Recall exposure</td><td class="num"><span class="bdg w nodot">2 customers</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

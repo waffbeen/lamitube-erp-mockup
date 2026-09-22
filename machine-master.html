@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Machine Master · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Product / Engineering</b> / Machine Master</div>
+      <h1>Machine Master</h1>
+      <p>Machines, moulds and cavities &mdash; with machine hour rate used by costing</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="plus"></i>New Machine</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-p"><div class="lbl">Machines</div><div class="val">9</div></div>
+    <div class="stat acc-s"><div class="lbl">Running now</div><div class="val">6</div></div>
+    <div class="stat acc-w"><div class="lbl">Under maintenance</div><div class="val">1</div></div>
+    <div class="stat acc-e"><div class="lbl">With active CAPA</div><div class="val">1</div><div class="dlt dn">CM-01 cavity 5</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Machines</h2></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Code</th><th>Machine</th><th>Process</th><th>Make / model</th>
+          <th class="num">Std. output / hr</th><th class="num">Machine hr rate</th><th class="num">Capacity / shift</th>
+          <th>Shifts</th><th>Status</th><th class="ctr"></th></tr></thead>
+        <tbody>
+          <tr><td class="k">SLIT-01</td><td><b>Laminate slitter</b></td><td>P-10 Slitting</td>
+            <td>Kampf &mdash; ES 1100</td><td class="num">9,000</td><td class="num mono">640.00</td>
+            <td class="num">72,000</td><td>3</td><td><span class="bdg g">Running</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">TM-01</td><td><b>Tube making line 1</b></td><td>P-30 Sleeve forming</td>
+            <td>Aisa &mdash; TL 300</td><td class="num">7,200</td><td class="num mono">820.00</td>
+            <td class="num">57,600</td><td>3</td><td><span class="bdg w">Maintenance</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">TM-02</td><td><b>Tube making line 2</b></td><td>P-30 Sleeve forming</td>
+            <td>Aisa &mdash; TL 300</td><td class="num">7,200</td><td class="num mono">820.00</td>
+            <td class="num">57,600</td><td>3</td><td><span class="bdg g">Running</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr style="background:rgb(var(--color-error-subtle))"><td class="k">CM-01</td>
+            <td><b>Compression moulding press 1</b><div class="mut">8 cavity · CAPA-2026-014 active</div></td>
+            <td>P-40 Shoulder moulding</td>
+            <td>Sacmi &mdash; CCM 24</td><td class="num">2,057</td><td class="num mono">410.00</td>
+            <td class="num">16,456</td><td>3</td><td><span class="bdg r">CAPA control</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">CM-02</td><td><b>Compression moulding press 2</b><div class="mut">8 cavity</div></td>
+            <td>P-40 Shoulder moulding</td>
+            <td>Sacmi &mdash; CCM 24</td><td class="num">2,057</td><td class="num mono">410.00</td>
+            <td class="num">16,456</td><td>3</td><td><span class="bdg g">Running</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">CAP-01</td><td><b>Capping &amp; assembly line</b></td><td>P-50 Capping</td>
+            <td>Norden &mdash; NM 400</td><td class="num">8,400</td><td class="num mono">360.00</td>
+            <td class="num">67,200</td><td>3</td><td><span class="bdg g">Running</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">LT-02</td><td><b>Leak tester</b></td><td>P-60 Leak test</td>
+            <td>Vaculeak &mdash; VL 200</td><td class="num">10,000</td><td class="num mono">280.00</td>
+            <td class="num">80,000</td><td>3</td><td><span class="bdg g">Running</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">PK-01</td><td><b>Packing station</b></td><td>P-70 Packing</td>
+            <td>Manual + conveyor</td><td class="num">12,000</td><td class="num mono">190.00</td>
+            <td class="num">96,000</td><td>2</td><td><span class="bdg g">Running</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card mb0">
+    <div class="card-h"><h2>Moulds &amp; cavities</h2>
+      <span class="sub">shoulder moulds &mdash; cavity level tracking feeds IPQC and CAPA</span>
+      <div class="r"><button class="btn sm"><i data-i="plus"></i>New mould</button></div></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Mould</th><th>Machine</th><th>Product</th><th class="num">Cavities</th>
+          <th class="num">Shot weight (g)</th><th class="num">Cycle (s)</th><th class="num">Shots done</th>
+          <th class="num">Service due at</th><th>Condition</th></tr></thead>
+        <tbody>
+          <tr><td class="k">MLD-19A</td><td>CM-01 / CM-02</td><td>LT 19 mm shoulder</td>
+            <td class="num">8</td><td class="num">1.35</td><td class="num">14.0</td>
+            <td class="num">18,42,000</td><td class="num">25,00,000</td>
+            <td><span class="bdg g">Good</span></td></tr>
+          <tr style="background:rgb(var(--color-error-subtle))"><td class="k">MLD-22A</td>
+            <td>CM-01</td><td>LT 22 mm shoulder</td>
+            <td class="num">8 <span class="bdg r nodot">C5 issue</span></td><td class="num">1.52</td><td class="num">14.2</td>
+            <td class="num">21,08,000</td><td class="num">25,00,000</td>
+            <td><span class="bdg r">Cavity 5 under CAPA</span></td></tr>
+          <tr><td class="k">MLD-25A</td><td>CM-02</td><td>LT 25 mm shoulder</td>
+            <td class="num">8</td><td class="num">1.90</td><td class="num">15.0</td>
+            <td class="num">9,64,000</td><td class="num">25,00,000</td>
+            <td><span class="bdg g">Good</span></td></tr>
+          <tr><td class="k">MLD-30A</td><td>CM-02</td><td>LT 30 mm shoulder</td>
+            <td class="num">6</td><td class="num">2.40</td><td class="num">16.5</td>
+            <td class="num">23,91,000</td><td class="num">25,00,000</td>
+            <td><span class="bdg w">Service due soon</span></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

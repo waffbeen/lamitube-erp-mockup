@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delivery Note · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Dispatch</b> / Delivery Note</div>
+      <h1>Delivery Note &mdash; DN/26-0342</h1>
+      <p>SO/26-0201 &middot; Glenmark Pharma &middot; batch FG-LT26-0201-A</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="printer"></i>Print DN</button>
+      <button class="btn"><i data-i="file"></i>E-way bill</button>
+      <button class="btn pri"><i data-i="receipt"></i>Generate Invoice</button>
+    </div>
+  </div>
+
+  <div class="alert ok">
+    <i data-i="check2"></i>
+    <div><b>FGQC approved and COA/26-0294 attached</b>
+    All dispatch pre-conditions are met for this batch, so the delivery note could be created.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>DN no.</label><input class="inp ro" value="DN/26-0342" readonly></div>
+        <div class="fld"><label>DN date</label><input class="inp" type="date" value="2026-09-23"></div>
+        <div class="fld"><label>Sales order</label><select class="inp"><option>SO/26-0201 — Glenmark</option></select></div>
+        <div class="fld"><label>Delivery lot</label><select class="inp"><option>Lot 1 of 1</option></select></div>
+        <div class="fld span2"><label>Ship to</label>
+          <input class="inp" value="Glenmark Pharmaceuticals Ltd., Plot 22, Baddi Industrial Area, HP 173205"></div>
+        <div class="fld"><label>Transporter</label><select class="inp"><option>Gati KWE</option><option>TCI Express</option></select></div>
+        <div class="fld"><label>Vehicle no.</label><input class="inp" value="HP-12-D-8841"></div>
+        <div class="fld"><label>LR no.</label><input class="inp" value="GKW/26/884120"></div>
+        <div class="fld"><label>E-way bill</label><input class="inp" value="381004338841"></div>
+        <div class="fld"><label>COA</label><input class="inp ro" value="COA/26-0294" readonly></div>
+        <div class="fld"><label>Expected delivery</label><input class="inp" type="date" value="2026-09-24"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Dispatch items</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>#</th><th>Product</th><th>Batch</th><th class="num">Order qty</th>
+              <th class="num">Already sent</th><th class="num">This dispatch</th>
+              <th class="num">Cartons</th><th class="num">Gross wt.</th><th>COA</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><b>LT 25&times;140 &mdash; Cream tube</b><div class="mut">PC-0221 rev A</div></td>
+                <td class="k">FG-LT26-0201-A</td><td class="num">2,00,000</td>
+                <td class="num">0</td><td class="num">2,01,114</td>
+                <td class="num">101</td><td class="num">986.2 kg</td>
+                <td><span class="bdg g nodot">Attached</span></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="5">Total</td><td class="num">2,01,114</td>
+              <td class="num">101</td><td class="num">986.2 kg</td><td></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Pre-dispatch checklist</h2>
+          <span class="sub">system-enforced &mdash; the DN cannot be posted with a red item</span></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td>Production complete</td><td class="num"><span class="bdg g">Yes</span></td></tr>
+              <tr><td>Packing posted &mdash; PKG/26-0388</td><td class="num"><span class="bdg g">Yes</span></td></tr>
+              <tr><td><b>FGQC approved &mdash; FGQ/26-0311</b></td><td class="num"><span class="bdg g">Yes</span></td></tr>
+              <tr><td><b>COA generated &mdash; COA/26-0294</b></td><td class="num"><span class="bdg g">Yes</span></td></tr>
+              <tr><td>Active CAPA controls satisfied</td><td class="num"><span class="bdg g">Yes</span></td></tr>
+              <tr><td>Customer credit limit</td><td class="num"><span class="bdg g">Within limit</span></td></tr>
+              <tr><td>E-way bill generated</td><td class="num"><span class="bdg g">Yes</span></td></tr>
+              <tr><td>Retention sample kept</td><td class="num"><span class="bdg w">Pending</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Delivery note register</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>DN no.</th><th>Date</th><th>Customer</th><th>Batch</th>
+              <th class="num">Qty</th><th>COA</th><th>Invoice</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">DN/26-0341</td><td>21 Sep</td><td>Cipla Ltd.</td><td>FG-LT26-0188-A</td>
+                <td class="num">&mdash;</td><td class="mut">not generated</td><td class="mut">&mdash;</td>
+                <td><span class="bdg r">Blocked &mdash; FGQC</span></td></tr>
+              <tr><td class="k">DN/26-0338</td><td>20 Sep</td><td>Mankind Pharma</td><td>FG-LT26-0186-B</td>
+                <td class="num">1,80,000</td><td class="k">COA/26-0293</td><td class="k">INV/26-0512</td>
+                <td><span class="bdg g">Delivered</span></td></tr>
+              <tr><td class="k">DN/26-0335</td><td>18 Sep</td><td>Sun Pharma</td><td>FG-LT26-0184-A</td>
+                <td class="num">3,04,000</td><td class="k">COA/26-0292</td><td class="k">INV/26-0509</td>
+                <td><span class="bdg g">Delivered</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Consignment</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Cartons</dt><dd class="right mono">101</dd>
+            <dt>Pallets</dt><dd class="right mono">4</dd>
+            <dt>Gross weight</dt><dd class="right mono">986.2 kg</dd>
+            <dt>Volume</dt><dd class="right mono">4.35 m&sup3;</dd>
+            <dt>Freight basis</dt><dd class="right">To pay</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Documents travelling</h2></div>
+        <div class="card-b">
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:12.5px">
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="truck" class="muted"></i>Delivery note
+              <span class="bdg g nodot" style="margin-left:auto">Ready</span></div>
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="award" class="muted"></i>COA/26-0294
+              <span class="bdg g nodot" style="margin-left:auto">Attached</span></div>
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="file" class="muted"></i>Packing list
+              <span class="bdg g nodot" style="margin-left:auto">Ready</span></div>
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="file" class="muted"></i>E-way bill
+              <span class="bdg g nodot" style="margin-left:auto">Generated</span></div>
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="receipt" class="muted"></i>Tax invoice
+              <span class="bdg w nodot" style="margin-left:auto">On generation</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Order coverage</h2></div>
+        <div class="card-b">
+          <div style="display:flex;font-size:12px;margin-bottom:5px"><span>SO/26-0201</span>
+            <b style="margin-left:auto" class="mono">2,01,114 / 2,00,000</b></div>
+          <div class="pbar"><i class="g" style="width:100%"></i></div>
+          <div class="mut" style="font-size:11.5px;margin-top:4px">Order fully covered &mdash; +0.6% within tolerance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

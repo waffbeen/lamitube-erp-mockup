@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lamitube ERP Flow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-app:#f7f8fa; --bg-surface:#ffffff; --bg-subtle:#f3f4f6;
+  --fg:#111827; --fg-muted:#4b5563; --fg-subtle:#6b7280;
+  --bd:#d1d5db; --bd-subtle:#e5e7eb;
+  --primary:#003366; --primary-subtle:#e8eef5;
+  --inter:#b45309; --inter-subtle:#fef3c7; --inter-bd:#fcd34d;
+  --quality:#0f766e; --quality-subtle:#ccfbf1;
+  --master:#7e22ce; --master-subtle:#f3e8ff;
+  --capa:#be123c; --capa-subtle:#ffe4e6; --capa-bd:#fda4af;
+  --cost:#1d4ed8; --cost-subtle:#dbeafe;
+  --new:#15803d; --new-subtle:#dcfce7;
+  --shadow:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.1);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg-app:#0e1116; --bg-surface:#171b22; --bg-subtle:#1f242d;
+    --fg:#e6e9ef; --fg-muted:#a6adbb; --fg-subtle:#8b93a1;
+    --bd:#2d333d; --bd-subtle:#242a33;
+    --primary:#7aa7d9; --primary-subtle:#16233a;
+    --inter:#fbbf24; --inter-subtle:#332611; --inter-bd:#5c4413;
+    --quality:#5eead4; --quality-subtle:#0d2b28;
+    --master:#d8b4fe; --master-subtle:#2a1b3d;
+    --capa:#fda4af; --capa-subtle:#3a1620; --capa-bd:#5d2230;
+    --cost:#93c5fd; --cost-subtle:#15233f;
+    --new:#86efac; --new-subtle:#122c1c;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg-app:#0e1116; --bg-surface:#171b22; --bg-subtle:#1f242d;
+  --fg:#e6e9ef; --fg-muted:#a6adbb; --fg-subtle:#8b93a1;
+  --bd:#2d333d; --bd-subtle:#242a33;
+  --primary:#7aa7d9; --primary-subtle:#16233a;
+  --inter:#fbbf24; --inter-subtle:#332611; --inter-bd:#5c4413;
+  --quality:#5eead4; --quality-subtle:#0d2b28;
+  --master:#d8b4fe; --master-subtle:#2a1b3d;
+  --capa:#fda4af; --capa-subtle:#3a1620; --capa-bd:#5d2230;
+  --cost:#93c5fd; --cost-subtle:#15233f;
+  --new:#86efac; --new-subtle:#122c1c;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-app);color:var(--fg);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 72px}
+
+header.top{background:var(--bg-surface);border-bottom:1px solid var(--bd);padding:22px 0;margin-bottom:24px}
+header.top .wrap{padding-bottom:0}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--primary)}
+h1{font-size:22px;font-weight:700;margin:0;letter-spacing:-.01em}
+.sub{color:var(--fg-muted);margin:4px 0 0;font-size:13px}
+
+h2{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--fg-subtle);margin:34px 0 12px}
+
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 24px}
+.lg{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;
+  padding:5px 10px;border-radius:999px;border:1px solid var(--bd);background:var(--bg-surface);color:var(--fg-muted)}
+.sw{width:9px;height:9px;border-radius:2px}
+
+/* changelog */
+.chg{background:var(--new-subtle);border:1px solid var(--new);border-radius:10px;padding:14px 16px}
+.chg h3{margin:0 0 8px;font-size:13px;font-weight:600;color:var(--fg)}
+.chg ul{margin:0;padding-left:18px;font-size:13px;color:var(--fg-muted)}
+.chg li{margin-bottom:4px}
+.chg li b{color:var(--fg);font-weight:600}
+
+/* companies */
+.co{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.co-card{background:var(--bg-surface);border:1px solid var(--bd);border-radius:10px;padding:14px 16px;box-shadow:var(--shadow)}
+.co-card.b{border-left:3px solid var(--inter)}
+.co-card.a{border-left:3px solid var(--primary)}
+.co-card h3{margin:0 0 3px;font-size:14px;font-weight:600}
+.co-card .gst{font-size:11px;color:var(--fg-subtle);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.co-card p{margin:8px 0 0;font-size:12.5px;color:var(--fg-muted)}
+
+/* stage cards */
+.stage{background:var(--bg-surface);border:1px solid var(--bd);border-radius:10px;box-shadow:var(--shadow);overflow:hidden}
+.stage-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;
+  border-bottom:1px solid var(--bd-subtle);background:var(--bg-subtle);flex-wrap:wrap}
+.num{flex:0 0 24px;height:24px;border-radius:6px;background:var(--primary);color:#fff;
+  display:grid;place-items:center;font-size:12px;font-weight:700}
+.stage-hd h3{margin:0;font-size:14px;font-weight:600}
+.stage-hd .tag{margin-left:auto;font-size:11px;color:var(--fg-subtle);font-weight:500}
+.merged{font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:999px;
+  background:var(--new-subtle);color:var(--new);border:1px solid var(--new)}
+.pages{display:flex;flex-wrap:wrap;gap:8px;padding:14px 16px}
+.pg{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;
+  padding:7px 11px;border-radius:7px;border:1px solid var(--bd);background:var(--bg-app);color:var(--fg)}
+.pg i{font-style:normal;font-size:10.5px;color:var(--fg-subtle);font-weight:500}
+.pg.q{border-color:var(--quality);background:var(--quality-subtle)}
+.pg.o{border-color:var(--inter-bd);background:var(--inter-subtle)}
+.pg.m{border-color:var(--master);background:var(--master-subtle)}
+.pg.c{border-color:var(--cost);background:var(--cost-subtle)}
+.pg.r{border-color:var(--capa-bd);background:var(--capa-subtle)}
+.pg.opt{border-style:dashed;color:var(--fg-muted)}
+.note{font-size:12.5px;color:var(--fg-muted);padding:10px 16px 14px;margin:0;border-top:1px dashed var(--bd-subtle)}
+.note b{color:var(--fg);font-weight:600}
+
+.arrow{display:grid;place-items:center;height:24px;color:var(--bd)}
+.arrow svg{display:block}
+
+/* gate pill */
+.gate{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.05em;
+  padding:3px 9px;border-radius:999px;background:var(--quality-subtle);color:var(--quality);border:1px solid var(--quality)}
+
+/* band */
+.band{border-radius:10px;padding:14px 16px;border:1px solid var(--bd);background:var(--bg-surface);box-shadow:var(--shadow)}
+.band.capa{border-left:3px solid var(--capa)}
+.band.trace{border-left:3px solid var(--cost)}
+.band h3{margin:0 0 4px;font-size:14px;font-weight:600}
+.band p{margin:0 0 10px;font-size:12.5px;color:var(--fg-muted)}
+.chain{font-size:12.5px;color:var(--fg-muted);font-weight:500;margin:6px 0 0}
+.chain b{color:var(--fg);font-weight:600}
+
+/* diagrams */
+.engine{background:var(--bg-surface);border:1px solid var(--bd);border-radius:10px;box-shadow:var(--shadow);padding:18px 16px}
+.engine svg{width:100%;height:auto;display:block}
+.svg-t{font:500 12px Inter,system-ui,sans-serif;fill:var(--fg)}
+.svg-s{font:500 10.5px Inter,system-ui,sans-serif;fill:var(--fg-subtle)}
+.svg-b{font:600 12px Inter,system-ui,sans-serif;fill:var(--fg)}
+.svg-l{font:700 11px Inter,system-ui,sans-serif;fill:var(--fg-subtle);letter-spacing:.06em}
+.formula{text-align:center;font-size:13px;margin:14px 0 0;color:var(--fg-muted)}
+.formula b{color:var(--fg);font-weight:600}
+
+/* table */
+table{width:100%;border-collapse:collapse;background:var(--bg-surface);
+  border:1px solid var(--bd);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-subtle);
+  background:var(--bg-subtle);padding:10px 14px;border-bottom:1px solid var(--bd);font-weight:600}
+td{padding:11px 14px;border-bottom:1px solid var(--bd-subtle);vertical-align:top;font-size:13px}
+tr:last-child td{border-bottom:0}
+td.mod{font-weight:600;white-space:nowrap}
+td.cnt{text-align:right;color:var(--fg-subtle);font-variant-numeric:tabular-nums;white-space:nowrap}
+tfoot td{background:var(--bg-subtle);font-weight:600;color:var(--fg)}
+.scroll{overflow-x:auto}
+
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--bd);color:var(--fg-subtle);font-size:12px}
+@media (max-width:720px){ .co{grid-template-columns:1fr} }
+@media (max-width:640px){ h1{font-size:19px} .pages{gap:6px} .pg{font-size:12px;padding:6px 9px} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span><h1>Lamitube ERP &mdash; Process Flow &amp; Page Map</h1></div>
+    <p class="sub">Built from Company A's side &middot; printing is an inter-company operation inside the Production Work Order &middot; v2, revised per SRS</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- CHANGES -->
+  <div class="chg">
+    <h3>Revisions in this version</h3>
+    <ul>
+      <li><b>Material Requirement merged into the Production Work Order</b> &mdash; no separate MRP page.</li>
+      <li><b>Release is a button on Machine-wise Scheduling</b> &mdash; no separate Job Release page.</li>
+      <li><b>PWO auto-raises the Indent</b> under its own authority. PO can only be created after the indent is approved.</li>
+      <li><b>Gate Entry before GRN is optional</b> &mdash; a setting. If ON, material must pass the gate before GRN; if OFF, GRN directly.</li>
+      <li>Three quality gates fixed as <b>RMQC &rarr; IPQC &rarr; FGQC</b>, with FGQC <b>after</b> packing.</li>
+      <li>Added <b>COA</b>, <b>Actual Costing vs Estimated</b>, <b>CAPA alert engine</b> and <b>Traceability</b>.</li>
+    </ul>
+  </div>
+
+  <!-- COMPANIES -->
+  <h2>Two companies, one flow</h2>
+  <div class="co">
+    <div class="co-card a">
+      <h3>Company A</h3>
+      <div class="gst">Main entity &middot; our ERP</div>
+      <p>Enquiry, estimation, sales order, procurement, tube manufacturing, packing, dispatch, complaints. Caps and rims are bought ready-made from the market.</p>
+    </div>
+    <div class="co-card b">
+      <h3>Company B</h3>
+      <div class="gst">Separate GST &middot; printing facility</div>
+      <p>Receives material from A, prints, does printing QC, sends printed material back. Treated as an <b>operation inside the PWO</b>, not an unrelated purchase.</p>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="lg"><span class="sw" style="background:var(--primary)"></span>Core transaction</span>
+    <span class="lg"><span class="sw" style="background:var(--master)"></span>Master data</span>
+    <span class="lg"><span class="sw" style="background:var(--quality)"></span>Quality gate</span>
+    <span class="lg"><span class="sw" style="background:var(--inter)"></span>Inter-company</span>
+    <span class="lg"><span class="sw" style="background:var(--cost)"></span>Costing</span>
+    <span class="lg"><span class="sw" style="background:var(--capa)"></span>Complaint / CAPA</span>
+    <span class="lg">dashed = optional / config-driven</span>
+  </div>
+
+  <!-- MASTERS -->
+  <h2>Foundation &mdash; Product Engineering &amp; Masters</h2>
+  <div class="stage">
+    <div class="stage-hd"><span class="num">0</span><h3>Product Catalogue is the backbone</h3><span class="tag">Module: Product / Engineering</span></div>
+    <div class="pages">
+      <span class="pg m">Product Catalogue <i>spec &middot; dimensions &middot; capacity &middot; laminate structure &middot; BOM &middot; routing &middot; machines &middot; wastage &middot; QC params &middot; packing &middot; COA &middot; std cost &middot; version</i></span>
+      <span class="pg m">Item Master <i>laminate &middot; granule &middot; masterbatch &middot; cap / rim</i></span>
+      <span class="pg m">Process &amp; Routing Master <i>sequence &middot; machine &middot; rate &middot; in-house or inter-company</i></span>
+      <span class="pg m">Machine Master</span>
+      <span class="pg m">Customer / Vendor Ledger</span>
+      <span class="pg m">QC Parameter Master</span>
+      <span class="pg m">Artwork Master</span>
+    </div>
+    <p class="note">Selecting a catalogue product auto-fills the estimation, BOM, routing and QC plan. A <b>New / Custom Specification</b> route exists for products not yet in the catalogue. Each product also carries its <b>previous complaints, RCA and CAPA history</b>.</p>
+  </div>
+
+  <!-- PIPELINE -->
+  <h2>Order-to-Cash Pipeline</h2>
+
+  <div class="stage">
+    <div class="stage-hd"><span class="num">1</span><h3>Sales &amp; Estimation</h3><span class="tag">Module: Sales</span></div>
+    <div class="pages">
+      <span class="pg">Customer Enquiry</span>
+      <span class="pg">Estimation <i>catalogue product OR new / custom spec</i></span>
+      <span class="pg">Quotation &amp; Approval</span>
+      <span class="pg">Sales Order</span>
+    </div>
+    <p class="note">Cost build-up: <b>Raw material + bought-out components + printing + manufacturing + packing + wastage + other direct costs</b> &rarr; add margin &rarr; selling price. This estimate is stored and later compared against actual cost.</p>
+  </div>
+
+  <div class="arrow"><svg width="16" height="24" viewBox="0 0 16 24"><path d="M8 0v16M2 12l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
+
+  <div class="stage">
+    <div class="stage-hd"><span class="num">2</span><h3>Production Work Order</h3>
+      <span class="merged">+ BOM</span><span class="merged">+ Material Requirement</span><span class="merged">+ Auto Indent</span>
+      <span class="tag">Module: Planning</span></div>
+    <div class="pages">
+      <span class="pg">Production Work Order <i>BOM &middot; routing &middot; material requirement &middot; raises indent automatically</i></span>
+    </div>
+    <p class="note">The PWO is the <b>central execution document</b>: Customer &rarr; SO &rarr; Product &rarr; BOM &rarr; Routing &rarr; Material requirement &rarr; Production &rarr; Printing &rarr; QC &rarr; Packing &rarr; FG. Material requirement is a tab inside it, not a separate screen. The indent is raised <b>under the PWO's own authority</b>.</p>
+  </div>
+
+  <div class="arrow"><svg width="16" height="24" viewBox="0 0 16 24"><path d="M8 0v16M2 12l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
+
+  <div class="stage">
+    <div class="stage-hd"><span class="num">3</span><h3>Scheduling</h3><span class="merged">+ Release button</span><span class="tag">Module: Planning</span></div>
+    <div class="pages">
+      <span class="pg">Machine-wise Scheduling <i>Gantt &middot; sequence &middot; <b>Release</b> action</i></span>
+    </div>
+    <p class="note">Release is an action on the schedule row &mdash; no separate release screen.</p>
+  </div>
+
+  <div class="arrow"><svg width="16" height="24" viewBox="0 0 16 24"><path d="M8 0v16M2 12l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
+
+  <div class="stage">
+    <div class="stage-hd"><span class="num">4</span><h3>Procurement &amp; Stock Allocation</h3><span class="tag">Module: Purchase / Inventory</span></div>
+    <div class="pages">
+      <span class="pg">Indent Approval <i>auto-raised by PWO &middot; PO blocked until approved</i></span>
+      <span class="pg">Purchase Order</span>
+      <span class="pg opt">Gate Entry <i>optional &mdash; only if setting is ON</i></span>
+      <span class="pg">GRN</span>
+      <span class="pg">Stock &amp; Batch / Roll Tracking</span>
+      <span class="pg">Material Issue / Allocation</span>
+    </div>
+    <p class="note">Caps and rims are straight purchase items &mdash; no conversion. <b>Gate Entry is config-driven:</b> if enabled, material is gated in first and GRN picks it up from there; if disabled, GRN is made directly.</p>
+  </div>
+
+  <div class="arrow"><svg width="16" height="24" viewBox="0 0 16 24"><path d="M8 0v16M2 12l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
+
+  <div class="stage">
+    <div class="stage-hd"><span class="num">5</span><h3>RMQC</h3><span class="gate">Quality gate 1 of 3</span><span class="tag">Module: Quality</span></div>
+    <div class="pages">
+      <span class="pg q">RMQC / Incoming Inspection <i>GRN &rarr; QC hold &rarr; Accepted / Rejected / Hold</i></span>
+    </div>
+    <p class="note">Material sits on <b>QC hold</b> after GRN and cannot be issued until RMQC clears it.</p>
+  </div>
+
+  <div class="arrow"><svg width="16" height="24" viewBox="0 0 16 24"><path d="M8 0v16M2 12l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
+
+  <div class="stage">
+    <div class="stage-hd"><span class="num">6</span><h3>Production &amp; Inter-Company Printing</h3><span class="gate">IPQC &mdash; gate 2 of 3</span><span class="tag">Module: Manufacturing</span></div>
+    <div class="pages">
+      <span class="pg">Production Entry <i>operation-wise &middot; initial and remaining process</i></span>
+      <span class="pg o">Printing &mdash; Send to Company B</span>
+      <span class="pg o">Printing &mdash; Receipt &amp; Reconciliation</span>
+      <span class="pg q">IPQC <i>operation-specific, incl. printing QC</i></span>
+      <span class="pg">WIP / Job Floor Status</span>
+    </div>
+    <p class="note">Routing: initial tube process (A) &rarr; printing (B) &rarr; printed receipt (A) &rarr; remaining production (A) &rarr; cap / assembly &rarr; packing &rarr; FGQC. See the swimlane below.</p>
+  </div>
+
+  <div class="arrow"><svg width="16" height="24" viewBox="0 0 16 24"><path d="M8 0v16M2 12l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
+
+  <div class="stage">
+    <div class="stage-hd"><span class="num">7</span><h3>Packing &rarr; FGQC &rarr; Dispatch</h3><span class="gate">FGQC &mdash; gate 3 of 3</span><span class="tag">Module: Dispatch</span></div>
+    <div class="pages">
+      <span class="pg">Packing</span>
+      <span class="pg q">FGQC <i>after packing</i></span>
+      <span class="pg">Delivery Note</span>
+      <span class="pg q">COA</span>
+      <span class="pg">Dispatch &amp; Invoice</span>
+    </div>
+    <p class="note">Sequence is fixed: <b>Production &rarr; Packing &rarr; FGQC &rarr; Delivery Note &rarr; COA &rarr; Dispatch</b>. No normal dispatch is allowed without FGQC approval. COA is linked to Customer &rarr; SO &rarr; Product &rarr; PWO &rarr; Batch &rarr; FGQC and carries test parameters, specification, actual result and QC sign-off.</p>
+  </div>
+
+  <div class="arrow"><svg width="16" height="24" viewBox="0 0 16 24"><path d="M8 0v16M2 12l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
+
+  <div class="stage">
+    <div class="stage-hd"><span class="num">8</span><h3>Actual Costing</h3><span class="tag">Module: Costing</span></div>
+    <div class="pages">
+      <span class="pg c">Actual Costing &amp; Variance <i>estimated vs actual &middot; cost variance &middot; estimated vs actual margin &middot; order profitability</i></span>
+    </div>
+    <p class="note">Built from actual consumption and actual processing cost: raw material, bought-out components, cap / rim, inter-company printing cost, manufacturing, packing, wastage, rejection, rework.</p>
+  </div>
+
+  <div class="arrow"><svg width="16" height="24" viewBox="0 0 16 24"><path d="M8 0v16M2 12l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
+
+  <div class="stage">
+    <div class="stage-hd"><span class="num">9</span><h3>Post-Dispatch Exceptions</h3><span class="tag">Module: Quality / Sales</span></div>
+    <div class="pages">
+      <span class="pg r">Customer Complaint</span>
+      <span class="pg r">RCA</span>
+      <span class="pg r">CAPA &amp; Closure</span>
+      <span class="pg">Sales Return</span>
+      <span class="pg q">NCR</span>
+    </div>
+    <p class="note">A complaint links back to Customer, Product, Batch, Sales Order, Delivery Note and PWO. CAPA carries immediate correction, corrective action, preventive action, responsible person, target date, evidence, effectiveness verification and closure.</p>
+  </div>
+
+  <!-- SWIMLANE -->
+  <h2>Inter-company printing &mdash; swimlane</h2>
+  <div class="engine">
+    <svg viewBox="0 0 960 300" role="img" aria-label="Swimlane diagram. Company A lane: initial tube process, then send material to Company B, then receive printed material and reconcile, then remaining production. Company B lane: printing, then printing QC, which returns to Company A.">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0L10 5L0 10z" fill="currentColor"/>
+        </marker>
+      </defs>
+
+      <rect x="90" y="40" width="860" height="80" rx="8" fill="var(--primary-subtle)" opacity=".5"/>
+      <rect x="90" y="170" width="860" height="80" rx="8" fill="var(--inter-subtle)" opacity=".6"/>
+      <text class="svg-l" x="82" y="76" text-anchor="end">COMPANY A</text>
+      <text class="svg-s" x="82" y="92" text-anchor="end">manufacturing</text>
+      <text class="svg-l" x="82" y="206" text-anchor="end">COMPANY B</text>
+      <text class="svg-s" x="82" y="222" text-anchor="end">printing &middot; sep. GST</text>
+
+      <g color="var(--fg-subtle)" stroke="currentColor" stroke-width="1.5" fill="none">
+        <path d="M230 80h20" marker-end="url(#ar)"/>
+        <path d="M385 80h10v130h10" marker-end="url(#ar)"/>
+        <path d="M520 210h25" marker-end="url(#ar)"/>
+        <path d="M660 210h10V80h10" marker-end="url(#ar)"/>
+        <path d="M815 80h20" marker-end="url(#ar)"/>
+      </g>
+
+      <rect x="105" y="52" width="125" height="56" rx="8" fill="var(--bg-surface)" stroke="var(--bd)"/>
+      <text class="svg-t" x="167" y="74" text-anchor="middle">Initial tube</text>
+      <text class="svg-t" x="167" y="90" text-anchor="middle">process</text>
+
+      <rect x="250" y="52" width="135" height="56" rx="8" fill="var(--bg-surface)" stroke="var(--inter)"/>
+      <text class="svg-t" x="317" y="74" text-anchor="middle">Send material</text>
+      <text class="svg-t" x="317" y="90" text-anchor="middle">to Company B</text>
+
+      <rect x="405" y="182" width="115" height="56" rx="8" fill="var(--bg-surface)" stroke="var(--inter)"/>
+      <text class="svg-t" x="462" y="215" text-anchor="middle">Printing</text>
+
+      <rect x="545" y="182" width="115" height="56" rx="8" fill="var(--quality-subtle)" stroke="var(--quality)"/>
+      <text class="svg-t" x="602" y="207" text-anchor="middle">Printing QC</text>
+      <text class="svg-s" x="602" y="223" text-anchor="middle">IPQC</text>
+
+      <rect x="680" y="52" width="135" height="56" rx="8" fill="var(--bg-surface)" stroke="var(--inter)"/>
+      <text class="svg-t" x="747" y="74" text-anchor="middle">Printed receipt</text>
+      <text class="svg-t" x="747" y="90" text-anchor="middle">+ reconciliation</text>
+
+      <rect x="835" y="52" width="110" height="56" rx="8" fill="var(--bg-surface)" stroke="var(--bd)"/>
+      <text class="svg-t" x="890" y="74" text-anchor="middle">Remaining</text>
+      <text class="svg-t" x="890" y="90" text-anchor="middle">production</text>
+    </svg>
+    <p class="formula">Reconciliation must balance &mdash; <b>Material sent = Good output + Rejection + Wastage + Unprocessed return</b></p>
+    <p class="note" style="border:0;padding:12px 0 0;text-align:center">
+      Tracked per transfer: quantity sent, quantity received, good printed quantity, rejection, wastage, unprocessed quantity, printing status, printing cost, delay and the Company B transaction reference.
+    </p>
+  </div>
+
+  <!-- CROSS-CUTTING -->
+  <h2>Cross-cutting &mdash; runs across every stage</h2>
+
+  <div class="band capa" style="margin-bottom:12px">
+    <h3>CAPA alert engine</h3>
+    <p>The latest active CAPA / quality control appears automatically as an alert on the relevant transaction &mdash; it is not a standalone quality module.</p>
+    <div class="pages" style="padding:0">
+      <span class="pg r">Product Catalogue</span><span class="pg r">Material</span><span class="pg r">Supplier</span>
+      <span class="pg r">BOM</span><span class="pg r">Routing</span><span class="pg r">Operation</span>
+      <span class="pg r">Machine</span><span class="pg r">QC parameter</span><span class="pg r">PWO</span>
+      <span class="pg r">Packing</span><span class="pg r">Dispatch</span>
+    </div>
+    <p class="chain">A critical CAPA can be configured to <b>block production, material issue, packing or dispatch</b> until the required control is completed. Example: a past shoulder-leakage complaint makes that control appear on the relevant production operation.</p>
+  </div>
+
+  <div class="band trace">
+    <h3>Traceability &mdash; both directions</h3>
+    <p class="chain"><b>Backward:</b> Finished product &rarr; Production order &rarr; Operations &rarr; Raw material &rarr; Supplier &rarr; GRN &rarr; RMQC</p>
+    <p class="chain"><b>Forward:</b> Raw material batch &rarr; Production order &rarr; Finished product batch &rarr; Customer &rarr; Sales order &rarr; Dispatch</p>
+    <p class="chain" style="margin-top:8px;color:var(--fg-subtle)">Needed when a raw-material batch is later found defective.</p>
+  </div>
+
+  <!-- TABLE -->
+  <h2>Module &rarr; Page map</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Module</th><th>Pages</th><th>Screens</th></tr></thead>
+    <tbody>
+      <tr><td class="mod">Product / Engineering</td><td>Product Catalogue, Item Master, Process &amp; Routing, Machine, Ledger, QC Parameter, Artwork</td><td class="cnt">7</td></tr>
+      <tr><td class="mod">Sales</td><td>Enquiry, Estimation, Quotation, Sales Order</td><td class="cnt">4</td></tr>
+      <tr><td class="mod">Planning</td><td>Production Work Order <i>(BOM + material requirement + auto indent)</i>, Machine-wise Scheduling <i>(+ release)</i></td><td class="cnt">2</td></tr>
+      <tr><td class="mod">Purchase / Inventory</td><td>Indent Approval, Purchase Order, Gate Entry <i>(optional)</i>, GRN, Stock &amp; Batch Tracking, Material Issue</td><td class="cnt">6</td></tr>
+      <tr><td class="mod">Manufacturing</td><td>Production Entry, Printing Send, Printing Receipt &amp; Reconciliation, WIP / Job Floor Status</td><td class="cnt">4</td></tr>
+      <tr><td class="mod">Quality</td><td>RMQC, IPQC, FGQC, COA, NCR</td><td class="cnt">5</td></tr>
+      <tr><td class="mod">Dispatch</td><td>Packing, Delivery Note, Dispatch &amp; Invoice, Sales Return</td><td class="cnt">4</td></tr>
+      <tr><td class="mod">Costing</td><td>Actual Costing &amp; Variance</td><td class="cnt">1</td></tr>
+      <tr><td class="mod">Complaint / CAPA</td><td>Customer Complaint, RCA, CAPA &amp; Closure</td><td class="cnt">3</td></tr>
+      <tr><td class="mod">Dashboard / Reports</td><td>Management dashboard, module reports</td><td class="cnt">2</td></tr>
+    </tbody>
+    <tfoot><tr><td class="mod">Total</td><td>Down from 46 in v1</td><td class="cnt">38</td></tr></tfoot>
+  </table>
+  </div>
+
+  <footer>
+    Flow document only &mdash; no screens built yet. Page list to be frozen after sir's review.
+  </footer>
+</div>
+</body>
+</html>

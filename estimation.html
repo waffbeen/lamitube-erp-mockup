@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estimation · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Sales</b> / Estimation</div>
+      <h1>Estimation &mdash; EST/26-0389</h1>
+      <p>From ENQ/26-0422 &middot; Alkem Laboratories &middot; 3,00,000 pcs</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg w">Draft</span>
+      <button class="btn"><i data-i="printer"></i>Costing sheet</button>
+      <button class="btn"><i data-i="save"></i>Save</button>
+      <button class="btn pri"><i data-i="file"></i>Convert to Quotation</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Specification route</label>
+          <select class="inp"><option>New / custom specification</option><option>Existing catalogue product</option></select></div>
+        <div class="fld"><label>Product catalogue</label>
+          <select class="inp"><option>&mdash; not in catalogue &mdash;</option><option>PC-0142 &mdash; LT 19&times;100 Gel</option></select></div>
+        <div class="fld"><label>Order quantity</label><input class="inp" type="number" value="300000"></div>
+        <div class="fld"><label>Costing basis</label><select class="inp"><option>Per piece</option><option>Per 1000 pcs</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div class="card mb0">
+      <div class="tabs">
+        <button class="tab on" data-pane="t1">Specification</button>
+        <button class="tab" data-pane="t2">Raw material &amp; BOM <span class="cnt">5</span></button>
+        <button class="tab" data-pane="t3">Bought-out <span class="cnt">2</span></button>
+        <button class="tab" data-pane="t4">Process &amp; printing <span class="cnt">6</span></button>
+        <button class="tab" data-pane="t5">Packing &amp; other</button>
+      </div>
+
+      <!-- SPEC -->
+      <div class="tabpane on" id="t1"><div class="card-b">
+        <div class="fgrid c4">
+          <div class="sec-t">Tube geometry</div>
+          <div class="fld"><label>Tube diameter (mm)</label><input class="inp" value="25"></div>
+          <div class="fld"><label>Tube length (mm)</label><input class="inp" value="130"></div>
+          <div class="fld"><label>Fill capacity (ml)</label><input class="inp" value="30"></div>
+          <div class="fld"><label>Sleeve cut length (mm)</label><input class="inp ro" value="116.5" readonly></div>
+
+          <div class="sec-t">Laminate</div>
+          <div class="fld span2"><label>Laminate structure</label>
+            <input class="inp" value="PE / EVOH / PE — ABL 250 micron"></div>
+          <div class="fld"><label>Web width (mm)</label><input class="inp" value="820"></div>
+          <div class="fld"><label>GSM</label><input class="inp" value="248"></div>
+
+          <div class="sec-t">Shoulder &amp; closure</div>
+          <div class="fld"><label>Shoulder type</label><select class="inp"><option>Standard conical</option><option>Flat</option><option>Long nozzle</option></select></div>
+          <div class="fld"><label>Orifice dia (mm)</label><input class="inp" value="3.5"></div>
+          <div class="fld"><label>Neck / thread</label><input class="inp" value="11 mm — R/S"></div>
+          <div class="fld"><label>Cap type (bought-out)</label><select class="inp"><option>Flip-top</option><option>Screw cap</option><option>Nozzle cap</option></select></div>
+
+          <div class="sec-t">Printing</div>
+          <div class="fld"><label>No. of colours</label><input class="inp" value="4"></div>
+          <div class="fld"><label>Print process</label><select class="inp"><option>Offset &mdash; Monarch Print</option><option>Flexo &mdash; Monarch Print</option></select></div>
+          <div class="fld"><label>Finish</label><select class="inp"><option>Gloss</option><option>Matte</option></select></div>
+          <div class="fld"><label>Artwork ref.</label><input class="inp" value="AW-2026-0771"></div>
+        </div>
+      </div></div>
+
+      <!-- BOM -->
+      <div class="tabpane" id="t2"><div class="card-b p0"><div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Item</th><th>UoM</th><th class="num">Qty / 1000 pcs</th><th class="num">Rate</th>
+            <th class="num">Wastage %</th><th class="num">Eff. qty</th><th class="num">Cost / pc</th></tr></thead>
+          <tbody>
+            <tr><td><b>ABL Laminate PE/EVOH/PE 250&micro;</b><div class="mut">Web 820 mm</div></td><td>kg</td>
+              <td class="num">7.480</td><td class="num">248.00</td><td class="num">4.0</td>
+              <td class="num">7.779</td><td class="num"><b>1.9292</b></td></tr>
+            <tr><td><b>HDPE granule &mdash; shoulder</b><div class="mut">Shot wt. 1.9 g/pc</div></td><td>kg</td>
+              <td class="num">1.900</td><td class="num">112.00</td><td class="num">2.5</td>
+              <td class="num">1.948</td><td class="num"><b>0.2182</b></td></tr>
+            <tr><td><b>Masterbatch &mdash; white</b><div class="mut">3% on granule</div></td><td>kg</td>
+              <td class="num">0.057</td><td class="num">285.00</td><td class="num">2.5</td>
+              <td class="num">0.058</td><td class="num"><b>0.0166</b></td></tr>
+            <tr><td><b>Side-seam tape</b></td><td>mtr</td>
+              <td class="num">130.000</td><td class="num">0.42</td><td class="num">1.5</td>
+              <td class="num">131.950</td><td class="num"><b>0.0554</b></td></tr>
+            <tr><td><b>Latex / sealing compound</b></td><td>kg</td>
+              <td class="num">0.085</td><td class="num">340.00</td><td class="num">2.0</td>
+              <td class="num">0.087</td><td class="num"><b>0.0295</b></td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="6">Raw material cost / pc</td><td class="num">2.2489</td></tr></tfoot>
+        </table>
+      </div></div></div>
+
+      <!-- BOUGHT OUT -->
+      <div class="tabpane" id="t3"><div class="card-b p0"><div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Item</th><th>Supplier</th><th>UoM</th><th class="num">Qty / pc</th>
+            <th class="num">Rate</th><th class="num">Wastage %</th><th class="num">Cost / pc</th></tr></thead>
+          <tbody>
+            <tr><td><b>Flip-top cap 11 mm &mdash; white</b><div class="mut">Ready-made purchase</div></td>
+              <td>Sanjay Polymers</td><td>pcs</td><td class="num">1.000</td>
+              <td class="num">0.4800</td><td class="num">1.0</td><td class="num"><b>0.4848</b></td></tr>
+            <tr><td><b>Rim / seal ring</b></td>
+              <td>Sanjay Polymers</td><td>pcs</td><td class="num">1.000</td>
+              <td class="num">0.0900</td><td class="num">1.0</td><td class="num"><b>0.0909</b></td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="6">Bought-out cost / pc</td><td class="num">0.5757</td></tr></tfoot>
+        </table>
+      </div></div></div>
+
+      <!-- PROCESS -->
+      <div class="tabpane" id="t4"><div class="card-b p0">
+        <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Seq</th><th>Process</th><th>Machine / vendor</th><th>Type</th>
+            <th class="num">Output / hr</th><th class="num">Rate</th><th class="num">Cost / pc</th></tr></thead>
+          <tbody>
+            <tr><td>10</td><td><b>Laminate slitting</b></td><td>SLIT-01</td>
+              <td><span class="bdg n">In-house</span></td><td class="num">9,000</td>
+              <td class="num">640 /hr</td><td class="num">0.0711</td></tr>
+            <tr><td>20</td><td><b>Printing</b><div class="mut">4-colour offset</div></td><td>Monarch Print Pvt. Ltd.</td>
+              <td><span class="bdg o">Outsourced</span></td><td class="num">&mdash;</td>
+              <td class="num">0.2600 /pc</td><td class="num">0.2600</td></tr>
+            <tr><td>30</td><td><b>Sleeve forming</b></td><td>TM-02</td>
+              <td><span class="bdg n">In-house</span></td><td class="num">7,200</td>
+              <td class="num">820 /hr</td><td class="num">0.1139</td></tr>
+            <tr><td>40</td><td><b>Shoulder moulding</b><div class="mut">8-cavity, 14 s cycle</div></td><td>CM-01</td>
+              <td><span class="bdg n">In-house</span></td><td class="num">2,057</td>
+              <td class="num">410 /hr</td><td class="num">0.1993</td></tr>
+            <tr><td>50</td><td><b>Capping &amp; assembly</b></td><td>CAP-01</td>
+              <td><span class="bdg n">In-house</span></td><td class="num">8,400</td>
+              <td class="num">360 /hr</td><td class="num">0.0429</td></tr>
+            <tr><td>60</td><td><b>Leak test &amp; inspection</b></td><td>QC line</td>
+              <td><span class="bdg n">In-house</span></td><td class="num">10,000</td>
+              <td class="num">280 /hr</td><td class="num">0.0280</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td colspan="6">Printing (outsourced) / pc</td><td class="num">0.2600</td></tr>
+            <tr><td colspan="6">Manufacturing cost / pc</td><td class="num">0.4552</td></tr>
+          </tfoot>
+        </table>
+        </div>
+        <div class="card-b" style="border-top:1px solid rgb(var(--bd-subtle))">
+          <div class="alert info mb0" style="margin-bottom:0">
+            <i data-i="send"></i>
+            <div><b>Printing is an outsourced operation, not a purchase</b>
+            Rate comes from the Monarch Print rate contract. At execution this becomes an Outsource Challan against the PWO, with full material reconciliation.</div>
+          </div>
+        </div>
+      </div></div>
+
+      <!-- PACKING -->
+      <div class="tabpane" id="t5"><div class="card-b">
+        <div class="fgrid c3">
+          <div class="sec-t">Packing</div>
+          <div class="fld"><label>Pcs per inner box</label><input class="inp" value="100"></div>
+          <div class="fld"><label>Inner boxes per carton</label><input class="inp" value="20"></div>
+          <div class="fld"><label>Packing cost / pc</label><input class="inp ro" value="0.0640" readonly></div>
+          <div class="sec-t">Other direct cost</div>
+          <div class="fld"><label>Cylinder / plate amortisation</label><input class="inp" value="0.0350"></div>
+          <div class="fld"><label>Freight to customer / pc</label><input class="inp" value="0.0600"></div>
+          <div class="fld"><label>Testing &amp; COA / pc</label><input class="inp" value="0.0120"></div>
+          <div class="sec-t">Overall wastage &amp; rejection</div>
+          <div class="fld"><label>Process rejection %</label><input class="inp" value="1.80"></div>
+          <div class="fld"><label>Printing rejection %</label><input class="inp" value="2.00"></div>
+          <div class="fld"><label>Applied on</label><select class="inp"><option>RM + bought-out + process</option><option>RM only</option></select></div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- SUMMARY RAIL -->
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Cost build-up</h2><span class="sub">per piece</span></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td>Raw material</td><td class="num mono">2.2489</td></tr>
+              <tr><td>Bought-out components<div class="mut">cap + rim</div></td><td class="num mono">0.5757</td></tr>
+              <tr><td>Printing &mdash; Monarch Print</td><td class="num mono">0.2600</td></tr>
+              <tr><td>Manufacturing</td><td class="num mono">0.4552</td></tr>
+              <tr><td>Packing</td><td class="num mono">0.0640</td></tr>
+              <tr><td>Other direct cost</td><td class="num mono">0.1070</td></tr>
+              <tr><td>Wastage &amp; rejection<div class="mut">3.8%</div></td><td class="num mono">0.1392</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><td><b>Estimated cost</b></td><td class="num mono"><b>3.8500</b></td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Margin &amp; price</h2></div>
+        <div class="card-b">
+          <div class="fgrid c2">
+            <div class="fld"><label>Margin %</label><input class="inp" value="18.0"></div>
+            <div class="fld"><label>Margin / pc</label><input class="inp ro" value="0.6930" readonly></div>
+          </div>
+          <div class="hr"></div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Selling price / pc</span>
+            <b style="margin-left:auto;font-size:22px" class="mono">₹ 4.5430</b>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Order value &mdash; 3,00,000 pcs</span>
+            <b style="margin-left:auto;font-size:14px" class="mono">₹ 13,62,900</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Cost split</h2></div>
+        <div class="card-b">
+          <div style="display:flex;height:9px;border-radius:5px;overflow:hidden;margin-bottom:11px">
+            <span style="width:58.4%;background:rgb(var(--color-primary))" title="Raw material"></span>
+            <span style="width:15.0%;background:rgb(var(--color-teal))" title="Bought-out"></span>
+            <span style="width:6.8%;background:rgb(var(--color-orange))" title="Printing"></span>
+            <span style="width:11.8%;background:rgb(var(--color-info))" title="Manufacturing"></span>
+            <span style="width:4.4%;background:rgb(var(--color-purple))" title="Packing + other"></span>
+            <span style="width:3.6%;background:rgb(var(--color-error))" title="Wastage"></span>
+          </div>
+          <div style="display:grid;gap:5px;font-size:12px">
+            <div style="display:flex;gap:7px;align-items:center"><span style="width:9px;height:9px;border-radius:2px;background:rgb(var(--color-primary))"></span>Raw material<b style="margin-left:auto" class="mono">58.4%</b></div>
+            <div style="display:flex;gap:7px;align-items:center"><span style="width:9px;height:9px;border-radius:2px;background:rgb(var(--color-teal))"></span>Bought-out<b style="margin-left:auto" class="mono">15.0%</b></div>
+            <div style="display:flex;gap:7px;align-items:center"><span style="width:9px;height:9px;border-radius:2px;background:rgb(var(--color-orange))"></span>Printing &mdash; Monarch<b style="margin-left:auto" class="mono">6.8%</b></div>
+            <div style="display:flex;gap:7px;align-items:center"><span style="width:9px;height:9px;border-radius:2px;background:rgb(var(--color-info))"></span>Manufacturing<b style="margin-left:auto" class="mono">11.8%</b></div>
+            <div style="display:flex;gap:7px;align-items:center"><span style="width:9px;height:9px;border-radius:2px;background:rgb(var(--color-purple))"></span>Packing + other<b style="margin-left:auto" class="mono">4.4%</b></div>
+            <div style="display:flex;gap:7px;align-items:center"><span style="width:9px;height:9px;border-radius:2px;background:rgb(var(--color-error))"></span>Wastage<b style="margin-left:auto" class="mono">3.6%</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

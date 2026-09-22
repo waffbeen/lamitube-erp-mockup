@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Production Entry · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Manufacturing</b> / Production Entry</div>
+      <h1>Production Entry</h1>
+      <p>Operation-wise output booking &middot; one screen for every in-house process</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="printer"></i>Shift report</button>
+      <button class="btn"><i data-i="save"></i>Save draft</button>
+      <button class="btn pri"><i data-i="check2"></i>Post production</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Entry no.</label><input class="inp ro" value="PRD/26-1184" readonly></div>
+        <div class="fld"><label>Date</label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>Work order <span class="req">*</span></label>
+          <select class="inp"><option>PWO/26-0194 — Mankind — LT 22×120</option><option>PWO/26-0202 — Cipla — LT 19×100</option></select></div>
+        <div class="fld"><label>Operation <span class="req">*</span></label>
+          <select class="inp"><option>40 — Shoulder moulding</option><option>30 — Sleeve forming</option><option>50 — Capping &amp; assembly</option></select></div>
+        <div class="fld"><label>Machine</label><select class="inp"><option>CM-01 — 8 cavity compression</option></select></div>
+        <div class="fld"><label>Shift</label><select class="inp"><option>Shift A — 06:00 to 14:00</option><option>Shift B</option><option>Shift C</option></select></div>
+        <div class="fld"><label>Operator</label><select class="inp"><option>V. Thakur</option><option>D. Kumar</option></select></div>
+        <div class="fld"><label>Batch no.</label><input class="inp ro" value="LT26-0194-B" readonly></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Output &amp; rejection</h2>
+          <span class="sub">shoulder moulding &mdash; cavity-wise</span></div>
+        <div class="card-b">
+          <div class="fgrid c4">
+            <div class="fld"><label>Input qty (pcs)</label><input class="inp" value="42000"></div>
+            <div class="fld"><label>Good output (pcs)</label><input class="inp" value="41244"></div>
+            <div class="fld"><label>Rejection (pcs)</label><input class="inp" value="618"></div>
+            <div class="fld"><label>Startup wastage (pcs)</label><input class="inp" value="138"></div>
+            <div class="fld"><label>Run time (hrs)</label><input class="inp" value="7.20"></div>
+            <div class="fld"><label>Down time (hrs)</label><input class="inp" value="0.80"></div>
+            <div class="fld"><label>Cycle time (s)</label><input class="inp" value="14.2"></div>
+            <div class="fld"><label>Shot weight (g)</label><input class="inp" value="1.36"></div>
+            <div class="fld"><label>Granule consumed (kg)</label><input class="inp" value="57.10"></div>
+            <div class="fld"><label>Masterbatch consumed (kg)</label><input class="inp" value="1.72"></div>
+            <div class="fld"><label>Cavities running</label><input class="inp" value="8 of 8"></div>
+            <div class="fld"><label>Yield %</label><input class="inp ro" value="98.20" readonly></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Cavity-wise rejection</h2>
+          <span class="sub">helps pin down which cavity is drifting</span></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Cavity</th><th class="num">Produced</th><th class="num">Rejected</th>
+              <th class="num">Rej. %</th><th class="num">Avg. weight (g)</th><th>Defect</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">C1</td><td class="num">5,250</td><td class="num">42</td><td class="num">0.80</td>
+                <td class="num">1.35</td><td class="mut">Flash</td><td><span class="bdg g">Normal</span></td></tr>
+              <tr><td class="k">C2</td><td class="num">5,250</td><td class="num">38</td><td class="num">0.72</td>
+                <td class="num">1.36</td><td class="mut">Flash</td><td><span class="bdg g">Normal</span></td></tr>
+              <tr><td class="k">C3</td><td class="num">5,250</td><td class="num">51</td><td class="num">0.97</td>
+                <td class="num">1.34</td><td class="mut">Short shot</td><td><span class="bdg g">Normal</span></td></tr>
+              <tr><td class="k">C4</td><td class="num">5,250</td><td class="num">44</td><td class="num">0.84</td>
+                <td class="num">1.36</td><td class="mut">Flash</td><td><span class="bdg g">Normal</span></td></tr>
+              <tr style="background:rgb(var(--color-error-subtle))"><td class="k">C5</td><td class="num">5,250</td>
+                <td class="num"><b>284</b></td><td class="num"><b>5.41</b></td>
+                <td class="num">1.28</td><td class="mut">Short shot / leak</td><td><span class="bdg r">CAPA cavity</span></td></tr>
+              <tr><td class="k">C6</td><td class="num">5,250</td><td class="num">51</td><td class="num">0.97</td>
+                <td class="num">1.37</td><td class="mut">Flash</td><td><span class="bdg g">Normal</span></td></tr>
+              <tr><td class="k">C7</td><td class="num">5,250</td><td class="num">61</td><td class="num">1.16</td>
+                <td class="num">1.33</td><td class="mut">Sink mark</td><td><span class="bdg w">Watch</span></td></tr>
+              <tr><td class="k">C8</td><td class="num">5,250</td><td class="num">47</td><td class="num">0.90</td>
+                <td class="num">1.36</td><td class="mut">Flash</td><td><span class="bdg g">Normal</span></td></tr>
+            </tbody>
+            <tfoot><tr><td>Total</td><td class="num">42,000</td><td class="num">618</td>
+              <td class="num">1.47</td><td class="num">1.34</td><td colspan="2"></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Downtime log</h2>
+          <div class="r"><button class="btn sm"><i data-i="plus"></i>Add</button></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>From</th><th>To</th><th class="num">Minutes</th><th>Reason</th><th>Category</th></tr></thead>
+            <tbody>
+              <tr><td>08:20</td><td>08:45</td><td class="num">25</td><td>Cavity 5 cleaning &mdash; CAPA control</td>
+                <td><span class="bdg r nodot">Quality</span></td></tr>
+              <tr><td>11:10</td><td>11:33</td><td class="num">23</td><td>Granule feed jam</td>
+                <td><span class="bdg w nodot">Mechanical</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Shift summary</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Good output</dt><dd class="right mono">41,244 pcs</dd>
+            <dt>Rejection</dt><dd class="right mono" style="color:rgb(var(--color-error))">618 pcs &middot; 1.47%</dd>
+            <dt>Startup wastage</dt><dd class="right mono">138 pcs &middot; 0.33%</dd>
+            <dt>Yield</dt><dd class="right mono" style="color:rgb(var(--color-success))">98.20%</dd>
+          </dl>
+          <div class="hr"></div>
+          <dl class="kv">
+            <dt>Std. output / hr</dt><dd class="right mono">2,057</dd>
+            <dt>Actual / hr</dt><dd class="right mono">5,728</dd>
+            <dt>Machine utilisation</dt><dd class="right mono">90.0%</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Work order progress</h2></div>
+        <div class="card-b">
+          <div style="display:flex;font-size:12px;margin-bottom:5px"><span>Operation 40 &mdash; moulding</span>
+            <b style="margin-left:auto" class="mono">41,244 / 3,26,000</b></div>
+          <div class="pbar"><i style="width:12.7%"></i></div>
+          <div class="hr"></div>
+          <table class="tbl dense" style="margin:-4px 0">
+            <tbody>
+              <tr><td>10 &mdash; Slitting</td><td class="num"><span class="bdg g nodot">Done</span></td></tr>
+              <tr><td>20 &mdash; Printing (Monarch)</td><td class="num"><span class="bdg g nodot">Received</span></td></tr>
+              <tr><td>30 &mdash; Sleeve forming</td><td class="num"><span class="bdg g nodot">Done</span></td></tr>
+              <tr><td>40 &mdash; Moulding</td><td class="num"><span class="bdg b nodot">Running</span></td></tr>
+              <tr><td>50 &mdash; Assembly</td><td class="num"><span class="bdg n nodot">Pending</span></td></tr>
+              <tr><td>60 &mdash; Leak test</td><td class="num"><span class="bdg n nodot">Pending</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>IPQC due</h2></div>
+        <div class="card-b">
+          <p class="muted" style="margin:0 0 10px;font-size:12.5px">
+            Shoulder weight check is due per cavity every hour. Cavity 5 is under an active CAPA control.</p>
+          <a class="btn pri" style="width:100%;justify-content:center" href="ipqc.html">
+            <i data-i="shield"></i>Record IPQC</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      capaAlert({
+        text: 'Cavity 5 of CM-01 must be verified for clamp pressure before every shift. Record the check to continue booking production.',
+        ref: 'CAPA-2026-014 · linked to Machine CM-01 + Operation 40 · blocks production'
+      });
+    }, 800);
+  });
+</script>
+</body>
+</html>

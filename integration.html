@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Printing Data Sync · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  .pipe { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:0; align-items:center; }
+  .pnode { border:1px solid rgb(var(--bd-default)); border-radius:10px; padding:14px;
+    background:rgb(var(--bg-surface)); text-align:center; }
+  .pnode.src { border-left:3px solid rgb(var(--color-orange)); }
+  .pnode.mid { border-left:3px solid rgb(var(--color-teal)); }
+  .pnode.dst { border-left:3px solid rgb(var(--color-primary)); }
+  .pnode .ic { width:36px; height:36px; border-radius:10px; display:grid; place-items:center;
+    margin:0 auto 9px; }
+  .pnode .ic svg { width:18px; height:18px; stroke-width:2; }
+  .pnode.src .ic { background:rgb(var(--color-orange-subtle)); color:rgb(var(--color-orange)); }
+  .pnode.mid .ic { background:rgb(var(--color-teal-subtle)); color:rgb(var(--color-teal)); }
+  .pnode.dst .ic { background:rgb(var(--color-primary-subtle)); color:rgb(var(--fg-accent)); }
+  .pnode b { display:block; font-size:13px; margin-bottom:3px; }
+  .pnode span { font-size:11.5px; color:rgb(var(--fg-subtle)); line-height:1.45; display:block; }
+  .parrow { padding:0 10px; color:rgb(var(--bd-strong)); display:grid; place-items:center; }
+  .parrow svg { width:20px; height:20px; stroke-width:1.8; }
+  .parrow small { font-size:10px; color:rgb(var(--fg-subtle)); font-weight:600;
+    letter-spacing:.04em; margin-top:3px; white-space:nowrap; }
+  .log { font-family:ui-monospace,"Cascadia Mono",Consolas,monospace; font-size:11.5px; line-height:1.85; }
+  .log .ok { color:rgb(var(--color-success)); }
+  .log .wn { color:rgb(var(--color-warning)); }
+  .log .er { color:rgb(var(--color-error)); }
+  .log .ts { color:rgb(var(--fg-subtle)); }
+  @media (max-width:900px){ .pipe{ grid-template-columns:1fr; } .parrow{ transform:rotate(90deg); padding:10px 0 } }
+</style>
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Integration</b> / Printing Data Sync</div>
+      <h1>Printing Data Sync</h1>
+      <p>Backend automation between Monarch Print's software and this ERP &mdash; no manual entry</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg g">Connected</span>
+      <button class="btn"><i data-i="down"></i>Sync log</button>
+      <button class="btn"><i data-i="refresh"></i>Sync now</button>
+      <button class="btn pri"><i data-i="settings"></i>Connection settings</button>
+    </div>
+  </div>
+
+  <div class="alert info">
+    <i data-i="db"></i>
+    <div><b>Both databases sit with us, so the exchange runs in the backend</b>
+    Monarch Print Pvt. Ltd. is a separate company with its own GST and its own printing software. Because we hold both databases, a scheduled backend job reads printing job data straight from their tables and writes it against the matching work order here. Nobody re-keys anything on either side &mdash; the documents that carry legal weight (challan, job work invoice) are still raised normally.</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-s"><div class="lbl"><i data-i="zap"></i>Connection</div><div class="val">Live</div><div class="dlt up">last sync 2 min ago</div></div>
+    <div class="stat acc-p"><div class="lbl"><i data-i="refresh"></i>Syncs today</div><div class="val">288</div><div class="dlt">every 5 minutes</div></div>
+    <div class="stat acc-t"><div class="lbl"><i data-i="arrowUD"></i>Records pulled</div><div class="val">1,412</div><div class="dlt">jobs, output, QC, wastage</div></div>
+    <div class="stat acc-o"><div class="lbl"><i data-i="send"></i>Open jobs there</div><div class="val">3</div><div class="dlt">1,917 kg out</div></div>
+    <div class="stat acc-e"><div class="lbl"><i data-i="alertTri"></i>Failed rows</div><div class="val">2</div><div class="dlt dn">needs mapping fix</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>How the data moves</h2>
+      <span class="sub">scheduled backend job &mdash; no user action</span></div>
+    <div class="card-b">
+      <div class="pipe">
+        <div class="pnode src">
+          <div class="ic"><i data-i="printer"></i></div>
+          <b>Monarch Print software</b>
+          <span>Separate company, separate GST<br>Job cards, press output, shade log, wastage</span>
+        </div>
+        <div class="parrow"><i data-i="chevR"></i><small>READ</small></div>
+        <div class="pnode mid">
+          <div class="ic"><i data-i="db"></i></div>
+          <b>Backend sync service</b>
+          <span>Runs every 5 minutes<br>Maps their job no. to our PWO and challan</span>
+        </div>
+        <div class="parrow"><i data-i="chevR"></i><small>WRITE</small></div>
+        <div class="pnode dst">
+          <div class="ic"><i data-i="factory"></i></div>
+          <b>Lamitube ERP</b>
+          <span>Printing operation on the work order<br>Receipt, reconciliation, IPQC, costing</span>
+        </div>
+      </div>
+      <div class="hr"></div>
+      <div class="fgrid c3">
+        <div class="fld"><label>Sync mode</label>
+          <select class="inp"><option>Scheduled pull — every 5 minutes</option><option>Near real-time — database trigger</option><option>Manual only</option></select></div>
+        <div class="fld"><label>Direction</label>
+          <select class="inp"><option>Read from Monarch Print → write here</option><option>Two-way</option></select></div>
+        <div class="fld"><label>On mapping failure</label>
+          <select class="inp"><option>Hold row and raise an alert</option><option>Skip silently</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>What comes in automatically</h2>
+          <span class="sub">field mapping</span>
+          <div class="r"><button class="btn sm"><i data-i="plus"></i>Add mapping</button></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Their field</th><th>Lands in this ERP as</th><th>Screen</th>
+              <th>Frequency</th><th class="num">Rows today</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">job_master.job_no</td><td><b>Challan &rarr; PWO link</b></td>
+                <td>Printing &mdash; Receipt</td><td>On change</td><td class="num">14</td>
+                <td><span class="bdg g">Mapped</span></td></tr>
+              <tr><td class="mono">job_master.status</td><td><b>Printing status &amp; % complete</b></td>
+                <td>WIP / Job Status</td><td>5 min</td><td class="num">312</td>
+                <td><span class="bdg g">Mapped</span></td></tr>
+              <tr><td class="mono">press_output.good_kg</td><td><b>Good printed quantity</b></td>
+                <td>Printing &mdash; Receipt</td><td>5 min</td><td class="num">286</td>
+                <td><span class="bdg g">Mapped</span></td></tr>
+              <tr><td class="mono">press_output.waste_kg</td><td><b>Wastage</b></td>
+                <td>Printing &mdash; Receipt</td><td>5 min</td><td class="num">286</td>
+                <td><span class="bdg g">Mapped</span></td></tr>
+              <tr><td class="mono">press_output.reject_kg</td><td><b>Rejection</b></td>
+                <td>Printing &mdash; Receipt</td><td>5 min</td><td class="num">286</td>
+                <td><span class="bdg g">Mapped</span></td></tr>
+              <tr><td class="mono">qc_log.delta_e</td><td><b>Shade &Delta;E reading</b></td>
+                <td>IPQC</td><td>On entry</td><td class="num">118</td>
+                <td><span class="bdg g">Mapped</span></td></tr>
+              <tr><td class="mono">qc_log.registration</td><td><b>Registration reading</b></td>
+                <td>IPQC</td><td>On entry</td><td class="num">118</td>
+                <td><span class="bdg g">Mapped</span></td></tr>
+              <tr><td class="mono">plate_master.impressions</td><td><b>Plate impression count</b></td>
+                <td>Artwork</td><td>Nightly</td><td class="num">6</td>
+                <td><span class="bdg g">Mapped</span></td></tr>
+              <tr><td class="mono">dispatch.dc_no</td><td><b>Return challan reference</b></td>
+                <td>Printing &mdash; Receipt</td><td>On change</td><td class="num">3</td>
+                <td><span class="bdg g">Mapped</span></td></tr>
+              <tr style="background:rgb(var(--color-error-subtle))">
+                <td class="mono">job_master.machine_id</td><td><b>Press / machine name</b></td>
+                <td>WIP / Job Status</td><td>5 min</td><td class="num">2</td>
+                <td><span class="bdg r">Unmapped code</span></td></tr>
+              <tr><td class="mono">billing.rate_per_pc</td><td><b>Printing rate for costing</b></td>
+                <td>Actual Costing</td><td>Nightly</td><td class="num">4</td>
+                <td><span class="bdg w">Review</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Live job status pulled from their software</h2>
+          <div class="r"><span class="bdg g">Auto-updated</span></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Our challan</th><th>Our PWO</th><th>Their job no.</th><th>Press</th>
+              <th class="num">Sent (kg)</th><th class="num">Printed so far</th>
+              <th style="width:110px">Progress</th><th>Their status</th><th>Last sync</th></tr></thead>
+            <tbody>
+              <tr><td class="k">ICP/26-0077</td><td class="mut">PWO/26-0202</td>
+                <td class="mono">MP-JOB-4412</td><td>Offset-2</td>
+                <td class="num">792.0</td><td class="num">491.0</td>
+                <td><div class="pbar"><i style="width:62%"></i></div></td>
+                <td><span class="bdg b">Running</span></td><td class="mut">2 min ago</td></tr>
+              <tr><td class="k">ICP/26-0074</td><td class="mut">PWO/26-0191</td>
+                <td class="mono">MP-JOB-4398</td><td>Offset-1</td>
+                <td class="num">1,140.0</td><td class="num">1,140.0</td>
+                <td><div class="pbar"><i class="g" style="width:100%"></i></div></td>
+                <td><span class="bdg g">Ready to return</span></td><td class="mut">2 min ago</td></tr>
+              <tr><td class="k">ICP/26-0072</td><td class="mut">PWO/26-0186</td>
+                <td class="mono">MP-JOB-4361</td><td>Offset-1</td>
+                <td class="num">640.0</td><td class="num">0.0</td>
+                <td><div class="pbar"><i class="r" style="width:4%"></i></div></td>
+                <td><span class="bdg r">Queued — 20 days</span></td><td class="mut">2 min ago</td></tr>
+            </tbody>
+          </table>
+        </div></div>
+        <div class="card-b" style="border-top:1px solid rgb(var(--bd-subtle))">
+          <div class="alert ok mb0" style="margin-bottom:0">
+            <i data-i="check2"></i>
+            <div><b>Nobody typed any of this in</b>
+            Press progress, output and QC readings land against the right challan on their own. Our team only posts the receipt when the material physically arrives, and by then the figures are already filled.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Sync log</h2>
+          <span class="sub">last 12 entries</span>
+          <div class="r"><button class="btn sm"><i data-i="refresh"></i>Refresh</button></div></div>
+        <div class="card-b">
+          <div class="log">
+            <div><span class="ts">12:38:02</span> <span class="ok">OK</span> &nbsp;pull job_master &mdash; 3 rows, 1 changed (MP-JOB-4412 &rarr; PWO/26-0202, 58% &rarr; 62%)</div>
+            <div><span class="ts">12:38:02</span> <span class="ok">OK</span> &nbsp;pull press_output &mdash; 3 rows, 491.0 kg good, 14.2 kg waste</div>
+            <div><span class="ts">12:38:03</span> <span class="ok">OK</span> &nbsp;write wip_status &mdash; PWO/26-0202 updated</div>
+            <div><span class="ts">12:38:03</span> <span class="er">ERR</span> write machine_map &mdash; press code &ldquo;OFS-02&rdquo; not mapped, row held</div>
+            <div><span class="ts">12:33:01</span> <span class="ok">OK</span> &nbsp;pull qc_log &mdash; 2 rows, &Delta;E 1.4 / 1.5 written to IPQ/26-0942</div>
+            <div><span class="ts">12:33:01</span> <span class="ok">OK</span> &nbsp;pull job_master &mdash; 3 rows, 0 changed</div>
+            <div><span class="ts">12:28:00</span> <span class="wn">WARN</span> billing.rate_per_pc = 0.2240 differs from contract 0.2100 &mdash; flagged to costing</div>
+            <div><span class="ts">12:28:00</span> <span class="ok">OK</span> &nbsp;pull press_output &mdash; 3 rows</div>
+            <div><span class="ts">12:23:00</span> <span class="ok">OK</span> &nbsp;pull dispatch &mdash; 1 row, MP/DC/26-1188 linked to ICP/26-0076</div>
+            <div><span class="ts">12:18:00</span> <span class="ok">OK</span> &nbsp;pull job_master &mdash; 3 rows, 1 changed</div>
+            <div><span class="ts">02:00:00</span> <span class="ok">OK</span> &nbsp;nightly plate_master &mdash; 6 plates, impressions updated</div>
+            <div><span class="ts">02:00:04</span> <span class="ok">OK</span> &nbsp;nightly billing &mdash; 4 rate rows pushed to Actual Costing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Connection</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Partner</dt><dd class="right">Monarch Print Pvt. Ltd.</dd>
+            <dt>Relationship</dt><dd class="right">Printing job work</dd>
+            <dt>GSTIN</dt><dd class="right mono" style="font-size:11.5px">02AAFCM8842R1ZK</dd>
+            <dt>Their software</dt><dd class="right">Print MIS &mdash; SQL Server</dd>
+            <dt>Link type</dt><dd class="right">Backend DB sync</dd>
+            <dt>Interval</dt><dd class="right">5 minutes</dd>
+            <dt>Last sync</dt><dd class="right" style="color:rgb(var(--color-success))">2 min ago</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="display:flex;gap:7px">
+            <button class="btn sm" style="flex:1"><i data-i="refresh"></i>Test</button>
+            <button class="btn sm" style="flex:1"><i data-i="link"></i>Re-link</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Needs attention</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td><b>Unmapped press code</b><div class="mut">&ldquo;OFS-02&rdquo; has no machine in our master</div></td>
+                <td class="num"><button class="btn sm pri">Map</button></td></tr>
+              <tr><td><b>Rate mismatch</b><div class="mut">0.2240 billed vs 0.2100 contracted</div></td>
+                <td class="num"><a class="btn sm" href="actual-costing.html">Review</a></td></tr>
+              <tr><td><b>Job overdue there</b><div class="mut">MP-JOB-4361 queued 20 days</div></td>
+                <td class="num"><button class="btn sm" onclick="openChat()">Chat</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>What stays manual</h2></div>
+        <div class="card-b">
+          <p class="muted" style="margin:0 0 10px;font-size:12.5px">
+            Automation covers data, not the paperwork that carries legal weight between two GST numbers.</p>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:12.5px">
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="send" class="muted"></i>Outsourcing challan
+              <span class="bdg n nodot" style="margin-left:auto">Manual</span></div>
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="file" class="muted"></i>E-way bill
+              <span class="bdg n nodot" style="margin-left:auto">Manual</span></div>
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="inbox" class="muted"></i>Physical receipt posting
+              <span class="bdg n nodot" style="margin-left:auto">Manual</span></div>
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="receipt" class="muted"></i>Job work invoice
+              <span class="bdg n nodot" style="margin-left:auto">Manual</span></div>
+            <div style="display:flex;align-items:center;gap:8px"><i data-i="zap" class="muted"></i>Everything else
+              <span class="bdg g nodot" style="margin-left:auto">Automated</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Coordination</h2></div>
+        <div class="card-b">
+          <p class="muted" style="margin:0 0 10px;font-size:12.5px">
+            Day-to-day follow-up with their team happens on the internal chat, with an external channel for Monarch Print.</p>
+          <button class="btn pri" style="width:100%;justify-content:center" onclick="openChat()">
+            <i data-i="msgs"></i>Open Monarch Print channel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Complaint · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Complaint / CAPA</b> / Customer Complaint</div>
+      <h1>Customer Complaint &mdash; CMP/26-0034</h1>
+      <p>Sun Pharma &middot; logged 21 Sep 2026 &middot; linked back to batch, order and work order</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg w">Under investigation</span>
+      <button class="btn"><i data-i="printer"></i>Print</button>
+      <button class="btn pri"><i data-i="search2"></i>Start RCA</button>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Complaint detail</h2></div>
+        <div class="card-b">
+          <div class="fgrid c4">
+            <div class="fld"><label>Complaint no.</label><input class="inp ro" value="CMP/26-0034" readonly></div>
+            <div class="fld"><label>Logged on</label><input class="inp" type="date" value="2026-09-21"></div>
+            <div class="fld"><label>Received via</label><select class="inp"><option>Email</option><option>Phone</option><option>Customer visit</option><option>Portal</option></select></div>
+            <div class="fld"><label>Severity</label><select class="inp"><option>Major</option><option>Critical</option><option>Minor</option></select></div>
+
+            <div class="sec-t">Traceability &mdash; auto-linked</div>
+            <div class="fld"><label>Customer</label><input class="inp ro" value="Sun Pharma" readonly></div>
+            <div class="fld"><label>Product</label><input class="inp ro" value="PC-0118 — LT 22×120 Cream" readonly></div>
+            <div class="fld"><label>Batch</label><input class="inp ro" value="FG-LT26-0184-A" readonly></div>
+            <div class="fld"><label>Sales order</label><input class="inp ro" value="SO/26-0184" readonly></div>
+            <div class="fld"><label>Delivery note</label><input class="inp ro" value="DN/26-0335" readonly></div>
+            <div class="fld"><label>Invoice</label><input class="inp ro" value="INV/26-0509" readonly></div>
+            <div class="fld"><label>Work order</label><input class="inp ro" value="PWO/26-0184" readonly></div>
+            <div class="fld"><label>COA</label><input class="inp ro" value="COA/26-0292" readonly></div>
+
+            <div class="sec-t">Issue</div>
+            <div class="fld"><label>Category</label><select class="inp"><option>Print quality</option><option>Leakage</option><option>Dimensional</option><option>Cap / closure</option><option>Packing</option></select></div>
+            <div class="fld"><label>Supplied qty</label><input class="inp ro" value="3,04,000" readonly></div>
+            <div class="fld"><label>Affected qty</label><input class="inp" value="8400"></div>
+            <div class="fld"><label>Affected %</label><input class="inp ro" value="2.76" readonly></div>
+            <div class="fld span-all"><label>Customer description</label>
+              <textarea class="inp" rows="3">Shade variation observed between cartons in the same lot. Cartons 41 to 68 show a visibly lighter print on the brand panel compared with the approved standard. Line was stopped during filling and the affected cartons segregated at customer end.</textarea></div>
+            <div class="fld span2"><label>Initial response to customer</label>
+              <textarea class="inp" rows="2">Acknowledged within 4 hours. Replacement stock committed from batch FG-LT26-0201-A. Investigation report promised within 7 working days.</textarea></div>
+            <div class="fld"><label>Response sent on</label><input class="inp" type="date" value="2026-09-21"></div>
+            <div class="fld"><label>Owner</label><select class="inp"><option>QA Head</option><option>Sales Head</option></select></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Complaint register</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Complaint</th><th>Date</th><th>Customer</th><th>Product</th><th>Batch</th>
+              <th>Category</th><th class="num">Affected</th><th>RCA</th><th>CAPA</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">CMP/26-0034</td><td>21 Sep</td><td>Sun Pharma</td><td>PC-0118</td>
+                <td class="mut">FG-LT26-0184-A</td><td>Print quality</td><td class="num">8,400</td>
+                <td class="mut">in progress</td><td class="mut">&mdash;</td>
+                <td><span class="bdg w">Investigating</span></td></tr>
+              <tr><td class="k">CMP/26-0031</td><td>18 Aug</td><td>Cipla Ltd.</td><td>PC-0142</td>
+                <td class="mut">FG-LT26-0142-C</td><td>Leakage</td><td class="num">1,042</td>
+                <td class="k">RCA/26-0028</td><td class="k">CAPA-2026-014</td>
+                <td><span class="bdg r">CAPA open</span></td></tr>
+              <tr><td class="k">CMP/26-0018</td><td>02 Jun</td><td>Cipla Ltd.</td><td>PC-0142</td>
+                <td class="mut">FG-LT26-0121-B</td><td>Print quality</td><td class="num">4,800</td>
+                <td class="k">RCA/26-0016</td><td class="k">CAPA-2026-009</td>
+                <td><span class="bdg g">Closed</span></td></tr>
+              <tr><td class="k">CMP/25-0104</td><td>27 Dec</td><td>Cipla Ltd.</td><td>PC-0142</td>
+                <td class="mut">FG-LT25-0410-A</td><td>Cap / closure</td><td class="num">2,200</td>
+                <td class="k">RCA/25-0091</td><td class="k">CAPA-2025-061</td>
+                <td><span class="bdg g">Closed</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>What the records show</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td>FGQC result</td><td class="num"><span class="bdg g nodot">Passed</span></td></tr>
+              <tr><td>&Delta;E recorded at FGQC</td><td class="num mono">1.8</td></tr>
+              <tr><td>IPQC at printing</td><td class="num"><span class="bdg w nodot">Deviation</span></td></tr>
+              <tr><td>Printed at</td><td class="num">Monarch Print</td></tr>
+              <tr><td>Print challan</td><td class="num k">ICP/26-0064</td></tr>
+              <tr><td>Laminate roll</td><td class="num k">ROLL-26-1698</td></tr>
+              <tr><td>RMQC on roll</td><td class="num"><span class="bdg g nodot">Accepted</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Forward traceability</h2>
+          <span class="sub">who else got this material</span></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td><b>Sun Pharma</b><div class="mut">SO/26-0184 · 3,04,000 pcs</div></td>
+                <td class="num"><span class="bdg r nodot">Complained</span></td></tr>
+              <tr><td><b>Torrent Pharma</b><div class="mut">SO/26-0179 · 1,10,000 pcs</div></td>
+                <td class="num"><span class="bdg w nodot">At risk</span></td></tr>
+            </tbody>
+          </table>
+          <div class="card-b" style="padding:11px 14px 0">
+            <div class="alert warn mb0" style="margin-bottom:12px;padding:8px 10px;font-size:12px">
+              <i data-i="alertTri"></i>
+              <div>Same print challan also supplied Torrent Pharma. Proactive check recommended.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Next step</h2></div>
+        <div class="card-b">
+          <p class="muted" style="margin:0 0 10px;font-size:12.5px">
+            Complaint &rarr; RCA &rarr; CAPA &rarr; continuous improvement. Start the root cause analysis to continue.</p>
+          <a class="btn pri" style="width:100%;justify-content:center" href="rca.html">
+            <i data-i="search2"></i>Start RCA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

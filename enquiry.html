@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enquiry · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Sales</b> / Enquiry</div>
+      <h1>Customer Enquiry</h1>
+      <p>Register incoming enquiries and push them to estimation</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri" onclick="openModal('mNew')"><i data-i="plus"></i>New Enquiry</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-09-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Customer</label><select class="inp"><option>All</option><option>Cipla Ltd.</option><option>Sun Pharma</option><option>Mankind Pharma</option><option>Zydus Wellness</option></select></div>
+    <div class="fld w-sm"><label>Status</label><select class="inp"><option>All</option><option>Open</option><option>Estimated</option><option>Quoted</option><option>Converted</option><option>Lost</option></select></div>
+    <div class="fld"><label>Search</label><input class="inp" placeholder="Enquiry no. / product"></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h">
+      <h2>Enquiry register</h2><span class="sub">48 records</span>
+      <div class="r"><span class="chip">Open 12</span><span class="chip">Estimated 9</span><span class="chip">Quoted 14</span><span class="chip">Converted 11</span></div>
+    </div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr>
+          <th>Enquiry No.</th><th>Date</th><th>Customer</th><th>Product / description</th>
+          <th class="num">Qty</th><th>Source</th><th>Target date</th><th>Status</th><th class="ctr">Action</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="k">ENQ/26-0422</td><td>21 Sep 26</td><td>Alkem Laboratories</td>
+              <td>LT 25&times;130 ointment tube, 4-colour<div class="mut">New spec &mdash; not in catalogue</div></td>
+              <td class="num">3,00,000</td><td>Email</td><td>10 Oct 26</td>
+              <td><span class="bdg b">Open</span></td>
+              <td class="ctr"><a class="btn sm pri" href="estimation.html">Estimate</a></td></tr>
+          <tr><td class="k">ENQ/26-0421</td><td>20 Sep 26</td><td>Cipla Ltd.</td>
+              <td>LT 19&times;100 gel tube<div class="mut">Catalogue: PC-0142</div></td>
+              <td class="num">1,50,000</td><td>Sales visit</td><td>05 Oct 26</td>
+              <td><span class="bdg t">Estimated</span></td>
+              <td class="ctr"><a class="btn sm" href="quotation.html">Quote</a></td></tr>
+          <tr><td class="k">ENQ/26-0419</td><td>18 Sep 26</td><td>Sun Pharma</td>
+              <td>LT 22&times;120 cream tube, matte finish<div class="mut">Catalogue: PC-0118 rev B</div></td>
+              <td class="num">2,40,000</td><td>Email</td><td>28 Sep 26</td>
+              <td><span class="bdg p">Quoted</span></td>
+              <td class="ctr"><button class="btn sm">View</button></td></tr>
+          <tr><td class="k">ENQ/26-0417</td><td>16 Sep 26</td><td>Mankind Pharma</td>
+              <td>LT 30&times;150 toothpaste tube<div class="mut">Catalogue: PC-0203</div></td>
+              <td class="num">5,00,000</td><td>Tender</td><td>20 Oct 26</td>
+              <td><span class="bdg g">Converted</span></td>
+              <td class="ctr"><button class="btn sm">View</button></td></tr>
+          <tr><td class="k">ENQ/26-0415</td><td>14 Sep 26</td><td>Torrent Pharma</td>
+              <td>LT 19&times;90 ointment tube<div class="mut">Catalogue: PC-0108</div></td>
+              <td class="num">1,20,000</td><td>Phone</td><td>30 Sep 26</td>
+              <td><span class="bdg g">Converted</span></td>
+              <td class="ctr"><button class="btn sm">View</button></td></tr>
+          <tr><td class="k">ENQ/26-0412</td><td>11 Sep 26</td><td>Glenmark Pharma</td>
+              <td>LT 25&times;140 cream tube, 6-colour<div class="mut">New spec &mdash; not in catalogue</div></td>
+              <td class="num">2,00,000</td><td>Email</td><td>24 Sep 26</td>
+              <td><span class="bdg n">Lost</span></td>
+              <td class="ctr"><button class="btn sm">View</button></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="ovl" id="mNew">
+    <div class="modal">
+      <div class="modal-h"><h3>New Enquiry</h3><span class="x" data-close="mNew"><i data-i="x"></i></span></div>
+      <div class="modal-b">
+        <div class="fgrid c2">
+          <div class="fld"><label>Enquiry No.</label><input class="inp ro" value="ENQ/26-0423" readonly></div>
+          <div class="fld"><label>Date</label><input class="inp" type="date" value="2026-09-22"></div>
+          <div class="fld span2"><label>Customer <span class="req">*</span></label>
+            <select class="inp"><option>Select customer&hellip;</option><option>Cipla Ltd.</option><option>Sun Pharma</option><option>Mankind Pharma</option></select></div>
+          <div class="sec-t">Product</div>
+          <div class="fld span2"><label>Specification route <span class="req">*</span></label>
+            <select class="inp"><option>Existing catalogue product</option><option>New / custom specification</option></select></div>
+          <div class="fld span2"><label>Product catalogue</label>
+            <select class="inp"><option>PC-0142 &mdash; LT 19&times;100 Gel tube</option><option>PC-0118 &mdash; LT 22&times;120 Cream tube</option><option>PC-0203 &mdash; LT 30&times;150 Toothpaste tube</option></select></div>
+          <div class="fld"><label>Quantity <span class="req">*</span></label><input class="inp" type="number" value="150000"></div>
+          <div class="fld"><label>Target date</label><input class="inp" type="date" value="2026-10-05"></div>
+          <div class="fld"><label>Source</label><select class="inp"><option>Email</option><option>Sales visit</option><option>Phone</option><option>Tender</option></select></div>
+          <div class="fld"><label>Sales person</label><select class="inp"><option>A. Kumar</option><option>R. Sharma</option></select></div>
+          <div class="fld span2"><label>Remarks</label><textarea class="inp" rows="2" placeholder="Artwork pending, sample required&hellip;"></textarea></div>
+        </div>
+      </div>
+      <div class="modal-f">
+        <button class="btn" data-close="mNew">Cancel</button>
+        <button class="btn pri"><i data-i="save"></i>Save &amp; send to Estimation</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

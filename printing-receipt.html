@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Printing — Receipt · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Manufacturing</b> / Printing &mdash; Receipt &amp; Reconciliation</div>
+      <h1>Receive printed material from Monarch Print</h1>
+      <p>Against challan ICP/26-0076 &middot; PWO/26-0194 &middot; sent 18 Sep 2026</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="printer"></i>Receipt note</button>
+      <button class="btn"><i data-i="save"></i>Save</button>
+      <button class="btn pri"><i data-i="check2"></i>Post receipt</button>
+    </div>
+  </div>
+
+  <div class="alert ok">
+    <i data-i="zap"></i>
+    <div><b>Figures below arrived automatically from Monarch Print&rsquo;s software</b>
+    Good printed, rejection and wastage were written by the backend sync 2 minutes ago. Edit only if the physical count differs.</div>
+    <a class="btn sm" href="integration.html">Sync detail</a>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Receipt no.</label><input class="inp ro" value="ICR/26-0058" readonly></div>
+        <div class="fld"><label>Receipt date</label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>Against challan <span class="req">*</span></label>
+          <select class="inp"><option>ICP/26-0076 — PWO/26-0194</option><option>ICP/26-0074 — PWO/26-0191</option><option>ICP/26-0072 — PWO/26-0186</option></select></div>
+        <div class="fld"><label>Monarch Print document</label><input class="inp" value="MP/DC/26-1188"></div>
+        <div class="fld"><label>Monarch Print invoice (job work)</label><input class="inp" value="MP/INV/26-0442"></div>
+        <div class="fld"><label>Printing rate</label><input class="inp ro" value="₹ 0.2240 / pc" readonly></div>
+        <div class="fld"><label>Vehicle no.</label><input class="inp" value="HP-12-C-9930"></div>
+        <div class="fld"><label>E-way bill</label><input class="inp" value="381004311902"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <!-- RECONCILIATION -->
+      <div class="card">
+        <div class="card-h"><h2>Material reconciliation</h2>
+          <span class="sub">every kg sent must be accounted for</span>
+          <div class="r"><span class="bdg g">Balanced</span></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Roll / batch</th><th class="num">Sent (kg)</th><th class="num">Good printed</th>
+              <th class="num">Rejection</th><th class="num">Wastage</th><th class="num">Unprocessed return</th>
+              <th class="num">Difference</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">ROLL-26-1802</td><td class="num">198.0</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="188.4"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="3.2"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="6.4"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="0.0"></td>
+                <td class="num" style="color:rgb(var(--color-success))">0.0</td>
+                <td><span class="bdg g">OK</span></td></tr>
+              <tr><td class="k">ROLL-26-1803</td><td class="num">196.0</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="186.9"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="2.8"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="6.3"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="0.0"></td>
+                <td class="num" style="color:rgb(var(--color-success))">0.0</td>
+                <td><span class="bdg g">OK</span></td></tr>
+              <tr><td class="k">ROLL-26-1806</td><td class="num">249.0</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="236.7"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="3.4"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="8.9"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="0.0"></td>
+                <td class="num" style="color:rgb(var(--color-success))">0.0</td>
+                <td><span class="bdg g">OK</span></td></tr>
+              <tr><td class="k">ROLL-26-1809</td><td class="num">137.0</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="0.0"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="0.0"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="0.0"></td>
+                <td class="num"><input class="inp" style="width:64px;text-align:right" value="137.0"></td>
+                <td class="num" style="color:rgb(var(--color-success))">0.0</td>
+                <td><span class="bdg w">Returned unprinted</span></td></tr>
+            </tbody>
+            <tfoot>
+              <tr><td>Total</td><td class="num">780.0</td><td class="num">612.0</td>
+                <td class="num">9.4</td><td class="num">21.6</td><td class="num">137.0</td>
+                <td class="num" style="color:rgb(var(--color-success))"><b>0.0</b></td>
+                <td><span class="bdg g">Balanced</span></td></tr>
+            </tfoot>
+          </table>
+        </div></div>
+        <div class="card-b" style="border-top:1px solid rgb(var(--bd-subtle))">
+          <div class="alert ok mb0" style="margin-bottom:0">
+            <i data-i="check2"></i>
+            <div><b>780.0 = 612.0 + 9.4 + 21.6 + 137.0</b>
+            Sent = Good output + Rejection + Wastage + Unprocessed return. The receipt can be posted.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRINTING QC -->
+      <div class="card mb0">
+        <div class="card-h"><h2>Printing QC &mdash; IPQC on inward printed material</h2>
+          <div class="r"><a class="btn sm" href="ipqc.html">Full IPQC sheet</a></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Parameter</th><th>Specification</th><th class="num">Observed</th>
+              <th>Sample</th><th>Result</th></tr></thead>
+            <tbody>
+              <tr><td><b>Print shade &Delta;E</b></td><td>&le; 2.0</td><td class="num">1.4</td>
+                <td>Every 1000 m</td><td><span class="bdg g">Pass</span></td></tr>
+              <tr><td><b>Registration</b></td><td>± 0.15 mm</td><td class="num">0.09</td>
+                <td>Every 1000 m</td><td><span class="bdg g">Pass</span></td></tr>
+              <tr><td><b>Ink adhesion (tape test)</b></td><td>No pick-off</td><td class="num">OK</td>
+                <td>3 per roll</td><td><span class="bdg g">Pass</span></td></tr>
+              <tr><td><b>Print position from edge</b></td><td>12.0 mm ± 0.5</td><td class="num">12.6</td>
+                <td>5 per roll</td><td><span class="bdg w">Deviation</span></td></tr>
+              <tr><td><b>Surface defects</b></td><td>Nil</td><td class="num">2 patches</td>
+                <td>Visual 100%</td><td><span class="bdg r">Rejected 9.4 kg</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Challan status</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Challan</dt><dd class="right k">ICP/26-0076</dd>
+            <dt>Sent on</dt><dd class="right">18 Sep 26</dd>
+            <dt>Days out</dt><dd class="right">4</dd>
+            <dt>Expected return</dt><dd class="right">24 Sep 26</dd>
+            <dt>Delay</dt><dd class="right" style="color:rgb(var(--color-success))">On time</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="font-size:12px;color:rgb(var(--fg-subtle));margin-bottom:6px">Reconciliation progress</div>
+          <div class="pbar"><i class="g" style="width:100%"></i></div>
+          <div class="mut" style="font-size:11.5px;margin-top:4px">780.0 of 780.0 kg accounted</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Yield &amp; loss</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Good printed</dt><dd class="right mono">612.0 kg &middot; 78.5%</dd>
+            <dt>Rejection</dt><dd class="right mono" style="color:rgb(var(--color-error))">9.4 kg &middot; 1.2%</dd>
+            <dt>Wastage</dt><dd class="right mono" style="color:rgb(var(--color-warning))">21.6 kg &middot; 2.8%</dd>
+            <dt>Unprocessed back</dt><dd class="right mono">137.0 kg &middot; 17.6%</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="font-size:12px;color:rgb(var(--fg-subtle));margin-bottom:6px">Against allowed 2.0% wastage</div>
+          <div class="pbar"><i class="w" style="width:70%"></i></div>
+          <div class="mut" style="font-size:11.5px;margin-top:4px">2.8% actual &mdash; 0.8 pt above allowance</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Cost posting</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Printed qty</dt><dd class="right mono">1,20,000 pcs</dd>
+            <dt>Rate</dt><dd class="right mono">₹ 0.2240 / pc</dd>
+            <dt>Printing cost</dt><dd class="right mono">₹ 26,880</dd>
+            <dt>Estimated at</dt><dd class="right mono">₹ 0.2100 / pc</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Variance</span>
+            <b style="margin-left:auto;font-size:15px;color:rgb(var(--color-error))" class="mono">+ ₹ 1,680 (6.7%)</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Next step</h2></div>
+        <div class="card-b">
+          <p class="muted" style="margin:0 0 10px;font-size:12.5px">
+            On posting, 612.0 kg of printed laminate enters WIP stock against PWO/26-0194
+            and operation 30 (sleeve forming) becomes available.</p>
+          <a class="btn pri" style="width:100%;justify-content:center" href="production-entry.html">
+            <i data-i="factory"></i>Go to Production Entry</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

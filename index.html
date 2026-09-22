@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Home</b> / Dashboard</div>
+      <h1>Management Dashboard</h1>
+      <p>Indus Tubes — Baddi unit · 22 Sep 2026</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="refresh"></i>Refresh</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-p">
+      <div class="lbl"><i data-i="cart"></i>Open Sales Orders</div>
+      <div class="val">42</div>
+      <div class="dlt">18.4 lakh pcs pending</div>
+    </div>
+    <div class="stat acc-t">
+      <div class="lbl"><i data-i="clip"></i>Active Work Orders</div>
+      <div class="val">27</div>
+      <div class="dlt up">9 on schedule · 3 delayed</div>
+    </div>
+    <div class="stat acc-o">
+      <div class="lbl"><i data-i="send"></i>At Monarch Print</div>
+      <div class="val">6 <small>lots</small></div>
+      <div class="dlt">2,840 kg laminate out</div>
+    </div>
+    <div class="stat acc-w">
+      <div class="lbl"><i data-i="shield"></i>Pending QC</div>
+      <div class="val">11</div>
+      <div class="dlt">4 RMQC · 5 IPQC · 2 FGQC</div>
+    </div>
+    <div class="stat acc-e">
+      <div class="lbl"><i data-i="alertTri"></i>Open CAPA</div>
+      <div class="val">3</div>
+      <div class="dlt dn">1 blocking dispatch</div>
+    </div>
+    <div class="stat acc-s">
+      <div class="lbl"><i data-i="rupee"></i>Month Dispatch</div>
+      <div class="val">₹1.42<small> Cr</small></div>
+      <div class="dlt up">+8.2% vs last month</div>
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <i data-i="alertTri"></i>
+    <div>
+      <b>CAPA-2026-014 is blocking dispatch for SO/26-0188</b>
+      Shoulder leakage control requires a 100% leak-test record before the delivery note can be generated.
+    </div>
+    <a class="btn sm" href="capa.html">Open CAPA</a>
+  </div>
+
+  <div class="split">
+    <div>
+      <!-- ORDER PIPELINE -->
+      <div class="card">
+        <div class="card-h">
+          <h2>Order pipeline</h2>
+          <span class="sub">where every open order is standing</span>
+          <div class="r"><a class="btn sm" href="wip-status.html">Full WIP view</a></div>
+        </div>
+        <div class="card-b p0">
+          <div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead>
+              <tr>
+                <th>SO No.</th><th>Customer</th><th>Product</th>
+                <th class="num">Order Qty</th><th>Current stage</th>
+                <th style="width:130px">Progress</th><th>Status</th><th class="num">Due</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="k">SO/26-0188</td><td>Cipla Ltd.</td><td>LT 25×130 — Ointment</td>
+                <td class="num">2,50,000</td><td>FGQC</td>
+                <td><div class="pbar"><i style="width:92%"></i></div></td>
+                <td><span class="bdg r">Dispatch blocked</span></td><td class="num">26 Sep</td>
+              </tr>
+              <tr>
+                <td class="k">SO/26-0191</td><td>Sun Pharma</td><td>LT 19×100 — Gel</td>
+                <td class="num">1,80,000</td><td>Printing at Monarch Print</td>
+                <td><div class="pbar"><i class="w" style="width:48%"></i></div></td>
+                <td><span class="bdg o">At Monarch Print</span></td><td class="num">02 Oct</td>
+              </tr>
+              <tr>
+                <td class="k">SO/26-0194</td><td>Mankind Pharma</td><td>LT 22×120 — Cream</td>
+                <td class="num">3,20,000</td><td>Remaining production</td>
+                <td><div class="pbar"><i style="width:66%"></i></div></td>
+                <td><span class="bdg b">In production</span></td><td class="num">05 Oct</td>
+              </tr>
+              <tr>
+                <td class="k">SO/26-0197</td><td>Zydus Wellness</td><td>LT 30×150 — Toothpaste</td>
+                <td class="num">5,00,000</td><td>RMQC</td>
+                <td><div class="pbar"><i class="w" style="width:22%"></i></div></td>
+                <td><span class="bdg w">QC hold</span></td><td class="num">12 Oct</td>
+              </tr>
+              <tr>
+                <td class="k">SO/26-0199</td><td>Torrent Pharma</td><td>LT 19×90 — Ointment</td>
+                <td class="num">1,20,000</td><td>Material procurement</td>
+                <td><div class="pbar"><i class="w" style="width:12%"></i></div></td>
+                <td><span class="bdg n">Indent raised</span></td><td class="num">15 Oct</td>
+              </tr>
+              <tr>
+                <td class="k">SO/26-0201</td><td>Glenmark</td><td>LT 25×140 — Cream</td>
+                <td class="num">2,00,000</td><td>Packed</td>
+                <td><div class="pbar"><i class="g" style="width:100%"></i></div></td>
+                <td><span class="bdg g">Ready to dispatch</span></td><td class="num">24 Sep</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTER COMPANY -->
+      <div class="card">
+        <div class="card-h">
+          <h2>Outsourced printing — Monarch Print</h2>
+          <span class="sub">material reconciliation</span>
+          <div class="r"><a class="btn sm" href="printing-receipt.html">Receive</a></div>
+        </div>
+        <div class="card-b p0">
+          <div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead>
+              <tr>
+                <th>Challan</th><th>PWO</th><th class="num">Sent (kg)</th>
+                <th class="num">Good</th><th class="num">Rejection</th><th class="num">Wastage</th>
+                <th class="num">Unprocessed</th><th class="num">Balance</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="k">ICP/26-0071</td><td>PWO/26-0188</td><td class="num">920.0</td>
+                <td class="num">874.5</td><td class="num">18.2</td><td class="num">27.3</td>
+                <td class="num">0.0</td><td class="num" style="color:rgb(var(--color-success))">0.0</td>
+                <td><span class="bdg g">Reconciled</span></td>
+              </tr>
+              <tr>
+                <td class="k">ICP/26-0074</td><td>PWO/26-0191</td><td class="num">1,140.0</td>
+                <td class="num">—</td><td class="num">—</td><td class="num">—</td>
+                <td class="num">—</td><td class="num">1,140.0</td>
+                <td><span class="bdg o">Printing</span></td>
+              </tr>
+              <tr>
+                <td class="k">ICP/26-0076</td><td>PWO/26-0194</td><td class="num">780.0</td>
+                <td class="num">612.0</td><td class="num">9.4</td><td class="num">21.6</td>
+                <td class="num">137.0</td><td class="num" style="color:rgb(var(--color-warning))">0.0</td>
+                <td><span class="bdg w">Partial receipt</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr><td colspan="2">Total out</td><td class="num">2,840.0</td>
+                <td class="num">1,486.5</td><td class="num">27.6</td><td class="num">48.9</td>
+                <td class="num">137.0</td><td class="num">1,140.0</td><td></td></tr>
+            </tfoot>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT RAIL -->
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Pending approvals</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td><b>Indent</b><div class="mut">IND/26-0312 · PWO/26-0199</div></td>
+                  <td class="num"><a class="btn sm pri" href="indent-approval.html">Approve</a></td></tr>
+              <tr><td><b>Quotation</b><div class="mut">QT/26-0421 · Alkem Labs</div></td>
+                  <td class="num"><a class="btn sm" href="quotation.html">Review</a></td></tr>
+              <tr><td><b>Indent</b><div class="mut">IND/26-0313 · PWO/26-0197</div></td>
+                  <td class="num"><a class="btn sm pri" href="indent-approval.html">Approve</a></td></tr>
+              <tr><td><b>NCR closure</b><div class="mut">NCR/26-0044 · Printing shade</div></td>
+                  <td class="num"><a class="btn sm" href="ncr.html">Review</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Quality gates — today</h2></div>
+        <div class="card-b">
+          <div style="display:flex;flex-direction:column;gap:11px">
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
+                <span class="bdg t nodot">Gate 1</span><b style="font-size:12.5px">RMQC</b>
+                <span class="muted" style="margin-left:auto;font-size:12px">4 pending</span>
+              </div>
+              <div class="pbar"><i class="g" style="width:71%"></i></div>
+              <div class="mut" style="font-size:11.5px;margin-top:3px">10 of 14 cleared</div>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
+                <span class="bdg t nodot">Gate 2</span><b style="font-size:12.5px">IPQC</b>
+                <span class="muted" style="margin-left:auto;font-size:12px">5 pending</span>
+              </div>
+              <div class="pbar"><i class="w" style="width:58%"></i></div>
+              <div class="mut" style="font-size:11.5px;margin-top:3px">7 of 12 cleared</div>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
+                <span class="bdg t nodot">Gate 3</span><b style="font-size:12.5px">FGQC</b>
+                <span class="muted" style="margin-left:auto;font-size:12px">2 pending</span>
+              </div>
+              <div class="pbar"><i class="g" style="width:86%"></i></div>
+              <div class="mut" style="font-size:11.5px;margin-top:3px">12 of 14 cleared</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Cost variance — top jobs</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <thead><tr><th>PWO</th><th class="num">Est.</th><th class="num">Actual</th><th class="num">Var.</th></tr></thead>
+            <tbody>
+              <tr><td class="k">PWO/26-0181</td><td class="num">2.84</td><td class="num">2.79</td>
+                  <td class="num" style="color:rgb(var(--color-success))">−1.8%</td></tr>
+              <tr><td class="k">PWO/26-0184</td><td class="num">3.10</td><td class="num">3.34</td>
+                  <td class="num" style="color:rgb(var(--color-error))">+7.7%</td></tr>
+              <tr><td class="k">PWO/26-0186</td><td class="num">2.42</td><td class="num">2.45</td>
+                  <td class="num" style="color:rgb(var(--color-warning))">+1.2%</td></tr>
+              <tr><td class="k">PWO/26-0188</td><td class="num">2.96</td><td class="num">2.91</td>
+                  <td class="num" style="color:rgb(var(--color-success))">−1.7%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

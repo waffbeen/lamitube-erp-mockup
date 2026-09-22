@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COA · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Quality</b> / COA</div>
+      <h1>Certificate of Analysis &mdash; COA/26-0294</h1>
+      <p>Generated on FGQC approval &middot; linked Customer &rarr; SO &rarr; Product &rarr; PWO &rarr; Batch &rarr; FGQC</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg g">Approved</span>
+      <button class="btn"><i data-i="printer"></i>Print COA</button>
+      <button class="btn"><i data-i="mail"></i>Email customer</button>
+      <button class="btn pri"><i data-i="truck"></i>Attach to Delivery Note</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Linkage chain</h2><span class="sub">every COA is anchored to one batch</span></div>
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Customer</label><input class="inp ro" value="Glenmark Pharma" readonly></div>
+        <div class="fld"><label>Sales order</label><input class="inp ro" value="SO/26-0201" readonly></div>
+        <div class="fld"><label>Product</label><input class="inp ro" value="PC-0221 — LT 25×140 Cream" readonly></div>
+        <div class="fld"><label>Production order</label><input class="inp ro" value="PWO/26-0201" readonly></div>
+        <div class="fld"><label>Batch no.</label><input class="inp ro" value="FG-LT26-0201-A" readonly></div>
+        <div class="fld"><label>FGQC ref.</label><input class="inp ro" value="FGQ/26-0311" readonly></div>
+        <div class="fld"><label>Batch quantity</label><input class="inp ro" value="2,01,114 pcs" readonly></div>
+        <div class="fld"><label>Mfg. date</label><input class="inp" type="date" value="2026-09-22"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Test results</h2>
+          <span class="sub">only parameters flagged &ldquo;On COA&rdquo; in the catalogue appear here</span></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>#</th><th>Test parameter</th><th>Method</th><th>Specification</th>
+              <th class="num">Actual result</th><th>Result</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><b>Tube length</b></td><td>Vernier caliper</td><td>140 mm ± 1.0</td>
+                <td class="num mono">140.2 mm</td><td><span class="bdg g">Complies</span></td></tr>
+              <tr><td>2</td><td><b>Tube diameter</b></td><td>Vernier caliper</td><td>25 mm ± 0.3</td>
+                <td class="num mono">25.1 mm</td><td><span class="bdg g">Complies</span></td></tr>
+              <tr><td>3</td><td><b>Orifice diameter</b></td><td>Pin gauge</td><td>3.5 mm ± 0.1</td>
+                <td class="num mono">3.51 mm</td><td><span class="bdg g">Complies</span></td></tr>
+              <tr><td>4</td><td><b>Leak test</b></td><td>Vacuum 0.5 bar / 60 s</td><td>No leakage &mdash; 100% tested</td>
+                <td class="num mono">0.043% removed</td><td><span class="bdg g">Complies</span></td></tr>
+              <tr><td>5</td><td><b>Cap removal torque</b></td><td>Torque meter</td><td>4 &ndash; 8 kgf&middot;cm</td>
+                <td class="num mono">6.2 kgf&middot;cm</td><td><span class="bdg g">Complies</span></td></tr>
+              <tr><td>6</td><td><b>Drop test</b></td><td>1.2 m on concrete</td><td>No damage</td>
+                <td class="num mono">Pass</td><td><span class="bdg g">Complies</span></td></tr>
+              <tr><td>7</td><td><b>Print shade &Delta;E</b></td><td>Spectrophotometer</td><td>&le; 2.0</td>
+                <td class="num mono">1.6</td><td><span class="bdg g">Complies</span></td></tr>
+              <tr><td>8</td><td><b>Migration / odour</b></td><td>Sensory + lab</td><td>Nil</td>
+                <td class="num mono">Nil</td><td><span class="bdg g">Complies</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+        <div class="card-b" style="border-top:1px solid rgb(var(--bd-subtle))">
+          <div class="fgrid c3">
+            <div class="fld span2"><label>Conclusion</label>
+              <textarea class="inp" rows="2">The batch conforms to the agreed specification for LT 25×140 cream tube and is released for dispatch. 100% leak testing was performed as per CAPA-2026-014.</textarea></div>
+            <div class="fld"><label>Approved by</label><select class="inp"><option>QA Head</option></select></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>COA register</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>COA no.</th><th>Date</th><th>Customer</th><th>Batch</th><th>SO</th>
+              <th class="num">Qty</th><th>Delivery note</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">COA/26-0294</td><td>22 Sep</td><td>Glenmark</td><td>FG-LT26-0201-A</td>
+                <td class="mut">SO/26-0201</td><td class="num">2,01,114</td><td class="mut">pending</td>
+                <td><span class="bdg g">Approved</span></td></tr>
+              <tr><td class="k">COA/26-0293</td><td>20 Sep</td><td>Mankind Pharma</td><td>FG-LT26-0186-B</td>
+                <td class="mut">SO/26-0186</td><td class="num">1,80,000</td><td class="k">DN/26-0338</td>
+                <td><span class="bdg g">Issued</span></td></tr>
+              <tr><td class="k">COA/26-0292</td><td>18 Sep</td><td>Sun Pharma</td><td>FG-LT26-0184-A</td>
+                <td class="mut">SO/26-0184</td><td class="num">3,04,000</td><td class="k">DN/26-0335</td>
+                <td><span class="bdg g">Issued</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Certificate details</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>COA no.</dt><dd class="right k">COA/26-0294</dd>
+            <dt>Issue date</dt><dd class="right">22 Sep 2026</dd>
+            <dt>Template</dt><dd class="right">Pharma tube</dd>
+            <dt>Parameters</dt><dd class="right">8 of 9</dd>
+            <dt>All complying</dt><dd class="right"><span class="bdg g nodot">Yes</span></dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Material used</h2><span class="sub">for traceability</span></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td>Laminate roll</td><td class="num k">ROLL-26-1774</td></tr>
+              <tr><td>Granule batch</td><td class="num k">BATCH-26-0742</td></tr>
+              <tr><td>Masterbatch</td><td class="num k">BATCH-26-0733</td></tr>
+              <tr><td>Cap lot</td><td class="num k">LOT-26-4390</td></tr>
+              <tr><td>Printed at</td><td class="num">Monarch Print</td></tr>
+              <tr><td>Print challan</td><td class="num k">ICP/26-0069</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Retention sample</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Quantity</dt><dd class="right mono">20 pcs</dd>
+            <dt>Location</dt><dd class="right">QA retention room &mdash; R4</dd>
+            <dt>Retain till</dt><dd class="right">22 Sep 2029</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

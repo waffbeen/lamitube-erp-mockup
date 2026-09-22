@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Process &amp; Routing · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Product / Engineering</b> / Process &amp; Routing Master</div>
+      <h1>Process &amp; Routing Master</h1>
+      <p>Where a process is marked in-house or outsourced &mdash; nothing about outsourcing is hardcoded</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri" onclick="openModal('mProc')"><i data-i="plus"></i>New Process</button>
+    </div>
+  </div>
+
+  <div class="alert info">
+    <i data-i="route"></i>
+    <div><b>The execution type on a process decides how the shop floor books it</b>
+    A process marked <b>In-house</b> books through Production Entry. A process marked <b>Outsourced</b> routes through Send Challan &rarr; Receipt &amp; Reconciliation instead. Printing is outsourced today; any other process can be switched tomorrow without a code change.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Process master</h2><span class="sub">9 processes</span></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Code</th><th>Process</th><th>Default machine / vendor</th><th>Execution type</th>
+          <th class="num">Std. output / hr</th><th class="num">Setup (min)</th><th class="num">Rate</th>
+          <th>Rate basis</th><th>IPQC</th><th class="ctr"></th></tr></thead>
+        <tbody>
+          <tr><td class="k">P-10</td><td><b>Laminate slitting</b></td><td>SLIT-01</td>
+            <td><span class="bdg n">In-house</span></td><td class="num">9,000</td><td class="num">30</td>
+            <td class="num mono">640.00</td><td class="mut">per machine hour</td>
+            <td><span class="bdg t nodot">Yes</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr style="background:rgb(var(--color-orange-subtle))"><td class="k">P-20</td>
+            <td><b>Printing &mdash; offset</b></td><td>Monarch Print Pvt. Ltd.</td>
+            <td><span class="bdg o">Outsourced</span></td><td class="num">&mdash;</td><td class="num">&mdash;</td>
+            <td class="num mono">0.2100</td><td class="mut">per piece &mdash; rate contract</td>
+            <td><span class="bdg t nodot">Yes</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr style="background:rgb(var(--color-orange-subtle))"><td class="k">P-21</td>
+            <td><b>Printing &mdash; flexo</b></td><td>Monarch Print Pvt. Ltd.</td>
+            <td><span class="bdg o">Outsourced</span></td><td class="num">&mdash;</td><td class="num">&mdash;</td>
+            <td class="num mono">0.1850</td><td class="mut">per piece &mdash; rate contract</td>
+            <td><span class="bdg t nodot">Yes</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">P-30</td><td><b>Sleeve forming</b></td><td>TM-01 / TM-02</td>
+            <td><span class="bdg n">In-house</span></td><td class="num">7,200</td><td class="num">45</td>
+            <td class="num mono">820.00</td><td class="mut">per machine hour</td>
+            <td><span class="bdg t nodot">Yes</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">P-40</td><td><b>Shoulder moulding</b></td><td>CM-01 / CM-02</td>
+            <td><span class="bdg n">In-house</span></td><td class="num">2,057</td><td class="num">60</td>
+            <td class="num mono">410.00</td><td class="mut">per machine hour</td>
+            <td><span class="bdg r nodot">Mandatory</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">P-50</td><td><b>Capping &amp; assembly</b></td><td>CAP-01</td>
+            <td><span class="bdg n">In-house</span></td><td class="num">8,400</td><td class="num">20</td>
+            <td class="num mono">360.00</td><td class="mut">per machine hour</td>
+            <td><span class="bdg t nodot">Yes</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">P-60</td><td><b>Leak test &amp; inspection</b></td><td>QC line</td>
+            <td><span class="bdg n">In-house</span></td><td class="num">10,000</td><td class="num">10</td>
+            <td class="num mono">280.00</td><td class="mut">per machine hour</td>
+            <td><span class="bdg r nodot">Mandatory</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">P-70</td><td><b>Packing</b></td><td>Packing hall</td>
+            <td><span class="bdg n">In-house</span></td><td class="num">12,000</td><td class="num">15</td>
+            <td class="num mono">190.00</td><td class="mut">per machine hour</td>
+            <td><span class="bdg n nodot">No</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+          <tr><td class="k">P-80</td><td><b>Shoulder moulding &mdash; overflow</b></td><td>Precision Moulders Pvt. Ltd.</td>
+            <td><span class="bdg o">Outsourced</span></td><td class="num">&mdash;</td><td class="num">&mdash;</td>
+            <td class="num mono">0.2450</td><td class="mut">per piece &mdash; job work</td>
+            <td><span class="bdg r nodot">Mandatory</span></td>
+            <td class="ctr"><button class="btn sm gh"><i data-i="wrench"></i></button></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card mb0">
+    <div class="card-h"><h2>Routing templates</h2>
+      <span class="sub">assigned to a product in the catalogue</span>
+      <div class="r"><button class="btn sm"><i data-i="plus"></i>New routing</button></div></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Routing</th><th>Used by</th><th>Sequence</th><th class="num">Steps</th>
+          <th class="num">Outsourced steps</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="k">RT-STD-01</td><td>PC-0142, PC-0118, PC-0221</td>
+            <td class="mut">P-10 &rarr; P-20 &rarr; P-30 &rarr; P-40 &rarr; P-50 &rarr; P-60 &rarr; P-70</td>
+            <td class="num">7</td><td class="num">1</td><td><span class="bdg g">Active</span></td></tr>
+          <tr><td class="k">RT-STD-02</td><td>PC-0203</td>
+            <td class="mut">P-10 &rarr; P-21 &rarr; P-30 &rarr; P-40 &rarr; P-50 &rarr; P-60 &rarr; P-70</td>
+            <td class="num">7</td><td class="num">1</td><td><span class="bdg g">Active</span></td></tr>
+          <tr><td class="k">RT-OVF-01</td><td>capacity overflow route</td>
+            <td class="mut">P-10 &rarr; P-20 &rarr; P-30 &rarr; P-80 &rarr; P-50 &rarr; P-60 &rarr; P-70</td>
+            <td class="num">7</td><td class="num">2</td><td><span class="bdg b">Standby</span></td></tr>
+          <tr><td class="k">RT-UNP-01</td><td>unprinted / plain tube</td>
+            <td class="mut">P-10 &rarr; P-30 &rarr; P-40 &rarr; P-50 &rarr; P-60 &rarr; P-70</td>
+            <td class="num">6</td><td class="num">0</td><td><span class="bdg g">Active</span></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="ovl" id="mProc">
+    <div class="modal">
+      <div class="modal-h"><h3>New Process</h3><span class="x" data-close="mProc"><i data-i="x"></i></span></div>
+      <div class="modal-b">
+        <div class="fgrid c2">
+          <div class="fld"><label>Process code</label><input class="inp" value="P-90"></div>
+          <div class="fld"><label>Process name <span class="req">*</span></label><input class="inp" placeholder="e.g. Sleeve printing inspection"></div>
+          <div class="fld span2"><label>Execution type <span class="req">*</span></label>
+            <select class="inp" id="etype"><option>In-house</option><option>Outsourced / outsourced</option></select></div>
+          <div class="fld"><label>Default machine</label><select class="inp"><option>SLIT-01</option><option>TM-02</option><option>CM-01</option></select></div>
+          <div class="fld"><label>Default vendor</label><select class="inp"><option>— not applicable —</option><option>Monarch Print Pvt. Ltd.</option><option>Precision Moulders Pvt. Ltd.</option></select></div>
+          <div class="fld"><label>Rate basis</label><select class="inp"><option>Per machine hour</option><option>Per piece</option><option>Per kg</option></select></div>
+          <div class="fld"><label>Rate</label><input class="inp" value="0.00"></div>
+          <div class="fld"><label>Std. output / hr</label><input class="inp" value="0"></div>
+          <div class="fld"><label>Setup time (min)</label><input class="inp" value="0"></div>
+          <div class="fld span2"><label>IPQC requirement</label>
+            <select class="inp"><option>Optional</option><option>Yes — routine</option><option>Mandatory — cannot skip</option></select></div>
+          <div class="fld span2"><label>Notes</label><textarea class="inp" rows="2" placeholder="Reconciliation basis, allowed wastage…"></textarea></div>
+        </div>
+      </div>
+      <div class="modal-f">
+        <button class="btn" data-close="mProc">Cancel</button>
+        <button class="btn pri"><i data-i="save"></i>Save process</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

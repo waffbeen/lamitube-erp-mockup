@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Material Issue · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / Material Issue</div>
+      <h1>Material Issue &mdash; ISS/26-0771</h1>
+      <p>Issue against PWO/26-0202 &middot; batch-wise, FIFO suggested</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="printer"></i>Issue slip</button>
+      <button class="btn"><i data-i="undo"></i>Return to store</button>
+      <button class="btn pri"><i data-i="check2"></i>Post issue</button>
+    </div>
+  </div>
+
+  <div class="alert err">
+    <i data-i="alertTri"></i>
+    <div><b>CAPA-2026-014 control on this product</b>
+    Only RMQC-accepted rolls may be issued for PC-0142. Rolls on QC hold are locked from selection.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Issue no.</label><input class="inp ro" value="ISS/26-0771" readonly></div>
+        <div class="fld"><label>Issue date</label><input class="inp" type="date" value="2026-09-24"></div>
+        <div class="fld"><label>Work order <span class="req">*</span></label>
+          <select class="inp"><option>PWO/26-0202 — Cipla — LT 19×100</option><option>PWO/26-0194 — Mankind — LT 22×120</option></select></div>
+        <div class="fld"><label>Operation</label><select class="inp"><option>10 — Laminate slitting</option><option>40 — Shoulder moulding</option></select></div>
+        <div class="fld"><label>Issue to</label><select class="inp"><option>SLIT-01 — Slitting line</option><option>CM-01 — Moulding</option></select></div>
+        <div class="fld"><label>Shift</label><select class="inp"><option>Shift A</option><option>Shift B</option><option>Shift C</option></select></div>
+        <div class="fld"><label>Requested by</label><select class="inp"><option>Production supervisor</option></select></div>
+        <div class="fld"><label>Issued by</label><select class="inp"><option>Store keeper</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Issue lines</h2>
+          <span class="sub">required quantity comes from the work order BOM</span>
+          <div class="r"><button class="btn sm"><i data-i="refresh"></i>Suggest FIFO batches</button></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Item</th><th>Batch / roll</th><th>UoM</th><th class="num">BOM required</th>
+              <th class="num">Already issued</th><th class="num">Issue now</th><th class="num">Free stock</th>
+              <th>QC</th><th class="ctr"></th></tr></thead>
+            <tbody>
+              <tr><td><b>ABL Laminate 250&micro;</b><div class="mut">ITM-1004</div></td>
+                <td><select class="inp" style="width:150px"><option>ROLL-26-1841</option><option>ROLL-26-1842</option></select></td>
+                <td>kg</td><td class="num">789.12</td><td class="num">0.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="208.00"></td>
+                <td class="num">620.00</td><td><span class="bdg g nodot">Passed</span></td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr><td><b>ABL Laminate 250&micro;</b><div class="mut">ITM-1004</div></td>
+                <td><select class="inp" style="width:150px"><option>ROLL-26-1842</option></select></td>
+                <td>kg</td><td class="num">&mdash;</td><td class="num">0.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="210.00"></td>
+                <td class="num">412.00</td><td><span class="bdg g nodot">Passed</span></td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr style="opacity:.55"><td><b>ABL Laminate 250&micro;</b><div class="mut">ITM-1004</div></td>
+                <td><select class="inp" style="width:150px" disabled><option>ROLL-26-1902 — locked</option></select></td>
+                <td>kg</td><td class="num">&mdash;</td><td class="num">0.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="0.00" disabled></td>
+                <td class="num">0.00</td><td><span class="bdg w nodot">QC hold</span></td>
+                <td class="ctr"><button class="btn sm gh" disabled><i data-i="x"></i></button></td></tr>
+              <tr><td><b>HDPE granule</b><div class="mut">ITM-2011</div></td>
+                <td><select class="inp" style="width:150px"><option>BATCH-26-0742</option></select></td>
+                <td>kg</td><td class="num">211.74</td><td class="num">0.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="212.00"></td>
+                <td class="num">550.00</td><td><span class="bdg g nodot">Passed</span></td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr><td><b>Masterbatch &mdash; white</b><div class="mut">ITM-2044</div></td>
+                <td><select class="inp" style="width:150px"><option>BATCH-26-0733</option></select></td>
+                <td>kg</td><td class="num">6.43</td><td class="num">0.00</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="6.50"></td>
+                <td class="num">24.00</td><td><span class="bdg g nodot">Passed</span></td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr><td><b>Flip-top cap 11 mm</b><div class="mut">ITM-3001 · bought-out</div></td>
+                <td><select class="inp" style="width:150px"><option>LOT-26-4412</option></select></td>
+                <td>pcs</td><td class="num">1,54,530</td><td class="num">0</td>
+                <td class="num"><input class="inp" style="width:78px;text-align:right" value="40000"></td>
+                <td class="num">85,000</td><td><span class="bdg g nodot">Passed</span></td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Issue history &mdash; PWO/26-0202</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Issue no.</th><th>Date</th><th>Operation</th><th>Item</th><th>Batch</th>
+              <th class="num">Issued</th><th class="num">Returned</th><th class="num">Consumed</th></tr></thead>
+            <tbody>
+              <tr><td class="k">ISS/26-0768</td><td>24 Sep</td><td>10 &mdash; Slitting</td>
+                <td>ABL Laminate 250&micro;</td><td class="k">ROLL-26-1845</td>
+                <td class="num">206.00</td><td class="num">0.00</td><td class="num">206.00</td></tr>
+              <tr><td class="k">ISS/26-0769</td><td>24 Sep</td><td>10 &mdash; Slitting</td>
+                <td>ABL Laminate 250&micro;</td><td class="k">ROLL-26-1847</td>
+                <td class="num">168.00</td><td class="num">4.20</td><td class="num">163.80</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="5">Total so far</td><td class="num">374.00</td>
+              <td class="num">4.20</td><td class="num">369.80</td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Issue summary</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Lines</dt><dd class="right">5</dd>
+            <dt>Laminate</dt><dd class="right mono">418.00 kg</dd>
+            <dt>Granule + MB</dt><dd class="right mono">218.50 kg</dd>
+            <dt>Caps</dt><dd class="right mono">40,000 pcs</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Issue value</span>
+            <b style="margin-left:auto;font-size:17px" class="mono">₹ 1,45,238</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Against BOM</h2></div>
+        <div class="card-b">
+          <div style="display:flex;flex-direction:column;gap:11px">
+            <div>
+              <div style="display:flex;font-size:12px;margin-bottom:4px"><span>Laminate</span>
+                <b style="margin-left:auto" class="mono">792 / 789 kg</b></div>
+              <div class="pbar"><i class="w" style="width:100%"></i></div>
+              <div class="mut" style="font-size:11px;margin-top:3px">0.4% over BOM</div>
+            </div>
+            <div>
+              <div style="display:flex;font-size:12px;margin-bottom:4px"><span>Granule</span>
+                <b style="margin-left:auto" class="mono">212 / 212 kg</b></div>
+              <div class="pbar"><i class="g" style="width:100%"></i></div>
+              <div class="mut" style="font-size:11px;margin-top:3px">On BOM</div>
+            </div>
+            <div>
+              <div style="display:flex;font-size:12px;margin-bottom:4px"><span>Caps</span>
+                <b style="margin-left:auto" class="mono">40,000 / 1,54,530</b></div>
+              <div class="pbar"><i style="width:26%"></i></div>
+              <div class="mut" style="font-size:11px;margin-top:3px">Balance awaiting PO receipt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Excess issue control</h2></div>
+        <div class="card-b">
+          <p class="muted" style="margin:0 0 10px;font-size:12.5px">Issue beyond BOM + standard wastage needs an approval reason.</p>
+          <div class="fld"><label>Excess reason</label>
+            <select class="inp"><option>&mdash; not required &mdash;</option><option>Machine setup wastage</option><option>Shade matching trial</option><option>Roll end loss</option></select></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

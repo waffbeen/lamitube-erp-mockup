@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quotation · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Sales</b> / Quotation</div>
+      <h1>Quotation &mdash; QT/26-0421</h1>
+      <p>From ENQ/26-0421 &middot; EST/26-0388 &middot; Cipla Ltd.</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg w">Pending approval</span>
+      <button class="btn"><i data-i="printer"></i>Print</button>
+      <button class="btn"><i data-i="mail"></i>Email</button>
+      <button class="btn pri"><i data-i="cart"></i>Convert to Sales Order</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Customer</label><input class="inp ro" value="Cipla Ltd." readonly></div>
+        <div class="fld"><label>Quotation date</label><input class="inp" type="date" value="2026-09-21"></div>
+        <div class="fld"><label>Valid till</label><input class="inp" type="date" value="2026-10-21"></div>
+        <div class="fld"><label>Payment terms</label><select class="inp"><option>45 days</option><option>30 days</option><option>Advance</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div class="card mb0">
+      <div class="card-h"><h2>Quotation items</h2>
+        <div class="r"><button class="btn sm"><i data-i="plus"></i>Add slab</button></div></div>
+      <div class="card-b p0"><div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr>
+            <th>#</th><th>Product</th><th class="num">Qty</th><th class="num">Est. cost / pc</th>
+            <th class="num">Margin %</th><th class="num">Rate / pc</th><th class="num">Amount</th><th class="ctr"></th>
+          </tr></thead>
+          <tbody>
+            <tr><td>1</td>
+              <td><b>LT 19&times;100 &mdash; Gel tube</b><div class="mut">PC-0142 rev C &middot; 4-colour &middot; flip-top cap</div></td>
+              <td class="num">1,50,000</td><td class="num mono">2.4180</td>
+              <td class="num"><input class="inp" style="width:64px;text-align:right" value="18"></td>
+              <td class="num mono"><b>2.8532</b></td><td class="num mono">4,27,980</td>
+              <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+            <tr><td>2</td>
+              <td><b>LT 19&times;100 &mdash; Gel tube</b><div class="mut">Higher slab &middot; same specification</div></td>
+              <td class="num">3,00,000</td><td class="num mono">2.3140</td>
+              <td class="num"><input class="inp" style="width:64px;text-align:right" value="16"></td>
+              <td class="num mono"><b>2.6842</b></td><td class="num mono">8,05,260</td>
+              <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="6">Basic value</td><td class="num mono">12,33,240</td><td></td></tr></tfoot>
+        </table>
+      </div></div>
+      <div class="card-b" style="border-top:1px solid rgb(var(--bd-subtle))">
+        <div class="fgrid c3">
+          <div class="fld"><label>Tooling / plate charges</label><input class="inp" value="45000"></div>
+          <div class="fld"><label>Sample charges</label><input class="inp" value="0"></div>
+          <div class="fld"><label>Delivery schedule</label><input class="inp" value="4 weekly lots from 05 Oct 26"></div>
+          <div class="fld span3"><label>Terms &amp; conditions</label>
+            <textarea class="inp" rows="2">Prices are ex-works Baddi. GST extra at actuals. Artwork approval required before plate making. +/- 5% quantity tolerance applies.</textarea></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Summary</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Basic value</dt><dd class="right mono">₹ 12,33,240</dd>
+            <dt>Tooling charges</dt><dd class="right mono">₹ 45,000</dd>
+            <dt>Freight</dt><dd class="right mono">₹ 18,000</dd>
+            <dt>GST @ 18%</dt><dd class="right mono">₹ 2,33,083</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Total</span>
+            <b style="margin-left:auto;font-size:20px" class="mono">₹ 15,29,323</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Approval</h2></div>
+        <div class="card-b">
+          <div class="steps" style="margin-bottom:12px">
+            <div class="step done"><span class="b"><i data-i="check2"></i></span><span>Estimator</span></div>
+            <div class="step-ln"></div>
+            <div class="step now"><span class="b">2</span><span>Sales head</span></div>
+            <div class="step-ln"></div>
+            <div class="step"><span class="b">3</span><span>Released</span></div>
+          </div>
+          <div class="alert warn" style="padding:8px 10px;font-size:12px">
+            <i data-i="alertTri"></i>
+            <div>Margin 16% on slab 2 is below the 17% floor for this customer group.</div>
+          </div>
+          <div class="fld" style="margin-bottom:10px"><label>Approval remark</label>
+            <textarea class="inp" rows="2" placeholder="Justification&hellip;"></textarea></div>
+          <div style="display:flex;gap:7px">
+            <button class="btn ok" style="flex:1"><i data-i="check2"></i>Approve</button>
+            <button class="btn dgr" style="flex:1"><i data-i="x"></i>Reject</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Revision history</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td><b>Rev 2</b><div class="mut">Margin revised 20% &rarr; 18%</div></td><td class="num mut">21 Sep</td></tr>
+              <tr><td><b>Rev 1</b><div class="mut">Quantity slab added</div></td><td class="num mut">20 Sep</td></tr>
+              <tr><td><b>Rev 0</b><div class="mut">Created from EST/26-0388</div></td><td class="num mut">20 Sep</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

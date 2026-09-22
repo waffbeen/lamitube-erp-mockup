@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QC Parameter · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Product / Engineering</b> / QC Parameter Master</div>
+      <h1>QC Parameter Master</h1>
+      <p>The library the three quality gates draw from &mdash; RMQC, IPQC and FGQC</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="plus"></i>New Parameter</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-t"><div class="lbl">RMQC parameters</div><div class="val">9</div></div>
+    <div class="stat acc-t"><div class="lbl">IPQC parameters</div><div class="val">12</div></div>
+    <div class="stat acc-t"><div class="lbl">FGQC parameters</div><div class="val">10</div></div>
+    <div class="stat acc-e"><div class="lbl">Changed by CAPA</div><div class="val">3</div></div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>Gate</label><select class="inp"><option>All</option><option>RMQC</option><option>IPQC</option><option>FGQC</option></select></div>
+    <div class="fld"><label>Applies to</label><select class="inp"><option>All</option><option>Laminate</option><option>Granule</option><option>Printed material</option><option>Finished tube</option></select></div>
+    <div class="fld"><label>Search</label><input class="inp" placeholder="Parameter name"></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button></div>
+  </div>
+
+  <div class="card mb0">
+    <div class="card-h"><h2>Parameters</h2><span class="sub">31 defined</span></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Code</th><th>Parameter</th><th>Gate</th><th>Applies to</th><th>Method</th>
+          <th>Specification</th><th class="num">Min</th><th class="num">Max</th><th>Sampling</th>
+          <th>On COA</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td class="k">QP-101</td><td><b>Thickness</b></td><td><span class="bdg t nodot">RMQC</span></td>
+            <td>Laminate</td><td>Micrometer</td><td>250 &micro; ± 10</td>
+            <td class="num">240</td><td class="num">260</td><td>5 per roll</td>
+            <td><span class="bdg g nodot">Yes</span></td><td class="mut">Standard</td></tr>
+          <tr><td class="k">QP-102</td><td><b>GSM</b></td><td><span class="bdg t nodot">RMQC</span></td>
+            <td>Laminate</td><td>Weighing</td><td>248 ± 8</td>
+            <td class="num">240</td><td class="num">256</td><td>3 per roll</td>
+            <td><span class="bdg n nodot">No</span></td><td class="mut">Standard</td></tr>
+          <tr><td class="k">QP-103</td><td><b>Bond strength</b></td><td><span class="bdg t nodot">RMQC</span></td>
+            <td>Laminate</td><td>Peel test</td><td>&ge; 4.0 N/15 mm</td>
+            <td class="num">4.0</td><td class="num">&mdash;</td><td>2 per lot</td>
+            <td><span class="bdg g nodot">Yes</span></td><td class="mut">Standard</td></tr>
+          <tr style="background:rgb(var(--color-error-subtle))"><td class="k">QP-108</td>
+            <td><b>MFI</b></td><td><span class="bdg t nodot">RMQC</span></td>
+            <td>Granule</td><td>ASTM D1238</td><td>0.8 &ndash; 1.2 g/10min</td>
+            <td class="num">0.8</td><td class="num">1.2</td><td><b>Every batch</b></td>
+            <td><span class="bdg n nodot">No</span></td><td class="k">CAPA-2026-014</td></tr>
+          <tr><td class="k">QP-201</td><td><b>Print shade &Delta;E</b></td><td><span class="bdg t nodot">IPQC</span></td>
+            <td>Printed material</td><td>Spectrophotometer</td><td>&Delta;E &le; 2.0</td>
+            <td class="num">&mdash;</td><td class="num">2.0</td><td>Every 1000 m</td>
+            <td><span class="bdg g nodot">Yes</span></td><td class="k">CAPA-2026-009</td></tr>
+          <tr><td class="k">QP-202</td><td><b>Registration</b></td><td><span class="bdg t nodot">IPQC</span></td>
+            <td>Printed material</td><td>Visual + loupe</td><td>± 0.15 mm</td>
+            <td class="num">&mdash;</td><td class="num">0.15</td><td>Every 1000 m</td>
+            <td><span class="bdg n nodot">No</span></td><td class="mut">Standard</td></tr>
+          <tr><td class="k">QP-205</td><td><b>Side seam strength</b></td><td><span class="bdg t nodot">IPQC</span></td>
+            <td>Sleeve</td><td>Tensile</td><td>&ge; 25 N</td>
+            <td class="num">25</td><td class="num">&mdash;</td><td>5 per shift</td>
+            <td><span class="bdg g nodot">Yes</span></td><td class="mut">Standard</td></tr>
+          <tr><td class="k">QP-208</td><td><b>Shoulder weight</b></td><td><span class="bdg t nodot">IPQC</span></td>
+            <td>Shoulder</td><td>Weighing</td><td>Per product spec ± 0.05 g</td>
+            <td class="num">&mdash;</td><td class="num">&mdash;</td><td>Per cavity / hr</td>
+            <td><span class="bdg n nodot">No</span></td><td class="mut">Standard</td></tr>
+          <tr style="background:rgb(var(--color-error-subtle))"><td class="k">QP-210</td>
+            <td><b>Cavity clamp pressure</b></td><td><span class="bdg t nodot">IPQC</span></td>
+            <td>Moulding machine</td><td>Gauge reading</td><td>140 &ndash; 150 bar</td>
+            <td class="num">140</td><td class="num">150</td><td><b>Every shift</b></td>
+            <td><span class="bdg n nodot">No</span></td><td class="k">CAPA-2026-014</td></tr>
+          <tr style="background:rgb(var(--color-error-subtle))"><td class="k">QP-301</td>
+            <td><b>Leak test</b></td><td><span class="bdg r nodot">FGQC</span></td>
+            <td>Finished tube</td><td>Vacuum 0.5 bar / 60 s</td><td>No leakage</td>
+            <td class="num">&mdash;</td><td class="num">&mdash;</td><td><b>100%</b></td>
+            <td><span class="bdg g nodot">Yes</span></td><td class="k">CAPA-2026-014</td></tr>
+          <tr><td class="k">QP-302</td><td><b>Cap removal torque</b></td><td><span class="bdg r nodot">FGQC</span></td>
+            <td>Finished tube</td><td>Torque meter</td><td>4 &ndash; 8 kgf&middot;cm</td>
+            <td class="num">4</td><td class="num">8</td><td>10 per lot</td>
+            <td><span class="bdg g nodot">Yes</span></td><td class="k">CAPA-2025-061</td></tr>
+          <tr><td class="k">QP-303</td><td><b>Drop test</b></td><td><span class="bdg r nodot">FGQC</span></td>
+            <td>Finished tube</td><td>1.2 m on concrete</td><td>No damage</td>
+            <td class="num">&mdash;</td><td class="num">&mdash;</td><td>5 per lot</td>
+            <td><span class="bdg g nodot">Yes</span></td><td class="mut">Standard</td></tr>
+          <tr><td class="k">QP-304</td><td><b>Orifice diameter</b></td><td><span class="bdg r nodot">FGQC</span></td>
+            <td>Finished tube</td><td>Pin gauge</td><td>Per product spec ± 0.1 mm</td>
+            <td class="num">&mdash;</td><td class="num">&mdash;</td><td>20 per lot</td>
+            <td><span class="bdg g nodot">Yes</span></td><td class="mut">Standard</td></tr>
+          <tr><td class="k">QP-308</td><td><b>Migration / odour</b></td><td><span class="bdg r nodot">FGQC</span></td>
+            <td>Finished tube</td><td>Sensory + lab</td><td>Nil</td>
+            <td class="num">&mdash;</td><td class="num">&mdash;</td><td>1 per batch</td>
+            <td><span class="bdg g nodot">Yes</span></td><td class="mut">Standard</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WIP / Job Status · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  .stg { display:flex; gap:3px; }
+  .stg i { display:block; width:15px; height:15px; border-radius:3px; background:rgb(var(--bg-subtle));
+    border:1px solid rgb(var(--bd-default)); }
+  .stg i.d { background:rgb(var(--color-success)); border-color:rgb(var(--color-success)); }
+  .stg i.r { background:rgb(var(--color-primary)); border-color:rgb(var(--color-primary)); }
+  .stg i.o { background:rgb(var(--color-orange)); border-color:rgb(var(--color-orange)); }
+  .stg i.h { background:rgb(var(--color-error)); border-color:rgb(var(--color-error)); }
+</style>
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Manufacturing</b> / WIP / Job Status</div>
+      <h1>WIP &amp; Job Floor Status</h1>
+      <p>One view of where every live job is standing across all operations</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="refresh"></i>Refresh</button>
+      <button class="btn"><i data-i="down"></i>Export</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-p"><div class="lbl">Live jobs</div><div class="val">27</div></div>
+    <div class="stat acc-o"><div class="lbl">At Monarch Print</div><div class="val">6</div><div class="dlt">2,840 kg out</div></div>
+    <div class="stat acc-t"><div class="lbl">WIP value</div><div class="val">₹ 32.6<small> L</small></div></div>
+    <div class="stat acc-w"><div class="lbl">Delayed</div><div class="val">3</div></div>
+    <div class="stat acc-e"><div class="lbl">Blocked</div><div class="val">2</div><div class="dlt dn">1 CAPA · 1 material</div></div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>Customer</label><select class="inp"><option>All</option><option>Cipla Ltd.</option><option>Sun Pharma</option><option>Mankind Pharma</option></select></div>
+    <div class="fld"><label>Current stage</label><select class="inp"><option>All</option><option>Slitting</option><option>Printing — Monarch Print</option><option>Sleeve forming</option><option>Moulding</option><option>Assembly</option><option>Packing</option><option>FGQC</option></select></div>
+    <div class="fld w-sm"><label>Status</label><select class="inp"><option>All</option><option>On schedule</option><option>Delayed</option><option>Blocked</option></select></div>
+    <div class="fld"><label>Search</label><input class="inp" placeholder="PWO / SO / batch"></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Job floor status</h2>
+      <div class="r" style="font-size:11px;color:rgb(var(--fg-subtle));gap:10px">
+        <span style="display:inline-flex;gap:5px;align-items:center"><i style="width:11px;height:11px;border-radius:2px;background:rgb(var(--color-success));display:block"></i>Done</span>
+        <span style="display:inline-flex;gap:5px;align-items:center"><i style="width:11px;height:11px;border-radius:2px;background:rgb(var(--color-primary));display:block"></i>Running</span>
+        <span style="display:inline-flex;gap:5px;align-items:center"><i style="width:11px;height:11px;border-radius:2px;background:rgb(var(--color-orange));display:block"></i>At Monarch</span>
+        <span style="display:inline-flex;gap:5px;align-items:center"><i style="width:11px;height:11px;border-radius:2px;background:rgb(var(--color-error));display:block"></i>Blocked</span>
+      </div></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>PWO</th><th>SO / Customer</th><th>Product</th>
+          <th style="width:120px">Operations 10&ndash;60</th><th>Current stage</th>
+          <th class="num">Plan qty</th><th class="num">Done</th><th class="num">Rej.</th>
+          <th style="width:110px">Progress</th><th class="num">Due</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="k">PWO/26-0188</td><td>SO/26-0188<div class="mut">Cipla Ltd.</div></td>
+            <td>LT 25&times;130<div class="mut">Ointment</div></td>
+            <td><span class="stg"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="r"></i></span></td>
+            <td>FGQC</td><td class="num">2,55,000</td><td class="num">2,50,400</td><td class="num">4,600</td>
+            <td><div class="pbar"><i style="width:92%"></i></div></td><td class="num">26 Sep</td>
+            <td><span class="bdg r">Dispatch blocked</span></td></tr>
+          <tr><td class="k">PWO/26-0191</td><td>SO/26-0191<div class="mut">Sun Pharma</div></td>
+            <td>LT 19&times;100<div class="mut">Gel</div></td>
+            <td><span class="stg"><i class="d"></i><i class="o"></i><i></i><i></i><i></i><i></i></span></td>
+            <td>Printing &mdash; Monarch Print</td><td class="num">1,83,000</td><td class="num">0</td><td class="num">0</td>
+            <td><div class="pbar"><i class="w" style="width:48%"></i></div></td><td class="num">02 Oct</td>
+            <td><span class="bdg o">At Monarch Print</span></td></tr>
+          <tr><td class="k">PWO/26-0194</td><td>SO/26-0194<div class="mut">Mankind Pharma</div></td>
+            <td>LT 22&times;120<div class="mut">Cream</div></td>
+            <td><span class="stg"><i class="d"></i><i class="d"></i><i class="d"></i><i class="r"></i><i></i><i></i></span></td>
+            <td>Shoulder moulding</td><td class="num">3,26,000</td><td class="num">41,244</td><td class="num">618</td>
+            <td><div class="pbar"><i style="width:66%"></i></div></td><td class="num">05 Oct</td>
+            <td><span class="bdg b">In production</span></td></tr>
+          <tr><td class="k">PWO/26-0197</td><td>SO/26-0197<div class="mut">Zydus Wellness</div></td>
+            <td>LT 30&times;150<div class="mut">Toothpaste</div></td>
+            <td><span class="stg"><i class="h"></i><i></i><i></i><i></i><i></i><i></i></span></td>
+            <td>RMQC hold</td><td class="num">5,10,000</td><td class="num">0</td><td class="num">0</td>
+            <td><div class="pbar"><i class="w" style="width:22%"></i></div></td><td class="num">12 Oct</td>
+            <td><span class="bdg w">QC hold</span></td></tr>
+          <tr><td class="k">PWO/26-0199</td><td>SO/26-0199<div class="mut">Torrent Pharma</div></td>
+            <td>LT 19&times;90<div class="mut">Ointment</div></td>
+            <td><span class="stg"><i class="h"></i><i></i><i></i><i></i><i></i><i></i></span></td>
+            <td>Material procurement</td><td class="num">1,22,000</td><td class="num">0</td><td class="num">0</td>
+            <td><div class="pbar"><i class="w" style="width:12%"></i></div></td><td class="num">15 Oct</td>
+            <td><span class="bdg n">Indent pending</span></td></tr>
+          <tr><td class="k">PWO/26-0201</td><td>SO/26-0201<div class="mut">Glenmark</div></td>
+            <td>LT 25&times;140<div class="mut">Cream</div></td>
+            <td><span class="stg"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i></span></td>
+            <td>Packed &mdash; FGQC passed</td><td class="num">2,04,000</td><td class="num">2,01,200</td><td class="num">2,800</td>
+            <td><div class="pbar"><i class="g" style="width:100%"></i></div></td><td class="num">24 Sep</td>
+            <td><span class="bdg g">Ready to dispatch</span></td></tr>
+          <tr><td class="k">PWO/26-0202</td><td>SO/26-0202<div class="mut">Cipla Ltd.</div></td>
+            <td>LT 19&times;100<div class="mut">Gel</div></td>
+            <td><span class="stg"><i class="d"></i><i class="o"></i><i></i><i></i><i></i><i></i></span></td>
+            <td>Printing &mdash; Monarch Print</td><td class="num">1,53,000</td><td class="num">0</td><td class="num">0</td>
+            <td><div class="pbar"><i class="w" style="width:18%"></i></div></td><td class="num">20 Oct</td>
+            <td><span class="bdg o">At Monarch Print</span></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="split even">
+    <div class="card mb0">
+      <div class="card-h"><h2>WIP by stage</h2></div>
+      <div class="card-b p0">
+        <table class="tbl dense">
+          <thead><tr><th>Stage</th><th class="num">Jobs</th><th class="num">Qty (pcs)</th><th class="num">Value</th></tr></thead>
+          <tbody>
+            <tr><td>Awaiting material</td><td class="num">4</td><td class="num">6,32,000</td><td class="num mono">₹ 1.2 L</td></tr>
+            <tr><td>Slitting</td><td class="num">3</td><td class="num">4,18,000</td><td class="num mono">₹ 4.8 L</td></tr>
+            <tr><td><b>Printing &mdash; Monarch Print</b></td><td class="num">6</td><td class="num">8,94,000</td><td class="num mono">₹ 11.4 L</td></tr>
+            <tr><td>Sleeve forming</td><td class="num">4</td><td class="num">5,10,000</td><td class="num mono">₹ 6.2 L</td></tr>
+            <tr><td>Shoulder moulding</td><td class="num">5</td><td class="num">3,88,000</td><td class="num mono">₹ 5.1 L</td></tr>
+            <tr><td>Assembly &amp; packing</td><td class="num">3</td><td class="num">2,46,000</td><td class="num mono">₹ 3.4 L</td></tr>
+            <tr><td>FGQC</td><td class="num">2</td><td class="num">4,51,600</td><td class="num mono">₹ 0.5 L</td></tr>
+          </tbody>
+          <tfoot><tr><td>Total WIP</td><td class="num">27</td><td class="num">35,39,600</td><td class="num mono">₹ 32.6 L</td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+
+    <div class="card mb0">
+      <div class="card-h"><h2>Blockers</h2></div>
+      <div class="card-b p0">
+        <table class="tbl dense">
+          <tbody>
+            <tr><td><b>PWO/26-0188</b><div class="mut">CAPA-2026-014 &mdash; leak test record missing</div></td>
+              <td class="num"><a class="btn sm" href="capa.html">Resolve</a></td></tr>
+            <tr><td><b>PWO/26-0197</b><div class="mut">RMQC hold on ROLL-26-1881 &mdash; 26 hrs</div></td>
+              <td class="num"><a class="btn sm" href="rmqc.html">Inspect</a></td></tr>
+            <tr><td><b>PWO/26-0199</b><div class="mut">Indent IND/26-0312 pending approval</div></td>
+              <td class="num"><a class="btn sm" href="indent-approval.html">Approve</a></td></tr>
+            <tr><td><b>ICP/26-0072</b><div class="mut">Monarch Print overdue by 20 days &mdash; 640 kg</div></td>
+              <td class="num"><a class="btn sm" href="printing-receipt.html">Follow up</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

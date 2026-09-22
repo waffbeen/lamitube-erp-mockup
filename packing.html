@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Packing · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Dispatch</b> / Packing</div>
+      <h1>Packing &mdash; PKG/26-0388</h1>
+      <p>PWO/26-0201 &middot; Glenmark &middot; LT 25&times;140 Cream &middot; packing comes <b>before</b> FGQC</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="printer"></i>Carton labels</button>
+      <button class="btn"><i data-i="save"></i>Save</button>
+      <button class="btn pri"><i data-i="shield"></i>Post &amp; send to FGQC</button>
+    </div>
+  </div>
+
+  <div class="steps" style="margin-bottom:14px">
+    <div class="step done"><span class="b"><i data-i="check2"></i></span><span>Production</span></div><div class="step-ln"></div>
+    <div class="step now"><span class="b">2</span><span>Packing</span></div><div class="step-ln"></div>
+    <div class="step"><span class="b">3</span><span>FGQC</span></div><div class="step-ln"></div>
+    <div class="step"><span class="b">4</span><span>Delivery Note</span></div><div class="step-ln"></div>
+    <div class="step"><span class="b">5</span><span>COA</span></div><div class="step-ln"></div>
+    <div class="step"><span class="b">6</span><span>Dispatch</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Packing no.</label><input class="inp ro" value="PKG/26-0388" readonly></div>
+        <div class="fld"><label>Date</label><input class="inp" type="date" value="2026-09-22"></div>
+        <div class="fld"><label>Work order</label><select class="inp"><option>PWO/26-0201 — Glenmark</option><option>PWO/26-0188 — Cipla</option></select></div>
+        <div class="fld"><label>FG batch no.</label><input class="inp" value="FG-LT26-0201-A"></div>
+        <div class="fld"><label>Packing spec</label><input class="inp ro" value="100 pcs/box · 20 boxes/carton" readonly></div>
+        <div class="fld"><label>Warehouse</label><select class="inp"><option>WH-FG — Finished goods</option></select></div>
+        <div class="fld"><label>Packed by</label><select class="inp"><option>Packing team A</option></select></div>
+        <div class="fld"><label>Shift</label><select class="inp"><option>Shift B</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Carton details</h2>
+          <div class="r"><button class="btn sm"><i data-i="plus"></i>Add carton range</button></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Carton range</th><th class="num">Cartons</th><th class="num">Boxes / carton</th>
+              <th class="num">Pcs / box</th><th class="num">Total pcs</th><th class="num">Gross wt. (kg)</th>
+              <th>Label</th><th class="ctr"></th></tr></thead>
+            <tbody>
+              <tr><td class="k">CTN-0001 to CTN-0100</td><td class="num">100</td><td class="num">20</td>
+                <td class="num">100</td><td class="num">2,00,000</td><td class="num">980.0</td>
+                <td><span class="bdg g nodot">Printed</span></td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr><td class="k">CTN-0101 (part)</td><td class="num">1</td><td class="num">12</td>
+                <td class="num">100</td><td class="num">1,200</td><td class="num">6.2</td>
+                <td><span class="bdg g nodot">Printed</span></td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+            </tbody>
+            <tfoot><tr><td>Total</td><td class="num">101</td><td colspan="2"></td>
+              <td class="num">2,01,200</td><td class="num">986.2</td><td colspan="2"></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Packing checklist</h2>
+          <span class="sub">from the Product Catalogue packing requirement</span></div>
+        <div class="card-b">
+          <div class="fgrid c2" style="gap:9px 20px">
+            <label style="display:flex;gap:8px;align-items:center;font-size:12.5px"><input type="checkbox" checked>LDPE liner in every carton</label>
+            <label style="display:flex;gap:8px;align-items:center;font-size:12.5px"><input type="checkbox" checked>Customer label format &mdash; Glenmark</label>
+            <label style="display:flex;gap:8px;align-items:center;font-size:12.5px"><input type="checkbox" checked>Batch number on every box</label>
+            <label style="display:flex;gap:8px;align-items:center;font-size:12.5px"><input type="checkbox" checked>Mfg. date / expiry printed</label>
+            <label style="display:flex;gap:8px;align-items:center;font-size:12.5px"><input type="checkbox" checked>Carton sealing tape applied</label>
+            <label style="display:flex;gap:8px;align-items:center;font-size:12.5px"><input type="checkbox">Retention sample &mdash; 20 pcs set aside</label>
+            <label style="display:flex;gap:8px;align-items:center;font-size:12.5px"><input type="checkbox" checked>Pallet pattern 6 &times; 5</label>
+            <label style="display:flex;gap:8px;align-items:center;font-size:12.5px"><input type="checkbox">Shrink wrap on pallet</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Packing register</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Packing no.</th><th>Date</th><th>PWO</th><th>FG batch</th>
+              <th class="num">Pcs</th><th class="num">Cartons</th><th>FGQC</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">PKG/26-0387</td><td>21 Sep</td><td>PWO/26-0188</td><td>FG-LT26-0188-A</td>
+                <td class="num">2,50,400</td><td class="num">126</td><td><span class="bdg w nodot">Pending</span></td>
+                <td><span class="bdg r">Blocked &mdash; CAPA</span></td></tr>
+              <tr><td class="k">PKG/26-0386</td><td>20 Sep</td><td>PWO/26-0186</td><td>FG-LT26-0186-B</td>
+                <td class="num">1,80,000</td><td class="num">90</td><td><span class="bdg g nodot">Passed</span></td>
+                <td><span class="bdg g">Dispatched</span></td></tr>
+              <tr><td class="k">PKG/26-0385</td><td>18 Sep</td><td>PWO/26-0184</td><td>FG-LT26-0184-A</td>
+                <td class="num">3,04,000</td><td class="num">152</td><td><span class="bdg g nodot">Passed</span></td>
+                <td><span class="bdg g">Dispatched</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Reconciliation</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Produced good</dt><dd class="right mono">2,01,200</dd>
+            <dt>Packed</dt><dd class="right mono">2,01,200</dd>
+            <dt>Retention sample</dt><dd class="right mono">20</dd>
+            <dt>Order qty</dt><dd class="right mono">2,00,000</dd>
+            <dt>Over / short</dt><dd class="right mono" style="color:rgb(var(--color-success))">+0.6% &mdash; within ±5%</dd>
+          </dl>
+          <div class="hr"></div>
+          <div class="pbar"><i class="g" style="width:100%"></i></div>
+          <div class="mut" style="font-size:11.5px;margin-top:4px">All produced pieces accounted</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Dispatch gate</h2></div>
+        <div class="card-b">
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:12.5px">
+            <div style="display:flex;align-items:center;gap:8px">Packing complete
+              <span class="bdg g nodot" style="margin-left:auto">Yes</span></div>
+            <div style="display:flex;align-items:center;gap:8px">FGQC approval
+              <span class="bdg w nodot" style="margin-left:auto">Pending</span></div>
+            <div style="display:flex;align-items:center;gap:8px">COA generated
+              <span class="bdg n nodot" style="margin-left:auto">Not yet</span></div>
+            <div style="display:flex;align-items:center;gap:8px">Active CAPA clear
+              <span class="bdg g nodot" style="margin-left:auto">Yes</span></div>
+          </div>
+          <div class="hr"></div>
+          <p class="muted" style="margin:0;font-size:12px">No dispatch is allowed until FGQC approves this batch.</p>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Next step</h2></div>
+        <div class="card-b">
+          <a class="btn pri" style="width:100%;justify-content:center" href="fgqc.html">
+            <i data-i="shield"></i>Send to FGQC</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

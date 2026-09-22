@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales Return · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Dispatch</b> / Sales Return</div>
+      <h1>Sales Return &mdash; SR/26-0038</h1>
+      <p>Against INV/26-0509 &middot; Sun Pharma &middot; linked to complaint CMP/26-0034</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg w">Pending inspection</span>
+      <button class="btn"><i data-i="printer"></i>Print</button>
+      <button class="btn"><i data-i="receipt"></i>Credit note</button>
+      <button class="btn pri"><i data-i="check2"></i>Post return</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Return no.</label><input class="inp ro" value="SR/26-0038" readonly></div>
+        <div class="fld"><label>Return date</label><input class="inp" type="date" value="2026-09-23"></div>
+        <div class="fld"><label>Against invoice</label><select class="inp"><option>INV/26-0509 — Sun Pharma</option></select></div>
+        <div class="fld"><label>Linked complaint</label><select class="inp"><option>CMP/26-0034</option><option>— none —</option></select></div>
+        <div class="fld"><label>Customer</label><input class="inp ro" value="Sun Pharma" readonly></div>
+        <div class="fld"><label>Return reason</label><select class="inp"><option>Quality — print shade</option><option>Quality — leakage</option><option>Excess supply</option><option>Damage in transit</option></select></div>
+        <div class="fld"><label>Customer DC no.</label><input class="inp" value="SUN/RET/26-0117"></div>
+        <div class="fld"><label>Gate entry</label><input class="inp" value="GE/26-0918"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Returned items</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Product</th><th>Batch</th><th class="num">Invoiced</th><th class="num">Returned</th>
+              <th class="num">Rate</th><th class="num">Value</th><th>Condition</th><th>Disposition</th></tr></thead>
+            <tbody>
+              <tr><td><b>LT 22&times;120 &mdash; Cream tube</b><div class="mut">PC-0118 rev B</div></td>
+                <td class="k">FG-LT26-0184-A</td><td class="num">3,04,000</td>
+                <td class="num">8,400</td><td class="num mono">2.7000</td><td class="num mono">22,680</td>
+                <td><span class="bdg w nodot">Shade variation</span></td>
+                <td><select class="inp" style="width:120px"><option>Scrap</option><option>Rework &mdash; repack</option><option>Use for samples</option></select></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="3">Total</td><td class="num">8,400</td>
+              <td colspan="1"></td><td class="num mono">22,680</td><td colspan="2"></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Return inspection</h2>
+          <span class="sub">material comes back into a quarantine location, never into free stock</span></div>
+        <div class="card-b">
+          <div class="fgrid c4">
+            <div class="fld"><label>Received qty</label><input class="inp" value="8400"></div>
+            <div class="fld"><label>Confirmed defective</label><input class="inp" value="8120"></div>
+            <div class="fld"><label>Found acceptable</label><input class="inp" value="280"></div>
+            <div class="fld"><label>Quarantine location</label><select class="inp"><option>Q-05 — Sales return</option></select></div>
+            <div class="fld span-all"><label>Inspection finding</label>
+              <textarea class="inp" rows="2">8,120 pieces confirmed with &Delta;E between 2.6 and 3.4 against the approved standard. 280 pieces measured within 2.0 and are being returned to saleable stock for the same customer only.</textarea></div>
+            <div class="fld"><label>Inspected by</label><select class="inp"><option>R. Verma — QA</option></select></div>
+            <div class="fld"><label>Credit note</label><select class="inp"><option>Full value</option><option>Partial</option><option>Replacement instead</option></select></div>
+            <div class="fld"><label>Replacement PWO</label><input class="inp" value="PWO/26-0205"></div>
+            <div class="fld"><label>Feeds into</label><input class="inp ro" value="RCA/26-0031" readonly></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Sales return register</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Return no.</th><th>Date</th><th>Customer</th><th>Invoice</th><th>Batch</th>
+              <th class="num">Qty</th><th class="num">Value</th><th>Reason</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">SR/26-0038</td><td>23 Sep</td><td>Sun Pharma</td><td class="mut">INV/26-0509</td>
+                <td class="mut">FG-LT26-0184-A</td><td class="num">8,400</td><td class="num mono">22,680</td>
+                <td>Print shade</td><td><span class="bdg w">Inspection</span></td></tr>
+              <tr><td class="k">SR/26-0036</td><td>25 Aug</td><td>Cipla Ltd.</td><td class="mut">INV/26-0468</td>
+                <td class="mut">FG-LT26-0142-C</td><td class="num">1,042</td><td class="num mono">3,234</td>
+                <td>Leakage</td><td><span class="bdg g">Credit note issued</span></td></tr>
+              <tr><td class="k">SR/26-0033</td><td>11 Jul</td><td>Torrent Pharma</td><td class="mut">INV/26-0412</td>
+                <td class="mut">FG-LT26-0131-A</td><td class="num">2,600</td><td class="num mono">7,020</td>
+                <td>Damage in transit</td><td><span class="bdg g">Closed</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Financial impact</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Return value</dt><dd class="right mono">₹ 22,680</dd>
+            <dt>GST reversal</dt><dd class="right mono">₹ 4,082</dd>
+            <dt>Credit note</dt><dd class="right mono">₹ 26,762</dd>
+            <dt>Replacement cost</dt><dd class="right mono">₹ 27,384</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Total impact</span>
+            <b style="margin-left:auto;font-size:17px;color:rgb(var(--color-error))" class="mono">₹ 54,146</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Linked chain</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td>Complaint</td><td class="num"><a class="k" href="complaint.html">CMP/26-0034</a></td></tr>
+              <tr><td>RCA</td><td class="num"><a class="k" href="rca.html">RCA/26-0031</a></td></tr>
+              <tr><td>CAPA</td><td class="num muted">to be raised</td></tr>
+              <tr><td>Invoice</td><td class="num k">INV/26-0509</td></tr>
+              <tr><td>Delivery note</td><td class="num k">DN/26-0335</td></tr>
+              <tr><td>Work order</td><td class="num k">PWO/26-0184</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Customer standing</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Returns this year</dt><dd class="right mono">1</dd>
+            <dt>Return rate</dt><dd class="right mono">0.28%</dd>
+            <dt>Open complaints</dt><dd class="right mono">1</dd>
+            <dt>Replacement committed</dt><dd class="right">28 Sep 2026</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAPA · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Complaint / CAPA</b> / CAPA</div>
+      <h1>CAPA-2026-014 &mdash; Shoulder leakage</h1>
+      <p>From CMP/26-0031 &middot; Cipla Ltd. &middot; raised 20 Aug 2026 &middot; owner: Production Head</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg r">Open &mdash; blocking</span>
+      <button class="btn"><i data-i="printer"></i>CAPA report</button>
+      <button class="btn pri"><i data-i="check2"></i>Verify effectiveness</button>
+    </div>
+  </div>
+
+  <div class="alert err">
+    <i data-i="alertTri"></i>
+    <div><b>This CAPA is configured to block transactions</b>
+    Production booking on CM-01 operation 40, and dispatch of PC-0142 and PC-0221, stay blocked until the required controls are recorded.</div>
+  </div>
+
+  <div class="card mb0">
+    <div class="tabs">
+      <button class="tab on" data-pane="c1">CAPA detail</button>
+      <button class="tab" data-pane="c2">Linked controls <span class="cnt">6</span></button>
+      <button class="tab" data-pane="c3">Action plan <span class="cnt">5</span></button>
+      <button class="tab" data-pane="c4">Effectiveness</button>
+      <button class="tab" data-pane="c5">CAPA register <span class="cnt">3</span></button>
+    </div>
+
+    <!-- DETAIL -->
+    <div class="tabpane on" id="c1"><div class="card-b">
+      <div class="fgrid c4">
+        <div class="sec-t">Source</div>
+        <div class="fld"><label>CAPA no.</label><input class="inp ro" value="CAPA-2026-014" readonly></div>
+        <div class="fld"><label>Complaint</label><input class="inp ro" value="CMP/26-0031" readonly></div>
+        <div class="fld"><label>RCA</label><input class="inp ro" value="RCA/26-0028" readonly></div>
+        <div class="fld"><label>Raised on</label><input class="inp" type="date" value="2026-08-20"></div>
+
+        <div class="sec-t">Problem statement</div>
+        <div class="fld span-all"><label>Issue</label>
+          <textarea class="inp" rows="2">Cipla reported shoulder leakage in approximately 0.4% of tubes from batch FG-LT26-0142-C. Leakage observed at the shoulder-to-sleeve joint after filling.</textarea></div>
+        <div class="fld span-all"><label>Root cause &mdash; from RCA</label>
+          <textarea class="inp" rows="2">Cavity 5 of mould CM-01 running at 136–138 bar clamp pressure against the 140–150 bar specification, caused by a partially choked hydraulic line. Low pressure produced short shots at the shoulder skirt, giving a weak joint.</textarea></div>
+
+        <div class="sec-t">Actions</div>
+        <div class="fld span2"><label>Immediate correction</label>
+          <textarea class="inp" rows="2">Affected batch recalled and 100% leak tested. 1,042 defective tubes scrapped. Cavity 5 taken out of service until pressure restored.</textarea></div>
+        <div class="fld span2"><label>Corrective action</label>
+          <textarea class="inp" rows="2">Hydraulic line to cavity 5 cleaned and pressure sensor replaced. Clamp pressure check added to the IPQC plan for operation 40, every shift.</textarea></div>
+        <div class="fld span2"><label>Preventive action</label>
+          <textarea class="inp" rows="2">100% leak test made mandatory on all PC-0142 and PC-0221 batches. Product Catalogue revised to rev C. Preventive maintenance frequency for CM-01 hydraulics changed from quarterly to monthly.</textarea></div>
+        <div class="fld span2"><label>Effectiveness criterion</label>
+          <textarea class="inp" rows="2">Zero leakage complaints and leak-test rejection below 0.1% across three consecutive batches of the affected products.</textarea></div>
+
+        <div class="sec-t">Ownership</div>
+        <div class="fld"><label>Responsible person</label><select class="inp"><option>Production Head</option><option>QA Head</option></select></div>
+        <div class="fld"><label>Target date</label><input class="inp" type="date" value="2026-09-30"></div>
+        <div class="fld"><label>Severity</label><select class="inp"><option>Critical — blocking</option><option>Major</option><option>Minor</option></select></div>
+        <div class="fld"><label>Status</label><select class="inp"><option>Open — under verification</option><option>Closed — effective</option><option>Closed — not effective</option></select></div>
+      </div>
+    </div></div>
+
+    <!-- LINKED CONTROLS -->
+    <div class="tabpane" id="c2">
+      <div class="card-b" style="padding-bottom:0">
+        <div class="alert info mb0" style="margin-bottom:12px">
+          <i data-i="link"></i>
+          <div><b>A CAPA is not a standalone quality record</b>
+          It attaches to master data and transactions, so the control surfaces automatically wherever the risk lives.</div>
+        </div>
+      </div>
+      <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Linked to</th><th>Reference</th><th>Control required</th><th>Blocks?</th>
+          <th>Shown on</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><span class="bdg p nodot">Product Catalogue</span></td><td class="k">PC-0142, PC-0221</td>
+            <td>100% leak test before FGQC release</td>
+            <td><span class="bdg r nodot">Dispatch</span></td><td>Sales order, FGQC, Delivery note</td>
+            <td><span class="bdg w">Active</span></td></tr>
+          <tr><td><span class="bdg p nodot">Machine</span></td><td class="k">CM-01</td>
+            <td>Cavity 5 clamp pressure 140&ndash;150 bar, every shift</td>
+            <td><span class="bdg r nodot">Production</span></td><td>Production entry, IPQC</td>
+            <td><span class="bdg w">Active</span></td></tr>
+          <tr><td><span class="bdg p nodot">Operation</span></td><td class="k">40 &mdash; Shoulder moulding</td>
+            <td>Cavity-wise rejection logging mandatory</td>
+            <td><span class="bdg n nodot">No</span></td><td>Production entry</td>
+            <td><span class="bdg w">Active</span></td></tr>
+          <tr><td><span class="bdg p nodot">QC parameter</span></td><td class="k">Leak test</td>
+            <td>Sampling changed from 10 per lot to 100%</td>
+            <td><span class="bdg r nodot">FGQC</span></td><td>FGQC, COA</td>
+            <td><span class="bdg w">Active</span></td></tr>
+          <tr><td><span class="bdg p nodot">Material</span></td><td class="k">ITM-2011 &mdash; HDPE granule</td>
+            <td>MFI to be verified on every incoming batch</td>
+            <td><span class="bdg n nodot">No</span></td><td>RMQC</td>
+            <td><span class="bdg w">Active</span></td></tr>
+          <tr><td><span class="bdg p nodot">Routing</span></td><td class="k">PC-0142 routing</td>
+            <td>Leak test step made mandatory, cannot be skipped</td>
+            <td><span class="bdg r nodot">Packing</span></td><td>Job card, Packing</td>
+            <td><span class="bdg w">Active</span></td></tr>
+        </tbody>
+      </table>
+      </div></div>
+    </div>
+
+    <!-- ACTION PLAN -->
+    <div class="tabpane" id="c3"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>#</th><th>Action</th><th>Type</th><th>Responsible</th>
+          <th>Target</th><th>Completed</th><th>Evidence</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><b>Recall and 100% leak test of batch FG-LT26-0142-C</b></td>
+            <td><span class="bdg o nodot">Correction</span></td><td>QA Head</td>
+            <td>22 Aug 26</td><td>22 Aug 26</td><td><span class="bdg g nodot">Attached</span></td>
+            <td><span class="bdg g">Done</span></td></tr>
+          <tr><td>2</td><td><b>Clean hydraulic line and replace pressure sensor on cavity 5</b></td>
+            <td><span class="bdg b nodot">Corrective</span></td><td>Maintenance</td>
+            <td>26 Aug 26</td><td>25 Aug 26</td><td><span class="bdg g nodot">Attached</span></td>
+            <td><span class="bdg g">Done</span></td></tr>
+          <tr><td>3</td><td><b>Add clamp pressure check to IPQC plan, operation 40</b></td>
+            <td><span class="bdg t nodot">Preventive</span></td><td>QA Head</td>
+            <td>30 Aug 26</td><td>28 Aug 26</td><td><span class="bdg g nodot">Attached</span></td>
+            <td><span class="bdg g">Done</span></td></tr>
+          <tr><td>4</td><td><b>Revise Product Catalogue to rev C &mdash; 100% leak test</b></td>
+            <td><span class="bdg t nodot">Preventive</span></td><td>QA Head</td>
+            <td>01 Sep 26</td><td>01 Aug 26</td><td><span class="bdg g nodot">Attached</span></td>
+            <td><span class="bdg g">Done</span></td></tr>
+          <tr><td>5</td><td><b>Change CM-01 hydraulic PM from quarterly to monthly</b></td>
+            <td><span class="bdg t nodot">Preventive</span></td><td>Maintenance</td>
+            <td>30 Sep 26</td><td class="mut">&mdash;</td><td><span class="bdg w nodot">Pending</span></td>
+            <td><span class="bdg w">In progress</span></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <!-- EFFECTIVENESS -->
+    <div class="tabpane" id="c4"><div class="card-b">
+      <div class="split even">
+        <div>
+          <div class="sec-t" style="border:0;margin:0 0 9px">Criterion</div>
+          <p style="margin:0 0 14px;font-size:12.5px;color:rgb(var(--fg-muted))">
+            Zero leakage complaints and leak-test rejection below 0.1% across three consecutive batches.</p>
+          <table class="tbl dense" style="border:1px solid rgb(var(--bd-default));border-radius:8px">
+            <thead><tr><th>Batch</th><th>Product</th><th class="num">Leak rejection</th><th>Complaints</th><th>Result</th></tr></thead>
+            <tbody>
+              <tr><td class="k">FG-LT26-0186-B</td><td>PC-0142</td><td class="num mono">0.061%</td>
+                <td>Nil</td><td><span class="bdg g">Met</span></td></tr>
+              <tr><td class="k">FG-LT26-0201-A</td><td>PC-0221</td><td class="num mono">0.043%</td>
+                <td>Nil</td><td><span class="bdg g">Met</span></td></tr>
+              <tr><td class="k">FG-LT26-0188-A</td><td>PC-0142</td><td class="num mono">&mdash;</td>
+                <td class="mut">FGQC pending</td><td><span class="bdg w">Awaited</span></td></tr>
+            </tbody>
+          </table>
+          <div class="alert warn" style="margin-top:14px;margin-bottom:0">
+            <i data-i="alertTri"></i>
+            <div>Two of three batches have met the criterion. The CAPA cannot be closed until the third batch clears FGQC.</div>
+          </div>
+        </div>
+        <div>
+          <div class="sec-t" style="border:0;margin:0 0 9px">Cost of poor quality</div>
+          <table class="tbl dense" style="border:1px solid rgb(var(--bd-default));border-radius:8px">
+            <tbody>
+              <tr><td>Scrapped tubes</td><td class="num mono">1,042 pcs</td></tr>
+              <tr><td>Scrap value</td><td class="num mono">₹ 3,234</td></tr>
+              <tr><td>Recall &amp; retest labour</td><td class="num mono">₹ 18,400</td></tr>
+              <tr><td>Machine downtime</td><td class="num mono">₹ 10,582</td></tr>
+              <tr><td>Extra rejection at cavity 5</td><td class="num mono">₹ 7,888</td></tr>
+              <tr><td>Maintenance &amp; sensor</td><td class="num mono">₹ 24,000</td></tr>
+            </tbody>
+            <tfoot><tr><td>Total COPQ</td><td class="num mono">₹ 64,104</td></tr></tfoot>
+          </table>
+          <div class="hr"></div>
+          <div class="fld"><label>Verification remark</label>
+            <textarea class="inp" rows="3" placeholder="Record the effectiveness verification here before closing…"></textarea></div>
+        </div>
+      </div>
+    </div></div>
+
+    <!-- REGISTER -->
+    <div class="tabpane" id="c5"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>CAPA no.</th><th>Raised</th><th>Source</th><th>Issue</th><th>Owner</th>
+          <th>Target</th><th>Blocks</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="k">CAPA-2026-014</td><td>20 Aug 26</td><td class="mut">CMP/26-0031</td>
+            <td>Shoulder leakage &mdash; cavity 5 clamp pressure</td><td>Production Head</td>
+            <td>30 Sep 26</td><td><span class="bdg r nodot">Production + Dispatch</span></td>
+            <td><span class="bdg r">Open</span></td></tr>
+          <tr><td class="k">CAPA-2026-009</td><td>04 Jun 26</td><td class="mut">CMP/26-0018</td>
+            <td>Print shade variation &mdash; Monarch Print ink lot</td><td>QA Head</td>
+            <td>30 Jun 26</td><td><span class="bdg n nodot">No</span></td>
+            <td><span class="bdg g">Closed &mdash; effective</span></td></tr>
+          <tr><td class="k">CAPA-2025-061</td><td>29 Dec 25</td><td class="mut">CMP/25-0104</td>
+            <td>Cap thread loose &mdash; supplier mould wear</td><td>Purchase Head</td>
+            <td>31 Jan 26</td><td><span class="bdg n nodot">No</span></td>
+            <td><span class="bdg g">Closed &mdash; effective</span></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

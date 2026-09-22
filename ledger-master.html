@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer / Vendor · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Product / Engineering</b> / Customer &amp; Vendor Master</div>
+      <h1>Customer &amp; Vendor Master</h1>
+      <p>Includes Monarch Print Pvt. Ltd. — the printing partner, a separate company with its own GST</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri"><i data-i="plus"></i>New Party</button>
+    </div>
+  </div>
+
+  <div class="card mb0">
+    <div class="tabs">
+      <button class="tab on" data-pane="l1">Customers <span class="cnt">7</span></button>
+      <button class="tab" data-pane="l2">Suppliers <span class="cnt">6</span></button>
+      <button class="tab" data-pane="l3">Printing partner <span class="cnt">1</span></button>
+    </div>
+
+    <div class="tabpane on" id="l1"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Code</th><th>Customer</th><th>GSTIN</th><th>State</th><th>Payment terms</th>
+          <th class="num">Credit limit</th><th class="num">Outstanding</th><th class="num">Open orders</th>
+          <th class="num">Complaints (12m)</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="k">CUS-001</td><td><b>Cipla Ltd.</b><div class="mut">Goa &amp; Sikkim plants</div></td>
+            <td class="mono">27AAACC1234A1ZQ</td><td>Maharashtra</td><td>45 days</td>
+            <td class="num mono">50.00 L</td><td class="num mono">31.20 L</td><td class="num">4</td>
+            <td class="num">2</td><td><span class="bdg g">Active</span></td></tr>
+          <tr><td class="k">CUS-002</td><td><b>Sun Pharmaceutical Industries</b></td>
+            <td class="mono">24AAACS1234B1ZR</td><td>Gujarat</td><td>60 days</td>
+            <td class="num mono">75.00 L</td><td class="num mono">42.80 L</td><td class="num">3</td>
+            <td class="num">1</td><td><span class="bdg g">Active</span></td></tr>
+          <tr><td class="k">CUS-003</td><td><b>Mankind Pharma Ltd.</b></td>
+            <td class="mono">07AAACM1234C1ZS</td><td>Delhi</td><td>45 days</td>
+            <td class="num mono">60.00 L</td><td class="num mono">18.40 L</td><td class="num">2</td>
+            <td class="num">0</td><td><span class="bdg g">Active</span></td></tr>
+          <tr><td class="k">CUS-004</td><td><b>Zydus Wellness Ltd.</b></td>
+            <td class="mono">24AAACZ1234D1ZT</td><td>Gujarat</td><td>30 days</td>
+            <td class="num mono">40.00 L</td><td class="num mono">9.60 L</td><td class="num">1</td>
+            <td class="num">0</td><td><span class="bdg g">Active</span></td></tr>
+          <tr><td class="k">CUS-005</td><td><b>Torrent Pharmaceuticals</b></td>
+            <td class="mono">24AAACT1234E1ZU</td><td>Gujarat</td><td>45 days</td>
+            <td class="num mono">35.00 L</td><td class="num mono">14.20 L</td><td class="num">2</td>
+            <td class="num">1</td><td><span class="bdg g">Active</span></td></tr>
+          <tr><td class="k">CUS-006</td><td><b>Glenmark Pharmaceuticals</b></td>
+            <td class="mono">27AAACG1234H1ZP</td><td>Maharashtra</td><td>45 days</td>
+            <td class="num mono">40.00 L</td><td class="num mono">12.40 L</td><td class="num">1</td>
+            <td class="num">0</td><td><span class="bdg g">Active</span></td></tr>
+          <tr><td class="k">CUS-007</td><td><b>Alkem Laboratories Ltd.</b><div class="mut">New &mdash; enquiry stage</div></td>
+            <td class="mono">27AAACA1234J1ZW</td><td>Maharashtra</td><td>&mdash;</td>
+            <td class="num mono">&mdash;</td><td class="num mono">0.00</td><td class="num">0</td>
+            <td class="num">0</td><td><span class="bdg b">Prospect</span></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <div class="tabpane" id="l2"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Code</th><th>Supplier</th><th>Supplies</th><th>GSTIN</th><th>Payment terms</th>
+          <th class="num">On-time %</th><th class="num">RMQC rejection %</th><th>Rating</th>
+          <th class="num">Outstanding</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="k">SUP-001</td><td><b>Essel Propack Ltd.</b></td><td>ABL laminate</td>
+            <td class="mono">27AAACE1234F1ZV</td><td>30 days</td>
+            <td class="num">94</td><td class="num">1.8</td><td><span class="bdg g nodot">A</span></td>
+            <td class="num mono">4.82 L</td><td><span class="bdg g">Approved</span></td></tr>
+          <tr><td class="k">SUP-002</td><td><b>Reliance Polymers</b></td><td>HDPE granule</td>
+            <td class="mono">24AAACR1234G1ZW</td><td>45 days</td>
+            <td class="num">89</td><td class="num">3.2</td><td><span class="bdg w nodot">B</span></td>
+            <td class="num mono">2.24 L</td><td><span class="bdg g">Approved</span></td></tr>
+          <tr><td class="k">SUP-003</td><td><b>Sanjay Polymers</b></td><td>Caps &amp; rims &mdash; bought-out</td>
+            <td class="mono">02AAACS1234H1ZX</td><td>30 days</td>
+            <td class="num">96</td><td class="num">0.9</td><td><span class="bdg g nodot">A</span></td>
+            <td class="num mono">1.18 L</td><td><span class="bdg g">Approved</span></td></tr>
+          <tr><td class="k">SUP-004</td><td><b>Plastiblends India Ltd.</b></td><td>Masterbatch</td>
+            <td class="mono">27AAACP1234J1ZY</td><td>30 days</td>
+            <td class="num">92</td><td class="num">2.1</td><td><span class="bdg g nodot">A</span></td>
+            <td class="num mono">0.42 L</td><td><span class="bdg g">Approved</span></td></tr>
+          <tr><td class="k">SUP-005</td><td><b>Shakti Packaging</b></td><td>Cartons &amp; inner boxes</td>
+            <td class="mono">02AAACS9876K1ZZ</td><td>30 days</td>
+            <td class="num">88</td><td class="num">0.0</td><td><span class="bdg w nodot">B</span></td>
+            <td class="num mono">0.17 L</td><td><span class="bdg g">Approved</span></td></tr>
+          <tr><td class="k">SUP-006</td><td><b>Precision Moulders Pvt. Ltd.</b><div class="mut">Shoulder moulding &mdash; overflow job work</div></td>
+            <td>Job work &mdash; moulding</td>
+            <td class="mono">02AAACP5555L1ZA</td><td>30 days</td>
+            <td class="num">85</td><td class="num">4.0</td><td><span class="bdg w nodot">B</span></td>
+            <td class="num mono">0.00</td><td><span class="bdg b">Standby</span></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <div class="tabpane" id="l3">
+      <div class="card-b" style="padding-bottom:0">
+        <div class="alert warn mb0" style="margin-bottom:12px">
+          <i data-i="send"></i>
+          <div><b>Monarch Print is a separate legal entity with its own GST</b>
+          Material movement to and from Monarch Print is documented on a delivery challan for job work, and the printing charge comes back as a job work invoice. It is still modelled as an operation inside the work order, not as a purchase.</div>
+        </div>
+      </div>
+      <div class="card-b">
+        <div class="fgrid c4">
+          <div class="fld"><label>Party code</label><input class="inp ro" value="ICO-001" readonly></div>
+          <div class="fld span2"><label>Legal name</label><input class="inp ro" value="Monarch Print Pvt. Ltd. — Monarch Print" readonly></div>
+          <div class="fld"><label>Relationship</label><select class="inp"><option>Outsourced — same ownership</option></select></div>
+          <div class="fld"><label>GSTIN</label><input class="inp ro" value="02AAFCM8842R1ZK" readonly></div>
+          <div class="fld"><label>State</label><input class="inp ro" value="Himachal Pradesh" readonly></div>
+          <div class="fld"><label>Distance from plant</label><input class="inp ro" value="14 km" readonly></div>
+          <div class="fld"><label>Document type</label><select class="inp"><option>Delivery Challan — job work</option><option>Tax Invoice — outright</option></select></div>
+
+          <div class="sec-t">Services &amp; rates</div>
+          <div class="fld"><label>Printing &mdash; offset</label><input class="inp" value="0.2100 / pc"></div>
+          <div class="fld"><label>Printing &mdash; flexo</label><input class="inp" value="0.1850 / pc"></div>
+          <div class="fld"><label>Allowed wastage</label><input class="inp" value="2.0 %"></div>
+          <div class="fld"><label>Standard turnaround</label><input class="inp" value="5 days"></div>
+
+          <div class="sec-t">Performance</div>
+          <div class="fld"><label>On-time return %</label><input class="inp ro" value="82" readonly></div>
+          <div class="fld"><label>Actual wastage %</label><input class="inp ro" value="2.8" readonly></div>
+          <div class="fld"><label>Printing QC rejection %</label><input class="inp ro" value="1.2" readonly></div>
+          <div class="fld"><label>Open challans</label><input class="inp ro" value="3 — 1,917 kg out" readonly></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

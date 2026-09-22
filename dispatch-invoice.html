@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dispatch &amp; Invoice · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Dispatch</b> / Dispatch &amp; Invoice</div>
+      <h1>Tax Invoice &mdash; INV/26-0514</h1>
+      <p>Against DN/26-0342 &middot; Glenmark Pharma &middot; 23 Sep 2026</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg g">Ready to post</span>
+      <button class="btn"><i data-i="printer"></i>Print invoice</button>
+      <button class="btn"><i data-i="file"></i>e-Invoice / IRN</button>
+      <button class="btn pri"><i data-i="check2"></i>Post &amp; dispatch</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Invoice no.</label><input class="inp ro" value="INV/26-0514" readonly></div>
+        <div class="fld"><label>Invoice date</label><input class="inp" type="date" value="2026-09-23"></div>
+        <div class="fld"><label>Against DN</label><select class="inp"><option>DN/26-0342 — Glenmark</option></select></div>
+        <div class="fld"><label>Sales order</label><input class="inp ro" value="SO/26-0201" readonly></div>
+        <div class="fld span2"><label>Bill to</label>
+          <input class="inp" value="Glenmark Pharmaceuticals Ltd., Mumbai — 400099"></div>
+        <div class="fld"><label>GSTIN</label><input class="inp ro" value="27AAACG1234H1ZP" readonly></div>
+        <div class="fld"><label>Place of supply</label><select class="inp"><option>Himachal Pradesh (02)</option><option>Maharashtra (27)</option></select></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Invoice lines</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>#</th><th>Description</th><th>HSN</th><th>Batch</th>
+              <th class="num">Qty</th><th class="num">Rate</th><th class="num">Taxable</th>
+              <th class="num">GST %</th><th class="num">Amount</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><b>Laminated tube LT 25&times;140 &mdash; Cream</b>
+                  <div class="mut">PC-0221 rev A · 4-colour · flip-top cap</div></td>
+                <td>39235010</td><td class="k">FG-LT26-0201-A</td>
+                <td class="num">2,01,114</td><td class="num mono">3.1400</td>
+                <td class="num mono">6,31,498</td><td class="num">18</td>
+                <td class="num mono">7,45,168</td></tr>
+              <tr><td>2</td><td><b>Freight</b><div class="mut">To pay &mdash; recovered</div></td>
+                <td>996511</td><td class="mut">&mdash;</td>
+                <td class="num">1</td><td class="num mono">12,000</td>
+                <td class="num mono">12,000</td><td class="num">18</td>
+                <td class="num mono">14,160</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="6">Taxable value</td><td class="num mono">6,43,498</td>
+              <td></td><td class="num mono">7,59,328</td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Dispatch confirmation</h2></div>
+        <div class="card-b">
+          <div class="fgrid c4">
+            <div class="fld"><label>Gate out no.</label><input class="inp" value="GO/26-0788"></div>
+            <div class="fld"><label>Gate out time</label><input class="inp" type="datetime-local" value="2026-09-23T16:20"></div>
+            <div class="fld"><label>Vehicle</label><input class="inp ro" value="HP-12-D-8841" readonly></div>
+            <div class="fld"><label>Driver</label><input class="inp" value="Suresh Kumar"></div>
+            <div class="fld"><label>Cartons loaded</label><input class="inp" value="101"></div>
+            <div class="fld"><label>Weighbridge gross (kg)</label><input class="inp" value="5,420"></div>
+            <div class="fld"><label>Tare (kg)</label><input class="inp" value="4,434"></div>
+            <div class="fld"><label>Net (kg)</label><input class="inp ro" value="986" readonly></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Invoice register</h2></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Invoice</th><th>Date</th><th>Customer</th><th>DN</th>
+              <th class="num">Taxable</th><th class="num">Total</th><th>IRN</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">INV/26-0512</td><td>20 Sep</td><td>Mankind Pharma</td><td class="mut">DN/26-0338</td>
+                <td class="num mono">5,04,000</td><td class="num mono">5,94,720</td>
+                <td><span class="bdg g nodot">Generated</span></td><td><span class="bdg g">Posted</span></td></tr>
+              <tr><td class="k">INV/26-0509</td><td>18 Sep</td><td>Sun Pharma</td><td class="mut">DN/26-0335</td>
+                <td class="num mono">8,20,800</td><td class="num mono">9,68,544</td>
+                <td><span class="bdg g nodot">Generated</span></td><td><span class="bdg g">Posted</span></td></tr>
+              <tr><td class="k">INV/26-0506</td><td>15 Sep</td><td>Torrent Pharma</td><td class="mut">DN/26-0331</td>
+                <td class="num mono">3,42,000</td><td class="num mono">4,03,560</td>
+                <td><span class="bdg g nodot">Generated</span></td><td><span class="bdg g">Posted</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Invoice value</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Taxable value</dt><dd class="right mono">₹ 6,43,498</dd>
+            <dt>IGST @ 18%</dt><dd class="right mono">₹ 1,15,830</dd>
+            <dt>Round off</dt><dd class="right mono">₹ 0</dd>
+          </dl>
+          <div class="hr"></div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:12px;color:rgb(var(--fg-subtle))">Invoice total</span>
+            <b style="margin-left:auto;font-size:20px" class="mono">₹ 7,59,328</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Customer account</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Credit limit</dt><dd class="right mono">₹ 40.00 L</dd>
+            <dt>Outstanding</dt><dd class="right mono">₹ 12.40 L</dd>
+            <dt>This invoice</dt><dd class="right mono">₹ 7.59 L</dd>
+            <dt>After posting</dt><dd class="right mono">₹ 19.99 L</dd>
+            <dt>Status</dt><dd class="right"><span class="bdg g nodot">Within limit</span></dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Post-dispatch</h2></div>
+        <div class="card-b">
+          <p class="muted" style="margin:0 0 10px;font-size:12.5px">
+            Posting the invoice closes the delivery lot, updates FG stock and triggers actual costing for PWO/26-0201.</p>
+          <a class="btn" style="width:100%;justify-content:center" href="actual-costing.html">
+            <i data-i="rupee"></i>Open Actual Costing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

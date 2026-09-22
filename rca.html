@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RCA · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Complaint / CAPA</b> / RCA</div>
+      <h1>Root Cause Analysis &mdash; RCA/26-0031</h1>
+      <p>From CMP/26-0034 &middot; Sun Pharma &middot; print shade variation</p>
+    </div>
+    <div class="ph-r">
+      <span class="bdg b">In progress</span>
+      <button class="btn"><i data-i="printer"></i>RCA report</button>
+      <button class="btn pri"><i data-i="wrench"></i>Raise CAPA</button>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Problem definition</h2></div>
+        <div class="card-b">
+          <div class="fgrid c4">
+            <div class="fld span2"><label>Problem statement</label>
+              <textarea class="inp" rows="2">Print shade on the brand panel is visibly lighter in cartons 41–68 of batch FG-LT26-0184-A, against the customer-approved standard.</textarea></div>
+            <div class="fld"><label>Detected at</label><select class="inp"><option>Customer end</option><option>FGQC</option><option>IPQC</option></select></div>
+            <div class="fld"><label>Escape point</label><select class="inp"><option>FGQC sampling</option><option>IPQC at printing</option></select></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>5-Why analysis</h2>
+          <div class="r"><button class="btn sm"><i data-i="plus"></i>Add why</button></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th style="width:52px">Level</th><th>Question</th><th>Answer</th><th>Evidence</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Why 1</td><td>Why was the shade lighter?</td>
+                <td>Ink film thickness on the brand panel dropped mid-run at Monarch Print</td>
+                <td class="mut">Densitometer log — Monarch Print</td></tr>
+              <tr><td class="k">Why 2</td><td>Why did film thickness drop?</td>
+                <td>Ink viscosity rose as the batch ran, and was thinned without re-standardising</td>
+                <td class="mut">Viscosity log</td></tr>
+              <tr><td class="k">Why 3</td><td>Why was it not re-standardised?</td>
+                <td>Monarch Print operator adjusted on visual judgement, no &Delta;E measurement taken</td>
+                <td class="mut">Operator statement</td></tr>
+              <tr><td class="k">Why 4</td><td>Why was no &Delta;E measurement taken?</td>
+                <td>Monarch Print's IPQC frequency of every 1000 m was not being followed for long runs</td>
+                <td class="mut">IPQ/26-0879 — deviation</td></tr>
+              <tr><td class="k">Why 5</td><td>Why was the lapse not caught by us?</td>
+                <td>FGQC samples 10 pcs per lot, all drawn from the first cartons, so the mid-run drift was missed</td>
+                <td class="mut">FGQ/26-0298 sampling plan</td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Cause categories checked</h2>
+          <span class="sub">fishbone &mdash; 6M</span></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Category</th><th>Possible cause</th><th>Checked</th><th>Finding</th><th>Contributing?</th></tr></thead>
+            <tbody>
+              <tr><td><b>Man</b></td><td>Operator judged shade visually</td><td>Yes</td>
+                <td>Confirmed &mdash; no instrument used</td><td><span class="bdg r nodot">Yes</span></td></tr>
+              <tr><td><b>Method</b></td><td>IPQC frequency not followed on long runs</td><td>Yes</td>
+                <td>Confirmed &mdash; 1 reading in 4,200 m</td><td><span class="bdg r nodot">Yes</span></td></tr>
+              <tr><td><b>Method</b></td><td>FGQC sampling not spread across the lot</td><td>Yes</td>
+                <td>Confirmed &mdash; all samples from first cartons</td><td><span class="bdg r nodot">Yes</span></td></tr>
+              <tr><td><b>Material</b></td><td>Ink lot change mid-run</td><td>Yes</td>
+                <td>Same lot throughout</td><td><span class="bdg n nodot">No</span></td></tr>
+              <tr><td><b>Material</b></td><td>Laminate surface treatment variation</td><td>Yes</td>
+                <td>Dyne level within spec on both rolls</td><td><span class="bdg n nodot">No</span></td></tr>
+              <tr><td><b>Machine</b></td><td>Anilox roll wear</td><td>Yes</td>
+                <td>Cell volume within tolerance</td><td><span class="bdg n nodot">No</span></td></tr>
+              <tr><td><b>Measurement</b></td><td>Spectrophotometer calibration</td><td>Yes</td>
+                <td>Calibrated 04 Sep, valid</td><td><span class="bdg n nodot">No</span></td></tr>
+              <tr><td><b>Environment</b></td><td>Humidity variation at Monarch Print</td><td>Yes</td>
+                <td>Within range</td><td><span class="bdg n nodot">No</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Conclusion</h2></div>
+        <div class="card-b">
+          <div class="fgrid c2">
+            <div class="fld span2"><label>Root cause</label>
+              <textarea class="inp" rows="2">Monarch Print's printing IPQC frequency was not enforced on long runs, so mid-run ink viscosity drift went undetected. Our FGQC sampling plan drew all samples from the first cartons, so the escape was not caught before dispatch.</textarea></div>
+            <div class="fld"><label>Cause type</label><select class="inp"><option>Systemic — process control</option><option>One-off</option><option>Supplier</option></select></div>
+            <div class="fld"><label>Recurrence</label><select class="inp"><option>Yes — similar to CMP/26-0018</option><option>First occurrence</option></select></div>
+            <div class="fld span2"><label>Recommended actions for CAPA</label>
+              <textarea class="inp" rows="2">1. Make &Delta;E reading mandatory every 1000 m at Monarch Print with a signed log returned with each challan. 2. Change our FGQC sampling to stratified — samples drawn from start, middle and end cartons. 3. Add shade drift to the printing receipt checklist.</textarea></div>
+          </div>
+          <div class="hr"></div>
+          <div style="display:flex;gap:8px;justify-content:flex-end">
+            <button class="btn"><i data-i="save"></i>Save draft</button>
+            <button class="btn pri"><i data-i="wrench"></i>Raise CAPA from this RCA</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Investigation team</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td>QA Head</td><td class="num mut">Lead</td></tr>
+              <tr><td>Production Head</td><td class="num mut">Member</td></tr>
+              <tr><td>Monarch Print &mdash; QC in-charge</td><td class="num mut">External</td></tr>
+              <tr><td>Sales account manager</td><td class="num mut">Customer liaison</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Timeline</h2></div>
+        <div class="card-b">
+          <div class="steps" style="flex-direction:column;align-items:flex-start;gap:9px">
+            <div class="step done"><span class="b"><i data-i="check2"></i></span><span>Complaint logged &mdash; 21 Sep</span></div>
+            <div class="step done"><span class="b"><i data-i="check2"></i></span><span>Samples called back &mdash; 21 Sep</span></div>
+            <div class="step done"><span class="b"><i data-i="check2"></i></span><span>Retention sample tested &mdash; 22 Sep</span></div>
+            <div class="step now"><span class="b">4</span><span>RCA in progress</span></div>
+            <div class="step"><span class="b">5</span><span>CAPA to be raised</span></div>
+            <div class="step"><span class="b">6</span><span>Report to customer</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Related history</h2></div>
+        <div class="card-b p0">
+          <table class="tbl dense">
+            <tbody>
+              <tr><td><b class="k">CMP/26-0018</b><div class="mut">Print shade variation &mdash; Jun 26</div></td>
+                <td class="num"><span class="bdg g nodot">Closed</span></td></tr>
+              <tr><td><b class="k">CAPA-2026-009</b><div class="mut">Ink lot intimation from Monarch Print</div></td>
+                <td class="num"><span class="bdg w nodot">Recurrence</span></td></tr>
+            </tbody>
+          </table>
+          <div class="card-b" style="padding:11px 14px 0">
+            <div class="alert warn mb0" style="margin-bottom:12px;padding:8px 10px;font-size:12px">
+              <i data-i="alertTri"></i>
+              <div>Second shade complaint in four months. Previous CAPA may not have been effective.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

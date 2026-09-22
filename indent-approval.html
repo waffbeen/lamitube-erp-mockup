@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indent Approval · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / Indent Approval</div>
+      <h1>Indent Approval</h1>
+      <p>Indents are raised automatically by the work order &mdash; the purchase order stays blocked until approval</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn dgr"><i data-i="x"></i>Reject selected</button>
+      <button class="btn ok"><i data-i="check2"></i>Approve selected</button>
+    </div>
+  </div>
+
+  <div class="alert info">
+    <i data-i="link"></i>
+    <div><b>Indent &rarr; approval &rarr; purchase order</b>
+    The work order raises the indent under its own authority. Purchase cannot create a PO against any line that is still pending or rejected.</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-w"><div class="lbl">Pending approval</div><div class="val">7</div><div class="dlt">₹ 18.4 L value</div></div>
+    <div class="stat acc-s"><div class="lbl">Approved today</div><div class="val">4</div></div>
+    <div class="stat acc-e"><div class="lbl">Rejected</div><div class="val">1</div></div>
+    <div class="stat acc-p"><div class="lbl">Converted to PO</div><div class="val">12</div></div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>Indent no.</label><input class="inp" placeholder="IND/26-…"></div>
+    <div class="fld"><label>Work order</label><select class="inp"><option>All</option><option>PWO/26-0202</option><option>PWO/26-0197</option><option>PWO/26-0199</option></select></div>
+    <div class="fld"><label>Item type</label><select class="inp"><option>All</option><option>Raw material</option><option>Bought-out</option><option>Packing</option></select></div>
+    <div class="fld w-sm"><label>Status</label><select class="inp"><option>Pending</option><option>Approved</option><option>Rejected</option><option>All</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>IND/26-0314</h2>
+      <span class="sub">raised by PWO/26-0202 &middot; 22 Sep 2026 &middot; Cipla order</span>
+      <div class="r"><span class="bdg b nodot">Auto &mdash; PWO authority</span><span class="bdg w">Pending</span></div></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr>
+          <th style="width:34px"><input type="checkbox" checked></th>
+          <th>Item</th><th>Type</th><th>UoM</th><th class="num">Indent qty</th>
+          <th class="num">Free stock</th><th class="num">Last rate</th><th class="num">Value</th>
+          <th>Required by</th><th>Suggested supplier</th><th class="ctr">Decision</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" checked></td>
+            <td><b>ABL Laminate PE/EVOH/PE 250&micro;</b><div class="mut">ITM-1004 · web 620 mm</div></td>
+            <td><span class="bdg b">RM</span></td><td>kg</td><td class="num">170.00</td>
+            <td class="num">620.00</td><td class="num mono">248.00</td><td class="num mono">42,160</td>
+            <td>28 Sep 26</td><td>Essel Propack Ltd.</td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button></td></tr>
+          <tr><td><input type="checkbox" checked></td>
+            <td><b>Flip-top cap 11 mm &mdash; white</b><div class="mut">ITM-3001 · ready-made purchase</div></td>
+            <td><span class="bdg t">Bought-out</span></td><td>pcs</td><td class="num">1,15,000</td>
+            <td class="num">40,000</td><td class="num mono">0.48</td><td class="num mono">55,200</td>
+            <td>05 Oct 26</td><td>Sanjay Polymers</td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button></td></tr>
+          <tr><td><input type="checkbox" checked></td>
+            <td><b>Inner box + carton</b><div class="mut">ITM-4002 · 100 pcs / box</div></td>
+            <td><span class="bdg p">Packing</span></td><td>set</td><td class="num">1,100</td>
+            <td class="num">600</td><td class="num mono">5.80</td><td class="num mono">6,380</td>
+            <td>10 Oct 26</td><td>Shakti Packaging</td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button></td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="7">Indent value</td><td class="num mono">1,03,740</td><td colspan="3"></td></tr></tfoot>
+      </table>
+    </div></div>
+    <div class="card-b" style="border-top:1px solid rgb(var(--bd-subtle))">
+      <div class="split even">
+        <div class="fld"><label>Approval remark</label>
+          <textarea class="inp" rows="2" placeholder="Rate to be negotiated, release in two lots…"></textarea></div>
+        <div style="display:flex;gap:8px;align-items:flex-end;justify-content:flex-end">
+          <button class="btn">Hold</button>
+          <button class="btn dgr"><i data-i="x"></i>Reject indent</button>
+          <button class="btn ok"><i data-i="check2"></i>Approve &amp; unlock PO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb0">
+    <div class="card-h"><h2>Other pending indents</h2><span class="sub">4 more</span></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl dense">
+        <thead><tr><th>Indent no.</th><th>Work order</th><th>Raised on</th><th class="num">Lines</th>
+          <th class="num">Value</th><th>Required by</th><th>Status</th><th class="ctr">Action</th></tr></thead>
+        <tbody>
+          <tr><td class="k">IND/26-0313</td><td>PWO/26-0197</td><td>21 Sep 26</td><td class="num">5</td>
+            <td class="num mono">6,84,200</td><td>29 Sep 26</td><td><span class="bdg w">Pending</span></td>
+            <td class="ctr"><button class="btn sm">Open</button></td></tr>
+          <tr><td class="k">IND/26-0312</td><td>PWO/26-0199</td><td>20 Sep 26</td><td class="num">3</td>
+            <td class="num mono">2,18,400</td><td>02 Oct 26</td><td><span class="bdg w">Pending</span></td>
+            <td class="ctr"><button class="btn sm">Open</button></td></tr>
+          <tr><td class="k">IND/26-0311</td><td>PWO/26-0194</td><td>18 Sep 26</td><td class="num">2</td>
+            <td class="num mono">94,600</td><td>26 Sep 26</td><td><span class="bdg g">Approved</span></td>
+            <td class="ctr"><a class="btn sm" href="purchase-order.html">Make PO</a></td></tr>
+          <tr><td class="k">IND/26-0309</td><td>PWO/26-0191</td><td>15 Sep 26</td><td class="num">4</td>
+            <td class="num mono">3,42,800</td><td>24 Sep 26</td><td><span class="bdg r">Rejected</span></td>
+            <td class="ctr"><button class="btn sm">View</button></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Printing — Send · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Manufacturing</b> / Printing &mdash; Send to Monarch Print</div>
+      <h1>Outsourcing Challan</h1>
+      <p>Operation 20 of PWO/26-0202 &middot; material moves to Monarch Print, ownership stays with A</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="printer"></i>Print challan</button>
+      <button class="btn"><i data-i="save"></i>Save draft</button>
+      <button class="btn pri"><i data-i="send"></i>Issue &amp; send</button>
+    </div>
+  </div>
+
+  <div class="alert info">
+    <i data-i="send"></i>
+    <div><b>This is an operation inside the work order, not a purchase</b>
+    Monarch Print has a separate GST, so the movement is documented as a delivery challan for job work. Material remains on Indus Tubes's books until the printed stock returns.</div>
+  </div>
+
+  <div class="alert info">
+    <i data-i="zap"></i>
+    <div><b>Once issued, this challan is matched to Monarch Print&rsquo;s job automatically</b>
+    Their software picks up the challan number, and press progress, output and QC readings flow back here without anyone re-typing them.</div>
+    <a class="btn sm" href="integration.html">Sync detail</a>
+  </div>
+
+  <div class="card">
+    <div class="card-b">
+      <div class="fgrid c4">
+        <div class="fld"><label>Challan no.</label><input class="inp ro" value="ICP/26-0077" readonly></div>
+        <div class="fld"><label>Challan date</label><input class="inp" type="date" value="2026-09-26"></div>
+        <div class="fld"><label>Work order <span class="req">*</span></label>
+          <select class="inp"><option>PWO/26-0202 — Cipla — LT 19×100</option><option>PWO/26-0197 — Zydus — LT 30×150</option></select></div>
+        <div class="fld"><label>Operation</label><input class="inp ro" value="20 — Printing (4-colour offset)" readonly></div>
+        <div class="fld"><label>Receiving company <span class="req">*</span></label>
+          <select class="inp"><option>Monarch Print Pvt. Ltd.</option></select></div>
+        <div class="fld"><label>GSTIN &mdash; Monarch Print</label><input class="inp ro" value="02AAFCM8842R1ZK" readonly></div>
+        <div class="fld"><label>Document type</label>
+          <select class="inp"><option>Delivery Challan — job work</option><option>Tax Invoice — outright</option></select></div>
+        <div class="fld"><label>Expected return</label><input class="inp" type="date" value="2026-10-01"></div>
+        <div class="fld"><label>Artwork ref.</label><input class="inp ro" value="AW-2026-0742" readonly></div>
+        <div class="fld"><label>Colours</label><input class="inp ro" value="4" readonly></div>
+        <div class="fld"><label>Vehicle no.</label><input class="inp" value="HP-12-C-4471"></div>
+        <div class="fld"><label>E-way bill no.</label><input class="inp" value="381004297712"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split r1">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Material being sent</h2>
+          <span class="sub">roll-wise, batch traceable</span>
+          <div class="r"><button class="btn sm"><i data-i="plus"></i>Add roll</button></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Roll / batch</th><th>Item</th><th>RMQC</th><th class="num">Gross (kg)</th>
+              <th class="num">Net (kg)</th><th class="num">Length (m)</th><th class="num">Width (mm)</th><th class="ctr"></th></tr></thead>
+            <tbody>
+              <tr><td class="k">ROLL-26-1841</td><td>ABL Laminate 250&micro;</td>
+                <td><span class="bdg g nodot">Passed</span></td><td class="num">212.4</td>
+                <td class="num">208.0</td><td class="num">1,354</td><td class="num">620</td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr><td class="k">ROLL-26-1842</td><td>ABL Laminate 250&micro;</td>
+                <td><span class="bdg g nodot">Passed</span></td><td class="num">214.1</td>
+                <td class="num">210.0</td><td class="num">1,367</td><td class="num">620</td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr><td class="k">ROLL-26-1845</td><td>ABL Laminate 250&micro;</td>
+                <td><span class="bdg g nodot">Passed</span></td><td class="num">209.8</td>
+                <td class="num">206.0</td><td class="num">1,341</td><td class="num">620</td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              <tr><td class="k">ROLL-26-1847</td><td>ABL Laminate 250&micro;</td>
+                <td><span class="bdg g nodot">Passed</span></td><td class="num">171.3</td>
+                <td class="num">168.0</td><td class="num">1,094</td><td class="num">620</td>
+                <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="3">4 rolls</td><td class="num">807.6</td><td class="num">792.0</td>
+              <td class="num">5,156</td><td colspan="2"></td></tr></tfoot>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Open challans at Monarch Print</h2>
+          <div class="r"><a class="btn sm" href="printing-receipt.html">Go to receipt</a></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
+          <table class="tbl dense">
+            <thead><tr><th>Challan</th><th>PWO</th><th>Sent on</th><th class="num">Sent (kg)</th>
+              <th class="num">Received (kg)</th><th class="num">Balance</th><th class="num">Days out</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="k">ICP/26-0074</td><td>PWO/26-0191</td><td>14 Sep 26</td>
+                <td class="num">1,140.0</td><td class="num">0.0</td><td class="num">1,140.0</td>
+                <td class="num">8</td><td><span class="bdg o">Printing</span></td></tr>
+              <tr><td class="k">ICP/26-0076</td><td>PWO/26-0194</td><td>18 Sep 26</td>
+                <td class="num">780.0</td><td class="num">643.0</td><td class="num">137.0</td>
+                <td class="num">4</td><td><span class="bdg w">Partial</span></td></tr>
+              <tr><td class="k">ICP/26-0072</td><td>PWO/26-0186</td><td>02 Sep 26</td>
+                <td class="num">640.0</td><td class="num">0.0</td><td class="num">640.0</td>
+                <td class="num" style="color:rgb(var(--color-error))"><b>20</b></td>
+                <td><span class="bdg r">Overdue</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>Challan summary</h2></div>
+        <div class="card-b">
+          <dl class="kv">
+            <dt>Rolls</dt><dd class="right">4</dd>
+            <dt>Net weight</dt><dd class="right mono">792.0 kg</dd>
+            <dt>Total length</dt><dd class="right mono">5,156 m</dd>
+            <dt>Equivalent tubes</dt><dd class="right mono">1,53,000 pcs</dd>
+          </dl>
+          <div class="hr"></div>
+          <dl class="kv">
+            <dt>Printing rate</dt><dd class="right mono">₹ 0.2100 / pc</dd>
+            <dt>Estimated printing cost</dt><dd class="right mono">₹ 32,130</dd>
+            <dt>Material value (for challan)</dt><dd class="right mono">₹ 1,96,416</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Expected reconciliation</h2></div>
+        <div class="card-b">
+          <p class="muted" style="margin:0 0 10px;font-size:12px">On receipt, the four output heads must add back to the quantity sent.</p>
+          <dl class="kv">
+            <dt>Sent</dt><dd class="right mono"><b>792.0 kg</b></dd>
+            <dt>Expected good</dt><dd class="right mono">776.2 kg</dd>
+            <dt>Allowed wastage 2.0%</dt><dd class="right mono">15.8 kg</dd>
+            <dt>Allowed rejection 0.0%</dt><dd class="right mono">0.0 kg</dd>
+          </dl>
+          <div class="hr"></div>
+          <div class="chip" style="width:100%;justify-content:center;font-size:11.5px">
+            Sent = Good + Rejection + Wastage + Unprocessed
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Checklist before issue</h2></div>
+        <div class="card-b">
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:12.5px">
+            <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" checked> RMQC passed on all rolls</label>
+            <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" checked> Artwork approved by customer</label>
+            <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" checked> Plates ready at Monarch Print</label>
+            <label style="display:flex;gap:8px;align-items:center"><input type="checkbox"> E-way bill generated</label>
+            <label style="display:flex;gap:8px;align-items:center"><input type="checkbox"> Shade standard shared</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

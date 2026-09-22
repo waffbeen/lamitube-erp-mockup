@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reports · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  .rgrid { display:grid; gap:10px; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); }
+  .rcard { border:1px solid rgb(var(--bd-default)); border-radius:8px; padding:11px 13px;
+    background:rgb(var(--bg-surface)); display:flex; gap:10px; align-items:flex-start; cursor:pointer; }
+  .rcard:hover { background:rgb(var(--bg-hover)); border-color:rgb(var(--bd-accent)); }
+  .rcard svg { width:16px; height:16px; color:rgb(var(--color-primary)); flex:0 0 16px; margin-top:2px; stroke-width:2; }
+  .rcard b { display:block; font-size:12.5px; margin-bottom:2px; }
+  .rcard span { font-size:11.5px; color:rgb(var(--fg-subtle)); line-height:1.4; }
+</style>
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Reports</b> / Reports &amp; Dashboards</div>
+      <h1>Reports</h1>
+      <p>Production, inventory, purchase, quality, printing, dispatch and costing</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="cal"></i>Schedule report</button>
+      <button class="btn"><i data-i="down"></i>Export all</button>
+    </div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-09-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Unit</label><select class="inp"><option>Unit 1 — Baddi</option><option>All units</option></select></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply to all</button></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Production</h2></div>
+    <div class="card-b"><div class="rgrid">
+      <div class="rcard"><i data-i="factory"></i><div><b>Daily production report</b><span>Machine and shift-wise output, yield, downtime</span></div></div>
+      <div class="rcard"><i data-i="activity"></i><div><b>Job-wise WIP</b><span>Operation-wise balance across all live jobs</span></div></div>
+      <div class="rcard"><i data-i="cpu"></i><div><b>Machine performance</b><span>Utilisation, OEE, downtime reasons</span></div></div>
+      <div class="rcard"><i data-i="layers"></i><div><b>Cavity-wise rejection</b><span>Moulding rejection split by cavity and defect</span></div></div>
+      <div class="rcard"><i data-i="clip"></i><div><b>Job card vs consumption</b><span>BOM against actual material consumed</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Outsourced printing</h2>
+      <span class="sub">Monarch Print</span></div>
+    <div class="card-b"><div class="rgrid">
+      <div class="rcard"><i data-i="send"></i><div><b>Challan-wise reconciliation</b><span>Sent vs good, rejection, wastage, unprocessed</span></div></div>
+      <div class="rcard"><i data-i="inbox"></i><div><b>Pending at Monarch Print</b><span>Open challans with ageing and delay</span></div></div>
+      <div class="rcard"><i data-i="rupee"></i><div><b>Printing cost analysis</b><span>Billed vs contracted rate, per job</span></div></div>
+      <div class="rcard"><i data-i="shield"></i><div><b>Printing QC summary</b><span>Shade, registration and rejection trends</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Inventory &amp; purchase</h2></div>
+    <div class="card-b"><div class="rgrid">
+      <div class="rcard"><i data-i="layers"></i><div><b>Stock ledger</b><span>Item and batch-wise movement</span></div></div>
+      <div class="rcard"><i data-i="box"></i><div><b>Stock ageing</b><span>Batch ageing buckets with value</span></div></div>
+      <div class="rcard"><i data-i="truck"></i><div><b>GRN register</b><span>Receipts with QC status</span></div></div>
+      <div class="rcard"><i data-i="cart"></i><div><b>Pending PO register</b><span>Open POs with delivery ageing</span></div></div>
+      <div class="rcard"><i data-i="check2"></i><div><b>Indent status</b><span>Raised, approved, converted, rejected</span></div></div>
+      <div class="rcard"><i data-i="users"></i><div><b>Supplier performance</b><span>On-time delivery and RMQC rejection</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Quality</h2></div>
+    <div class="card-b"><div class="rgrid">
+      <div class="rcard"><i data-i="shield"></i><div><b>RMQC summary</b><span>Accepted, rejected and held by supplier</span></div></div>
+      <div class="rcard"><i data-i="shield"></i><div><b>IPQC deviation report</b><span>Operation-wise failures and deviations</span></div></div>
+      <div class="rcard"><i data-i="shield"></i><div><b>FGQC batch release</b><span>Batches released, held and rejected</span></div></div>
+      <div class="rcard"><i data-i="alertTri"></i><div><b>NCR register</b><span>Non-conformances by gate and disposition</span></div></div>
+      <div class="rcard"><i data-i="wrench"></i><div><b>CAPA status</b><span>Open, overdue and effectiveness pending</span></div></div>
+      <div class="rcard"><i data-i="search2"></i><div><b>Traceability report</b><span>Backward and forward batch trace</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Dispatch &amp; costing</h2></div>
+    <div class="card-b"><div class="rgrid">
+      <div class="rcard"><i data-i="truck"></i><div><b>Dispatch register</b><span>Delivery notes with COA and invoice</span></div></div>
+      <div class="rcard"><i data-i="receipt"></i><div><b>Sales register</b><span>Invoice-wise sales with GST split</span></div></div>
+      <div class="rcard"><i data-i="cal"></i><div><b>Order status &amp; OTIF</b><span>Delivery schedule adherence per customer</span></div></div>
+      <div class="rcard"><i data-i="rupee"></i><div><b>Estimated vs actual cost</b><span>Job-wise variance with drivers</span></div></div>
+      <div class="rcard"><i data-i="chart"></i><div><b>Order profitability</b><span>Margin per order, product and customer</span></div></div>
+      <div class="rcard"><i data-i="undo"></i><div><b>Sales return analysis</b><span>Returns by reason, product and customer</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="card mb0">
+    <div class="card-h"><h2>Management summary &mdash; September 2026</h2>
+      <div class="r"><button class="btn sm"><i data-i="printer"></i>Print</button></div></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Indicator</th><th class="num">This month</th><th class="num">Last month</th>
+          <th class="num">Change</th><th class="num">Target</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><b>Dispatch value</b></td><td class="num mono">₹ 1.42 Cr</td><td class="num mono">₹ 1.31 Cr</td>
+            <td class="num" style="color:rgb(var(--color-success))">+8.2%</td><td class="num mono">₹ 1.40 Cr</td>
+            <td><span class="bdg g">On target</span></td></tr>
+          <tr><td><b>OTIF delivery</b></td><td class="num mono">88.4%</td><td class="num mono">91.2%</td>
+            <td class="num" style="color:rgb(var(--color-error))">&minus;2.8 pt</td><td class="num mono">92.0%</td>
+            <td><span class="bdg w">Below target</span></td></tr>
+          <tr><td><b>Overall yield</b></td><td class="num mono">96.1%</td><td class="num mono">97.0%</td>
+            <td class="num" style="color:rgb(var(--color-error))">&minus;0.9 pt</td><td class="num mono">97.0%</td>
+            <td><span class="bdg w">Below target</span></td></tr>
+          <tr><td><b>Wastage</b></td><td class="num mono">5.1%</td><td class="num mono">4.2%</td>
+            <td class="num" style="color:rgb(var(--color-error))">+0.9 pt</td><td class="num mono">3.8%</td>
+            <td><span class="bdg r">Off target</span></td></tr>
+          <tr><td><b>Printing turnaround &mdash; Monarch Print</b></td><td class="num mono">7.4 days</td><td class="num mono">5.8 days</td>
+            <td class="num" style="color:rgb(var(--color-error))">+1.6 days</td><td class="num mono">5.0 days</td>
+            <td><span class="bdg r">Off target</span></td></tr>
+          <tr><td><b>Customer complaints</b></td><td class="num mono">1</td><td class="num mono">0</td>
+            <td class="num" style="color:rgb(var(--color-error))">+1</td><td class="num mono">0</td>
+            <td><span class="bdg w">Watch</span></td></tr>
+          <tr><td><b>Cost variance</b></td><td class="num mono">+4.1%</td><td class="num mono">+1.8%</td>
+            <td class="num" style="color:rgb(var(--color-error))">+2.3 pt</td><td class="num mono">± 2.0%</td>
+            <td><span class="bdg r">Off target</span></td></tr>
+          <tr><td><b>Average margin</b></td><td class="num mono">11.2%</td><td class="num mono">14.6%</td>
+            <td class="num" style="color:rgb(var(--color-error))">&minus;3.4 pt</td><td class="num mono">15.0%</td>
+            <td><span class="bdg r">Off target</span></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>
