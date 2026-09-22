@@ -7,221 +7,375 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/tokens.css?v=4">
-<link rel="stylesheet" href="assets/app.css?v=4">
+<link rel="stylesheet" href="assets/tokens.css?v=5">
+<link rel="stylesheet" href="assets/app.css?v=5">
+<style>
+  /* ---- morning hero ---- */
+  .hero { background: rgb(var(--bg-surface)); border: 1px solid rgb(var(--bd-default));
+    border-radius: 12px; box-shadow: var(--shadow-sm); padding: 18px 20px; margin-bottom: 14px;
+    display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .hero .l { min-width: 0; flex: 1 1 380px; }
+  .hero h1 { margin: 0 0 4px; font-size: 24px; font-weight: 700; letter-spacing: -.02em; }
+  .hero .when { font-size: 13px; color: rgb(var(--fg-muted)); display: flex; align-items: center;
+    gap: 9px; flex-wrap: wrap; }
+  .hero .when b { font-variant-numeric: tabular-nums; color: rgb(var(--fg-default)); font-weight: 600; }
+  .hero .when .sep { color: rgb(var(--bd-strong)); }
+  .hero .line { margin: 11px 0 0; font-size: 13px; color: rgb(var(--fg-muted)); line-height: 1.55; }
+  .hero .line b { color: rgb(var(--fg-default)); font-weight: 600; }
+  .hero .r { display: flex; gap: 10px; flex-wrap: wrap; }
+  .hero .mini { text-align: right; padding-left: 20px; border-left: 1px solid rgb(var(--bd-subtle)); }
+  .hero .mini .k { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    color: rgb(var(--fg-subtle)); }
+  .hero .mini .v { font-size: 20px; font-weight: 700; letter-spacing: -.02em; margin-top: 3px;
+    font-variant-numeric: tabular-nums; }
+  .hero .mini .s { font-size: 11.5px; color: rgb(var(--fg-subtle)); margin-top: 1px; }
+
+  /* ---- attention strip ---- */
+  .att { display: grid; gap: 10px; margin-bottom: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(212px, 1fr)); }
+  .att a { display: flex; gap: 11px; align-items: flex-start; padding: 12px 13px; border-radius: 10px;
+    border: 1px solid rgb(var(--bd-default)); background: rgb(var(--bg-surface)); box-shadow: var(--shadow-sm); }
+  .att a:hover { border-color: rgb(var(--bd-accent)); box-shadow: var(--shadow-md); }
+  .att .ic { width: 32px; height: 32px; border-radius: 9px; flex: 0 0 32px; display: grid; place-items: center; }
+  .att .ic svg { width: 16px; height: 16px; stroke-width: 2; }
+  .att .n { font-size: 20px; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
+  .att .t { font-size: 12.5px; font-weight: 600; margin-top: 2px; }
+  .att .s { font-size: 11px; color: rgb(var(--fg-subtle)); margin-top: 2px; line-height: 1.4; }
+  .att .red   .ic { background: rgb(var(--color-error-subtle));   color: rgb(var(--color-error)); }
+  .att .amber .ic { background: rgb(var(--color-warning-subtle)); color: rgb(var(--color-warning)); }
+  .att .blue  .ic { background: rgb(var(--color-info-subtle));    color: rgb(var(--color-info)); }
+  .att .teal  .ic { background: rgb(var(--color-teal-subtle));    color: rgb(var(--color-teal)); }
+  .att .orng  .ic { background: rgb(var(--color-orange-subtle));  color: rgb(var(--color-orange)); }
+  .att .red   .n { color: rgb(var(--color-error)); }
+  .att .amber .n { color: rgb(var(--color-warning)); }
+
+  /* ---- meter ---- */
+  .meter { margin-top: 9px; }
+  .meter .bar { height: 8px; border-radius: 4px; background: rgb(var(--bg-subtle)); overflow: visible;
+    position: relative; }
+  .meter .bar > i { display: block; height: 100%; border-radius: 4px; background: rgb(var(--color-primary)); }
+  .meter .bar > u { position: absolute; top: -3px; bottom: -3px; width: 2px;
+    background: rgb(var(--fg-default)); opacity: .5; }
+  .meter .lg { display: flex; justify-content: space-between; font-size: 11px;
+    color: rgb(var(--fg-subtle)); margin-top: 6px; }
+
+  /* ---- floor strip ---- */
+  .floor { display: grid; gap: 9px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .mc { border: 1px solid rgb(var(--bd-default)); border-radius: 9px; padding: 10px 11px;
+    background: rgb(var(--bg-app)); }
+  .mc .top { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; }
+  .mc .top b { font-size: 12px; }
+  .mc .dot { width: 7px; height: 7px; border-radius: 50%; flex: 0 0 7px; }
+  .mc .dot.run { background: rgb(var(--color-success)); animation: pulseDot 2s infinite; }
+  .mc .dot.idle { background: rgb(var(--color-warning)); }
+  .mc .dot.stop { background: rgb(var(--color-error)); }
+  .mc .job { font-size: 11px; color: rgb(var(--fg-subtle)); margin-bottom: 6px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mc .num { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .mc .num small { font-size: 11px; font-weight: 500; color: rgb(var(--fg-subtle)); }
+
+  .kbox { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .kbox .k { font-size: 10.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+    color: rgb(var(--fg-subtle)); }
+  .kbox .v { font-size: 17px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .kbox .s { font-size: 11.5px; color: rgb(var(--fg-subtle)); }
+  @media (max-width: 560px) { .kbox { grid-template-columns: 1fr; } .hero .mini { padding-left: 0; border: 0; text-align: left; } }
+</style>
 </head>
 <body>
 <div id="page">
 
-  <div class="ph">
-    <div class="ph-l">
-      <div class="crumb"><b>Home</b> / Dashboard</div>
-      <h1>Management Dashboard</h1>
-      <p>Indus Tubes — Baddi unit · 22 Sep 2026</p>
+  <!-- ══════════ MORNING HERO ══════════ -->
+  <div class="hero">
+    <div class="l">
+      <h1 id="greet">Good morning, Amit</h1>
+      <div class="when">
+        <span id="today">Tuesday, 22 September 2026</span>
+        <span class="sep">&middot;</span>
+        <b id="clock">09:14:00</b>
+        <span class="sep">&middot;</span>
+        <span>Unit 1 &mdash; Baddi</span>
+        <span class="sep">&middot;</span>
+        <span class="bdg g nodot" style="font-size:10.5px">Shift A running</span>
+      </div>
+      <p class="line">
+        <b>Five things need you today.</b> One dispatch is blocked on a CAPA record, three approvals are
+        waiting, and the printing partner is running two days beyond the agreed turnaround.
+        Month dispatch is <b>&#8377; 1.42 Cr</b> against a <b>&#8377; 1.75 Cr</b> target with 8 working days left.
+      </p>
     </div>
-    <div class="ph-r">
-      <button class="btn"><i data-i="refresh"></i>Refresh</button>
-      <button class="btn"><i data-i="down"></i>Export</button>
-    </div>
-  </div>
-
-  <div class="stats">
-    <div class="stat acc-p">
-      <div class="lbl"><i data-i="cart"></i>Open Sales Orders</div>
-      <div class="val">42</div>
-      <div class="dlt">18.4 lakh pcs pending</div>
-    </div>
-    <div class="stat acc-t">
-      <div class="lbl"><i data-i="clip"></i>Active Work Orders</div>
-      <div class="val">27</div>
-      <div class="dlt up">9 on schedule · 3 delayed</div>
-    </div>
-    <div class="stat acc-o">
-      <div class="lbl"><i data-i="send"></i>At LAXMI Lamitube</div>
-      <div class="val">6 <small>lots</small></div>
-      <div class="dlt">2,840 kg laminate out</div>
-    </div>
-    <div class="stat acc-w">
-      <div class="lbl"><i data-i="shield"></i>Pending QC</div>
-      <div class="val">11</div>
-      <div class="dlt">4 RMQC · 5 IPQC · 2 FGQC</div>
-    </div>
-    <div class="stat acc-e">
-      <div class="lbl"><i data-i="alertTri"></i>Open CAPA</div>
-      <div class="val">3</div>
-      <div class="dlt dn">1 blocking dispatch</div>
-    </div>
-    <div class="stat acc-s">
-      <div class="lbl"><i data-i="rupee"></i>Month Dispatch</div>
-      <div class="val">₹1.42<small> Cr</small></div>
-      <div class="dlt up">+8.2% vs last month</div>
+    <div class="r">
+      <div class="mini">
+        <div class="k">Dispatch today</div>
+        <div class="v">&#8377; 7.59<span style="font-size:13px"> L</span></div>
+        <div class="s">1 delivery note</div>
+      </div>
+      <div class="mini">
+        <div class="k">On the floor</div>
+        <div class="v">4 / 6</div>
+        <div class="s">machines running</div>
+      </div>
+      <div class="mini">
+        <div class="k">Order book</div>
+        <div class="v">&#8377; 6.82<span style="font-size:13px"> Cr</span></div>
+        <div class="s">42 open orders</div>
+      </div>
     </div>
   </div>
 
-  <div class="alert warn">
-    <i data-i="alertTri"></i>
-    <div>
-      <b>CAPA-2026-014 is blocking dispatch for SO/26-0188</b>
-      Shoulder leakage control requires a 100% leak-test record before the delivery note can be generated.
-    </div>
-    <a class="btn sm" href="capa.html">Open CAPA</a>
+  <!-- ══════════ NEEDS YOU TODAY ══════════ -->
+  <div class="att">
+    <a class="red" href="capa.html">
+      <div class="ic"><i data-i="alertTri"></i></div>
+      <div><div class="n">1</div><div class="t">Dispatch blocked</div>
+        <div class="s">SO/26-0188 &middot; Cipla &middot; &#8377; 11.36 L held on CAPA-2026-014</div></div>
+    </a>
+    <a class="amber" href="indent-approval.html">
+      <div class="ic"><i data-i="clipCheck"></i></div>
+      <div><div class="n">3</div><div class="t">Waiting your approval</div>
+        <div class="s">2 indents &middot; 1 quotation below the margin floor</div></div>
+    </a>
+    <a class="orng" href="rpt-outsource.html">
+      <div class="ic"><i data-i="send"></i></div>
+      <div><div class="n">2</div><div class="t">Overdue at partner</div>
+        <div class="s">640 kg out 20 days &middot; LAXMI Lamitube</div></div>
+    </a>
+    <a class="teal" href="rmqc.html">
+      <div class="ic"><i data-i="shield"></i></div>
+      <div><div class="n">4</div><div class="t">QC pending</div>
+        <div class="s">1 roll ageing 26 hrs &middot; blocks PWO/26-0197</div></div>
+    </a>
+    <a class="blue" href="rpt-sales.html">
+      <div class="ic"><i data-i="cal"></i></div>
+      <div><div class="n">2</div><div class="t">Due this week</div>
+        <div class="s">Glenmark 24 Sep &middot; Cipla 26 Sep</div></div>
+    </a>
   </div>
 
+  <!-- ══════════ MONEY ══════════ -->
+  <div class="chgrid c2">
+    <div class="card">
+      <div class="card-h"><h2>Month to date</h2>
+        <span class="sub">22 of 30 days &middot; 8 working days left</span>
+        <div class="r"><a class="btn sm" href="rpt-sales.html">Sales report</a></div></div>
+      <div class="card-b">
+        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:2px;flex-wrap:wrap">
+          <span style="font-size:30px;font-weight:700;letter-spacing:-.03em" class="mono">&#8377; 1.42 Cr</span>
+          <span class="bdg g">+8.2% vs last month</span>
+        </div>
+        <div class="muted" style="font-size:12.5px">dispatched against a &#8377; 1.75 Cr target</div>
+        <div class="meter">
+          <div class="bar"><i style="width:81%"></i><u style="left:73%"></u></div>
+          <div class="lg"><span>81% of target</span><span>pace needed 73% &mdash; ahead by 8 points</span></div>
+        </div>
+        <div class="hr"></div>
+        <div class="kbox">
+          <div><div class="k">Receivables</div><div class="v mono">&#8377; 1.28 Cr</div>
+            <div class="s" style="color:rgb(var(--color-error))">&#8377; 18.4 L overdue</div></div>
+          <div><div class="k">Actual margin</div><div class="v mono">11.2%</div>
+            <div class="s" style="color:rgb(var(--color-error))">target 15.0%</div></div>
+          <div><div class="k">Stock held</div><div class="v mono">&#8377; 84.2 L</div>
+            <div class="s">6.4 turns</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h"><h2>Dispatch against target</h2>
+        <span class="sub">last six months</span></div>
+      <div class="card-b">
+        <div class="chart" data-type="line" data-title="Dispatch vs target"
+          data-cats="Apr,May,Jun,Jul,Aug,Sep"
+          data-series='[{"name":"Dispatched","values":[118,124,109,131,131,142]},{"name":"Target","values":[130,135,140,150,160,175]}]'
+          data-unit="&#8377; L"></div>
+        <p class="muted" style="margin:10px 0 0;font-size:11.5px">
+          Dispatch is growing, but the target is growing faster. The gap has widened every month since
+          June &mdash; capacity is the constraint, not demand.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ TODAY ON THE FLOOR ══════════ -->
+  <div class="card">
+    <div class="card-h"><h2>Right now on the floor</h2>
+      <span class="sub">Shift A &middot; live</span>
+      <div class="r"><span class="bdg g">4 running</span><span class="bdg w">1 idle</span>
+        <span class="bdg r">1 stopped</span>
+        <a class="btn sm" href="wip-status.html">Full WIP</a></div></div>
+    <div class="card-b">
+      <div class="floor">
+        <div class="mc"><div class="top"><span class="dot run"></span><b>SLIT-01</b></div>
+          <div class="job">PWO/26-0197 &middot; Slitting</div>
+          <div class="num">42,800 <small>/ 72,000</small></div>
+          <div class="pbar" style="margin-top:6px"><i class="g" style="width:59%"></i></div></div>
+        <div class="mc"><div class="top"><span class="dot run"></span><b>TM-02</b></div>
+          <div class="job">PWO/26-0194 &middot; Sleeve forming</div>
+          <div class="num">31,600 <small>/ 57,600</small></div>
+          <div class="pbar" style="margin-top:6px"><i class="g" style="width:55%"></i></div></div>
+        <div class="mc"><div class="top"><span class="dot stop"></span><b>CM-01</b>
+          <span class="bdg r nodot" style="margin-left:auto;font-size:9px">CAPA</span></div>
+          <div class="job">Cavity 5 isolated &middot; 7 of 8 running</div>
+          <div class="num">11,244 <small>/ 16,456</small></div>
+          <div class="pbar" style="margin-top:6px"><i class="r" style="width:68%"></i></div></div>
+        <div class="mc"><div class="top"><span class="dot run"></span><b>CM-02</b></div>
+          <div class="job">PWO/26-0194 &middot; Moulding</div>
+          <div class="num">13,180 <small>/ 16,456</small></div>
+          <div class="pbar" style="margin-top:6px"><i class="g" style="width:80%"></i></div></div>
+        <div class="mc"><div class="top"><span class="dot run"></span><b>CAP-01</b></div>
+          <div class="job">PWO/26-0201 &middot; Capping</div>
+          <div class="num">58,400 <small>/ 67,200</small></div>
+          <div class="pbar" style="margin-top:6px"><i class="g" style="width:87%"></i></div></div>
+        <div class="mc"><div class="top"><span class="dot idle"></span><b>LT-02</b></div>
+          <div class="job">Idle &middot; waiting for a packed lot</div>
+          <div class="num">0 <small>/ 80,000</small></div>
+          <div class="pbar" style="margin-top:6px"><i class="w" style="width:2%"></i></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ PIPELINE + RIGHT RAIL ══════════ -->
   <div class="split">
     <div>
-      <!-- ORDER PIPELINE -->
       <div class="card">
-        <div class="card-h">
-          <h2>Order pipeline</h2>
+        <div class="card-h"><h2>Order pipeline</h2>
           <span class="sub">where every open order is standing</span>
-          <div class="r"><a class="btn sm" href="wip-status.html">Full WIP view</a></div>
-        </div>
-        <div class="card-b p0">
-          <div class="tbl-wrap">
+          <div class="r"><a class="btn sm" href="rpt-wip.html">WIP report</a></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
           <table class="tbl dense">
-            <thead>
-              <tr>
-                <th>SO No.</th><th>Customer</th><th>Product</th>
-                <th class="num">Order Qty</th><th>Current stage</th>
-                <th style="width:130px">Progress</th><th>Status</th><th class="num">Due</th>
-              </tr>
-            </thead>
+            <thead><tr><th>SO No.</th><th>Customer</th><th>Product</th>
+              <th class="num">Order Qty</th><th>Current stage</th>
+              <th style="width:120px">Progress</th><th>Status</th><th class="num">Due</th></tr></thead>
             <tbody>
-              <tr>
-                <td class="k">SO/26-0188</td><td>Cipla Ltd.</td><td>LT 25×130 — Ointment</td>
+              <tr><td class="k">SO/26-0188</td><td>Cipla Ltd.</td><td>LT 25&times;130 &mdash; Ointment</td>
                 <td class="num">2,50,000</td><td>FGQC</td>
                 <td><div class="pbar"><i style="width:92%"></i></div></td>
-                <td><span class="bdg r">Dispatch blocked</span></td><td class="num">26 Sep</td>
-              </tr>
-              <tr>
-                <td class="k">SO/26-0191</td><td>Sun Pharma</td><td>LT 19×100 — Gel</td>
+                <td><span class="bdg r">Dispatch blocked</span></td><td class="num">26 Sep</td></tr>
+              <tr><td class="k">SO/26-0201</td><td>Glenmark</td><td>LT 25&times;140 &mdash; Cream</td>
+                <td class="num">2,00,000</td><td>Packed &mdash; FGQC passed</td>
+                <td><div class="pbar"><i class="g" style="width:100%"></i></div></td>
+                <td><span class="bdg g">Ready to dispatch</span></td><td class="num">24 Sep</td></tr>
+              <tr><td class="k">SO/26-0191</td><td>Sun Pharma</td><td>LT 19&times;100 &mdash; Gel</td>
                 <td class="num">1,80,000</td><td>Printing at LAXMI Lamitube</td>
                 <td><div class="pbar"><i class="w" style="width:48%"></i></div></td>
-                <td><span class="bdg o">At LAXMI Lamitube</span></td><td class="num">02 Oct</td>
-              </tr>
-              <tr>
-                <td class="k">SO/26-0194</td><td>Mankind Pharma</td><td>LT 22×120 — Cream</td>
-                <td class="num">3,20,000</td><td>Remaining production</td>
+                <td><span class="bdg o">At partner</span></td><td class="num">02 Oct</td></tr>
+              <tr><td class="k">SO/26-0194</td><td>Mankind Pharma</td><td>LT 22&times;120 &mdash; Cream</td>
+                <td class="num">3,20,000</td><td>Shoulder moulding</td>
                 <td><div class="pbar"><i style="width:66%"></i></div></td>
-                <td><span class="bdg b">In production</span></td><td class="num">05 Oct</td>
-              </tr>
-              <tr>
-                <td class="k">SO/26-0197</td><td>Zydus Wellness</td><td>LT 30×150 — Toothpaste</td>
+                <td><span class="bdg b">In production</span></td><td class="num">05 Oct</td></tr>
+              <tr><td class="k">SO/26-0197</td><td>Zydus Wellness</td><td>LT 30&times;150 &mdash; Toothpaste</td>
                 <td class="num">5,00,000</td><td>RMQC</td>
                 <td><div class="pbar"><i class="w" style="width:22%"></i></div></td>
-                <td><span class="bdg w">QC hold</span></td><td class="num">12 Oct</td>
-              </tr>
-              <tr>
-                <td class="k">SO/26-0199</td><td>Torrent Pharma</td><td>LT 19×90 — Ointment</td>
+                <td><span class="bdg w">QC hold</span></td><td class="num">12 Oct</td></tr>
+              <tr><td class="k">SO/26-0199</td><td>Torrent Pharma</td><td>LT 19&times;90 &mdash; Ointment</td>
                 <td class="num">1,20,000</td><td>Material procurement</td>
                 <td><div class="pbar"><i class="w" style="width:12%"></i></div></td>
-                <td><span class="bdg n">Indent raised</span></td><td class="num">15 Oct</td>
-              </tr>
-              <tr>
-                <td class="k">SO/26-0201</td><td>Glenmark</td><td>LT 25×140 — Cream</td>
-                <td class="num">2,00,000</td><td>Packed</td>
-                <td><div class="pbar"><i class="g" style="width:100%"></i></div></td>
-                <td><span class="bdg g">Ready to dispatch</span></td><td class="num">24 Sep</td>
-              </tr>
+                <td><span class="bdg n">Indent pending</span></td><td class="num">15 Oct</td></tr>
+              <tr><td class="k">SO/26-0202</td><td>Cipla Ltd.</td><td>LT 19&times;100 &mdash; Gel</td>
+                <td class="num">1,50,000</td><td>Printing at LAXMI Lamitube</td>
+                <td><div class="pbar"><i class="w" style="width:18%"></i></div></td>
+                <td><span class="bdg o">At partner</span></td><td class="num">20 Oct</td></tr>
             </tbody>
           </table>
+        </div></div>
+      </div>
+
+      <div class="chgrid c2">
+        <div class="card">
+          <div class="card-h"><h2>Order book by stage</h2>
+            <span class="sub">42 open orders</span></div>
+          <div class="card-b">
+            <div class="chart" data-type="stack" data-title="Order book by stage"
+              data-series='[{"name":"Material stage","value":12},{"name":"At printing partner","value":6},{"name":"In production","value":14},{"name":"Packing &amp; FGQC","value":7},{"name":"Ready to dispatch","value":3}]'
+              data-unit="orders"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h2>Top customers</h2>
+            <span class="sub">value this financial year</span></div>
+          <div class="card-b">
+            <div class="chart" data-type="hbar" data-title="Top customers"
+              data-cats="Cipla Ltd.,Sun Pharma,Mankind Pharma,Zydus Wellness,Torrent Pharma,Glenmark"
+              data-values="184,162,131,88,74,63" data-unit="&#8377; L"></div>
           </div>
         </div>
       </div>
 
-      <!-- INTER COMPANY -->
-      <div class="card">
-        <div class="card-h">
-          <h2>Outsourced printing — LAXMI Lamitube</h2>
-          <span class="sub">material reconciliation</span>
-          <div class="r"><a class="btn sm" href="printing-receipt.html">Receive</a></div>
-        </div>
-        <div class="card-b p0">
-          <div class="tbl-wrap">
+      <div class="card mb0">
+        <div class="card-h"><h2>Material at the printing partner</h2>
+          <span class="sub">LAXMI Lamitube &middot; auto-synced 2 min ago</span>
+          <div class="r"><span class="bdg g nodot">Live</span>
+            <a class="btn sm" href="integration.html">Sync detail</a></div></div>
+        <div class="card-b p0"><div class="tbl-wrap">
           <table class="tbl dense">
-            <thead>
-              <tr>
-                <th>Challan</th><th>PWO</th><th class="num">Sent (kg)</th>
-                <th class="num">Good</th><th class="num">Rejection</th><th class="num">Wastage</th>
-                <th class="num">Unprocessed</th><th class="num">Balance</th><th>Status</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Challan</th><th>PWO</th><th class="num">Sent (kg)</th>
+              <th class="num">Good</th><th class="num">Rejection</th><th class="num">Wastage</th>
+              <th class="num">Balance</th><th class="num">Days out</th><th>Status</th></tr></thead>
             <tbody>
-              <tr>
-                <td class="k">ICP/26-0071</td><td>PWO/26-0188</td><td class="num">920.0</td>
-                <td class="num">874.5</td><td class="num">18.2</td><td class="num">27.3</td>
-                <td class="num">0.0</td><td class="num" style="color:rgb(var(--color-success))">0.0</td>
-                <td><span class="bdg g">Reconciled</span></td>
-              </tr>
-              <tr>
-                <td class="k">ICP/26-0074</td><td>PWO/26-0191</td><td class="num">1,140.0</td>
-                <td class="num">—</td><td class="num">—</td><td class="num">—</td>
-                <td class="num">—</td><td class="num">1,140.0</td>
-                <td><span class="bdg o">Printing</span></td>
-              </tr>
-              <tr>
-                <td class="k">ICP/26-0076</td><td>PWO/26-0194</td><td class="num">780.0</td>
-                <td class="num">612.0</td><td class="num">9.4</td><td class="num">21.6</td>
-                <td class="num">137.0</td><td class="num" style="color:rgb(var(--color-warning))">0.0</td>
-                <td><span class="bdg w">Partial receipt</span></td>
-              </tr>
+              <tr><td class="k">ICP/26-0077</td><td class="mut">PWO/26-0202</td><td class="num">792.0</td>
+                <td class="num">491.0</td><td class="num">0.0</td><td class="num">14.2</td>
+                <td class="num">286.8</td><td class="num">0</td><td><span class="bdg b">Printing 62%</span></td></tr>
+              <tr><td class="k">ICP/26-0074</td><td class="mut">PWO/26-0191</td><td class="num">1,140.0</td>
+                <td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td>
+                <td class="num">1,140.0</td><td class="num">8</td><td><span class="bdg o">Printing</span></td></tr>
+              <tr><td class="k">ICP/26-0072</td><td class="mut">PWO/26-0186</td><td class="num">640.0</td>
+                <td class="num">0.0</td><td class="num">0.0</td><td class="num">0.0</td>
+                <td class="num">640.0</td><td class="num" style="color:rgb(var(--color-error))"><b>20</b></td>
+                <td><span class="bdg r">Overdue</span></td></tr>
             </tbody>
-            <tfoot>
-              <tr><td colspan="2">Total out</td><td class="num">2,840.0</td>
-                <td class="num">1,486.5</td><td class="num">27.6</td><td class="num">48.9</td>
-                <td class="num">137.0</td><td class="num">1,140.0</td><td></td></tr>
-            </tfoot>
+            <tfoot><tr><td colspan="2">Total out</td><td class="num">2,572.0</td>
+              <td class="num">491.0</td><td class="num">0.0</td><td class="num">14.2</td>
+              <td class="num">2,066.8</td><td colspan="2"></td></tr></tfoot>
           </table>
-          </div>
-        </div>
+        </div></div>
       </div>
     </div>
 
     <!-- RIGHT RAIL -->
     <div>
       <div class="card">
-        <div class="card-h"><h2>Pending approvals</h2></div>
+        <div class="card-h"><h2>Waiting on you</h2>
+          <div class="r"><span class="bdg w nodot">9 items</span></div></div>
         <div class="card-b p0">
           <table class="tbl dense">
             <tbody>
-              <tr><td><b>Indent</b><div class="mut">IND/26-0312 · PWO/26-0199</div></td>
-                  <td class="num"><a class="btn sm pri" href="indent-approval.html">Approve</a></td></tr>
-              <tr><td><b>Quotation</b><div class="mut">QT/26-0421 · Alkem Labs</div></td>
-                  <td class="num"><a class="btn sm" href="quotation.html">Review</a></td></tr>
-              <tr><td><b>Indent</b><div class="mut">IND/26-0313 · PWO/26-0197</div></td>
-                  <td class="num"><a class="btn sm pri" href="indent-approval.html">Approve</a></td></tr>
-              <tr><td><b>NCR closure</b><div class="mut">NCR/26-0044 · Printing shade</div></td>
-                  <td class="num"></td></tr>
+              <tr><td><b>Indent IND/26-0314</b><div class="mut">PWO/26-0202 &middot; auto &middot; &#8377; 1.04 L</div></td>
+                <td class="num"><a class="btn sm pri" href="indent-approval.html">Approve</a></td></tr>
+              <tr><td><b>Indent IND/26-0316</b><div class="mut">N. Gupta &middot; manual &middot; &#8377; 46,200</div></td>
+                <td class="num"><a class="btn sm pri" href="indent-approval.html">Approve</a></td></tr>
+              <tr><td><b>Quotation QT/26-0421</b><div class="mut">Margin 16% &mdash; below the floor</div></td>
+                <td class="num"><a class="btn sm" href="quotation.html">Review</a></td></tr>
+              <tr><td><b>CAPA-2026-014</b><div class="mut">Effectiveness verification due</div></td>
+                <td class="num"><a class="btn sm" href="capa.html">Verify</a></td></tr>
+              <tr><td><b>PO/26-0488</b><div class="mut">Essel Propack &middot; &#8377; 1.14 L</div></td>
+                <td class="num"><a class="btn sm" href="purchase-order.html">Approve</a></td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-h"><h2>Quality gates — today</h2></div>
+        <div class="card-h"><h2>Quality gates today</h2>
+          <div class="r"><a class="btn sm" href="rpt-capa.html">Report</a></div></div>
         <div class="card-b">
           <div style="display:flex;flex-direction:column;gap:11px">
             <div>
               <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
                 <span class="bdg t nodot">Gate 1</span><b style="font-size:12.5px">RMQC</b>
-                <span class="muted" style="margin-left:auto;font-size:12px">4 pending</span>
-              </div>
+                <span class="muted" style="margin-left:auto;font-size:12px">4 pending</span></div>
               <div class="pbar"><i class="g" style="width:71%"></i></div>
               <div class="mut" style="font-size:11.5px;margin-top:3px">10 of 14 cleared</div>
             </div>
             <div>
               <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
                 <span class="bdg t nodot">Gate 2</span><b style="font-size:12.5px">IPQC</b>
-                <span class="muted" style="margin-left:auto;font-size:12px">5 pending</span>
-              </div>
+                <span class="muted" style="margin-left:auto;font-size:12px">5 pending</span></div>
               <div class="pbar"><i class="w" style="width:58%"></i></div>
-              <div class="mut" style="font-size:11.5px;margin-top:3px">7 of 12 cleared</div>
+              <div class="mut" style="font-size:11.5px;margin-top:3px">7 of 12 cleared &middot; 1 failed on CM-01</div>
             </div>
             <div>
               <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
                 <span class="bdg t nodot">Gate 3</span><b style="font-size:12.5px">FGQC</b>
-                <span class="muted" style="margin-left:auto;font-size:12px">2 pending</span>
-              </div>
+                <span class="muted" style="margin-left:auto;font-size:12px">2 pending</span></div>
               <div class="pbar"><i class="g" style="width:86%"></i></div>
               <div class="mut" style="font-size:11.5px;margin-top:3px">12 of 14 cleared</div>
             </div>
@@ -229,28 +383,75 @@
         </div>
       </div>
 
-      <div class="card mb0">
-        <div class="card-h"><h2>Cost variance — top jobs</h2></div>
+      <div class="card">
+        <div class="card-h"><h2>Trend at a glance</h2>
+          <span class="sub">six months</span></div>
         <div class="card-b p0">
           <table class="tbl dense">
-            <thead><tr><th>PWO</th><th class="num">Est.</th><th class="num">Actual</th><th class="num">Var.</th></tr></thead>
             <tbody>
-              <tr><td class="k">PWO/26-0181</td><td class="num">2.84</td><td class="num">2.79</td>
-                  <td class="num" style="color:rgb(var(--color-success))">−1.8%</td></tr>
-              <tr><td class="k">PWO/26-0184</td><td class="num">3.10</td><td class="num">3.34</td>
-                  <td class="num" style="color:rgb(var(--color-error))">+7.7%</td></tr>
-              <tr><td class="k">PWO/26-0186</td><td class="num">2.42</td><td class="num">2.45</td>
-                  <td class="num" style="color:rgb(var(--color-warning))">+1.2%</td></tr>
-              <tr><td class="k">PWO/26-0188</td><td class="num">2.96</td><td class="num">2.91</td>
-                  <td class="num" style="color:rgb(var(--color-success))">−1.7%</td></tr>
+              <tr><td>Yield</td>
+                <td style="width:106px"><div class="spark chart" data-type="spark"
+                  data-values="97.2,97.0,96.8,96.6,96.2,96.1"></div></td>
+                <td class="num mono"><b>96.1%</b></td></tr>
+              <tr><td>Wastage</td>
+                <td><div class="spark chart" data-type="spark"
+                  data-values="5.1,4.8,4.4,4.2,3.9,3.8"></div></td>
+                <td class="num mono" style="color:rgb(var(--color-error))"><b>5.1%</b></td></tr>
+              <tr><td>Rejection</td>
+                <td><div class="spark chart" data-type="spark"
+                  data-values="2.4,2.3,2.1,2.0,1.9,1.8"></div></td>
+                <td class="num mono" style="color:rgb(var(--color-error))"><b>2.4%</b></td></tr>
+              <tr><td>OTIF</td>
+                <td><div class="spark chart" data-type="spark"
+                  data-values="91.8,92.4,90.1,91.2,91.2,88.4"></div></td>
+                <td class="num mono" style="color:rgb(var(--color-warning))"><b>88.4%</b></td></tr>
             </tbody>
           </table>
+        </div>
+      </div>
+
+      <div class="card mb0">
+        <div class="card-h"><h2>Worth knowing</h2></div>
+        <div class="card-b">
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgb(var(--fg-muted))">
+            <div style="display:flex;gap:9px"><i data-i="alertTri" style="color:rgb(var(--color-error));flex:0 0 14px;width:14px;height:14px"></i>
+              <span>Cavity 5 of CM-01 has cost <b style="color:rgb(var(--fg-default))">&#8377; 64,104</b> so far
+              in scrap, downtime and retest. Maintenance is on site.</span></div>
+            <div style="display:flex;gap:9px"><i data-i="send" style="color:rgb(var(--color-orange));flex:0 0 14px;width:14px;height:14px"></i>
+              <span>Partner turnaround is <b style="color:rgb(var(--fg-default))">7.4 days</b> against an
+              agreed 5. Two October deliveries depend on it.</span></div>
+            <div style="display:flex;gap:9px"><i data-i="layers" style="color:rgb(var(--color-warning));flex:0 0 14px;width:14px;height:14px"></i>
+              <span>Caps are <b style="color:rgb(var(--fg-default))">65,000 pcs short</b> for the Cipla
+              order. PO released, delivery confirmed 02 Oct.</span></div>
+            <div style="display:flex;gap:9px"><i data-i="rupee" style="color:rgb(var(--color-error));flex:0 0 14px;width:14px;height:14px"></i>
+              <span>Actual margin has slipped to <b style="color:rgb(var(--fg-default))">11.2%</b>.
+              Three quarters of the gap is floor loss, not pricing.</span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
 </div>
-<script src="assets/app.js?v=4"></script>
+<script src="assets/app.js?v=5"></script>
+<script src="assets/chart.js?v=5"></script>
+<script>
+  (function () {
+    var D = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var M = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function tick() {
+      var d = new Date(), h = d.getHours();
+      var g = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
+      var el;
+      if ((el = document.getElementById('greet'))) el.textContent = g + ', Amit';
+      if ((el = document.getElementById('today')))
+        el.textContent = D[d.getDay()] + ', ' + d.getDate() + ' ' + M[d.getMonth()] + ' ' + d.getFullYear();
+      if ((el = document.getElementById('clock')))
+        el.textContent = pad(h) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+</script>
 </body>
 </html>

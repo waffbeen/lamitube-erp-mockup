@@ -378,7 +378,7 @@
 
     /* demo data layer — loaded last so it can decorate the built page */
     var ds = document.createElement('script');
-    ds.src = 'assets/demo.js?v=4';
+    ds.src = 'assets/demo.js?v=5';
     document.body.appendChild(ds);
   }
 
