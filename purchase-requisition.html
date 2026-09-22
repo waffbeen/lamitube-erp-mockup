@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Purchase Requisition · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=6">
+<link rel="stylesheet" href="assets/app.css?v=6">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Purchase / Inventory</b> / Purchase Requisition</div>
+      <h1>Purchase Requisition</h1>
+      <p>Raise a requisition directly, or let the work order raise it &mdash; also called an indent</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn pri" onclick="openModal('mPR')"><i data-i="plus"></i>New Requisition</button>
+    </div>
+  </div>
+
+  <div class="alert info">
+    <i data-i="route"></i>
+    <div><b>Two ways a requisition is created, one place it gets approved</b>
+    Stores, maintenance or purchase can raise one <b>directly</b> from this screen. A Production Work Order
+    also raises one <b>automatically</b> for its material shortfall, under its own authority. Either way the
+    requisition then moves to the <b>Approvals</b> panel in the top bar &mdash; the purchase order stays locked
+    until it is cleared there.</div>
+    <button class="btn sm" onclick="document.getElementById('btnAppr').click()">Open Approvals</button>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-p"><div class="lbl"><i data-i="clip"></i>Raised this month</div><div class="val">34</div>
+      <div class="dlt">21 auto &middot; 13 manual</div></div>
+    <div class="stat acc-w"><div class="lbl"><i data-i="clipCheck"></i>Awaiting approval</div><div class="val">7</div>
+      <div class="dlt">&#8377; 18.4 L value</div></div>
+    <div class="stat acc-s"><div class="lbl"><i data-i="check2"></i>Approved</div><div class="val">22</div>
+      <div class="dlt">12 converted to PO</div></div>
+    <div class="stat acc-e"><div class="lbl"><i data-i="x"></i>Rejected</div><div class="val">2</div></div>
+    <div class="stat acc-t"><div class="lbl"><i data-i="cal"></i>Avg. approval time</div><div class="val">1.7 <small>days</small></div>
+      <div class="dlt">target 1 day</div></div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>From date</label><input class="inp" type="date" value="2026-09-01"></div>
+    <div class="fld"><label>To date</label><input class="inp" type="date" value="2026-09-22"></div>
+    <div class="fld"><label>Source</label>
+      <select class="inp"><option>All</option><option>Auto &mdash; work order</option><option>Manual</option></select></div>
+    <div class="fld"><label>Department</label>
+      <select class="inp"><option>All</option><option>Stores</option><option>Production</option><option>Maintenance</option><option>Quality</option></select></div>
+    <div class="fld w-sm"><label>Status</label>
+      <select class="inp"><option>All</option><option>Draft</option><option>Pending approval</option><option>Approved</option><option>Rejected</option><option>Converted to PO</option></select></div>
+    <div class="fld"><label>Search</label><input class="inp" placeholder="PR no. / item"></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Requisition register</h2><span class="sub">34 this month</span>
+      <div class="r"><span class="chip">Pending 7</span><span class="chip">Approved 22</span>
+        <span class="chip">Rejected 2</span><span class="chip">Draft 3</span></div></div>
+    <div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr>
+          <th>PR / Indent no.</th><th>Date</th><th>Source</th><th>Department</th>
+          <th>Against work order</th><th class="num">Lines</th><th class="num">Value</th>
+          <th>Required by</th><th>Priority</th><th>Approval</th><th>PO</th><th class="ctr">Action</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgb(var(--bg-selected))">
+            <td class="k">PR/26-0317</td><td>22 Sep 26</td>
+            <td><span class="bdg n nodot">Manual</span></td><td>Stores</td>
+            <td class="mut">&mdash; none &mdash;</td><td class="num">3</td><td class="num mono">36,900</td>
+            <td>02 Oct 26</td><td><span class="bdg n nodot">Normal</span></td>
+            <td><span class="bdg n">Draft</span></td><td class="mut">&mdash;</td>
+            <td class="ctr"><button class="btn sm">Edit</button></td></tr>
+          <tr>
+            <td class="k">PR/26-0316</td><td>22 Sep 26</td>
+            <td><span class="bdg n nodot">Manual</span></td><td>Maintenance</td>
+            <td class="mut">&mdash; none &mdash;</td><td class="num">2</td><td class="num mono">46,200</td>
+            <td>30 Sep 26</td><td><span class="bdg w nodot">High</span></td>
+            <td><span class="bdg w">Pending approval</span></td><td class="mut">locked</td>
+            <td class="ctr"><button class="btn sm">View</button></td></tr>
+          <tr>
+            <td class="k">PR/26-0315</td><td>22 Sep 26</td>
+            <td><span class="bdg n nodot">Manual</span></td><td>Maintenance</td>
+            <td class="mut">&mdash; none &mdash;</td><td class="num">1</td><td class="num mono">18,900</td>
+            <td>27 Sep 26</td><td><span class="bdg r nodot">Urgent</span></td>
+            <td><span class="bdg g">Approved</span></td><td class="mut">ready</td>
+            <td class="ctr"><a class="btn sm pri" href="purchase-order.html">Make PO</a></td></tr>
+          <tr>
+            <td class="k">PR/26-0314</td><td>22 Sep 26</td>
+            <td><span class="bdg b nodot">Auto &mdash; PWO</span></td><td>Production</td>
+            <td class="k">PWO/26-0202</td><td class="num">3</td><td class="num mono">1,03,740</td>
+            <td>28 Sep 26</td><td><span class="bdg w nodot">High</span></td>
+            <td><span class="bdg w">Pending approval</span></td><td class="mut">locked</td>
+            <td class="ctr"><button class="btn sm">View</button></td></tr>
+          <tr>
+            <td class="k">PR/26-0313</td><td>21 Sep 26</td>
+            <td><span class="bdg b nodot">Auto &mdash; PWO</span></td><td>Production</td>
+            <td class="k">PWO/26-0197</td><td class="num">5</td><td class="num mono">6,84,200</td>
+            <td>29 Sep 26</td><td><span class="bdg n nodot">Normal</span></td>
+            <td><span class="bdg w">Pending approval</span></td><td class="mut">locked</td>
+            <td class="ctr"><button class="btn sm">View</button></td></tr>
+          <tr>
+            <td class="k">PR/26-0312</td><td>20 Sep 26</td>
+            <td><span class="bdg b nodot">Auto &mdash; PWO</span></td><td>Production</td>
+            <td class="k">PWO/26-0199</td><td class="num">3</td><td class="num mono">2,18,400</td>
+            <td>02 Oct 26</td><td><span class="bdg n nodot">Normal</span></td>
+            <td><span class="bdg w">Pending approval</span></td><td class="mut">locked</td>
+            <td class="ctr"><button class="btn sm">View</button></td></tr>
+          <tr>
+            <td class="k">PR/26-0311</td><td>18 Sep 26</td>
+            <td><span class="bdg b nodot">Auto &mdash; PWO</span></td><td>Production</td>
+            <td class="k">PWO/26-0194</td><td class="num">2</td><td class="num mono">94,600</td>
+            <td>26 Sep 26</td><td><span class="bdg n nodot">Normal</span></td>
+            <td><span class="bdg g">Approved</span></td><td class="k">PO/26-0488</td>
+            <td class="ctr"><button class="btn sm">View</button></td></tr>
+          <tr>
+            <td class="k">PR/26-0310</td><td>17 Sep 26</td>
+            <td><span class="bdg n nodot">Manual</span></td><td>Quality</td>
+            <td class="mut">&mdash; none &mdash;</td><td class="num">1</td><td class="num mono">12,400</td>
+            <td>25 Sep 26</td><td><span class="bdg n nodot">Normal</span></td>
+            <td><span class="bdg g">Approved</span></td><td class="k">PO/26-0486</td>
+            <td class="ctr"><button class="btn sm">View</button></td></tr>
+          <tr>
+            <td class="k">PR/26-0309</td><td>15 Sep 26</td>
+            <td><span class="bdg b nodot">Auto &mdash; PWO</span></td><td>Production</td>
+            <td class="k">PWO/26-0191</td><td class="num">4</td><td class="num mono">3,42,800</td>
+            <td>24 Sep 26</td><td><span class="bdg n nodot">Normal</span></td>
+            <td><span class="bdg r">Rejected</span></td><td class="mut">&mdash;</td>
+            <td class="ctr"><button class="btn sm">View</button></td></tr>
+          <tr>
+            <td class="k">PR/26-0308</td><td>14 Sep 26</td>
+            <td><span class="bdg n nodot">Manual</span></td><td>Stores</td>
+            <td class="mut">&mdash; none &mdash;</td><td class="num">2</td><td class="num mono">27,600</td>
+            <td>22 Sep 26</td><td><span class="bdg n nodot">Normal</span></td>
+            <td><span class="bdg g">Approved</span></td><td class="k">PO/26-0484</td>
+            <td class="ctr"><button class="btn sm">View</button></td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="6">Total value</td><td class="num mono">15,85,740</td>
+          <td colspan="5"></td></tr></tfoot>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="split even">
+    <div class="card mb0">
+      <div class="card-h"><h2>Where each requisition goes next</h2></div>
+      <div class="card-b">
+        <div class="steps" style="flex-direction:column;align-items:flex-start;gap:11px">
+          <div class="step done"><span class="b">1</span>
+            <span>Raised &mdash; manually here, or automatically by a work order</span></div>
+          <div class="step done"><span class="b">2</span>
+            <span>Items, quantity and required-by date recorded</span></div>
+          <div class="step now"><span class="b">3</span>
+            <span>Sits in the <b>Approvals</b> panel in the top bar</span></div>
+          <div class="step"><span class="b">4</span>
+            <span>Approved &mdash; purchase order is unlocked for those lines</span></div>
+          <div class="step"><span class="b">5</span>
+            <span>Rejected &mdash; goes back to whoever raised it, with a remark</span></div>
+        </div>
+        <div class="hr"></div>
+        <p class="muted" style="margin:0;font-size:12.5px">
+          Nothing is approved on this screen. Approval for every document type &mdash; requisition,
+          purchase order, quotation, sales order, quality disposition and CAPA &mdash; happens in one place,
+          so an approver has a single queue rather than six screens.</p>
+      </div>
+    </div>
+
+    <div class="card mb0">
+      <div class="card-h"><h2>Pending by department</h2><span class="sub">awaiting approval</span></div>
+      <div class="card-b">
+        <div class="chart" data-type="hbar" data-title="Pending by department"
+          data-cats="Production,Maintenance,Stores,Quality,Purchase"
+          data-values="3,2,1,1,0" data-unit="nos"></div>
+        <div class="hr"></div>
+        <div class="chart" data-type="stack" data-title="Requisition source"
+          data-series='[{"name":"Auto — work order","value":21},{"name":"Manual","value":13}]'
+          data-unit="nos"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ NEW REQUISITION MODAL ══════════ -->
+  <div class="ovl" id="mPR">
+    <div class="modal xl">
+      <div class="modal-h">
+        <h3>New Purchase Requisition</h3><span class="no">PR/26-0318</span>
+        <span class="sub">Raise a requirement directly &mdash; no work order needed</span>
+        <span class="x" data-close="mPR"><i data-i="x"></i></span>
+      </div>
+      <div class="modal-b">
+
+        <div class="msec">
+          <div class="st"><i data-i="clip"></i>Requisition details</div>
+          <div class="fgrid c4">
+            <div class="fld"><label>PR no.</label><input class="inp ro" value="PR/26-0318" readonly></div>
+            <div class="fld"><label>PR date <span class="req">*</span></label><input class="inp" type="date" value="2026-09-22"></div>
+            <div class="fld"><label>Source</label>
+              <select class="inp"><option>Manual</option><option>Auto &mdash; from work order</option></select></div>
+            <div class="fld"><label>Against work order</label>
+              <select class="inp"><option>&mdash; none, direct requisition &mdash;</option><option>PWO/26-0202</option><option>PWO/26-0197</option><option>PWO/26-0199</option></select></div>
+            <div class="fld"><label>Category <span class="req">*</span></label>
+              <select class="inp"><option>Raw material</option><option>Bought-out component</option><option>Packing material</option><option>Consumable</option><option>Maintenance spare</option><option>Capital item</option></select></div>
+            <div class="fld"><label>Department <span class="req">*</span></label>
+              <select class="inp"><option>Stores</option><option>Production</option><option>Maintenance</option><option>Quality</option><option>Purchase</option></select></div>
+            <div class="fld"><label>Production unit</label>
+              <select class="inp"><option>Unit 1 &mdash; Baddi</option><option>Unit 2 &mdash; Haridwar</option></select></div>
+            <div class="fld"><label>Priority</label>
+              <select class="inp"><option>Normal</option><option>High</option><option>Urgent &mdash; breakdown</option></select></div>
+            <div class="fld"><label>Required by <span class="req">*</span></label><input class="inp" type="date" value="2026-10-02"></div>
+            <div class="fld"><label>Requested by</label>
+              <select class="inp"><option>N. Gupta</option><option>V. Thakur</option><option>Maintenance Head</option><option>R. Verma &mdash; QA</option></select></div>
+            <div class="fld"><label>Approving authority</label>
+              <select class="inp"><option>Purchase Head</option><option>Plant Head</option></select></div>
+            <div class="fld"><label>Budget head</label>
+              <select class="inp"><option>Production consumable</option><option>Maintenance</option><option>Packing</option><option>Capex</option></select></div>
+          </div>
+        </div>
+
+        <div class="msec">
+          <div class="st"><i data-i="box"></i>Requisition items
+            <span class="r"><button class="btn sm"><i data-i="plus"></i>Add row</button>
+              <button class="btn sm"><i data-i="layers"></i>Pull from BOM</button>
+              <button class="btn sm"><i data-i="alertTri"></i>Pull below-reorder items</button></span></div>
+          <div class="tbl-wrap">
+            <table class="tbl dense" style="border:1px solid rgb(var(--bd-default));border-radius:8px">
+              <thead><tr><th style="width:36px">#</th><th>Item</th><th>UoM</th>
+                <th class="num">Free stock</th><th class="num">Reorder</th><th class="num">Required qty</th>
+                <th class="num">Last rate</th><th class="num">Value</th><th>Suggested supplier</th>
+                <th>Required by</th><th class="ctr"></th></tr></thead>
+              <tbody>
+                <tr><td>1</td>
+                  <td><select class="inp" style="min-width:214px"><option>ITM-2044 &mdash; Masterbatch, white</option><option>ITM-1004 &mdash; ABL Laminate 250&micro;</option><option>ITM-3001 &mdash; Flip-top cap 11 mm</option></select></td>
+                  <td>kg</td><td class="num">24.00</td><td class="num">60.00</td>
+                  <td class="num"><input class="inp" style="width:78px;text-align:right" value="100"></td>
+                  <td class="num mono">285.00</td><td class="num mono">28,500</td>
+                  <td><select class="inp" style="width:152px"><option>Plastiblends India</option><option>Other</option></select></td>
+                  <td><input class="inp" type="date" style="width:132px" value="2026-10-02"></td>
+                  <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+                <tr><td>2</td>
+                  <td><select class="inp" style="min-width:214px"><option>ITM-2050 &mdash; Side-seam tape</option><option>ITM-4008 &mdash; LDPE liner</option></select></td>
+                  <td>mtr</td><td class="num">17,000</td><td class="num">12,000</td>
+                  <td class="num"><input class="inp" style="width:78px;text-align:right" value="20000"></td>
+                  <td class="num mono">0.42</td><td class="num mono">8,400</td>
+                  <td><select class="inp" style="width:152px"><option>3M India</option><option>Other</option></select></td>
+                  <td><input class="inp" type="date" style="width:132px" value="2026-10-05"></td>
+                  <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+                <tr><td>3</td>
+                  <td><select class="inp" style="min-width:214px"><option>Select item&hellip;</option></select></td>
+                  <td>&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td>
+                  <td class="num"><input class="inp" style="width:78px;text-align:right"></td>
+                  <td class="num mono">&mdash;</td><td class="num mono">&mdash;</td>
+                  <td><select class="inp" style="width:152px"><option>&mdash;</option></select></td>
+                  <td><input class="inp" type="date" style="width:132px"></td>
+                  <td class="ctr"><button class="btn sm gh"><i data-i="x"></i></button></td></tr>
+              </tbody>
+              <tfoot><tr><td colspan="7">Requisition value</td><td class="num mono">36,900</td>
+                <td colspan="3"></td></tr></tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="msec">
+          <div class="st"><i data-i="paperclip"></i>Justification &amp; attachments</div>
+          <div class="fgrid c4">
+            <div class="fld span3"><label>Reason for requisition <span class="req">*</span></label>
+              <textarea class="inp" rows="2" placeholder="Masterbatch below reorder level, two jobs scheduled next week&hellip;"></textarea></div>
+            <div class="fld"><label>Attachment</label>
+              <button class="btn" style="width:100%;justify-content:center"><i data-i="paperclip"></i>Attach file</button></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-f">
+        <div class="lft"><i data-i="clipCheck"></i>On submit this goes to the Approvals panel, not straight to purchase</div>
+        <button class="btn" data-close="mPR">Cancel</button>
+        <button class="btn"><i data-i="save"></i>Save as draft</button>
+        <button class="btn pri"><i data-i="save"></i>Submit for approval</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="assets/app.js?v=6"></script>
+<script src="assets/chart.js?v=6"></script>
+</body>
+</html>

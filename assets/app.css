@@ -679,3 +679,8 @@ table.tbl input.inp, table.tbl select.inp { height: 26px; font-size: 12px; }
 .rtile b { display: block; font-size: 13px; margin-bottom: 2px; }
 .rtile p { margin: 0; font-size: 11.5px; color: rgb(var(--fg-subtle)); line-height: 1.45; }
 .rtile .kpi { margin-top: 6px; font-size: 11.5px; font-weight: 600; color: rgb(var(--fg-accent)); }
+
+/* keep row-action buttons on one line */
+table.tbl td.ctr { white-space: nowrap; }
+table.tbl td.ctr .btn { margin-right: 3px; }
+table.tbl td.ctr .btn:last-child { margin-right: 0; }

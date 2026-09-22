@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Approvals · Lamitube ERP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css?v=6">
+<link rel="stylesheet" href="assets/app.css?v=6">
+</head>
+<body>
+<div id="page">
+
+  <div class="ph">
+    <div class="ph-l">
+      <div class="crumb"><b>Approvals</b> / Approval Centre</div>
+      <h1>Approval Centre</h1>
+      <p>Every document waiting on you, from every module, in one queue</p>
+    </div>
+    <div class="ph-r">
+      <button class="btn"><i data-i="down"></i>Export</button>
+      <button class="btn dgr"><i data-i="x"></i>Reject selected</button>
+      <button class="btn ok"><i data-i="check2"></i>Approve selected</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat acc-w"><div class="lbl"><i data-i="clipCheck"></i>Waiting on you</div><div class="val">9</div>
+      <div class="dlt">&#8377; 26.8 L blocked</div></div>
+    <div class="stat acc-e"><div class="lbl"><i data-i="alertTri"></i>Overdue</div><div class="val">3</div>
+      <div class="dlt dn">over 24 hours old</div></div>
+    <div class="stat acc-s"><div class="lbl"><i data-i="check2"></i>Approved today</div><div class="val">6</div></div>
+    <div class="stat acc-p"><div class="lbl"><i data-i="cal"></i>Avg. decision time</div><div class="val">1.7 <small>days</small></div>
+      <div class="dlt">target 1 day</div></div>
+    <div class="stat acc-t"><div class="lbl"><i data-i="users"></i>Delegated to you</div><div class="val">2</div>
+      <div class="dlt">while Plant Head is away</div></div>
+  </div>
+
+  <div class="fbar">
+    <div class="fld"><label>Document type</label>
+      <select class="inp"><option>All</option><option>Purchase Requisition</option><option>Purchase Order</option><option>Quotation</option><option>Sales Order</option><option>Quality</option><option>CAPA</option></select></div>
+    <div class="fld"><label>Raised by</label>
+      <select class="inp"><option>All</option><option>Auto &mdash; work order</option><option>N. Gupta</option><option>A. Kumar</option><option>R. Verma</option></select></div>
+    <div class="fld w-sm"><label>Priority</label>
+      <select class="inp"><option>All</option><option>Urgent</option><option>High</option><option>Normal</option></select></div>
+    <div class="fld w-sm"><label>Age</label>
+      <select class="inp"><option>All</option><option>Over 24 hrs</option><option>Over 3 days</option></select></div>
+    <div class="fld"><label>Search</label><input class="inp" placeholder="Document no."></div>
+    <div class="btns"><button class="btn"><i data-i="filter"></i>Apply</button><button class="btn gh">Clear</button></div>
+  </div>
+
+  <div class="card mb0">
+    <div class="tabs">
+      <button class="tab on" data-pane="a1">All pending <span class="cnt">9</span></button>
+      <button class="tab" data-pane="a2">Purchase Requisition <span class="cnt">3</span></button>
+      <button class="tab" data-pane="a3">Purchase Order <span class="cnt">1</span></button>
+      <button class="tab" data-pane="a4">Sales <span class="cnt">2</span></button>
+      <button class="tab" data-pane="a5">Quality &amp; CAPA <span class="cnt">3</span></button>
+      <button class="tab" data-pane="a6">History <span class="cnt">6</span></button>
+    </div>
+
+    <!-- ALL PENDING -->
+    <div class="tabpane on" id="a1"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr>
+          <th style="width:34px"><input type="checkbox"></th>
+          <th>Document</th><th>Type</th><th>Raised by</th><th>Detail</th>
+          <th class="num">Value</th><th>Priority</th><th class="num">Age</th><th>Blocks</th><th class="ctr">Decision</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" checked></td>
+            <td class="k">PR/26-0314</td>
+            <td><span class="bdg b nodot">Requisition &middot; auto</span></td>
+            <td>PWO/26-0202</td><td>3 lines &mdash; laminate, caps, cartons</td>
+            <td class="num mono">1,03,740</td><td><span class="bdg w nodot">High</span></td>
+            <td class="num">1 hr</td><td><span class="bdg r nodot">Purchase order</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="purchase-requisition.html">Open</a></td></tr>
+          <tr><td><input type="checkbox" checked></td>
+            <td class="k">PR/26-0316</td>
+            <td><span class="bdg n nodot">Requisition &middot; manual</span></td>
+            <td>N. Gupta &middot; Maintenance</td><td>2 lines &mdash; maintenance spares</td>
+            <td class="num mono">46,200</td><td><span class="bdg w nodot">High</span></td>
+            <td class="num">3 hrs</td><td><span class="bdg r nodot">Purchase order</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="purchase-requisition.html">Open</a></td></tr>
+          <tr><td><input type="checkbox"></td>
+            <td class="k">PR/26-0313</td>
+            <td><span class="bdg b nodot">Requisition &middot; auto</span></td>
+            <td>PWO/26-0197</td><td>5 lines &mdash; laminate and granule</td>
+            <td class="num mono">6,84,200</td><td><span class="bdg n nodot">Normal</span></td>
+            <td class="num" style="color:rgb(var(--color-error))"><b>1 day</b></td>
+            <td><span class="bdg r nodot">Purchase order</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="purchase-requisition.html">Open</a></td></tr>
+          <tr><td><input type="checkbox"></td>
+            <td class="k">PO/26-0488</td>
+            <td><span class="bdg t nodot">Purchase order</span></td>
+            <td>N. Gupta &middot; Purchase</td><td>Essel Propack &mdash; laminate and granule</td>
+            <td class="num mono">1,14,451</td><td><span class="bdg n nodot">Normal</span></td>
+            <td class="num">6 hrs</td><td><span class="bdg w nodot">Supplier release</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="purchase-order.html">Open</a></td></tr>
+          <tr><td><input type="checkbox"></td>
+            <td class="k">QT/26-0421</td>
+            <td><span class="bdg o nodot">Quotation</span></td>
+            <td>A. Kumar &middot; Sales</td><td>Cipla &mdash; margin 16%, below the 17% floor</td>
+            <td class="num mono">12,33,240</td><td><span class="bdg w nodot">High</span></td>
+            <td class="num">5 hrs</td><td><span class="bdg w nodot">Customer release</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="quotation.html">Open</a></td></tr>
+          <tr><td><input type="checkbox"></td>
+            <td class="k">SO/26-0199</td>
+            <td><span class="bdg o nodot">Sales order</span></td>
+            <td>R. Sharma &middot; Sales</td><td>Torrent &mdash; credit limit exceeded by &#8377; 2.14 L</td>
+            <td class="num mono">3,14,640</td><td><span class="bdg r nodot">Urgent</span></td>
+            <td class="num" style="color:rgb(var(--color-error))"><b>2 days</b></td>
+            <td><span class="bdg r nodot">Order booking</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="sales-order.html">Open</a></td></tr>
+          <tr><td><input type="checkbox"></td>
+            <td class="k">FGQ/26-0311</td>
+            <td><span class="bdg t nodot">Batch release</span></td>
+            <td>S. Nair &middot; QA</td><td>FG-LT26-0201-A &mdash; 0.043% leak rejection</td>
+            <td class="num mono">6,31,498</td><td><span class="bdg w nodot">High</span></td>
+            <td class="num">2 hrs</td><td><span class="bdg r nodot">Dispatch</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="fgqc.html">Open</a></td></tr>
+          <tr><td><input type="checkbox"></td>
+            <td class="k">NCR/26-0044</td>
+            <td><span class="bdg r nodot">Quality disposition</span></td>
+            <td>R. Verma &middot; QA</td><td>Use as is &mdash; concession on &Delta;E 2.4</td>
+            <td class="num mono">10,416</td><td><span class="bdg n nodot">Normal</span></td>
+            <td class="num" style="color:rgb(var(--color-error))"><b>1 day</b></td>
+            <td><span class="bdg w nodot">Material issue</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="rmqc.html">Open</a></td></tr>
+          <tr><td><input type="checkbox"></td>
+            <td class="k">CAPA-2026-014</td>
+            <td><span class="bdg r nodot">CAPA</span></td>
+            <td>Production Head</td><td>Effectiveness verification &mdash; 2 of 3 batches met</td>
+            <td class="num mono">&mdash;</td><td><span class="bdg r nodot">Urgent</span></td>
+            <td class="num" style="color:rgb(var(--color-error))"><b>2 days</b></td>
+            <td><span class="bdg r nodot">Production &amp; dispatch</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="capa.html">Open</a></td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="5">Value held up by pending approvals</td>
+          <td class="num mono">26,38,385</td><td colspan="4"></td></tr></tfoot>
+      </table>
+    </div></div>
+    <div class="card-b" style="border-top:1px solid rgb(var(--bd-subtle))">
+      <div class="split even">
+        <div class="fld"><label>Decision remark</label>
+          <textarea class="inp" rows="2" placeholder="Applies to every selected document&hellip;"></textarea></div>
+        <div style="display:flex;gap:8px;align-items:flex-end;justify-content:flex-end">
+          <button class="btn"><i data-i="cal"></i>Hold</button>
+          <button class="btn"><i data-i="users"></i>Delegate</button>
+          <button class="btn dgr"><i data-i="x"></i>Reject selected</button>
+          <button class="btn ok"><i data-i="check2"></i>Approve selected</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- PURCHASE REQUISITION -->
+    <div class="tabpane" id="a2">
+      <div class="card-b" style="padding-bottom:0">
+        <div class="alert info mb0" style="margin-bottom:12px">
+          <i data-i="link"></i>
+          <div><b>Requisition &rarr; approval &rarr; purchase order</b>
+          Requisitions arrive here either raised manually on the Purchase Requisition screen, or
+          automatically by a work order under its own authority. The purchase order stays locked until
+          the line is cleared here.</div>
+          <a class="btn sm" href="purchase-requisition.html">Open requisitions</a>
+        </div>
+      </div>
+      <div class="card-b p0"><div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th style="width:34px"><input type="checkbox"></th>
+            <th>PR no.</th><th>Source</th><th>Item</th><th>Type</th><th>UoM</th>
+            <th class="num">Qty</th><th class="num">Free stock</th><th class="num">Last rate</th>
+            <th class="num">Value</th><th>Required by</th><th>Suggested supplier</th><th class="ctr">Decision</th></tr></thead>
+          <tbody>
+            <tr><td><input type="checkbox" checked></td><td class="k">PR/26-0314</td>
+              <td><span class="bdg b nodot">Auto</span></td>
+              <td><b>ABL Laminate PE/EVOH/PE 250&micro;</b></td><td><span class="bdg b">RM</span></td><td>kg</td>
+              <td class="num">170.00</td><td class="num">620.00</td><td class="num mono">248.00</td>
+              <td class="num mono">42,160</td><td>28 Sep 26</td><td>Essel Propack Ltd.</td>
+              <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+                <button class="btn sm dgr"><i data-i="x"></i></button></td></tr>
+            <tr><td><input type="checkbox" checked></td><td class="k">PR/26-0314</td>
+              <td><span class="bdg b nodot">Auto</span></td>
+              <td><b>Flip-top cap 11 mm &mdash; white</b></td><td><span class="bdg t">Bought-out</span></td><td>pcs</td>
+              <td class="num">1,15,000</td><td class="num">40,000</td><td class="num mono">0.48</td>
+              <td class="num mono">55,200</td><td>05 Oct 26</td><td>Sanjay Polymers</td>
+              <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+                <button class="btn sm dgr"><i data-i="x"></i></button></td></tr>
+            <tr><td><input type="checkbox" checked></td><td class="k">PR/26-0314</td>
+              <td><span class="bdg b nodot">Auto</span></td>
+              <td><b>Inner box + carton</b></td><td><span class="bdg p">Packing</span></td><td>set</td>
+              <td class="num">1,100</td><td class="num">600</td><td class="num mono">5.80</td>
+              <td class="num mono">6,380</td><td>10 Oct 26</td><td>Shakti Packaging</td>
+              <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+                <button class="btn sm dgr"><i data-i="x"></i></button></td></tr>
+            <tr style="background:rgb(var(--bg-selected))"><td><input type="checkbox"></td><td class="k">PR/26-0316</td>
+              <td><span class="bdg n nodot">Manual</span></td>
+              <td><b>Hydraulic seal kit &mdash; CM-01</b></td><td><span class="bdg n">Spare</span></td><td>set</td>
+              <td class="num">2</td><td class="num">0</td><td class="num mono">18,400</td>
+              <td class="num mono">36,800</td><td>27 Sep 26</td><td>Sacmi India</td>
+              <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+                <button class="btn sm dgr"><i data-i="x"></i></button></td></tr>
+            <tr style="background:rgb(var(--bg-selected))"><td><input type="checkbox"></td><td class="k">PR/26-0316</td>
+              <td><span class="bdg n nodot">Manual</span></td>
+              <td><b>Pressure sensor 0&ndash;250 bar</b></td><td><span class="bdg n">Spare</span></td><td>pcs</td>
+              <td class="num">1</td><td class="num">0</td><td class="num mono">9,400</td>
+              <td class="num mono">9,400</td><td>27 Sep 26</td><td>Sacmi India</td>
+              <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+                <button class="btn sm dgr"><i data-i="x"></i></button></td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="9">Selected value</td><td class="num mono">1,49,940</td>
+            <td colspan="3"></td></tr></tfoot>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- PURCHASE ORDER -->
+    <div class="tabpane" id="a3"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>PO no.</th><th>Supplier</th><th>Against PR</th><th class="num">Lines</th>
+          <th class="num">Basic value</th><th class="num">GST</th><th class="num">Total</th>
+          <th>Delivery</th><th class="num">Age</th><th class="ctr">Decision</th></tr></thead>
+        <tbody>
+          <tr><td class="k">PO/26-0488</td><td>Essel Propack Ltd.</td><td class="mut">PR/26-0311</td>
+            <td class="num">2</td><td class="num mono">94,592</td><td class="num mono">17,459</td>
+            <td class="num mono">1,14,451</td><td>28 Sep 26</td><td class="num">6 hrs</td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="purchase-order.html">Open</a></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <!-- SALES -->
+    <div class="tabpane" id="a4"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Document</th><th>Type</th><th>Customer</th><th>Why it needs approval</th>
+          <th class="num">Value</th><th class="num">Margin</th><th>Raised by</th><th class="num">Age</th><th class="ctr">Decision</th></tr></thead>
+        <tbody>
+          <tr><td class="k">QT/26-0421</td><td><span class="bdg o nodot">Quotation</span></td><td>Cipla Ltd.</td>
+            <td>Margin 16% against a 17% floor for this customer group</td>
+            <td class="num mono">12,33,240</td><td class="num" style="color:rgb(var(--color-warning))">16.0%</td>
+            <td>A. Kumar</td><td class="num">5 hrs</td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="quotation.html">Open</a></td></tr>
+          <tr><td class="k">SO/26-0199</td><td><span class="bdg o nodot">Sales order</span></td><td>Torrent Pharma</td>
+            <td>Outstanding &#8377; 2.14 L over the sanctioned credit limit</td>
+            <td class="num mono">3,14,640</td><td class="num">15.0%</td>
+            <td>R. Sharma</td><td class="num" style="color:rgb(var(--color-error))"><b>2 days</b></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="sales-order.html">Open</a></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <!-- QUALITY -->
+    <div class="tabpane" id="a5"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Document</th><th>Type</th><th>Subject</th><th>Decision asked for</th>
+          <th class="num">Qty / value</th><th>Raised by</th><th class="num">Age</th><th>Blocks</th><th class="ctr">Decision</th></tr></thead>
+        <tbody>
+          <tr><td class="k">FGQ/26-0311</td><td><span class="bdg t nodot">Batch release</span></td>
+            <td>FG-LT26-0201-A &mdash; Glenmark</td>
+            <td>Release with 0.043% leak rejection, inside the CAPA limit</td>
+            <td class="num mono">2,01,114 pcs</td><td>S. Nair &middot; QA</td><td class="num">2 hrs</td>
+            <td><span class="bdg r nodot">Dispatch</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="fgqc.html">Open</a></td></tr>
+          <tr><td class="k">NCR/26-0044</td><td><span class="bdg r nodot">Disposition</span></td>
+            <td>ROLL-26-1772 &mdash; printed laminate</td>
+            <td>Use as is on a concession, &Delta;E 2.4 against &le; 2.0</td>
+            <td class="num mono">42 kg</td><td>R. Verma &middot; QA</td>
+            <td class="num" style="color:rgb(var(--color-error))"><b>1 day</b></td>
+            <td><span class="bdg w nodot">Material issue</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="rmqc.html">Open</a></td></tr>
+          <tr><td class="k">CAPA-2026-014</td><td><span class="bdg r nodot">CAPA</span></td>
+            <td>Shoulder leakage &mdash; cavity 5 of CM-01</td>
+            <td>Effectiveness verification, 2 of 3 batches have met the criterion</td>
+            <td class="num mono">&#8377; 64,104 COPQ</td><td>Production Head</td>
+            <td class="num" style="color:rgb(var(--color-error))"><b>2 days</b></td>
+            <td><span class="bdg r nodot">Production &amp; dispatch</span></td>
+            <td class="ctr"><button class="btn sm ok"><i data-i="check2"></i></button>
+              <button class="btn sm dgr"><i data-i="x"></i></button>
+              <a class="btn sm" href="capa.html">Open</a></td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+
+    <!-- HISTORY -->
+    <div class="tabpane" id="a6"><div class="card-b p0"><div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Document</th><th>Type</th><th>Decided on</th><th>Decided by</th>
+          <th class="num">Value</th><th class="num">Time taken</th><th>Decision</th><th>Remark</th></tr></thead>
+        <tbody>
+          <tr><td class="k">PR/26-0315</td><td>Requisition &middot; manual</td><td>22 Sep 26 &middot; 09:41</td><td>Amit Kumar</td>
+            <td class="num mono">18,900</td><td class="num">4 hrs</td>
+            <td><span class="bdg g">Approved</span></td><td class="mut">Breakdown spare, release same day</td></tr>
+          <tr><td class="k">PR/26-0311</td><td>Requisition &middot; auto</td><td>19 Sep 26 &middot; 11:20</td><td>Amit Kumar</td>
+            <td class="num mono">94,600</td><td class="num">18 hrs</td>
+            <td><span class="bdg g">Approved</span></td><td class="mut">&mdash;</td></tr>
+          <tr><td class="k">PR/26-0310</td><td>Requisition &middot; manual</td><td>18 Sep 26 &middot; 16:02</td><td>Purchase Head</td>
+            <td class="num mono">12,400</td><td class="num">1 day</td>
+            <td><span class="bdg g">Approved</span></td><td class="mut">&mdash;</td></tr>
+          <tr><td class="k">PR/26-0309</td><td>Requisition &middot; auto</td><td>17 Sep 26 &middot; 10:14</td><td>Amit Kumar</td>
+            <td class="num mono">3,42,800</td><td class="num">2 days</td>
+            <td><span class="bdg r">Rejected</span></td>
+            <td class="mut">Order quantity revised by customer, raise again on the new BOM</td></tr>
+          <tr><td class="k">QT/26-0417</td><td>Quotation</td><td>17 Sep 26 &middot; 12:30</td><td>Sales Head</td>
+            <td class="num mono">22,08,000</td><td class="num">6 hrs</td>
+            <td><span class="bdg g">Approved</span></td><td class="mut">Volume justifies the 15% margin</td></tr>
+          <tr><td class="k">NCR/26-0042</td><td>Disposition</td><td>19 Sep 26 &middot; 14:50</td><td>QA Head</td>
+            <td class="num mono">10,416</td><td class="num">3 hrs</td>
+            <td><span class="bdg r">Rejected</span></td>
+            <td class="mut">Bond strength failure, return to supplier rather than concession</td></tr>
+        </tbody>
+      </table>
+    </div></div></div>
+  </div>
+
+</div>
+<script src="assets/app.js?v=6"></script>
+</body>
+</html>

@@ -101,7 +101,7 @@
       { t: 'Machine Scheduling',    h: 'scheduling.html', i: 'cal' }
     ]},
     { g: 'Purchase & Inventory', i: 'cart', items: [
-      { t: 'Indent Approval',        h: 'indent-approval.html',          i: 'check2' },
+      { t: 'Purchase Requisition',   h: 'purchase-requisition.html',     i: 'clip' },
       { t: 'Purchase Order',         h: 'purchase-order.html',           i: 'cart' },
       { t: 'Gate Entry',             h: 'gate-entry.html',               i: 'door' },
       { t: 'GRN',                    h: 'grn.html',                      i: 'truck' },
@@ -237,13 +237,13 @@
   var APPROVALS = [
     { grp: 'Indent / PR', ic: 'w', i: 'check2', no: 'IND/26-0314',
       by: 'PWO/26-0202 · auto', meta: '3 lines · ₹ 1,03,740 · PO blocked',
-      tm: '1 hr', href: 'indent-approval.html', src: 'auto' },
+      tm: '1 hr', href: 'approvals.html', src: 'auto' },
     { grp: 'Indent / PR', ic: 'w', i: 'check2', no: 'IND/26-0316',
       by: 'N. Gupta · manual', meta: '2 lines · ₹ 46,200 · maintenance spares',
-      tm: '3 hrs', href: 'indent-approval.html', src: 'manual' },
+      tm: '3 hrs', href: 'approvals.html', src: 'manual' },
     { grp: 'Indent / PR', ic: 'w', i: 'check2', no: 'IND/26-0313',
       by: 'PWO/26-0197 · auto', meta: '5 lines · ₹ 6,84,200',
-      tm: '1 day', href: 'indent-approval.html', src: 'auto' },
+      tm: '1 day', href: 'approvals.html', src: 'auto' },
     { grp: 'Purchase Order', ic: 'b', i: 'cart', no: 'PO/26-0488',
       by: 'N. Gupta', meta: '₹ 1,14,451 · Essel Propack Ltd.',
       tm: '6 hrs', href: 'purchase-order.html' },
@@ -378,7 +378,7 @@
 
     /* demo data layer — loaded last so it can decorate the built page */
     var ds = document.createElement('script');
-    ds.src = 'assets/demo.js?v=5';
+    ds.src = 'assets/demo.js?v=6';
     document.body.appendChild(ds);
   }
 
@@ -517,7 +517,7 @@
       '<div style="padding:8px 13px;display:flex;gap:5px;flex-wrap:wrap;' +
         'border-bottom:1px solid rgb(var(--bd-subtle))">' + chips + '</div>' +
       '<div class="pop-b" style="max-height:420px">' + rows + '</div>' +
-      '<div class="pop-f"><a href="indent-approval.html">Open approval centre</a></div></div>';
+      '<div class="pop-f"><a href="approvals.html">Open approval centre</a></div></div>';
   }
 
   function avatarMenu() {
