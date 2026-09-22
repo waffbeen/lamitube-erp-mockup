@@ -329,7 +329,7 @@
 
     /* demo data layer — loaded last so it can decorate the built page */
     var ds = document.createElement('script');
-    ds.src = 'assets/demo.js';
+    ds.src = 'assets/demo.js?v=3';
     document.body.appendChild(ds);
   }
 
