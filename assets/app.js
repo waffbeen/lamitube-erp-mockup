@@ -326,6 +326,11 @@
     initTabs();
     initIcons();
     seedToasts();
+
+    /* demo data layer — loaded last so it can decorate the built page */
+    var ds = document.createElement('script');
+    ds.src = 'assets/demo.js';
+    document.body.appendChild(ds);
   }
 
   /* ---------------- sidebar behaviour ---------------- */
